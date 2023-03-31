@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/so-yummy/static/css/main.7acaea2f.css",
+    "main.js": "/so-yummy/static/js/main.07d3183d.js",
+    "index.html": "/so-yummy/index.html",
+    "main.7acaea2f.css.map": "/so-yummy/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/so-yummy/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
