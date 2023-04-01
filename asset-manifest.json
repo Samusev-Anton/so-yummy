@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/so-yummy/static/css/main.0ffbbaf3.css",
+    "main.css": "/so-yummy/static/css/main.48220dc4.css",
     "main.js": "/so-yummy/static/js/main.b1c733ca.js",
     "static/media/flat-lay-assortment-vegetables-with-copy-space 4.png": "/so-yummy/static/media/flat-lay-assortment-vegetables-with-copy-space 4.e4f02a0c3f7c51f56909.png",
     "index.html": "/so-yummy/index.html",
-    "main.0ffbbaf3.css.map": "/so-yummy/static/css/main.0ffbbaf3.css.map",
+    "main.48220dc4.css.map": "/so-yummy/static/css/main.48220dc4.css.map",
     "main.b1c733ca.js.map": "/so-yummy/static/js/main.b1c733ca.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ffbbaf3.css",
+    "static/css/main.48220dc4.css",
     "static/js/main.b1c733ca.js"
   ]
 }
