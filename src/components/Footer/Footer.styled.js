@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { device } from 'components/GlobalStyles';
 
 export const FooterStyle = styled.footer`
   display: flex;
@@ -10,6 +11,17 @@ export const FooterStyle = styled.footer`
   align-items: center;
 
   background-color: #22252a;
+
+  @media ${device.mobile} {
+    flex-direction: row;
+    background-color: ${p => p.theme.colors.olive};
+  }
+  @media ${device.tablet} {
+    background-color: ${p => p.theme.colors.whiteText};
+  }
+  @media ${device.desktop} {
+    background-color: red;
+  }
 `;
 export const TitleBlock = styled.h2`
   display: flex;

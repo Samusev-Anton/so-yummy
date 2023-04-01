@@ -5,24 +5,24 @@ import background from '../images/flat-lay-assortment-vegetables-with-copy-space
 export const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Italic',
+        font-family: -apple-system, BlinkMacSystemFont, 'Poppins',
         sans-serif;
-        -webkit-font-smoothing: antialiased;
+        /* -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: #908B8B;
+        background-color: #908B8B; */
         /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); */
-        background-repeat: no-repeat;
+        /* background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
         scrollbar-gutter: stable both-edges;
-        overflow: overlay;
+        overflow: overlay; */
     }
     #root {
         height: 100vh;
     }
     code {
-        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Italic',
+        font-family: source-code-pro, Menlo, Monaco, Consolas, Poppins,
         monospace;
     }
     h1,h2,h3,h4,h5,h6,p {
