@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import background from './images/skachat_oboi_1366x768.jpg';
+import background from '../images/flat-lay-assortment-vegetables-with-copy-space 4.png';
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -58,6 +58,12 @@ export const GlobalStyle = createGlobalStyle`
 		border-radius: ${p => p.theme.radii.md};
 		border: ${p => `${p.theme.borders.medium} ${p.theme.colors.almostDarkGreen}`};
     }
+`;
+
+export const Container = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
 `;
 
 const size = {
