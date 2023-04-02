@@ -24,7 +24,18 @@ export const FooterStyle = styled.footer`
     // background-color: ${p => p.theme.colors.whiteText};
   }
   @media ${device.desktop} {
-    background-color: red;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 64px;
+    padding-bottom: 50px;
+  }
+`;
+
+export const FooterMain = styled.div`
+  width: 100%;
+  @media ${device.desktop} {
+    display: flex;
+    align-items: flex-start;
   }
 `;
 
@@ -55,6 +66,9 @@ export const FeaturesList = styled.ul`
   @media ${device.mobileOnly} {
     display: none;
   }
+  @media ${device.desktop} {
+    width: 350px;
+  }
 `;
 
 export const Feature = styled.li`
@@ -64,6 +78,11 @@ export const Feature = styled.li`
   line-height: 18px;
   letter-spacing: -0.02em;
   color: #fafafa;
+  @media ${device.desktop} {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+  }
 `;
 
 export const TitleBlock = styled.h2`
@@ -71,8 +90,10 @@ export const TitleBlock = styled.h2`
   align-items: center;
   margin: 0px;
   padding-bottom: 32px;
+  justify-content: center;
   @media ${device.tablet} {
     padding-bottom: 24px;
+    justify-content: start;
   }
 `;
 
@@ -88,6 +109,11 @@ export const Title = styled.h2`
   letter-spacing: 0.015em;
   @media ${device.tablet} {
     margin-left: 12px;
+  }
+  @media ${device.desktop} {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 28px;
   }
 `;
 
@@ -113,6 +139,10 @@ export const LogoStyle = styled.div`
 export const FooterNav = styled.nav`
   display: flex;
   justify-content: center;
+  @media ${device.desktop} {
+    // align-items: start;
+    // margin-left: 159px;
+  }
 `;
 
 export const FooterNavList = styled.ul`
@@ -128,7 +158,8 @@ export const FooterNavList = styled.ul`
     align-items: start;
   }
   @media ${device.desktop} {
-    align-items: start;
+    // align-items: start;
+    // margin-left: 159px;
   }
 `;
 

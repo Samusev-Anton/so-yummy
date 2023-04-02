@@ -16,6 +16,14 @@ export const Form = styled.form`
     gap: 12px;
     // width: 442px;
     height: 50px;
+    justify-content: center;
+  }
+  @media ${device.desktop} {
+    flex-direction: column;
+    margin: 0;
+    // margin-left: auto;
+    // margin-bottom: 0px;
+    height: auto;
   }
 `;
 
@@ -32,6 +40,11 @@ export const EmailField = styled.div`
   @media ${device.tablet} {
     width: 227px;
     padding: 15px 15px;
+  }
+  @media ${device.desktop} {
+    width: 306px;
+    // height: 60px;
+    padding: 17.5px 15.5px;
   }
 `;
 
@@ -54,6 +67,10 @@ export const TextField = styled.input`
   @media ${device.tablet} {
     font-size: 14px;
     line-height: 21px;
+  }
+  @media ${device.desktop} {
+    font-size: 18px;
+    line-height: 27px;
   }
 `;
 
@@ -80,6 +97,11 @@ export const SubscribeButton = styled.button`
     width: 171px;
     font-size: 16px;
     line-height: 18px;
+    margin: 0;
+  }
+  @media ${device.desktop} {
+    width: 339px;
+    height: 60px;
   }
 `;
 
@@ -94,8 +116,7 @@ export const IconLetterStyle = styled.div`
     height: 16px;
   }
   @media ${device.desktop} {
-    width: 44px;
-    height: 44px;
+    height: 16px;
   }
 `;
 
