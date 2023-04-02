@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from 'components/GlobalStyles';
 
 export const Form = styled.form`
   width: 204px;
@@ -7,6 +8,9 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `;
 
 export const EmailField = styled.div`

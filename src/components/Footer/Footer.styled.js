@@ -12,17 +12,56 @@ export const FooterStyle = styled.footer`
 
   background-color: #22252a;
 
-  @media ${device.mobile} {
-    flex-direction: row;
-    background-color: ${p => p.theme.colors.olive};
-  }
+  // @media ${device.mobile} {
+  //   background-color: ${p => p.theme.colors.olive};
+  // }
   @media ${device.tablet} {
-    background-color: ${p => p.theme.colors.whiteText};
+    flex-direction: column;
+    padding-left: 32px;
+    padding-right: 94px;
+    padding-top: 50px;
+    padding-bottom: 24px;
+    // background-color: ${p => p.theme.colors.whiteText};
   }
   @media ${device.desktop} {
     background-color: red;
   }
 `;
+
+export const FooterMainBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media ${device.mobile} {
+    flex-direction: column;
+  }
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+  }
+`;
+
+export const MainBlock = styled.div``;
+
+export const FeaturesList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @media ${device.mobileOnly} {
+    display: none;
+  }
+`;
+
+export const Feature = styled.li`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+`;
+
 export const TitleBlock = styled.h2`
   display: flex;
   align-items: center;
@@ -42,43 +81,28 @@ export const Title = styled.h2`
   letter-spacing: 0.015em;
 `;
 
-export const Logo = () => {
-  return (
-    <svg
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect width="40" height="40" rx="12" fill="#8BAA36" />
-      <path
-        d="M8.79883 8.89569V13.9857V14.0884V13.9857C8.79883 15.4391 9.43295 16.7258 10.4161 17.5586C10.8969 17.9658 11.2145 18.5157 11.2145 19.126V27.6223C11.2145 28.5669 12.0262 29.3334 13.0263 29.3334C14.0264 29.3334 14.838 28.5669 14.838 27.6223V19.126C14.838 18.5157 15.1557 17.9658 15.6364 17.5586C16.6196 16.7258 17.2537 15.4391 17.2537 13.9857V8.89569V13.9857"
-        stroke="#FAFAFA"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M13.0254 14.5038V8.79999"
-        stroke="#FAFAFA"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M29.3322 9.99976C29.3322 9.37007 28.7911 8.85901 28.1243 8.85901H26.9165C24.9151 8.85901 23.293 10.391 23.293 12.2813V19.1258C23.293 20.6133 24.3039 21.867 25.7087 22.3382V27.6221C25.7087 28.5667 26.5203 29.3333 27.5204 29.3333C28.5205 29.3333 29.3322 28.5667 29.3322 27.6221V22.5481V9.99976Z"
-        stroke="#FAFAFA"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  );
-};
+export const LogoStyle = styled.div`
+  @media ${device.mobileOnly} {
+    width: 32px;
+    height: 32px;
+  }
+  @media ${device.mobile} {
+    width: 32px;
+    height: 32px;
+  }
+  @media ${device.tablet} {
+    width: 44px;
+    height: 44px;
+  }
+  @media ${device.desktop} {
+    width: 44px;
+    height: 44px;
+  }
+`;
 
 export const FooterNav = styled.nav`
-  // display: flex;
+  display: flex;
+  justify-content: center;
 `;
 
 export const FooterNavList = styled.ul`
@@ -102,3 +126,38 @@ export const Link = styled(NavLink)`
   letter-spacing: -0.02em;
   text-decoration: none;
 `;
+
+export const Logo = () => {
+  return (
+    <svg
+      width="100%"
+      // height="100%"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="32" height="32" rx="6" fill="#EBF3D4" />
+      <path
+        d="M7 7.08398V11.546V11.636V11.546C7 12.8201 7.55588 13.9481 8.41776 14.6781C8.83918 15.0351 9.11765 15.5171 9.11765 16.0521V23.5002C9.11765 24.3282 9.82918 25.0002 10.7059 25.0002C11.5826 25.0002 12.2941 24.3282 12.2941 23.5002V16.0521C12.2941 15.5171 12.5726 15.0351 12.994 14.6781C13.8559 13.9481 14.4118 12.8201 14.4118 11.546V7.08398V11.546"
+        stroke="#8BAA36"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M10.7051 12.0001V7"
+        stroke="#8BAA36"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M24.9992 8.05153C24.9992 7.49952 24.5248 7.05151 23.9404 7.05151H22.8815C21.1271 7.05151 19.7051 8.39453 19.7051 10.0515V16.0516C19.7051 17.3556 20.5913 18.4546 21.8227 18.8677V23.4997C21.8227 24.3277 22.5343 24.9997 23.411 24.9997C24.2877 24.9997 24.9992 24.3277 24.9992 23.4997V19.0517V8.05153Z"
+        stroke="#8BAA36"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
