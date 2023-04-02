@@ -1,3 +1,4 @@
+
 import React from "react";
 import { PrimaryHeader, HeaderWrapper} from "./Header.styled";
 import Logo from "components/Logo/Logo";
@@ -16,3 +17,4 @@ const Header = () => {
 };
 
 export default Header;
+

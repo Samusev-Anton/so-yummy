@@ -1,28 +1,38 @@
 import { NavLink } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
+
 // import background from './images/skachat_oboi_1366x768.jpg';
+
+import background from '../images/flat-lay-assortment-vegetables-with-copy-space 4.png';
+
 
 export const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Italic',
+        font-family: -apple-system, BlinkMacSystemFont, 'Poppins',
         sans-serif;
-        -webkit-font-smoothing: antialiased;
+        /* -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+
         background-color: #908B8B;
         ${'' /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); */}
         background-repeat: no-repeat;
+
+        background-color: #908B8B; */
+        /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); */
+        /* background-repeat: no-repeat;
+
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
         scrollbar-gutter: stable both-edges;
-        overflow: overlay;
+        overflow: overlay; */
     }
     #root {
         height: 100vh;
     }
     code {
-        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Italic',
+        font-family: source-code-pro, Menlo, Monaco, Consolas, Poppins,
         monospace;
     }
     h1,h2,h3,h4,h5,h6,p {
@@ -58,6 +68,12 @@ export const GlobalStyle = createGlobalStyle`
 		border-radius: ${p => p.theme.radii.md};
 		border: ${p => `${p.theme.borders.medium} ${p.theme.colors.almostDarkGreen}`};
     }
+`;
+
+export const Container = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
 `;
 
 const size = {
