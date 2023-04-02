@@ -87,7 +87,7 @@ const Nav = () => {
           <NavLink to="/my">My recipes</NavLink>
           <NavLink to="/favorite">Favorites</NavLink>
           <NavLink to="/shopping-list">Shopping list</NavLink>
-          <NavLink to="search"> <SearchIcon sx={{ fontSize: 24 }}/></NavLink>
+          <NavLink to="/search"> <SearchIcon sx={{ fontSize: 24 }}/></NavLink>
         </NavMenu>
           </PrimaryNav>
   <UserMenu/>

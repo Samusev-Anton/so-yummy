@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const PrimaryHeader = styled.header`
- display: flex;
+display: flex;
 justify-content: space-between;
 align-items:center;
+
 
 ${'' /* width: 100vw; */}
 
@@ -21,6 +22,8 @@ export const HeaderWrapper = styled.div`
 padding: 18px 16px;
 position: absolute;
 z-index:10;
+align-items:center;
+align-content: center;
 
 @media (min-width: 768px) {
 padding: 18px 16px;

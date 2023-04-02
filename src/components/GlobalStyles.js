@@ -200,7 +200,6 @@ export const ClassicButton = styled.button`
   padding: 50px 42px;
   background-color: #8BAA36;
   border: none;
-  font-family:Poppins
   ${'' /* padding: ${p => p.theme.space[3]}px;
   border: ${p => `${p.theme.borders.normal} ${p.theme.colors.almostDarkGreen}`}; */}
   ${'' /* border-radius: ${p => p.theme.radii.sm};

@@ -5,7 +5,8 @@ export const PrimaryNav = styled.nav`
   display: flex;
   align-items: center;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
+  
 
   @media (min-width: 1280px) {
     flex-direction: row;
@@ -14,6 +15,7 @@ export const PrimaryNav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
+display:flex;
   align-items: center;
   text-decoration: none;
   flex-direction: column;

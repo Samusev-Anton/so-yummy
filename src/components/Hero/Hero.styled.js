@@ -20,7 +20,7 @@ z-index:2;
 export const HeroImgBlock = styled.div`
 min-height: 912px;
 background-position:top right;
-background-size: 45%;
+background-size: 49%;
 background-repeat: no-repeat;
 background-image: url(${Background1x});
 z-index:1;
@@ -37,7 +37,7 @@ export const BlockPlateImg = styled.div`
 min-height: 944px;
 background-image: url(${PlateImg});
 background-repeat: no-repeat;
-background-position:top 30% right 15%;
+background-position:top 25% right 20%;
 ${'' /* z-index: 6; */}
 `
 export const HeroTitle = styled.h1`

@@ -65,15 +65,13 @@ export const UserMenu = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem >
+        <MenuItem>
         Edit profile
-       
         </MenuItem>
-        <MenuItem >
+    
         <ClassicButton>
         Logout <ArrowForwardIcon/>
         </ClassicButton>
-        </MenuItem>
       </Menu>
       </>
   );
