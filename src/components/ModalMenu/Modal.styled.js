@@ -5,8 +5,6 @@ display: flex;
 flex-direction: column;
 height: 100vh;
 width: 100vw;
-left: 0;
-top: 95px;
 position: fixed;
 z-index: 1000;
 justify-content: flex-start;

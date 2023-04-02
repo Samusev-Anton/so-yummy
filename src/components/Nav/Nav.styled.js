@@ -5,17 +5,16 @@ export const PrimaryNav = styled.nav`
   display: flex;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
+
   @media (min-width: 1280px) {
     flex-direction: row;
-    ${'' /* justify-content: center; */}
+    margin-right: 187px;
   }
 `;
 
 export const NavLink = styled(Link)`
-  display: flex;
   align-items: center;
-  
   text-decoration: none;
   flex-direction: column;
   cursor: pointer;
@@ -65,12 +64,13 @@ export const StyledBurger = styled.button`
 display: flex;
 flex-direction: column;
 justify-content: space-around;
-width: 2rem;
-height: 2rem;
+width: 28px;
+height: 28px;
 background: transparent;
 border: none;
 cursor: pointer;
 padding: 0;
+
   @media (min-width: 1280px) {
     display: none;
   }
@@ -79,21 +79,24 @@ padding: 0;
   }
   div {
     width: 2rem;
-    height: 0.25rem;
-    background: ${({ open }) => (open ? '#0D0C1D' : '#111111')};
-    border-radius: 10px;
-    transition: all 0.3s linear;
+    height: 0.15rem;
+    background: #22252A;
+    border-radius: 2px;
     position: relative;
-    transform-origin: 1px;
-    :first-child {
+    ${'' /* :first-child {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
+
     :nth-child(2) {
-      opacity: ${({ open }) => (open ? '0' : '1')};
+      opacity:${({ open }) => (open ? '0' : '1')};
       transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
-    }
-    :nth-child(3) {
-      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
+    
+    } */}
+    :nth-child(3) {    
+      width: 1.5rem;
+      ${'' /* width: ${({ open }) => (open ? '2rem' : '1')};
+      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')}; */}
+      
     }
   }
   `;

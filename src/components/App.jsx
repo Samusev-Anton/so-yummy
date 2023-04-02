@@ -1,5 +1,7 @@
 // import styled from 'styled-components';
 import Header from "./Header/Header";
+import Hero from "./Hero/Hero";
+
 
 
 export const App = () => {
@@ -18,6 +20,7 @@ export const App = () => {
     // </div>
     <>
 <Header/>
+<Hero/>
     </>
   );
 };
