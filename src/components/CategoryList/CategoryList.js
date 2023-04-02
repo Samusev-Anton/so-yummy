@@ -65,7 +65,7 @@ export const CategoryList = () => {
 
     return (
         <Box
-            sx={{ maxWidth: '100%', bgcolor: 'transparent' }}
+            sx={{ maxWidth: '100%', bgcolor: 'transparent', borderBottom: 1, borderColor: '#E0E0E0',}}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
@@ -84,6 +84,7 @@ export const CategoryList = () => {
                         '&::-webkit-scrollbar': {
                             display: 'none',
                         },
+
                     },
                     '& .MuiTabs-flexContainer': {
                         gap: '55px',
@@ -96,7 +97,6 @@ export const CategoryList = () => {
                         textTransform: 'capitalize',
                         minWidth: 'unset',
                         fontSize: '18px',
-                        fontFamily: 'Poppins',
                         fontWeight: '400',
                         lineHeight: '18px',
                         borderColor: '#8BAA36',

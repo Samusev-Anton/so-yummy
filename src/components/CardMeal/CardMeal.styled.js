@@ -6,20 +6,19 @@ export const TooltipWrapper = styled.div`
 `;
 
 export const CardTitle = styled.div`
-    font-family: ${theme.fonts.main};
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.24px;
-    color: ${p => p.theme.colors.mainHeaderText};
+    color: #3E4462;
     padding: 16px;
-    background-color: ${p => p.theme.colors.recipeBlockBg};
+    margin: 16px;
+    background-color: #fff;
     position: absolute;
-    top: 245px;
-    left: 18px;
+    bottom: 8px;
     border-radius: 8px;
-    width: calc(100% - 36px);
+    width: calc(100% - 64px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
