@@ -21,7 +21,7 @@ export const Form = styled.form`
   @media ${device.desktop} {
     flex-direction: column;
     margin: 0;
-    // margin-left: auto;
+    margin-left: 150px;
     // margin-bottom: 0px;
     height: auto;
   }
