@@ -6,15 +6,12 @@ export const Form = styled.form`
   margin-bottom: 44px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
   @media ${device.mobileOnly} {
     width: 204px;
   }
   @media ${device.tablet} {
     flex-direction: row;
     margin-bottom: 38px;
-    gap: 12px;
-    // width: 442px;
     height: 50px;
     justify-content: center;
   }
@@ -22,34 +19,36 @@ export const Form = styled.form`
     flex-direction: column;
     margin: 0;
     margin-left: 150px;
-    // margin-bottom: 0px;
     height: auto;
   }
 `;
 
 export const EmailField = styled.div`
   display: flex;
-  padding: 11px 14px;
+  height: 38px;
+  padding: 0px;
   align-items: center;
-  //   justify-content: space-between;
   border: none;
-  border: 1px solid rgba(250, 250, 250, 0.16);
   border-radius: 6px;
-  outline-style: none;
-  outline: none;
+  outline: 1px solid rgba(250, 250, 250, 0.16);
+  margin-bottom: 8px;
   @media ${device.tablet} {
-    width: 227px;
-    padding: 15px 15px;
+    width: 259px;
+    height: 50px;
+    margin-right: 12px;
   }
   @media ${device.desktop} {
-    width: 306px;
-    // height: 60px;
-    padding: 17.5px 15.5px;
+    width: 338px;
+    height: 60px;
+    margin-bottom: 16px;
   }
 `;
 
 export const TextField = styled.input`
+  width: 100%;
+  padding: 0px;
   background-color: transparent;
+  margin-left: 12px;
   color: #fafafa;
   font-style: normal;
   font-weight: 400;
@@ -57,8 +56,6 @@ export const TextField = styled.input`
   line-height: 15px;
   letter-spacing: -0.02em;
   border: none;
-  margin-left: 12px;
-  width: 100%;
   &:focus,
   &:hover {
     outline-style: none;
@@ -74,6 +71,35 @@ export const TextField = styled.input`
   }
 `;
 
+export const SubscribeTitle = styled.h3`
+  display: none;
+  @media ${device.desktop} {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: #fafafa;
+    margin: 0px;
+    margin-bottom: 14px;
+  }
+`;
+
+export const SubscribeText = styled.p`
+  display: none;
+  @media ${device.desktop} {
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    color: #fafafa;
+    margin: 0px;
+    margin-bottom: 28px;
+  }
+`;
+
 export const SubscribeButton = styled.button`
   width: 100%;
   margin: 0 auto;
@@ -86,7 +112,6 @@ export const SubscribeButton = styled.button`
     color: #22252a;
     cursor: pointer;
   }
-  // font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -106,24 +131,28 @@ export const SubscribeButton = styled.button`
 `;
 
 export const IconLetterStyle = styled.div`
+  display: flex;
   @media ${device.mobileOnly} {
-    height: 16px;
+    height: 12px;
+    margin-left: 14px;
   }
   @media ${device.mobile} {
-    height: 16px;
+    height: 12px;
+    margin-left: 14px;
   }
   @media ${device.tablet} {
     height: 16px;
+    margin-left: 15px;
   }
   @media ${device.desktop} {
-    height: 16px;
+    margin-left: 15.5px;
   }
 `;
 
 export const IconLetter = () => {
   return (
     <svg
-      width="100%"
+      // width="100%"
       height="100%"
       viewBox="0 0 18 14"
       fill="none"

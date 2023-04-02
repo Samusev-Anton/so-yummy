@@ -21,7 +21,6 @@ export const FooterStyle = styled.footer`
     padding-right: 94px;
     padding-top: 50px;
     padding-bottom: 24px;
-    // background-color: ${p => p.theme.colors.whiteText};
   }
   @media ${device.desktop} {
     padding-left: 100px;
@@ -59,15 +58,18 @@ export const MainBlock = styled.div``;
 export const FeaturesList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 10px;
   margin: 0;
   padding: 0;
   padding-left: 25px;
   @media ${device.mobileOnly} {
     display: none;
   }
+  @media ${device.tablet} {
+    gap: 10px;
+  }
   @media ${device.desktop} {
     width: 350px;
+    gap: 12px;
   }
 `;
 
@@ -101,7 +103,6 @@ export const Title = styled.h2`
   margin: 0px;
   margin-left: 8px;
   color: #fafafa;
-  // font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -139,10 +140,6 @@ export const LogoStyle = styled.div`
 export const FooterNav = styled.nav`
   display: flex;
   justify-content: center;
-  @media ${device.desktop} {
-    // align-items: start;
-    // margin-left: 159px;
-  }
 `;
 
 export const FooterNavList = styled.ul`
@@ -156,10 +153,10 @@ export const FooterNavList = styled.ul`
   gap: 14px;
   @media ${device.tablet} {
     align-items: start;
+    gap: 20px;
   }
   @media ${device.desktop} {
-    // align-items: start;
-    // margin-left: 159px;
+    gap: 24px;
   }
 `;
 

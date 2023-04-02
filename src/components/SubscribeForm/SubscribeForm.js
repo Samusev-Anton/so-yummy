@@ -7,6 +7,8 @@ import {
   SubscribeButton,
   IconLetter,
   IconLetterStyle,
+  SubscribeTitle,
+  SubscribeText,
 } from './SubscribeForm.styled';
 // import { logIn } from '../../Redux/auth/operations';
 
@@ -25,6 +27,11 @@ export const SubscribeForm = () => {
   };
   return (
     <Form onSubmit={handleSubmit} autoComplete="off">
+      <SubscribeTitle>Subscribe to our Newsletter</SubscribeTitle>
+      <SubscribeText>
+        Subscribe up to our newsletter. Be in touch with latest news and special
+        offers, etc.
+      </SubscribeText>
       <EmailField>
         <IconLetterStyle>
           <IconLetter />
