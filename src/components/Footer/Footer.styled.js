@@ -34,7 +34,7 @@ export const Title = styled.h2`
   margin: 0px;
   margin-left: 8px;
   color: #fafafa;
-  font-family: 'Poppins';
+  // font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -94,7 +94,7 @@ export const FooterNavList = styled.ul`
 
 export const Link = styled(NavLink)`
   color: #fafafa;
-  font-family: 'Poppins';
+  // font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Form = styled.form`
   width: 204px;
   margin: 0 auto;
+  margin-bottom: 44px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -13,16 +14,19 @@ export const EmailField = styled.div`
   padding: 11px 14px;
   align-items: center;
   //   justify-content: space-between;
-  border: 1px solid #fafafa;
+  border: none;
+  border: 1px solid rgba(250, 250, 250, 0.16);
   border-radius: 6px;
+  outline-style: none;
+  outline: none;
 `;
 
 export const TextField = styled.input`
   //   padding-top: 11px;
   //   padding-bottom: 11px;
   background-color: transparent;
-  color: #fafafa;
-  font-family: 'Poppins';
+  color: rgba(250, 250, 250, 1);
+  // font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -38,16 +42,16 @@ export const SubscribeButton = styled.button`
   padding-bottom: 11px;
   background-color: #8baa36;
   border-radius: 6px;
-  font-weight: 500;
   &:focus,
   &:hover {
-    background-color: lightgreen;
-    outline: transparent;
+    color: #22252a;
+    cursor: pointer;
   }
-  font-family: 'Poppins';
+  // font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
   color: #fafafa;
+  border: none;
 `;
