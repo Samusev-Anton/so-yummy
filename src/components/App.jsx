@@ -4,16 +4,23 @@ import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout';
 import { WelcomePage } from 'pages/WellcomePage';
 import { CategoriesPage } from 'pages/CategoriesPage';
+import { SignUpPage } from 'pages/SignUpPage';
+import { LoginPage } from 'pages/LoginPage';
 
 export const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-            <Route path="/categories/:categoryName?" element={<CategoriesPage />}></Route>
+          <Route
+            path="/categories/:categoryName?"
+            element={<CategoriesPage />}
+          ></Route>
         </Route>
         {/* шлях welcome до того як буде створено юзера/редакс стору */}
         <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/register" element={<SignUpPage />} />
+        <Route path="/signin" element={<LoginPage />} />
       </Routes>
     </>
   );
