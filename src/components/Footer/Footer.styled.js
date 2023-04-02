@@ -39,6 +39,7 @@ export const FooterMainBlock = styled.div`
     justify-content: space-between;
     width: 100%;
     align-items: flex-start;
+    margin-bottom: 72px;
   }
 `;
 
@@ -48,6 +49,9 @@ export const FeaturesList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 0;
+  padding: 0;
+  padding-left: 25px;
   @media ${device.mobileOnly} {
     display: none;
   }
@@ -67,6 +71,9 @@ export const TitleBlock = styled.h2`
   align-items: center;
   margin: 0px;
   padding-bottom: 32px;
+  @media ${device.tablet} {
+    padding-bottom: 24px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -79,6 +86,9 @@ export const Title = styled.h2`
   font-size: 18px;
   line-height: 18px;
   letter-spacing: 0.015em;
+  @media ${device.tablet} {
+    margin-left: 12px;
+  }
 `;
 
 export const LogoStyle = styled.div`
@@ -114,6 +124,12 @@ export const FooterNavList = styled.ul`
   width: 89px;
   align-items: center;
   gap: 14px;
+  @media ${device.tablet} {
+    align-items: start;
+  }
+  @media ${device.desktop} {
+    align-items: start;
+  }
 `;
 
 export const Link = styled(NavLink)`
