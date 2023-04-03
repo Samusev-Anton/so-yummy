@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
+
+// import background from './images/skachat_oboi_1366x768.jpg';
+
 import background from '../images/flat-lay-assortment-vegetables-with-copy-space 4.png';
+
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -9,9 +13,15 @@ export const GlobalStyle = createGlobalStyle`
         sans-serif;
         /* -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+
+        background-color: #908B8B;
+        ${'' /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); */}
+        background-repeat: no-repeat;
+
         background-color: #908B8B; */
         /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); */
         /* background-repeat: no-repeat;
+
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -202,13 +212,17 @@ export const ClassicButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${p => p.theme.space[3]}px;
-  border: ${p => `${p.theme.borders.normal} ${p.theme.colors.almostDarkGreen}`};
-  border-radius: ${p => p.theme.radii.sm};
-  box-shadow: ${p => p.theme.shadows.shadow};
+  clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
+  padding: 50px 42px;
+  background-color: #8BAA36;
+  border: none;
+  ${'' /* padding: ${p => p.theme.space[3]}px;
+  border: ${p => `${p.theme.borders.normal} ${p.theme.colors.almostDarkGreen}`}; */}
+  ${'' /* border-radius: ${p => p.theme.radii.sm};
+  box-shadow: ${p => p.theme.shadows.shadow}; */}
   cursor: pointer;
-  color: ${p => p.theme.colors.maybeYellow};
-  background-color: ${p => p.theme.colors.almostDarkGreen};
+  color: #FAFAFA;
+  ${'' /* background-color: ${p => p.theme.colors.almostDarkGreen}; */}
   transition: ${p => p.theme.transition.cubicBezier};
   &:hover,
   &:focus {
