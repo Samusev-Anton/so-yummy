@@ -1,5 +1,9 @@
 import * as React from 'react';
-// import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+// import { useParams } from 'react-router-dom';
+import { sendMailOperation } from 'redux/opertions';
+// import { logIn } from '../../Redux/auth/operations';
 import {
   Form,
   EmailField,
@@ -10,20 +14,20 @@ import {
   SubscribeTitle,
   SubscribeText,
 } from './SubscribeForm.styled';
-// import { logIn } from '../../Redux/auth/operations';
 
 export const SubscribeForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    // const form = event.currentTarget;
-    // dispatch(
-    //   logIn({
-    //     email: form.elements.email.value,
-    //   })
-    // );
-    // form.reset();
+    const form = event.currentTarget;
+    console.log(form.elements.email.value);
+    dispatch(
+      sendMailOperation({
+        email: form.elements.email.value,
+      })
+    );
+    form.reset();
   };
   return (
     <Form onSubmit={handleSubmit} autoComplete="off">
