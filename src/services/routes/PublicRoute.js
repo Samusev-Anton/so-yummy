@@ -1,12 +1,12 @@
-import { selectUserLoggedIn } from 'redux/auth/selectors';
+import { selectToken } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-export const RestrictedRoute = ({
+export const PublicRoute = ({
   component: Component,
 
   redirectTo = '/',
 }) => {
-  const isLoggedIn = useSelector(selectUserLoggedIn);
-  return isLoggedIn ? <Navigate to={redirectTo} /> : <Component />;
+  const token = useSelector(selectToken);
+  return token ? <Navigate to={redirectTo} /> : <Component />;
 };
