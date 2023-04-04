@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/so-yummy/static/css/main.48220dc4.css",
-    "main.js": "/so-yummy/static/js/main.13790d4d.js",
+    "main.js": "/so-yummy/static/js/main.c48382a2.js",
     "static/media/flat-lay-assortment-vegetables-with-copy-space 4.png": "/so-yummy/static/media/flat-lay-assortment-vegetables-with-copy-space 4.e4f02a0c3f7c51f56909.png",
     "static/media/Order food-pana1.svg": "/so-yummy/static/media/Order food-pana1.0f50dd0229f32c023e3392de0bfc5f79.svg",
     "static/media/logo.svg": "/so-yummy/static/media/logo.1bde744686d6d4522673e3c7461628ae.svg",
     "index.html": "/so-yummy/index.html",
     "main.48220dc4.css.map": "/so-yummy/static/css/main.48220dc4.css.map",
-    "main.13790d4d.js.map": "/so-yummy/static/js/main.13790d4d.js.map"
+    "main.c48382a2.js.map": "/so-yummy/static/js/main.c48382a2.js.map"
   },
   "entrypoints": [
     "static/css/main.48220dc4.css",
-    "static/js/main.13790d4d.js"
+    "static/js/main.c48382a2.js"
   ]
 }
