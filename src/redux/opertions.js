@@ -27,20 +27,9 @@ export const getRecipesByCategoryOperation = createAsyncThunk(
   }
 );
 
-// export const sendMailOperation = createAsyncThunk(
-//   'users/subscribe',
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       return await getMailAPI();
-//     } catch (error) {
-//       return rejectWithValue(error.response.status);
-//     }
-//   }
-// );
-
 export const sendMailOperation = createAsyncThunk(
   'users/subscribe',
-  async ({ email }, { rejectWithValue }) => {
+  async (email, { rejectWithValue }) => {
     try {
       return await getMailAPI(email);
     } catch (error) {
