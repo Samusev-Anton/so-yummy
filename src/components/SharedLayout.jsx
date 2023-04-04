@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';
+import Hero from './Hero/Hero';
 import { Container } from './GlobalStyles';
 
 export const SharedLayout = props => {
@@ -10,11 +11,14 @@ export const SharedLayout = props => {
     <React.Fragment>
       <Container>
         <Header />
+       
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
         <Footer />
-      </Container>
+      </Container> 
+{/* 
+      <Hero/> */}
     </React.Fragment>
   );
 };

@@ -5,13 +5,13 @@ import Nav from 'components/Nav/Nav';
 
 export const Header = () => {
   return (
-    <HeaderWrapper>
+    // <HeaderWrapper>
       <PrimaryHeader>
         <Logo />
         <Nav />
       </PrimaryHeader>
-    </HeaderWrapper>
+    //  </HeaderWrapper>
   );
 };
 
-// export default Header;
+export default Header;

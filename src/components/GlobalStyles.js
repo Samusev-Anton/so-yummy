@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
 
         background-color: #908B8B;
-        ${'' /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); */}
+        ${'' /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); *}
         background-repeat: no-repeat;
 
         background-color: #908B8B; */
@@ -71,9 +71,21 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
+margin: 0 auto;
+max-width: 100%;
+padding: 0 20px;
+position:relative;
+@media (min-width: 480px) {
+   width: 480px;
+}
+  @media (min-width: 768px) {
+    width: 768px;
+    padding: 0 32px;
+  }
+  @media (min-width: 1280px) {
+  width: 1280px;
   padding: 0 16px;
+  }
 `;
 
 const size = {
@@ -109,7 +121,7 @@ export const SecondTitle = styled.h2`
 
 export const WarningMessage = styled.p`
   text-align: center;
-  font-weight: ${p => p.theme.fontWeights.medium};
+  font-weight: 400;
   font-size: ${p => p.theme.fontSizes.m};
   color: ${p => p.theme.colors.reallyBisque};
 `;
@@ -209,41 +221,33 @@ export const ClassicInputForm = styled.input`
 `;
 
 export const ClassicButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%);
-  padding: 50px 42px;
-  background-color: #8BAA36;
-  border: none;
-  ${'' /* padding: ${p => p.theme.space[3]}px;
-  border: ${p => `${p.theme.borders.normal} ${p.theme.colors.almostDarkGreen}`}; */}
-  ${'' /* border-radius: ${p => p.theme.radii.sm};
-  box-shadow: ${p => p.theme.shadows.shadow}; */}
-  cursor: pointer;
-  color: #FAFAFA;
-  ${'' /* background-color: ${p => p.theme.colors.almostDarkGreen}; */}
-  transition: ${p => p.theme.transition.cubicBezier};
-  &:hover,
-  &:focus {
-    transform: ${p => p.theme.transform.scaleThird};
-    color: ${p => p.theme.colors.almostDarkGreen};
-    background-color: ${p => p.theme.colors.maybeYellow};
+color: rgb(255, 255, 255);
+   border: none;
+   font-family: 'Poppins';
+   background-color: #8baa36;
+   border-radius: 24px 44px;
+   ${'' /* position: absolute;
+   right: 0; */}
+   display:flex;
+   justify-content:center;
+   align-items: center;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 1.5;
+   height: 43px;
+   width: 125px;
+   &:hover {
+     background-color: #22252a;
+     color: #fafafa;
+   }
+   @media (min-width: 768px) {
+    height: 43px;
+    width: 141px;
+    padding: 13px 32px;
+    font-size: 14px;
   }
-  &:disabled {
-    background-color: -internal-light-dark(
-      rgba(239, 239, 239, 0.3),
-      rgba(19, 1, 1, 0.3)
-    );
-    color: -internal-light-dark(
-      rgba(16, 16, 16, 0.3),
-      rgba(255, 255, 255, 0.3)
-    );
-    border-color: -internal-light-dark(
-      rgba(118, 118, 118, 0.3),
-      rgba(195, 195, 195, 0.3)
-    );
-  }
+
 `;
 
 export const ErrorSection = styled.section`
