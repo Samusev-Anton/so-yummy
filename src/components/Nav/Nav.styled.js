@@ -6,11 +6,11 @@ export const PrimaryNav = styled.nav`
   align-items: center;
   text-align: center;
   justify-content: center;
-  
 
   @media (min-width: 1280px) {
     flex-direction: row;
-    margin-right: 187px;
+    margin-right: 179px;
+    justify-content: space-around;
   }
 `;
 
@@ -84,20 +84,20 @@ padding: 0;
     height: 0.15rem;
     background: #22252A;
     border-radius: 2px;
-    position: relative;
-    ${'' /* :first-child {
-      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
+    ${'' /* position: relative; */}
+    :first-child {
+      ${'' /* transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')}; */}
     }
 
     :nth-child(2) {
-      opacity:${({ open }) => (open ? '0' : '1')};
-      transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
+      ${'' /* opacity:${({ open }) => (open ? '0' : '1')}; */}
+      ${'' /* transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')}; */}
     
-    } */}
+    }
     :nth-child(3) {    
       width: 1.5rem;
-      ${'' /* width: ${({ open }) => (open ? '2rem' : '1')};
-      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')}; */}
+      ${'' /* width: ${({ open }) => (open ? '2rem' : '1')}; */}
+      ${'' /* transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')}; */}
       
     }
   }
