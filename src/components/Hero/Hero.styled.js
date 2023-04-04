@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-import Background1xMobile from "images/bg2-mobile-1.png"
+// import Background1xMobile from "images/bg2-mobile-1.png"
 import Background1x from "images/bg2-1x.png"
-import PlateImgMobile from "images/plate-mobile-1x.png"
+// import PlateImgMobile from "images/plate-mobile-1x.png"
 import PlateImg from "images/plate-1x.png"
-import SpinashImgMobile from "images/kisspng-pasta-spinach-dip-english-muffin-breakfast-mobile-1x.png"
+// import SpinashImgMobile from "images/kisspng-pasta-spinach-dip-english-muffin-breakfast-mobile-1x.png"
 import SpinashImg from "images/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-1x.png"
-import SpinashImgLeftMobile from "images/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-mobile-1x.png"
+// import SpinashImgLeftMobile from "images/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-mobile-1x.png"
 import SpinashImgLeft from "images/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-left-1x.png"
 // import {DebounceInput} from 'react-debounce-input';
 
