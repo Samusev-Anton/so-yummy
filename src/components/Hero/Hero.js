@@ -1,6 +1,6 @@
 
 import { SectionHero, HeroTitle, HeroImgBlock, ShpinashImg, BlockPlateImg, HeroTitleSo, HeroText, HeroInputSearch, HeroRecipeWrapper, HeroRecipeText, HeroRecipeAccent } from "./Hero.styled"
-import { ClassicButton } from "components/GlobalStyles"
+
 import { SearchForm } from "components/SearchInput/SearchForm"
 
 
