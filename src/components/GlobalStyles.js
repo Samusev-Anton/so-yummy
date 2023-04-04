@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 // import background from './images/skachat_oboi_1366x768.jpg';
 
-import background from '../images/flat-lay-assortment-vegetables-with-copy-space 4.png';
+// import background from '../images/flat-lay-assortment-vegetables-with-copy-space 4.png';
 
 
 export const GlobalStyle = createGlobalStyle`
