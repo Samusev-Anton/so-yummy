@@ -1,16 +1,29 @@
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
+import { useDispatch } from 'react-redux';
 
 import { schemaLoginValidation } from 'utils/formValidation';
+import { login } from 'redux/auth/auth-operations';
 
 const initialValues = {
   email: '',
   password: '',
 };
 export const LoginForm = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    resetForm();
+  const dispatch = useDispatch();
+  const handleSubmit = async (values, actions) => {
+    await dispatch(
+      login({
+        email: values.email.trim(),
+        password: values.password.trim(),
+      })
+    ).then(res => {
+      if (res.payload.name === 'AxiosError') {
+        actions.setSubmitting(false);
+      } else {
+        actions.resetForm();
+      }
+    });
   };
   return (
     <div>

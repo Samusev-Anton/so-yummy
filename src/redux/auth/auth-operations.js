@@ -17,8 +17,12 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/signup', credentials);
-      setAuthHeader(res.data.token);
+      const { email, password } = credentials;
+
+      await axios.post('/users/signup', credentials);
+      const res = await axios.post('/users/signin', { email, password });
+      console.log(res);
+      setAuthHeader(res.data.user.token);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,7 +35,8 @@ export const login = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/users/signin', credentials);
-      setAuthHeader(res.data.token);
+      setAuthHeader(res.data.user.token);
+      console.log(res);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -45,6 +50,28 @@ export const logout = createAsyncThunk(
     try {
       const res = await axios.post('/users/logout', credentials);
       clearAuthHeader();
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getCurrentUser = createAsyncThunk(
+  'auth/getCurrent',
+  async (_, thunkAPI) => {
+    // Reading the token from the state via getState()
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      // If there is no token, exit without performing any request
+      return thunkAPI.rejectWithValue('Unable to donwnload user information');
+    }
+    try {
+      // If there is a token, add it to the HTTP header and perform the request
+      setAuthHeader(persistedToken);
+      const res = await axios.get('/auth/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

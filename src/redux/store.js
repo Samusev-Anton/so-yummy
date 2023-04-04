@@ -4,6 +4,12 @@ import storage from 'redux-persist/lib/storage';
 import { recipesReducer } from './slices';
 import { authReducer } from './auth/AuthSlice';
 
+const recipesPersistConfig = {
+  key: 'recipes',
+  storage,
+  whitelist: ['categories', 'recipesOfCategory'],
+};
+
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
   key: 'auth',
@@ -11,21 +17,17 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const recipesPersistConfig = {
-  key: 'recipes',
-  storage,
-  whitelist: ['categories', 'recipesOfCategory'],
-};
-
 const persistedRecipesReducer = persistReducer(
   recipesPersistConfig,
   recipesReducer
 );
 
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+
 export const store = configureStore({
   reducer: {
     recipes: persistedRecipesReducer,
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistedAuthReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
