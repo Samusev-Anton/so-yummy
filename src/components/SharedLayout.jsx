@@ -25,7 +25,6 @@ export const SharedLayout = props => {
       <Hero/> */}
 
         <AdditionalFooter />
-      </Container>
 
     </React.Fragment>
   );
