@@ -5,6 +5,7 @@ import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';
 
 
+
 import { AdditionalFooter } from './Footer/AdditionalFooter';
 import { Container } from './GlobalStyles';
 
@@ -13,16 +14,14 @@ export const SharedLayout = props => {
     <React.Fragment>
       <Container>
         <Header />
-       
+
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
-        <Footer />
 
-      </Container> 
-
-        <AdditionalFooter />
-
+      </Container>
+      <Footer />
+      <AdditionalFooter />
     </React.Fragment>
   );
 };

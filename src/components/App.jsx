@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { SharedLayout } from './SharedLayout';
-import { WelcomePage } from 'pages/WellcomePage';
+import { WelcomePage } from 'pages/WelcomePage/WellcomePage';
 import { CategoriesPage } from 'pages/CategoriesPage';
 import { SignUpPage } from 'pages/SignUpPage';
 import { LoginPage } from 'pages/LoginPage';
@@ -15,7 +15,7 @@ import { MainPage } from 'pages/MainPage';
 // import { MyRecipePage } from 'pages/MyRecipePage';
 // import Favoritepage from 'pages/Favoritepage';
 // import { ShoppingPage } from 'pages/ShoppingPage';
-// import { SearchPage } from 'pages/SearchPage';
+import { SearchPage } from 'pages/SearchPage';
 // import { Error } from 'pages/Error';
 
 import { PublicRoute } from 'services/routes/PublicRoute';
@@ -56,9 +56,9 @@ export const App = () => {
           {/* <Route path="/add" element={<AddRecipePage />} />
           <Route path="/my" element={<MyRecipePage />} />
           <Route path="/favorite" element={<Favoritepage />} />
-          <Route path="/shopping-list" element={<ShoppingPage />} />
+          <Route path="/shopping-list" element={<ShoppingPage />} /> */}
           <Route path="/search" element={<SearchPage />} />
-          <Route path="*" element={<Error />} /> */}
+          {/* <Route path="*" element={<Error />} /> */}
         </Route>
       </Routes>
     </>
