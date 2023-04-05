@@ -1,6 +1,6 @@
 import axios from 'axios';
 // import { createAsyncThunk } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
 
