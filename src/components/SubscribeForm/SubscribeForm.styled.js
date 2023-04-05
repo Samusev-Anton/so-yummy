@@ -20,6 +20,7 @@ export const Form = styled.form`
     margin: 0;
     margin-left: 150px;
     height: auto;
+    width: 339px;
   }
 `;
 
