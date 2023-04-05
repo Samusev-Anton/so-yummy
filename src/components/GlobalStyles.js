@@ -11,22 +11,9 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, 'Poppins',
         sans-serif;
-        /* -webkit-font-smoothing: antialiased;
+        -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
-        background-color: #908B8B;
-        ${'' /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); *}
-        background-repeat: no-repeat;
-
-        background-color: #908B8B; */
-        /* background-image: linear-gradient(335deg, rgba(0, 0, 0, 0.5) 0%, rgba(94, 94, 98, 0.35) 100%), url(${background}); */
-        /* background-repeat: no-repeat;
-
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        scrollbar-gutter: stable both-edges;
-        overflow: overlay; */
     }
     #root {
         height: 100vh;
@@ -71,20 +58,13 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-margin: 0 auto;
-max-width: 100%;
 padding: 0 20px;
-position:relative;
-@media (min-width: 480px) {
-   width: 480px;
-}
+
   @media (min-width: 768px) {
-    width: 768px;
     padding: 0 32px;
   }
   @media (min-width: 1280px) {
-  width: 1280px;
-  padding: 0 16px;
+  padding: 0 100px;
   }
 `;
 

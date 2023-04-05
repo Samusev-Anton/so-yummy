@@ -13,3 +13,8 @@ export const getRecipesByCategoryAPI = (category) => {
         return data;
     });
 }
+export const getSetOfCategoriestAPI = () => {
+    return axios.get('/recipes/main').then(({ data }) => {
+      return data;
+    });
+  };
