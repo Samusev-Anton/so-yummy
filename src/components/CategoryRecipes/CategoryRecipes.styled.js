@@ -4,6 +4,7 @@ export const RowTable = styled.ul`
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
     margin-bottom: 100px;
     margin-top: 32px;
