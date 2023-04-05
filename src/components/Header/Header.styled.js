@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PrimaryHeader = styled.header`
 display: flex;
 justify-content: space-between;
-position: absolute;
+${'' /* position: absolute; */}
 z-index:10;
 align-items:center;
 padding: 18px 16px;
