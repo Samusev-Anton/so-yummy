@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { SharedLayout } from './SharedLayout';
-import { WelcomePage } from 'pages/WellcomePage';
+import { WelcomePage } from 'pages/WelcomePage/WellcomePage';
 import { CategoriesPage } from 'pages/CategoriesPage';
 import { SignUpPage } from 'pages/SignUpPage';
 import { LoginPage } from 'pages/LoginPage';
