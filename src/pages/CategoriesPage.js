@@ -5,7 +5,7 @@ import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTi
 export const CategoriesPage = () => {
   return (
     <div>
-      <MainPageTitle>Categories</MainPageTitle>
+      <MainPageTitle value="Categories"></MainPageTitle>
       <CategoryList />
       <CategoryRecipes />
     </div>

@@ -1,8 +1,9 @@
-import {MainPageTitleStyled} from "./MainPageTitle.styled"
+import {MainPageTitleStyled, TitleConteiner} from "./MainPageTitle.styled"
 
 export const MainPageTitle = ({value}) => {
     return (
-        <MainPageTitleStyled>{value}</MainPageTitleStyled>
+        <TitleConteiner>
+            <MainPageTitleStyled>{value}</MainPageTitleStyled>
+        </TitleConteiner>
     )
 }
-
