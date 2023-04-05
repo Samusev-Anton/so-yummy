@@ -1,7 +1,9 @@
-// import Hero from "components/Hero/Hero"
+import Hero from "components/Hero/Hero"
+import { PreviewCategories } from "components/MainPageRecipes/MainPageRecipes"
 
-// const MainPage = () => {
-//     <Hero/>
-// }
-
-// export default MainPage
+export const MainPage = () => {
+    <div> 
+    <Hero/>
+    <PreviewCategories/>
+</div>
+}

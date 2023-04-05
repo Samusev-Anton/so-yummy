@@ -7,10 +7,9 @@ position: absolute;
 z-index:10;
 align-items:center;
 padding: 18px 16px;
-width:100%;
-${'' /* overflow-x:hidden; */}
-margin-left:auto;
-margin-right:auto;
+${'' /* width:100%; */}
+${'' /* margin-left:auto;
+margin-right:auto; */}
 @media (min-width: 768px) {
 }
 @media (min-width: 1280px) {

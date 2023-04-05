@@ -1,5 +1,5 @@
-// import { useDispatch } from 'react-redux';
-// import { logOut } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { logout } from 'redux/auth/auth-operations';
 // import { useAuth } from '../../hooks';
 import { useState } from 'react';
 import Menu from '@mui/material/Menu';
@@ -17,8 +17,8 @@ import FormDialog from './EditProfile';
 
 
 export const UserMenu = () => {
-//   const dispatch = useDispatch();
-//   const { user } = useAuth();
+  const dispatch = useDispatch();
+  // const { user } = useAuth();
   const [anchorElUser, setAnchorElUser] = useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -27,9 +27,9 @@ export const UserMenu = () => {
     setAnchorElUser(null);
   };
 
-  // const handelLogoutUser = () => {
-  //   dispatch(logOut());
-  // };
+  const handelLogoutUser = () => {
+    dispatch(logout());
+  };
 const [open, setOpen] = useState(false);
 
   const handleClickOpenEditProfile = () => {
@@ -84,7 +84,7 @@ const [open, setOpen] = useState(false);
         <FormDialog onClose={handleClose}/>
         </Dialog>
         <MenuItem>
-        <ClassicButton>
+        <ClassicButton onClick={handelLogoutUser}>
         Logout <ArrowForwardIcon sx={{ fontSize: 18 }}/>
         </ClassicButton>
         </MenuItem>

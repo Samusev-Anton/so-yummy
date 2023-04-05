@@ -1,5 +1,5 @@
 
-import { SectionHero, HeroTitle, HeroImgBlock, ShpinashImg, BlockPlateImg, HeroTitleSo, HeroText, HeroInputSearch, HeroRecipeWrapper, HeroRecipeText, HeroRecipeAccent } from "./Hero.styled"
+import { SectionHero, HeroTitle,HeroTitleSo, HeroText, HeroInputSearch, HeroRecipeWrapper, HeroRecipeText, HeroRecipeAccent } from "./Hero.styled"
 
 import { SearchForm } from "components/SearchInput/SearchForm"
 
@@ -9,13 +9,6 @@ const Hero = ()=>{
 
     return(
         <SectionHero>
-        <HeroImgBlock>  
-        <ShpinashImg>
-         <BlockPlateImg/>
-        </ShpinashImg> 
-    
-      
-        </HeroImgBlock>
      <HeroTitle>
          <HeroTitleSo>So</HeroTitleSo>Yummy
          </HeroTitle>

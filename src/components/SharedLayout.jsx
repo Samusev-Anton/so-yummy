@@ -5,7 +5,6 @@ import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';
 
 
-
 import { AdditionalFooter } from './Footer/AdditionalFooter';
 import { Container } from './GlobalStyles';
 
@@ -21,8 +20,6 @@ export const SharedLayout = props => {
         <Footer />
 
       </Container> 
-{/* 
-      <Hero/> */}
 
         <AdditionalFooter />
 

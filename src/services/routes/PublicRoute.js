@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 export const PublicRoute = ({
   component: Component,
 
-  redirectTo = '/',
+  redirectTo = '/main',
 }) => {
   const token = useSelector(selectToken);
   return token ? <Navigate to={redirectTo} /> : <Component />;
