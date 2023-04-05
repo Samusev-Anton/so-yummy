@@ -66,7 +66,7 @@ export const getCurrentUser = createAsyncThunk(
 
     if (persistedToken === null) {
       // If there is no token, exit without performing any request
-      return thunkAPI.rejectWithValue('Unable to donwnload user information');
+      return thunkAPI.rejectWithValue('Unable to download user information');
     }
     try {
       // If there is a token, add it to the HTTP header and perform the request

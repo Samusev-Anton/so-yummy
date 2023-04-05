@@ -15,7 +15,7 @@ export const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        // state.token = action.payload.user.token;
+        state.token = action.payload.user.token;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -32,9 +32,12 @@ export const authSlice = createSlice({
       .addCase(getCurrentUser.fulfilled, (state, action) => {
         state.user = action.payload;
       })
-      .addMatcher(isAnyOf(login.fulfilled, getCurrentUser.fulfilled), state => {
-        state.isLoggedIn = true;
-      })
+      .addMatcher(
+        isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
+        state => {
+          state.isLoggedIn = true;
+        }
+      )
       .addMatcher(
         isAnyOf(getCurrentUser.fulfilled, getCurrentUser.rejected),
         state => {
