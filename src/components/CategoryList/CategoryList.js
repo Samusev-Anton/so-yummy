@@ -44,7 +44,7 @@ export const CategoryList = () => {
 
     const items = mapArray.map((e, index) => (
         <Tab
-            label={e}
+            label={e.toLowerCase()}
             key={index}
             sx={{
                 padding: '0',
