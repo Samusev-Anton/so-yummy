@@ -1,21 +1,25 @@
 {
   "files": {
     "main.css": "/so-yummy/static/css/main.49a17e6d.css",
-    "main.js": "/so-yummy/static/js/main.dc2a9a9b.js",
+    "main.js": "/so-yummy/static/js/main.ff54835e.js",
     "static/media/welcomePic2x.jpg": "/so-yummy/static/media/welcomePic2x.b9cc3a763137bf9e177c.jpg",
     "static/media/welcomePicTab2x.jpg": "/so-yummy/static/media/welcomePicTab2x.dd9b3506177de111b0f7.jpg",
+    "static/media/plate-1x.png": "/so-yummy/static/media/plate-1x.e841ed38e8512eeb615c.png",
+    "static/media/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-1x.png": "/so-yummy/static/media/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-spinach-1x.b44fc2d1bf0a27141f18.png",
     "static/media/welcomePicMob2x.jpg": "/so-yummy/static/media/welcomePicMob2x.e43542e6fc9c1742a6a2.jpg",
     "static/media/welcomePic1x.jpg": "/so-yummy/static/media/welcomePic1x.174a249c391fef7a4bcd.jpg",
     "static/media/welcomePicTab1x.jpg": "/so-yummy/static/media/welcomePicTab1x.877bd4f5385587b98ead.jpg",
     "static/media/Order food-pana1.svg": "/so-yummy/static/media/Order food-pana1.0f50dd0229f32c023e3392de0bfc5f79.svg",
+    "static/media/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-left-1x.png": "/so-yummy/static/media/kisspng-pasta-spinach-dip-english-muffin-breakfast-sandwic-left-1x.8e0fad07a8ebf1a1b32a.png",
     "static/media/welcomePicMob1x.jpg": "/so-yummy/static/media/welcomePicMob1x.b6697a496c1b50553185.jpg",
+    "static/media/bg2-1x.png": "/so-yummy/static/media/bg2-1x.9dac6bffa301461bcc6b.png",
     "static/media/logo.svg": "/so-yummy/static/media/logo.1bde744686d6d4522673e3c7461628ae.svg",
     "index.html": "/so-yummy/index.html",
     "main.49a17e6d.css.map": "/so-yummy/static/css/main.49a17e6d.css.map",
-    "main.dc2a9a9b.js.map": "/so-yummy/static/js/main.dc2a9a9b.js.map"
+    "main.ff54835e.js.map": "/so-yummy/static/js/main.ff54835e.js.map"
   },
   "entrypoints": [
     "static/css/main.49a17e6d.css",
-    "static/js/main.dc2a9a9b.js"
+    "static/js/main.ff54835e.js"
   ]
 }
