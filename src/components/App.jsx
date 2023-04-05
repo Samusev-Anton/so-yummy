@@ -11,7 +11,7 @@ import { SignUpPage } from 'pages/SignUpPage';
 import { LoginPage } from 'pages/LoginPage';
 
 import { MainPage } from 'pages/MainPage';
-// import { AddRecipePage } from 'pages/AddRecipePage';
+import { AddRecipePage } from 'pages/AddRecipePage';
 // import { MyRecipePage } from 'pages/MyRecipePage';
 // import Favoritepage from 'pages/Favoritepage';
 // import { ShoppingPage } from 'pages/ShoppingPage';
@@ -53,10 +53,10 @@ export const App = () => {
             path="/categories/:categoryName?"
             element={<CategoriesPage />}
           />
-          {/* <Route path="/add" element={<AddRecipePage />} />
-          <Route path="/my" element={<MyRecipePage />} />
-          <Route path="/favorite" element={<Favoritepage />} />
-          <Route path="/shopping-list" element={<ShoppingPage />} /> */}
+          <Route path="/add" element={<AddRecipePage />} />
+          {/* <Route path="/my" element={<MyRecipePage />} /> */}
+          {/* <Route path="/favorite" element={<Favoritepage />} /> */}
+          {/* <Route path="/shopping-list" element={<ShoppingPage />} /> */}
           <Route path="/search" element={<SearchPage />} />
           {/* <Route path="*" element={<Error />} /> */}
         </Route>
