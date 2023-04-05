@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/so-yummy/static/css/main.48220dc4.css",
-    "main.js": "/so-yummy/static/js/main.2a033cfb.js",
+    "main.css": "/so-yummy/static/css/main.49a17e6d.css",
+    "main.js": "/so-yummy/static/js/main.dc2a9a9b.js",
+    "static/media/welcomePic2x.jpg": "/so-yummy/static/media/welcomePic2x.b9cc3a763137bf9e177c.jpg",
+    "static/media/welcomePicTab2x.jpg": "/so-yummy/static/media/welcomePicTab2x.dd9b3506177de111b0f7.jpg",
+    "static/media/welcomePicMob2x.jpg": "/so-yummy/static/media/welcomePicMob2x.e43542e6fc9c1742a6a2.jpg",
+    "static/media/welcomePic1x.jpg": "/so-yummy/static/media/welcomePic1x.174a249c391fef7a4bcd.jpg",
+    "static/media/welcomePicTab1x.jpg": "/so-yummy/static/media/welcomePicTab1x.877bd4f5385587b98ead.jpg",
     "static/media/Order food-pana1.svg": "/so-yummy/static/media/Order food-pana1.0f50dd0229f32c023e3392de0bfc5f79.svg",
+    "static/media/welcomePicMob1x.jpg": "/so-yummy/static/media/welcomePicMob1x.b6697a496c1b50553185.jpg",
     "static/media/logo.svg": "/so-yummy/static/media/logo.1bde744686d6d4522673e3c7461628ae.svg",
     "index.html": "/so-yummy/index.html",
-    "main.48220dc4.css.map": "/so-yummy/static/css/main.48220dc4.css.map",
-    "main.2a033cfb.js.map": "/so-yummy/static/js/main.2a033cfb.js.map"
+    "main.49a17e6d.css.map": "/so-yummy/static/css/main.49a17e6d.css.map",
+    "main.dc2a9a9b.js.map": "/so-yummy/static/js/main.dc2a9a9b.js.map"
   },
   "entrypoints": [
-    "static/css/main.48220dc4.css",
-    "static/js/main.2a033cfb.js"
+    "static/css/main.49a17e6d.css",
+    "static/js/main.dc2a9a9b.js"
   ]
 }
