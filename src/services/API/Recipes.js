@@ -20,9 +20,18 @@ export const getSetOfCategoriestAPI = () => {
 };
 
 export const searchRecipesApi = async ({ searchQuery, searchType }) => {
+
   // const searchUrl = searchType === 'query' ? `/recipes/search/title?title=${searchQuery}` : `/ingredients/?ingredients=${searchQuery}`;
 
   const searchUrl = `https://so-yummy-backend.onrender.com/api/recipes/search/title?title=${searchQuery}`;
   const data = await axios.get(searchUrl);
   return data.data.data;
+
 };
+
+// favorite recipes
+// export const getFavoriteRecipesAPI = () => {
+//   return axios.get('/favorite').then(({ data }) => {
+//     return data;
+//   });
+// };
