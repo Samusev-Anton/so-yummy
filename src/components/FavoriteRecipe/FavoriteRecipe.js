@@ -5,8 +5,8 @@ import {
   RecipeDescription,
   RecipePrepTime,
   DeleteButton,
-  Details,
-  SeeRecipe,
+  SeeRecipeBtn,
+  FavRecipeTopInfo,
 } from './FavoriteRecipe.Styled';
 
 export const FavoriteRecipe = ({ recipe, onRemove, onSee }) => {
@@ -21,13 +21,17 @@ export const FavoriteRecipe = ({ recipe, onRemove, onSee }) => {
   return (
     <FavRecipeItem>
       <RecipeImage src={recipe.image} alt={recipe.name} />
-      <Details>
-        <RecipeTitle>{recipe.name}</RecipeTitle>
-        <RecipeDescription>{recipe.description}</RecipeDescription>
+
+      <FavRecipeTopInfo>
+        <div>
+          <RecipeTitle>{recipe.name}</RecipeTitle>
+          <RecipeDescription>{recipe.description}</RecipeDescription>
+        </div>
         <RecipePrepTime>{recipe.prepTime}</RecipePrepTime>
-        <SeeRecipe onClick={handleSeeReciepe}>See Recipe</SeeRecipe>
-        <DeleteButton onClick={handleRemove}>Remove</DeleteButton>
-      </Details>
+      </FavRecipeTopInfo>
+
+      <DeleteButton onClick={handleRemove}></DeleteButton>
+      <SeeRecipeBtn onClick={handleSeeReciepe}>See Recipe</SeeRecipeBtn>
     </FavRecipeItem>
   );
 };
