@@ -1,23 +1,27 @@
 import React from "react";
 import { SearchForm } from "../SearchForm/SearchForm";
 import { SearchTypeSelector } from "../SearchTypeSelector/SearchTypeSelector";
+import { SearchBarWrap } from "../SearchBar/SearchBar.styled";
 
 export const SearchBar = ({
     searchQuery,
     searchType,
-    onSearchQueryChange,
+    onSubmit,
     onSearchTypeChange,
 }) => {
     return (
-    <div>
-        <SearchForm
-        searchQuery={searchQuery}
-        onSearchQueryChange={onSearchQueryChange}
-        />
-        <SearchTypeSelector
-        searchType={searchType}
-        onSearchTypeChange={onSearchTypeChange}
-        />
-    </div>
+    <>
+        <SearchBarWrap>
+            <SearchForm
+            searchQuery={searchQuery}
+            onSubmit={onSubmit}
+            />
+            <SearchTypeSelector
+            searchType={searchType}
+            onChange={onSearchTypeChange}
+            />
+        </SearchBarWrap>
+    </>
     );
 }
+
