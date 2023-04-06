@@ -12,7 +12,7 @@ export const RecipeIngredientsFields = () => {
       <h2>Ingredients</h2>
       <div>
         <input></input>
-        <select id="weight" name="weight">
+        <select id="weight" name="weight" defaultValue="g">
           <option value="tbs" selected>
             tbs
           </option>
@@ -31,16 +31,16 @@ export const RecipeIngredientsFields = () => {
             <path
               d="M14.0625 4.4375L3.9375 14.5625"
               stroke="#333333"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M14.0625 14.5625L3.9375 4.4375"
               stroke="#333333"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </button>
