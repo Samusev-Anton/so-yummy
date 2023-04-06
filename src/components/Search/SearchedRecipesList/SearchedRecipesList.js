@@ -4,12 +4,13 @@ export const SearchedRecipesList = (recipes) => {
   console.log(recipes);
   return (
     <div>
-      {recipes.length === 0 ? (
+      {recipes.length > 0 ? (
         <>
-          {recipes.map(recipes => (
-            <li key={recipes._id}>
-              <img src={recipes.preview} alt={recipes.title}></img>
-              <p>{recipes.title}</p>
+        <div>Список рецептів</div>
+          {recipes.map(([...data]) => (
+            <li key={data._id}>
+              <img src={data.preview} alt={data.title}></img>
+              <p>{data.title}</p>
             </li>
           ))}
         </>
