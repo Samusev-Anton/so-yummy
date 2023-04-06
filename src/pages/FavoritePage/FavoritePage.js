@@ -1,6 +1,11 @@
 import React from 'react';
 import { FavoriteRecipe } from '../../components/FavoriteRecipe/FavoriteRecipe';
-import { RecipeList } from './FavoritePage.Styled';
+import { Container } from 'components/GlobalStyles';
+import {
+  RecipeList,
+  FavoritePageTitle,
+  FavoritePageThumb,
+} from './FavoritePage.Styled';
 
 // import { getFavoriteRecipesAPI } from '../services/API/Recipes';
 
@@ -51,13 +56,15 @@ const favoriteRecipes = [
 
 export const FavoritePage = () => {
   return (
-    <div>
-      <h1>Favorite Recipes</h1>
-      <RecipeList>
-        {favoriteRecipes.map(recipe => (
-          <FavoriteRecipe key={recipe.id} recipe={recipe} />
-        ))}
-      </RecipeList>
-    </div>
+    <Container>
+      <FavoritePageThumb>
+        <FavoritePageTitle>Favorites</FavoritePageTitle>
+        <RecipeList>
+          {favoriteRecipes.map(recipe => (
+            <FavoriteRecipe key={recipe.id} recipe={recipe} />
+          ))}
+        </RecipeList>
+      </FavoritePageThumb>
+    </Container>
   );
 };
