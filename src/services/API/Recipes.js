@@ -18,3 +18,10 @@ export const getSetOfCategoriestAPI = () => {
       return data;
     });
   };
+
+export const searchRecipesApi = async ({ searchQuery, searchType }) => {
+    const searchUrl = searchType === 'query' ? `/recipes/search/title?title=${searchQuery}` : `/ingredients/?ingredients=${searchQuery}`;
+    return axios.get(searchUrl).then(({ data }) => {
+        return data.data;
+    });
+};
