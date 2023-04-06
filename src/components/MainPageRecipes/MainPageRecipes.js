@@ -8,28 +8,28 @@ import { getMainCategories } from '../../redux/opertions';
 
 import { getContentForMain } from '../../redux/selectors';
 
-import { TitleCatigories, ListCatigories,ListMeals,ItemMeal, ItemCategories } from './MainPageRecipes.styled';
+import { TitleCatigories, ListCatigories,ListMeals, ItemCategories } from './MainPageRecipes.styled';
 import { Container } from 'components/GlobalStyles';
 
 
 export const PreviewCategories = () => {
-      const data = useSelector(getContentForMain);
-      const dispatch = useDispatch();
-      const isDesktop = useMediaQuery({ minWidth: 1440 });
-      const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
+ const data = useSelector(getContentForMain);
+ const dispatch = useDispatch();
+ const isDesktop = useMediaQuery({ minWidth: 1440 });
+ const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
   
-      useEffect(() => {
-        if (data !== null) return;
-        dispatch(getMainCategories());
-      }, [dispatch, data]);
+ useEffect(() => {
+  if (data !== null) return;
+ dispatch(getMainCategories());
+}, [dispatch, data]);
   
  let numCard;
  if (isDesktop) {
-   numCard = 4; 
+numCard = 4; 
  } else if (isTablet) {
-  numCard = 2; 
+numCard = 2; 
   } else {
-   numCard = 1; 
+ numCard = 1; 
  };
   console.log(data);
   if (!data) return
