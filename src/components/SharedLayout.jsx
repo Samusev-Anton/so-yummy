@@ -8,21 +8,19 @@ import { Footer } from './Footer/Footer';
 import { AdditionalFooter } from './Footer/AdditionalFooter';
 import { Container } from './GlobalStyles';
 
+
 export const SharedLayout = props => {
   return (
     <React.Fragment>
-      <Container>
+      {/* <Container> */}
         <Header />
-       
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
-        <Footer />
-
-      </Container> 
-
+      {/* </Container>  */}
+      <Footer />
         <AdditionalFooter />
-
+ 
     </React.Fragment>
   );
 };

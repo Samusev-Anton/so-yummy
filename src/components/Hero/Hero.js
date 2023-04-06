@@ -4,7 +4,7 @@ import { SectionHero, HeroTitle,HeroTitleSo, HeroText, HeroInputSearch, HeroReci
 import { SearchForm } from "components/SearchInput/SearchForm"
 
 
-const Hero = ()=>{
+export const Hero = ()=>{
 
 
     return(
@@ -27,4 +27,4 @@ const Hero = ()=>{
         
     )
 }
-export default Hero
+ 
