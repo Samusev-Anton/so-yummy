@@ -31,7 +31,10 @@ const persistedRecipesReducer = persistReducer(
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 
-const persistedSearchReducer = persistReducer(searchPersistConfig, searchReducer);
+const persistedSearchReducer = persistReducer(
+  searchPersistConfig,
+  searchReducer
+);
 
 export const store = configureStore({
   reducer: {
