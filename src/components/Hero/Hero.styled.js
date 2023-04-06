@@ -56,6 +56,7 @@ line-height: 60px;
 text-align: center;
 letter-spacing: -0.005em;
 margin: 0;
+color: #22252A;
 position:absolute;
 left: 20%;
 top: 132px;
@@ -142,20 +143,21 @@ border-radius: 8px;
 padding: 8px;
 @media (min-width: 1280px) {
 top:437px;
-right:90px;
+left:70%;
 width: 298px;
 height: 114px;
 padding: 16px;
 }
 `
 export const HeroRecipeText = styled.p`
+tex-align:left;
 color:#3E4462;
-
+font-size: 12px;
 @media (min-width: 1280px) {
 font-weight: 500;
-${'' /* font-size: 14px; */}
+font-size: 14px;
 line-height: 20px;
-${'' /* letter-spacing: -0.24px; */}
+letter-spacing: -0.24px;
 }
 `
 export const HeroRecipeLink = styled.link`

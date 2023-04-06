@@ -8,8 +8,9 @@ import { getMainCategories } from '../../redux/opertions';
 
 import { getContentForMain } from '../../redux/selectors';
 
-import { TitleCatigories, ListCatigories,ListMeals, ItemCategories } from './MainPageRecipes.styled';
+import { TitleCatigories, ListCatigories,ListMeals, ItemCategories, BtnRecipes, BtnRecipesLink } from './MainPageRecipes.styled';
 import { Container } from 'components/GlobalStyles';
+
 
 
 export const PreviewCategories = () => {
@@ -46,6 +47,9 @@ numCard = 2;
 
   ))}
  </ListMeals>
+
+ <BtnRecipesLink to={`/categories/${meal._id}`}>See all</BtnRecipesLink>
+
  </ItemCategories>
  
   ))}  
