@@ -19,6 +19,7 @@ import { FavoritePage } from 'pages/FavoritePage/FavoritePage';
 // import { ShoppingPage } from 'pages/ShoppingPage';
 import { SearchPage } from 'pages/SearchPage';
 // import { Error } from 'pages/Error';
+import { RecipePage } from 'pages/RecipePage';
 
 import { PublicRoute } from 'services/routes/PublicRoute';
 import { PrivateRoute } from 'services/routes/PrivateRoute';
@@ -58,10 +59,9 @@ export const App = () => {
           <Route path="/add" element={<AddRecipePage />} />
           {/* <Route path="/favorite" element={<Favoritepage />} /> */}
           {/* <Route path="/shopping-list" element={<ShoppingPage />} /> */}
-          {/* <Route path="/add" element={<AddRecipePage />} />
-          <Route path="/my" element={<MyRecipePage />} />
-          
-          <Route path="/shopping-list" element={<ShoppingPage />} /> */}
+          {/* /* <Route path="/add" element={<AddRecipePage />} /> */}
+          {/* <Route path="/my" element={<MyRecipePage />} /> */}
+          <Route path="/recipe/:recipeId" element={<RecipePage />} /> */
           <Route path="/search" element={<SearchPage />} />
           <Route path="/my" element={<MyRecipesPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
