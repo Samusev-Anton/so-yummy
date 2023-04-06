@@ -28,12 +28,12 @@ z-index:2;
     margin-bottom: 72px;
     background-image: url(${HeroImgTablet});
 
-}
 @media (min-width: 768px),
     screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
     background-image: url(${HeroImgTablet2x});
+}
 }
 @media (min-width: 1280px) {
     background-image: url(${HeroImg});
@@ -56,7 +56,10 @@ line-height: 60px;
 text-align: center;
 letter-spacing: -0.005em;
 margin: 0;
-padding-top:68px;
+position:absolute;
+left: 20%;
+top: 132px;
+
 @media (min-width: 768px) {
 padding-top:0;
 display:flex;
@@ -64,7 +67,7 @@ text-content:center;
 align-items:center;
 font-size: 100px;
 line-height: 100px;
-position:absolute;
+
 top:226px;
 left:170px;
 
@@ -77,7 +80,6 @@ text-content:center;
 align-items:center;
 font-size: 100px;
 line-height: 100px;
-position:absolute;
 top:226px;
 left:170px;
 
@@ -98,59 +100,74 @@ color: #8BAA36
 }
 `
 export const HeroText = styled.p`
+position:absolute;
+width: 248px;
+left: 20%;
+top: 206px;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+letter-spacing: -0.02em;
+color: #23262A;
+text-align: center;
 
 @media (min-width: 1280px) {
 width: 430px;
-font-weight: 400;
+
 font-size: 18px;
 line-height: 24px;
-letter-spacing: -0.02em;
-color: #23262A;
-position:absolute;
+
 top:340px;
 left:170px;
 text-align: left;
 }
 `
 export const HeroInputSearch = styled.div`
-@media (min-width: 1280px) {
 position:absolute;
+left: 18%;
+top: 650px;
+@media (min-width: 1280px) {
 top:460px;
 left:160px;
 }
 `
 export const HeroRecipeWrapper = styled.div`
-@media (min-width: 1280px) {
+width: 225px;
+height: 92px;
+left: 116px;
+top: 435px;
 position:absolute;
-top:430px;
-right:70px;
 background: #FFFFFF;
 border-radius: 8px;
+padding: 8px;
+@media (min-width: 1280px) {
+top:437px;
+right:90px;
 width: 298px;
 height: 114px;
 padding: 16px;
 }
 `
 export const HeroRecipeText = styled.p`
-
+color:#3E4462;
 
 @media (min-width: 1280px) {
 font-weight: 500;
 ${'' /* font-size: 14px; */}
 line-height: 20px;
 ${'' /* letter-spacing: -0.24px; */}
-color:#3E4462;
 }
 `
 export const HeroRecipeLink = styled.link`
 
 `
 export const HeroRecipeAccent = styled.span`
+color:#8BAA36;
 @media (min-width: 1280px) {
 font-weight: 500;
 ${'' /* font-size: 14px; */}
 line-height: 20px;
 ${'' /* letter-spacing: -0.24px; */}
-color:#8BAA36;
+
 }
 `

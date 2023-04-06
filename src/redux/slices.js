@@ -45,28 +45,27 @@ export const recipesSlice = createSlice({
           state.loadingRecipesOfCategory = false;
         }
       )
-      .addCase( getMainCategories.fulfilled, (state, { payload }) => {
+      .addCase(getMainCategories.fulfilled, (state, { payload }) => {
         state.mainCategories = payload.data;
-      })
+      }),
 });
 
 export const searchSlice = createSlice({
-    name: 'search',
-    initialState,
-    extraReducers: {
-      [getSearchRecipes.pending]: handlePending,
-      [getSearchRecipes.rejected]: handleRejected,
-      
-      [getSearchRecipes.fulfilled](state, { payload }) {
-        state.isLoading = false;
-        state.error = null;
-        state.searchedRecipes = payload.data;
-      },
-    },
-  });  
+  name: 'search',
+  initialState,
+  extraReducers: {
+    [getSearchRecipes.pending]: handlePending,
+    [getSearchRecipes.rejected]: handleRejected,
 
+    [getSearchRecipes.fulfilled](state, payload) {
+      state.isLoading = false;
+      state.error = null;
+      console.log(payload);
+      state.searchedRecipes = payload;
+    },
+  },
+});
 
 export const recipesReducer = recipesSlice.reducer;
 
 export const searchReducer = recipesSlice.reducer;
-
