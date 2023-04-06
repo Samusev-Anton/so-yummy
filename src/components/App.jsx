@@ -3,6 +3,8 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { SharedLayout } from './SharedLayout';
 import { WelcomePage } from 'pages/WelcomePage/WellcomePage';
@@ -61,6 +63,7 @@ export const App = () => {
           {/* <Route path="*" element={<Error />} /> */}
         </Route>
       </Routes>
+      <ToastContainer />
     </>
   );
 };
