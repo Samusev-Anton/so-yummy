@@ -36,7 +36,7 @@ export const RecipeDescriptionFields = () => {
       <SectionInput placeholder="Enter item title"></SectionInput>
       <SectionInput placeholder="Enter about recipe"></SectionInput>
       <SectionSelect id="category" name="category" value={category}>
-        <option selected>Category</option>
+        <option>Category</option>
         <option value="tbs">tbs</option>
         <option value="tsp">tsp</option>
         <option value="kg">kg</option>
@@ -48,7 +48,7 @@ export const RecipeDescriptionFields = () => {
         defaultChecked="Cooking time"
         value={cookingTime}
       >
-        <option selected>Cooking time</option>
+        <option>Cooking time</option>
         <option value="tbs">tbs</option>
         <option value="tsp">tsp</option>
         <option value="kg">kg</option>
