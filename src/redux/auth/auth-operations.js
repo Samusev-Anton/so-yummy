@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
 
@@ -25,6 +26,14 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.user.token);
       return res.data;
     } catch (error) {
+      // console.log(error);
+      toast.error(`${error.response.data.message}`, {
+        position: 'top-center',
+        autoClose: 2500,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: 'colored',
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -39,6 +48,13 @@ export const login = createAsyncThunk(
       console.log(res);
       return res.data;
     } catch (error) {
+      toast.error(`${error.response.data.message}`, {
+        position: 'top-center',
+        autoClose: 2500,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: 'colored',
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -74,6 +90,13 @@ export const getCurrentUser = createAsyncThunk(
       const res = await axios.get('/auth/current');
       return res.data;
     } catch (error) {
+      toast.error(`${error.response.data.message}`, {
+        position: 'top-center',
+        autoClose: 2500,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: 'colored',
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }

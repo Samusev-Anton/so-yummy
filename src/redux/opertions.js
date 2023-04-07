@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   getCategoriesAPI,
   getRecipesByCategoryAPI,
-  getSetOfCategoriestAPI
+  getSetOfCategoriestAPI,
+  searchRecipesApi,
 } from 'services/API/Recipes';
 import { getMailAPI } from 'services/API/SendMail';
 
@@ -43,7 +44,19 @@ export const getMainCategories = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       return await getSetOfCategoriestAPI();
-  
+    } catch (error) {
+      return rejectWithValue(error.response.status);
+    }
+  }
+);
+
+export const getSearchRecipes = createAsyncThunk(
+  'search/getSearchRecipes',
+  async ({ searchQuery, searchType }, { rejectWithValue }) => {
+    try {
+      return await searchRecipesApi({ searchQuery, searchType });
+      // console.log(data);
+      // return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
     }
