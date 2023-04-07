@@ -1,8 +1,16 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { register, login, logout, getCurrentUser } from './auth-operations';
+import { transformUserData } from '../../utils/transformUserData';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: {
+    name: null,
+    email: null,
+    avatarURL: null,
+    avatarCloudId: null,
+    favoritsRecipe: [],
+    shoppingList: [],
+  },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -14,15 +22,16 @@ export const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = transformUserData(action.payload.user);
         state.token = action.payload.user.token;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        console.log(action.payload.user);
+        state.user = transformUserData(action.payload.user);
         state.token = action.payload.user.token;
       })
       .addCase(logout.fulfilled, state => {
-        state.user = { name: null, email: null };
+        state.user = initialState.user;
         state.token = null;
         state.isLoggedIn = false;
       })
