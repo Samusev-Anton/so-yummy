@@ -54,7 +54,7 @@ export const DeleteButton = styled.button`
   right: 40px;
   width: 44px;
   height: 44px;
-  background-color: #ebf3d4;
+  background-color: #8baa36;
   border: none;
   border-radius: 4px;
 
@@ -74,7 +74,7 @@ export const SeeRecipeBtn = styled.button`
     color: #fafafa;
   }
   border: none;
-  background-color: #22252a;
+  background-color: #8baa36;
   border-radius: 24px 44px;
   position: absolute;
   bottom: 40px;

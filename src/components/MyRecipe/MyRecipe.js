@@ -8,7 +8,7 @@ import {
   SeeRecipeBtn,
   FavRecipeTopInfo,
 } from './MyRecipe.Styled';
-import { ReactComponent as Icon } from '../../images/trashIcon.svg';
+import { ReactComponent as Icon } from '../../images/trashIcon-light.svg';
 
 export const MyRecipe = ({ recipe, onRemove, onSee }) => {
   const handleRemove = () => {
