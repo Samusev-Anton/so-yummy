@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const FavoritePageThumb = styled.div`
-  /* margin-top: 80px; */
   position: relative;
   max-width: 1240px;
-  top: 164px;
-  margin: auto;
-  margin-bottom: 370px;
+  top: -164px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 41px; // 205 - between fav and footer, 164 - relative position
 `;
 
 export const RecipeList = styled.ul`

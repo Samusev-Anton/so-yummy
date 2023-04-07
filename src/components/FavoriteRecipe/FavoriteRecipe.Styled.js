@@ -59,11 +59,11 @@ export const DeleteButton = styled.button`
   border: none;
   border-radius: 4px;
 
-  svg {
-    fill: #333;
-    width: 16px;
-    height: 16px;
-  }
+  /* svg {
+    fill: #22252a;
+    width: 18px;
+    height: 20px;
+  } */
   &:hover {
     cursor: pointer;
   }
