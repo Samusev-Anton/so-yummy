@@ -14,7 +14,7 @@ import { LoginPage } from 'pages/LoginPage';
 
 import { MainPage } from 'pages/MainPage';
 import { AddRecipePage } from 'pages/AddRecipePage';
-// import { MyRecipePage } from 'pages/MyRecipePage';
+import { MyRecipesPage } from 'pages/MyRecipesPage/MyRecipesPage';
 import { FavoritePage } from 'pages/FavoritePage/FavoritePage';
 // import { ShoppingPage } from 'pages/ShoppingPage';
 import { SearchPage } from 'pages/SearchPage';
@@ -56,7 +56,6 @@ export const App = () => {
             element={<CategoriesPage />}
           />
           <Route path="/add" element={<AddRecipePage />} />
-          {/* <Route path="/my" element={<MyRecipePage />} /> */}
           {/* <Route path="/favorite" element={<Favoritepage />} /> */}
           {/* <Route path="/shopping-list" element={<ShoppingPage />} /> */}
           {/* <Route path="/add" element={<AddRecipePage />} />
@@ -64,6 +63,7 @@ export const App = () => {
           
           <Route path="/shopping-list" element={<ShoppingPage />} /> */}
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/my" element={<MyRecipesPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
           {/* <Route path="*" element={<Error />} /> */}
         </Route>
