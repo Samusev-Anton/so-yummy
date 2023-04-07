@@ -33,8 +33,8 @@ export const searchRecipesApi = async ({ searchQuery, searchType }) => {
 };
 
 // favorite recipes
-// export const getFavoriteRecipesAPI = () => {
-//   return axios.get('/favorite').then(({ data }) => {
-//     return data;
-//   });
-// };
+export const getFavoriteRecipesAPI = () => {
+  return axios.get('/favorite').then(({ data }) => {
+    return data;
+  });
+};
