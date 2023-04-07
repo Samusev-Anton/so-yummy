@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FavRecipeItem = styled.li`
   position: relative;
   padding: 40px;
-  background-color: #ffffff;
+  background-color: #fafafa; // shuld be #ffffff, #fafafa applied temporarily until #fafafa is not applied to background globally
   border-radius: 8px;
   display: flex;
 `;
@@ -27,7 +27,6 @@ export const RecipeTitle = styled.h3`
   letter-spacing: -0.24px;
   margin-top: 0px;
   margin-bottom: 50px;
-
   color: #3e4462;
 `;
 
@@ -59,35 +58,41 @@ export const DeleteButton = styled.button`
   border: none;
   border-radius: 4px;
 
-  svg {
-    fill: #333;
-    width: 16px;
-    height: 16px;
-  }
+  /* svg {
+    fill: #22252a;
+    width: 18px;
+    height: 20px;
+  } */
   &:hover {
     cursor: pointer;
   }
 `;
 
 export const SeeRecipeBtn = styled.button`
-  position: absolute;
+  &:hover {
+    background-color: #22252a;
+    color: #fafafa;
+  }
+  border: none;
+  background-color: #22252a;
+  border-radius: 24px 44px;
   position: absolute;
   bottom: 40px;
   right: 40px;
-  width: 160px;
-  height: 54px;
-  background-color: #22252a;
-  border: none;
-  border-radius: 4px;
+  cursor: pointer;
   color: #fafafa;
-  svg {
-    fill: #333;
-    width: 16px;
-    height: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 54px;
+  width: 160px;
+  /* @media (min-width: 768px) {
+    height: 57px;
+    width: 161px;
   }
-  &:hover {
-    cursor: pointer;
-  }
+  @media (min-width: 1280px) {
+    height: 70px;
+  } */
 `;
 
 export const FavRecipeTopInfo = styled.div`

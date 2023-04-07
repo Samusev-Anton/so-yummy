@@ -6,14 +6,17 @@ import {
   FavoritePageTitle,
   FavoritePageThumb,
 } from './FavoritePage.Styled';
+import { TitleConteiner } from 'components/MainPageTitle/MainPageTitle/MainPageTitle.styled';
 
-// import { getFavoriteRecipesAPI } from '../services/API/Recipes';
+// import { getFavoriteRecipesAPI } from '../../services/API/Recipes';
 
-// const fav = getFavoriteRecipesAPI().then(data => {
-//   console.log(data);
-// });
+// const fav = getFavoriteRecipesAPI()
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .catch(console.error);
 
-// console.log(fav);
+// fav();
 
 const favoriteRecipes = [
   {
@@ -57,6 +60,7 @@ const favoriteRecipes = [
 export const FavoritePage = () => {
   return (
     <Container>
+      <TitleConteiner></TitleConteiner>
       <FavoritePageThumb>
         <FavoritePageTitle>Favorites</FavoritePageTitle>
         <RecipeList>

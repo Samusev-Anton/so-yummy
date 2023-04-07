@@ -8,6 +8,7 @@ import {
   SeeRecipeBtn,
   FavRecipeTopInfo,
 } from './FavoriteRecipe.Styled';
+import { ReactComponent as Icon } from '../../images/trashIcon.svg';
 
 export const FavoriteRecipe = ({ recipe, onRemove, onSee }) => {
   const handleRemove = () => {
@@ -30,7 +31,9 @@ export const FavoriteRecipe = ({ recipe, onRemove, onSee }) => {
         <RecipePrepTime>{recipe.prepTime}</RecipePrepTime>
       </FavRecipeTopInfo>
 
-      <DeleteButton onClick={handleRemove}></DeleteButton>
+      <DeleteButton onClick={handleRemove}>
+        <Icon />
+      </DeleteButton>
       <SeeRecipeBtn onClick={handleSeeReciepe}>See Recipe</SeeRecipeBtn>
     </FavRecipeItem>
   );
