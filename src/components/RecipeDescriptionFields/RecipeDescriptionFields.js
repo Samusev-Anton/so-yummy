@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import {
   SectionInput,
-  SectionSelectInput,
+  // SectionSelectInput,
   SectionSelect,
 } from 'components/RecipeDescriptionFields/RecipeDescriptionFields.styled';
 // import { useDispatch } from 'react-redux';
