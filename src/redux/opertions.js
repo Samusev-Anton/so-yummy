@@ -55,10 +55,9 @@ export const getSearchRecipes = createAsyncThunk(
   async ({ searchQuery, searchType }, { rejectWithValue }) => {
     try {
       return await searchRecipesApi({ searchQuery, searchType });
-      // console.log(data);
-      // return data;
     } catch (error) {
       return rejectWithValue(error.response.status);
     }
   }
 );
+
