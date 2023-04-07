@@ -3,11 +3,15 @@ import styled from 'styled-components';
 export const FavoritePageThumb = styled.div`
   /* margin-top: 80px; */
   position: relative;
+  max-width: 1240px;
   top: 164px;
+  margin: auto;
+  margin-bottom: 370px;
 `;
 
 export const RecipeList = styled.ul`
   display: flex;
+  align-items: center;
   gap: 50px;
   flex-direction: column;
   margin: 0;

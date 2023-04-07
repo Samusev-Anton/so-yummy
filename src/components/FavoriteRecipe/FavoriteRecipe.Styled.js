@@ -69,25 +69,51 @@ export const DeleteButton = styled.button`
   }
 `;
 
+// export const SeeRecipeBtn = styled.button`
+//   position: absolute;
+//   bottom: 40px;
+//   right: 40px;
+//   width: 160px;
+//   height: 54px;
+//   background-color: #22252a;
+//   border: none;
+//   border-radius: 4px;
+//   color: #fafafa;
+//   svg {
+//     fill: #333;
+//     width: 16px;
+//     height: 16px;
+//   }
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `;
+
 export const SeeRecipeBtn = styled.button`
-  position: absolute;
+  &:hover {
+    background-color: #22252a;
+    color: #fafafa;
+  }
+  border: none;
+  background-color: #22252a;
+  border-radius: 24px 44px;
   position: absolute;
   bottom: 40px;
   right: 40px;
-  width: 160px;
-  height: 54px;
-  background-color: #22252a;
-  border: none;
-  border-radius: 4px;
+
   color: #fafafa;
-  svg {
-    fill: #333;
-    width: 16px;
-    height: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 54px;
+  width: 160px;
+  /* @media (min-width: 768px) {
+    height: 57px;
+    width: 161px;
   }
-  &:hover {
-    cursor: pointer;
-  }
+  @media (min-width: 1280px) {
+    height: 70px;
+  } */
 `;
 
 export const FavRecipeTopInfo = styled.div`
