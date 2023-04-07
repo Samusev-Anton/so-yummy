@@ -39,7 +39,15 @@ export const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(getCurrentUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = {
+          name: action.payload.data.name,
+          email: action.payload.data.email,
+          avatarURL: action.payload.data.avatarURL,
+          avatarCloudId: action.payload.data.avatarCloudId,
+          favoritsRecipe: [...action.payload.data.favoritsRecipe],
+          shoppingList: [...action.payload.data.shoppingList],
+        };
+        state.token = action.payload.data.token;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
