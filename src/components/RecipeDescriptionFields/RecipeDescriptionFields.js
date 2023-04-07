@@ -13,6 +13,8 @@ export const RecipeDescriptionFields = () => {
   });
   const [category, setCategory] = useState();
   const [cookingTime, setcookingTime] = useState();
+  console.log(setCategory);
+  console.log(setcookingTime);
 
   const handleImageChange = event => {
     setFormData({ ...formData, image: event.target.files[0] });
