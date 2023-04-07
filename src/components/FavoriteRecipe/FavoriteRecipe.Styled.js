@@ -27,7 +27,6 @@ export const RecipeTitle = styled.h3`
   letter-spacing: -0.24px;
   margin-top: 0px;
   margin-bottom: 50px;
-
   color: #3e4462;
 `;
 
