@@ -1,4 +1,11 @@
 import * as React from 'react';
+import {
+  SectionRecipePreparationFields,
+  SectionTitle,
+  SectionTextArea,
+} from 'components/RecipePreparationFields/RecipePreparationFields.styled';
+import { BtnAdd } from 'components/AddRecipeForm/AddRecipeForm.styled';
+// import { style } from 'styled-system';
 // import { useDispatch } from 'react-redux';
 
 export const RecipePreparationFields = () => {
@@ -8,15 +15,17 @@ export const RecipePreparationFields = () => {
   //     event.preventDefault();
   //   };
   return (
-    <>
-      <h2>Recipe Preparation</h2>
-      <form>
-        <textarea
-          name="myrecipe"
-          //   rows="5"
-          placeholder="Enter recipe"
-        ></textarea>
-      </form>
-    </>
+    <SectionRecipePreparationFields>
+      <SectionTitle>Recipe Preparation</SectionTitle>
+      <SectionTextArea
+        type="text"
+        id="myrecipe"
+        name="myrecipe"
+        placeholder="Enter recipe"
+        // onChange={handleInputChange}
+        // value={}
+      ></SectionTextArea>
+      <BtnAdd type="submit">Add</BtnAdd>
+    </SectionRecipePreparationFields>
   );
 };
