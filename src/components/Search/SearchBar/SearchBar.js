@@ -6,22 +6,23 @@ import { SearchBarWrap } from "../SearchBar/SearchBar.styled";
 export const SearchBar = ({
     searchQuery,
     searchType,
-    onSubmit,
-    onSearchTypeChange,
+    onSearchQueryChange,
+    onSearchTypeChange,  
 }) => {
     return (
     <>
         <SearchBarWrap>
             <SearchForm
             searchQuery={searchQuery}
-            onSubmit={onSubmit}
+            onSearchQueryChange={onSearchQueryChange}
             />
             <SearchTypeSelector
             searchType={searchType}
-            onChange={onSearchTypeChange}
+            onSearchTypeChange={onSearchTypeChange}
             />
         </SearchBarWrap>
     </>
     );
 }
+
 
