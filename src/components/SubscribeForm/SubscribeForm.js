@@ -1,9 +1,6 @@
 import * as React from 'react';
-// import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useParams } from 'react-router-dom';
 import { sendMailOperation } from 'redux/opertions';
-// import { logIn } from '../../Redux/auth/operations';
 import {
   Form,
   EmailField,
