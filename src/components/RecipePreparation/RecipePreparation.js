@@ -5,7 +5,7 @@ import {
 } from './RecipePreparation.styled.js';
 
 export const RecipePreparation = ({ recipeDescription }) => {
-  const instr = recipeDescription.instructions;
+  // const instr = recipeDescription.instructions;
 
   //   /(?=[A-Z])/g
   // const arr = instr.split();
