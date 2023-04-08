@@ -22,7 +22,7 @@ export const RecipePage = () => {
     <>
       <RecipePageHero recipeDescription={recipeDescription} />
       <RecipeIngredientsList ingredientsList={ingredientsList} />
-      <RecipePreparation recipeDescription={recipeDescription} />
+      <RecipePreparation recipeDescription={recipeDescription} />{' '}
     </>
   );
 };

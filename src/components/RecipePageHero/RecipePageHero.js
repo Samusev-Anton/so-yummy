@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { addFavRecipe } from 'redux/ShoppingList/operations.js';
 import {
   RecipeHeroBox,
   HeroButton,
@@ -9,7 +10,6 @@ import {
   HeroTime,
   RecipeHeroWrapper,
 } from './RecipePageHero.styled.js';
-import { addFavRecipe } from 'redux/ShoppingList/operations.js';
 
 export const RecipePageHero = ({ recipeDescription }) => {
   const dispatch = useDispatch();

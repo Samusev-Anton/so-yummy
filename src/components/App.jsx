@@ -25,6 +25,7 @@ import { PublicRoute } from 'services/routes/PublicRoute';
 import { PrivateRoute } from 'services/routes/PrivateRoute';
 
 import { getCurrentUser } from '../redux/auth/auth-operations';
+// import { ShoppingListPage } from 'pages/ShoppingListPage';
 
 export const App = () => {
   const dispatch = useDispatch();
