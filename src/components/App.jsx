@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SharedLayout } from './SharedLayout';
 import { WelcomePage } from 'pages/WelcomePage/WellcomePage';
 import { CategoriesPage } from 'pages/CategoriesPage';
-import { SignUpPage } from 'pages/SignUpPage';
+import { SignUpPage } from 'pages/SignUpPage/SignUpPage';
 import { LoginPage } from 'pages/LoginPage';
 
 import { MainPage } from 'pages/MainPage';

@@ -1,9 +1,20 @@
-import { Link } from 'react-router-dom';
-import { Formik, Form, Field } from 'formik';
+import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 
 import { schemaLoginValidation } from 'utils/formValidation';
 import { login } from 'redux/auth/auth-operations';
+
+import { getValidColor } from 'utils/getValidColor';
+import {
+  FormAuth,
+  BoxForForm,
+  FormField,
+  BoxForField,
+  Warning,
+  Button,
+  LinkTo,
+} from '../RegisterForm/RegisterForm.styled';
+import { Title } from './LoginForm.styled';
 
 const initialValues = {
   email: '',
@@ -27,26 +38,50 @@ export const LoginForm = () => {
   };
   return (
     <div>
-      <h1>Sign In</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={schemaLoginValidation}
         onSubmit={handleSubmit}
       >
         {({ errors, touched }) => (
-          <Form>
-            <Field type="email" name="email" placeholder="Email" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            Password
-            <Field type="password" name="password" placeholder="Password" />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ) : null}
-            <button type="submit">Sign In</button>
-          </Form>
+          <FormAuth>
+            <Title>Sign In</Title>
+
+            <BoxForForm>
+              <BoxForField>
+                <FormField
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  color={getValidColor(errors.email, touched.email)}
+                />
+                {errors.email && touched.email ? (
+                  <Warning color={getValidColor(errors.email, touched.email)}>
+                    {errors.email}
+                  </Warning>
+                ) : null}
+              </BoxForField>
+              <BoxForField>
+                <FormField
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  color={getValidColor(errors.password, touched.password)}
+                />
+                {errors.password && touched.password ? (
+                  <Warning
+                    color={getValidColor(errors.password, touched.password)}
+                  >
+                    {errors.password}
+                  </Warning>
+                ) : null}
+              </BoxForField>
+            </BoxForForm>
+            <Button type="submit">Sign In</Button>
+          </FormAuth>
         )}
       </Formik>
-      <Link to="/register">Registration</Link>
+      <LinkTo to="/register">Registration</LinkTo>
     </div>
   );
 };
