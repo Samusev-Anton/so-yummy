@@ -3,7 +3,6 @@ import {
   getCategoriesOperation,
   getRecipesByCategoryOperation,
   getMainCategories,
-  getSearchRecipes,
 } from './opertions';
 
 const initialState = {
@@ -11,17 +10,6 @@ const initialState = {
   recipesOfCategory: [],
   mainCategories: null,
   loadingRecipesOfCategory: false,
-  searchedRecipes: [],
-  isLoading: false,
-  error: null,
-};
-
-const handlePending = state => {
-  state.isLoading = true;
-};
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
 };
 
 export const recipesSlice = createSlice({
@@ -50,22 +38,7 @@ export const recipesSlice = createSlice({
       }),
 });
 
-export const searchSlice = createSlice({
-  name: 'search',
-  initialState,
-  extraReducers: {
-    [getSearchRecipes.pending]: handlePending,
-    [getSearchRecipes.rejected]: handleRejected,
-
-    [getSearchRecipes.fulfilled](state, payload) {
-      state.isLoading = false;
-      state.error = null;
-      console.log(payload);
-      state.searchedRecipes = payload;
-    },
-  },
-});
 
 export const recipesReducer = recipesSlice.reducer;
 
-export const searchReducer = recipesSlice.reducer;
+

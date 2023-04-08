@@ -3,8 +3,10 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { recipesReducer } from './slices';
 import { authReducer } from './auth/AuthSlice';
+
 import { searchReducer } from './slices';
 import { favRecipiesReducer } from './ShoppingList/slices';
+
 
 const recipesPersistConfig = {
   key: 'recipes',
@@ -19,23 +21,12 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const searchPersistConfig = {
-  key: 'search',
-  storage,
-  whitelist: ['searchedRecipes'],
-};
-
 const persistedRecipesReducer = persistReducer(
   recipesPersistConfig,
   recipesReducer
 );
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
-
-const persistedSearchReducer = persistReducer(
-  searchPersistConfig,
-  searchReducer
-);
 
 export const store = configureStore({
   reducer: {

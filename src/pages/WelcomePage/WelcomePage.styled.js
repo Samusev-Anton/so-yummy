@@ -12,15 +12,17 @@ export const ContainerWelcome = styled.div`
   margin: 0 auto;
   height: 100vh;
   display: flex;
+  width: 100wh;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 35px;
+  padding: 118px 20px;
 
   font-family: ${theme.fonts.main};
 
   background-size: cover;
-  background-widh: 100wh;
+
   background-repeat: no-repeat;
   background-position: center;
   background-image: linear-gradient(
@@ -149,12 +151,11 @@ export const NavBox = styled.nav`
 `;
 
 export const StyledLink = styled(Link)`
- border-radius: 20px 60px;
- 
-border: 2px solid #FAFAFA;
+  border-radius: 20px 60px;
+
+  border: 2px solid #fafafa;
 
   padding: 12px 24px;
-
 
   font-size: 14px;
   padding: 12px 24px;
@@ -162,27 +163,25 @@ border: 2px solid #FAFAFA;
   text-decoration: none;
   color: #fafafa;
 
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: ${theme.transition.cubicBezier};
 
   &:hover {
     background-color: #fafafa;
     border: 2px solid #8baa36;
     color: #8baa36;
   }
-       @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding: 22px 44px;
 
     font-size: 16px;
-    
   }
 
   &:first-of-type {
-    background-color: #8BAA36;
+    background-color: #8baa36;
     border: none;
     &:hover {
-      background-color: #22252A;;
-      color: #FAFAFA;
+      background-color: #22252a;
+      color: #fafafa;
     }
-
-
+  }
 `;
