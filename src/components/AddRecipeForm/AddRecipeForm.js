@@ -72,17 +72,17 @@ export const AddRecipeForm = () => {
     // reset();
   };
 
-  // function handleSearch(event) {
-  //   const newSearchTerm = event.target.value;
-  //   setSearchTerm(newSearchTerm);
+  function handleSearch(event) {
+    const newSearchTerm = event.target.value;
+    setSearchTerm(newSearchTerm);
 
-  //   const options = fetch('ingerdients.title');
+    const options = fetch('ingerdients.title');
 
-  //   const filteredOptions = options.filter(option =>
-  //     option.toLowerCase().includes(newSearchTerm.toLowerCase())
-  //   );
-  //   setDropdownOptions(filteredOptions);
-  // }
+    const filteredOptions = options.filter(option =>
+      option.toLowerCase().includes(newSearchTerm.toLowerCase())
+    );
+    setDropdownOptions(filteredOptions);
+  }
 
   const reset = () => {
     setRecipeTitle('');
@@ -163,7 +163,16 @@ export const AddRecipeForm = () => {
       <>
         <SectionTitle>Ingredients</SectionTitle>
         <div>
-          <input></input>
+          <div>
+            <input type="text" value={searchTerm} onChange={handleSearch} />
+            <select>
+              {dropdownOptions.map((option, index) => (
+                <option key={index} value={option}>
+                  {option.title}
+                </option>
+              ))}
+            </select>
+          </div>
           <select id="weight" name="weight" defaultValue="g">
             <option value="tbs" selected>
               tbs
