@@ -1,15 +1,11 @@
 import * as React from 'react';
-import Select from 'react-select';
 import { useState } from 'react';
 
-// import { useDispatch } from 'react-redux';
-// import { RecipeDescriptionFields } from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
-// import { RecipeIngredientsFields } from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
-// import { RecipePreparationFields } from 'components/RecipePreparationFields/RecipePreparationFields';
+import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
+
 import { BtnAdd } from 'components/AddRecipeForm/AddRecipeForm.styled';
 import {
   SectionInput,
-  // SectionSelectInput,
   SectionSelect,
 } from 'components/RecipeDescriptionFields/RecipeDescriptionFields.styled';
 import {
@@ -18,33 +14,12 @@ import {
   SectionTextArea,
 } from 'components/RecipePreparationFields/RecipePreparationFields.styled';
 
-// const optionsCategory = [
-//   { value: 'Beef', label: 'Beef' },
-//   { value: 'Dessert', label: 'Dessert' },
-//   { value: 'Lamb', label: 'Lamb' },
-//   { value: 'Fish', label: 'Lamb' },
-//   { value: 'Lamb', label: 'Lamb' },
-//   { value: 'Lamb', label: 'Lamb' },
-//   { value: 'Lamb', label: 'Lamb' },
-//   { value: 'Lamb', label: 'Lamb' },
-// ];
-
-// const optionsCookingTime = [
-//   { value: '1min', label: '1min' },
-//   { value: '2min', label: '2min' },
-//   { value: '5min', label: '3min' },
-// ];
-
 export const AddRecipeForm = () => {
-  //   const dispatch = useDispatch();
-
   const [recipeTitle, setRecipeTitle] = useState('');
   const [recipeAbout, setRecipeAbout] = useState('');
   const [category, setCategory] = useState('');
   const [cookingTime, setCookingTime] = useState('');
   const [preparation, setPreparation] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [dropdownOptions, setDropdownOptions] = useState([]);
   const [formData, setFormData] = useState({
     image: null,
   });
@@ -69,24 +44,6 @@ export const AddRecipeForm = () => {
       preparation: preparation,
     });
     console.log(recipe);
-    // reset();
-  };
-
-  function handleSearch(event) {
-    const newSearchTerm = event.target.value;
-    setSearchTerm(newSearchTerm);
-
-    const options = fetch('ingerdients.title');
-
-    const filteredOptions = options.filter(option =>
-      option.toLowerCase().includes(newSearchTerm.toLowerCase())
-    );
-    setDropdownOptions(filteredOptions);
-  }
-
-  const reset = () => {
-    setRecipeTitle('');
-    setRecipeAbout('');
   };
 
   return (
@@ -148,65 +105,9 @@ export const AddRecipeForm = () => {
         <option value="90">90 min</option>
         <option value="120">120 min</option>
       </SectionSelect>
-      {/* <Select
-        options={optionsCategory}
-        name="category"
-        value={recipe}
-        onChange={e => setCategory(e.target.value)}
-      />
-      <Select
-        options={optionsCookingTime}
-        name="cookingTime"
-        value={recipe}
-        onChange={e => setRecipe(e.target.value)}
-      /> */}
-      <>
-        <SectionTitle>Ingredients</SectionTitle>
-        <div>
-          <div>
-            <input type="text" value={searchTerm} onChange={handleSearch} />
-            <select>
-              {dropdownOptions.map((option, index) => (
-                <option key={index} value={option}>
-                  {option.title}
-                </option>
-              ))}
-            </select>
-          </div>
-          <select id="weight" name="weight" defaultValue="g">
-            <option value="tbs" selected>
-              tbs
-            </option>
-            <option value="tsp">tsp</option>
-            <option value="kg">kg</option>
-            <option value="g">g</option>
-          </select>
-          <button>
-            <svg
-              width="18"
-              height="19"
-              viewBox="0 0 18 19"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.0625 4.4375L3.9375 14.5625"
-                stroke="#333333"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M14.0625 14.5625L3.9375 4.4375"
-                stroke="#333333"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-      </>
+
+      <RecipeIngredientsList />
+
       <SectionRecipePreparationFields>
         <SectionTitle>Recipe Preparation</SectionTitle>
         <SectionTextArea
