@@ -86,8 +86,11 @@ export const TableProduct = styled.div`
 `;
 
 export const TableProductBox = styled.div`
+  display: flex;
+  justify-content: center;
   width: 60px;
   height: 60px;
+  padding: 12px;
   background: #ebf3d4;
   border-radius: 6px;
   margin-right: 10px;
@@ -95,6 +98,7 @@ export const TableProductBox = styled.div`
   @media (min-width: 768px) {
     width: 93px;
     height: 97px;
+    // padding: 12px 15px;
     margin-right: 16px;
     border-radius: 8px;
   }

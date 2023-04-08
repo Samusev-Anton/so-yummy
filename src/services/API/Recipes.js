@@ -39,8 +39,20 @@ export const getFavoriteRecipesAPI = () => {
   });
 };
 
+export const addFavouriteRecipe = recipeId => {
+  return axios.post(`/favorite/${recipeId}`).then(({ data }) => {
+    return data;
+  });
+};
+
 export const getRecipesById = recipeId => {
   return axios.get(`/recipes/description/${recipeId}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getShoppingList = () => {
+  return axios.get('/ingredients/shopping').then(({ data }) => {
     return data;
   });
 };

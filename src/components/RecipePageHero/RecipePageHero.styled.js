@@ -6,7 +6,7 @@ import { AccessTime } from '@styled-icons/material/AccessTime';
 
 export const RecipeHeroBox = styled.div`
   max-width: 100%;
-  height: 455px;
+  min-height: 455px;
   margin-bottom: 29px;
   padding: 144px 0px 90px 0px;
   background-image: url(${img});
@@ -18,14 +18,14 @@ export const RecipeHeroBox = styled.div`
     0px 4px 4px rgba(0, 0, 0, 0.25);
 
   @media (min-width: 768px) {
-    height: 495px;
+    min-height: 495px;
     margin-bottom: 50px;
     padding: 136px 0px 32px 0px;
     background-image: url(${img2});
   }
 
   @media (min-width: 1280px) {
-    height: 493px;
+    min-height: 493px;
     padding: 164px 0px 32px 0px;
     background-image: url(${img3});
   }

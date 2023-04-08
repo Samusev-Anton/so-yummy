@@ -16,9 +16,10 @@ import {
   Checkbox,
   InputCheck,
   CheckLabel,
-} from './RecipeInngredientsList.styled';
+} from './RecipeIngredientsList.styled';
 
-export const RecipeInngredientsList = () => {
+export const RecipeIngredientsList = ({ ingredientsList }) => {
+  console.log(ingredientsList);
   return (
     <Table>
       <Blocks>
@@ -27,30 +28,35 @@ export const RecipeInngredientsList = () => {
           <TableHeadNumber>Number</TableHeadNumber>
           <TableHeadRemove>Add to list</TableHeadRemove>
         </TableHead>
-        <TableRow>
-          <TableProduct>
-            <TableProductBox></TableProductBox>
-            <TableProductText>Salmon</TableProductText>
-          </TableProduct>
-          <TableNumber>
-            <TableNumberBox>2 chopped</TableNumberBox>
-          </TableNumber>
-          <TableRemove>
-            <InputCheck
-              className="input-check visually-hidden"
-              type="checkbox"
-              name="add"
-              id="add1"
-              required
-            />
-            <CheckLabel class="check-label" for="add1">
-              <Checkbox class="checkbox">
-                <CheckMark />
-              </Checkbox>
-            </CheckLabel>
-          </TableRemove>
-        </TableRow>
-        <TableRow>
+        {ingredientsList.map(item => (
+          <TableRow key={item._id}>
+            <TableProduct>
+              <TableProductBox>
+                <img src={item.thb} alt={item.ttl} />
+              </TableProductBox>
+              <TableProductText>{item.ttl}</TableProductText>
+            </TableProduct>
+            <TableNumber>
+              <TableNumberBox>{item.measure}</TableNumberBox>
+            </TableNumber>
+            <TableRemove>
+              <InputCheck
+                className="input-check visually-hidden"
+                type="checkbox"
+                name="add"
+                id={item._id}
+                required
+              />
+              <CheckLabel class="check-label" for={item._id}>
+                <Checkbox class="checkbox">
+                  <CheckMark />
+                </Checkbox>
+              </CheckLabel>
+            </TableRemove>
+          </TableRow>
+        ))}
+
+        {/* <TableRow>
           <TableProduct>
             <TableProductBox></TableProductBox>
             <TableProductText>Salmon</TableProductText>
@@ -72,7 +78,7 @@ export const RecipeInngredientsList = () => {
               </Checkbox>
             </CheckLabel>
           </TableRemove>
-        </TableRow>
+        </TableRow> */}
       </Blocks>
     </Table>
 

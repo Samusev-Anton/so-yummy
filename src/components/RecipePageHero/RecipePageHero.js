@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import {
   RecipeHeroBox,
   HeroButton,
@@ -8,22 +9,26 @@ import {
   HeroTime,
   RecipeHeroWrapper,
 } from './RecipePageHero.styled.js';
+import { addFavRecipe } from 'redux/ShoppingList/operations.js';
 
-export const RecipePageHero = () => {
+export const RecipePageHero = ({ recipeDescription }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(addFavRecipe(recipeDescription._id));
+  };
   return (
     <RecipeHeroBox>
       <RecipeHeroWrapper>
-        <RecipeHeroTitle>Salmon Avocado Salad</RecipeHeroTitle>
-        <RecipeHeroText>
-          Is a healthy salad recipe that’s big on nutrients and flavor. A moist,
-          pan seared salmon is layered on top of spinach, avocado, tomatoes, and
-          red onions. Then drizzled with a homemade lemon vinaigrette.
-        </RecipeHeroText>
+        <RecipeHeroTitle>{recipeDescription.title}</RecipeHeroTitle>
+        <RecipeHeroText>{recipeDescription.description}</RecipeHeroText>
       </RecipeHeroWrapper>
-      <HeroButton type="button">Add to favorite recipes</HeroButton>
+      <HeroButton onClick={handleClick} type="button">
+        Add to favorite recipes
+      </HeroButton>
       <HeroTimeBox>
         <HeroTimeIcon />
-        <HeroTime>20 min</HeroTime>
+        <HeroTime>{recipeDescription.time} min</HeroTime>
       </HeroTimeBox>
     </RecipeHeroBox>
   );

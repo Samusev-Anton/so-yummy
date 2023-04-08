@@ -15,7 +15,7 @@ import {
   XIcon,
 } from './IngredientsShoppingList.styled';
 
-export const IngredientsShoppingList = () => {
+export const IngredientsShoppingList = ({ shoppingList }) => {
   return (
     <Table>
       <Blocks>
@@ -24,7 +24,24 @@ export const IngredientsShoppingList = () => {
           <TableHeadNumber>Number</TableHeadNumber>
           <TableHeadRemove>Remove</TableHeadRemove>
         </TableHead>
-        <TableRow>
+        {shoppingList.map(item => (
+          <TableRow key={item._id}>
+            <TableProduct>
+              <TableProductBox>
+                <img src={item.thb} alt={item.ttl} />
+              </TableProductBox>
+              <TableProductText>{item.ttl}</TableProductText>
+            </TableProduct>
+            <TableNumber>
+              <TableNumberBox>{item.measure}</TableNumberBox>
+            </TableNumber>
+            <TableRemove>
+              <XIcon />
+            </TableRemove>
+          </TableRow>
+        ))}
+
+        {/* <TableRow>
           <TableProduct>
             <TableProductBox></TableProductBox>
             <TableProductText>Salmon</TableProductText>
@@ -35,19 +52,7 @@ export const IngredientsShoppingList = () => {
           <TableRemove>
             <XIcon />
           </TableRemove>
-        </TableRow>
-        <TableRow>
-          <TableProduct>
-            <TableProductBox></TableProductBox>
-            <TableProductText>Salmon</TableProductText>
-          </TableProduct>
-          <TableNumber>
-            <TableNumberBox>5</TableNumberBox>
-          </TableNumber>
-          <TableRemove>
-            <XIcon />
-          </TableRemove>
-        </TableRow>
+        </TableRow> */}
       </Blocks>
     </Table>
 
