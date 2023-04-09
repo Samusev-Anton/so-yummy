@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import Avatar from '@mui/material/Avatar';
 
 import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
@@ -34,12 +35,15 @@ export default function FormDialog({onClose}) {
         >
           <CloseIcon />
         </IconButton>
-        <DialogContent>
-          <DialogContentText>
+        <DialogContent sx={{p:"60px"}}>
+ <Avatar sx={{
+         height: { xs: 34, sm:40, md: 103},
+          width: { xs: 34, sm:40, md: 103},}}/>
+          {/* <DialogContentText>
             To subscribe to this website, please enter your email address here. We
             will send updates occasionally.
-          </DialogContentText>
-          <TextField
+          </DialogContentText> */}
+          {/* <TextField
             autoFocus
             margin="dense"
             id="name"
@@ -47,10 +51,10 @@ export default function FormDialog({onClose}) {
             type="email"
             fullWidth
             variant="standard"
-          />
+          /> */}
         </DialogContent>
         <DialogActions>
-          <Button  onClick={onClose}>Subscribe</Button>
+          <Button  onClick={onClose}></Button>
         </DialogActions>
     </div>
   );
