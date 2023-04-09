@@ -49,7 +49,7 @@ import {
 } from './RecipeIngredientsList.styled';
 
 export const RecipeIngredientsList = ({ ingredientsList }) => {
-  console.log(ingredientsList);
+  
   return (
     <Table>
       <Blocks>
@@ -58,7 +58,7 @@ export const RecipeIngredientsList = ({ ingredientsList }) => {
           <TableHeadNumber>Number</TableHeadNumber>
           <TableHeadRemove>Add to list</TableHeadRemove>
         </TableHead>
-        {ingredientsList.map(item => (
+        {ingredientsList?.map(item => (
           <TableRow key={item._id}>
             <TableProduct>
               <TableProductBox>
