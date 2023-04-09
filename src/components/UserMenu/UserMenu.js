@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { logout } from 'redux/auth/auth-operations';
-// import { useAuth } from '../../hooks';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { selectUser } from 'redux/auth/selectors';
 import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
@@ -18,7 +19,7 @@ import FormDialog from './EditProfile';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  // const { user } = useAuth();
+  const user = useSelector(selectUser);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -30,7 +31,7 @@ export const UserMenu = () => {
   const handelLogoutUser = () => {
     dispatch(logout());
   };
-const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpenEditProfile = () => {
     setOpen(true);
@@ -41,26 +42,28 @@ const [open, setOpen] = useState(false);
   };
   return (
     <>
-      <Box sx={{display: { xs: 'flex', md: 'flex', alignItems:'center'}}}><Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} onClose={handleCloseUserMenu}>
-                <Avatar alt="" src="/static/images/avatar/2.jpg" sx={{
-         height: { xs: 34, sm:40, md: 44},
-          width: { xs: 34, sm:40, md: 44},}}/>
-              </IconButton>
-            </Tooltip> 
-            <Typography sx={{
+      <Box sx={{ display: { xs: 'flex', md: 'flex', alignItems: 'center' } }}><Tooltip title="Open settings">
+        <IconButton onClick={handleOpenUserMenu} onClose={handleCloseUserMenu}>
+          <Avatar alt="avatar" src="" sx={{
+            height: { xs: 34, sm: 40, md: 44 },
+            width: { xs: 34, sm: 40, md: 44 },
+          }} />
+        </IconButton>
+      </Tooltip>
+        <Typography sx={{
           fontWeight: 600,
           color: '#22252A',
           textDecoration: 'none',
-        }}>Name</Typography>
-        </Box>
-         
-        <Menu
+          fontFamily: 'Poppins, sans-serif'
+        }}>{user.name}</Typography>
+      </Box>
+
+      <Menu
         anchorEl={anchorElUser}
         id="account-menu"
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
-
+        sx={{ p: 0, }}
         PaperProps={{
           elevation: 0,
           sx: {
@@ -69,6 +72,7 @@ const [open, setOpen] = useState(false);
             // height: { xs: '130px', sm:'140px',},
             p: '18px',
             // display: {xs: 'flex', justifyContent:'center'},
+            border: '1px solid #8BAA36',
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
             mt: 1.5,
           },
@@ -76,20 +80,20 @@ const [open, setOpen] = useState(false);
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClickOpenEditProfile} sx={{mb:'32px',}}>
-        Edit profile
-          <EditIcon sx={{ml:'32px',}}/>
+        <MenuItem onClick={handleClickOpenEditProfile} sx={{ mb: '32px', p: 0, display: { xs: 'flex', md: 'flex', justifyContent: 'space-between' } }}>
+          Edit profile
+          <EditIcon sx={{ ml: '53px', }} />
         </MenuItem>
-  <Dialog open={open} onClose={handleClose} >
-        <FormDialog onClose={handleClose}/>
+        <Dialog open={open} onClose={handleClose} >
+          <FormDialog onClose={handleClose} />
         </Dialog>
         <MenuItem>
-        <ClassicButton onClick={handelLogoutUser}>
-        Logout <ArrowForwardIcon sx={{ fontSize: 18 }}/>
-        </ClassicButton>
+          <ClassicButton onClick={handelLogoutUser}>
+            Logout <ArrowForwardIcon sx={{ fontSize: 18 }} />
+          </ClassicButton>
         </MenuItem>
 
       </Menu>
-      </>
+    </>
   );
 };
