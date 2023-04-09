@@ -4,7 +4,7 @@ export const FavRecipeItem = styled.li`
   width: 100%;
   position: relative;
   padding: 40px;
-  background-color: #fafafa; // shuld be #ffffff, #fafafa applied temporarily until #fafafa is not applied to background globally
+  background-color: #ffffff;
   border-radius: 8px;
   display: flex;
 `;

@@ -23,6 +23,11 @@ export const MyRecipesPage = () => {
     fetchData().then(data => setData(data));
   }, []);
 
+  const handleDelete = recipe => {
+    const filteredData = data.filter(item => item._id !== recipe._id);
+    setData(filteredData);
+  };
+
   return (
     <Container>
       <TitleConteiner></TitleConteiner>
@@ -30,7 +35,11 @@ export const MyRecipesPage = () => {
         <FavoritePageTitle>My recipes</FavoritePageTitle>
         <RecipeList>
           {data.slice(0, 4).map(recipe => (
-            <MyRecipe key={recipe._id} recipe={recipe} />
+            <MyRecipe
+              key={recipe._id}
+              recipe={recipe}
+              onDelete={handleDelete}
+            />
           ))}
         </RecipeList>
       </FavoritePageThumb>

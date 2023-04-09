@@ -22,20 +22,26 @@ export const getSetOfCategoriestAPI = () => {
 export const searchRecipesApi = async ({ searchQuery, searchType }) => {
   let searchUrl;
   if (!searchQuery) {
-      searchUrl = `/recipes/search/title?title=beef`;
-  }
-  else{
-      searchUrl = searchType === 'query' ? `/recipes/search/title?title=${searchQuery}` : `/ingredients/?ingredients=${searchQuery}`;
+    searchUrl = `/recipes/search/title?title=beef`;
+  } else {
+    searchUrl =
+      searchType === 'query'
+        ? `/recipes/search/title?title=${searchQuery}`
+        : `/ingredients/?ingredients=${searchQuery}`;
   }
   return axios.get(searchUrl).then(({ data }) => {
     return data.data;
   });
 };
 
-
-// favorite recipes
 export const getFavoriteRecipesAPI = () => {
   return axios.get('/favorite').then(({ data }) => {
+    return data;
+  });
+};
+
+export const getMyRecipesAPI = () => {
+  return axios.get('/my').then(({ data }) => {
     return data;
   });
 };
