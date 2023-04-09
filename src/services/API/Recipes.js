@@ -13,6 +13,7 @@ export const getRecipesByCategoryAPI = category => {
     return data;
   });
 };
+
 export const getSetOfCategoriestAPI = () => {
   return axios.get('/recipes/main').then(({ data }) => {
     return data;
@@ -34,11 +35,19 @@ export const searchRecipesApi = async ({ searchQuery, searchType }) => {
   });
 };
 
+// favorite recipes
+
 export const getFavoriteRecipesAPI = () => {
   return axios.get('/favorite').then(({ data }) => {
     return data;
   });
 };
+
+
+// popular recipes
+export const getPopularRecipesAPI = () => {
+  return axios.get('/popular').then(({ data }) => {
+    return data.data;
 
 export const getMyRecipesAPI = () => {
   return axios.get('/my').then(({ data }) => {
@@ -61,5 +70,6 @@ export const getRecipesById = recipeId => {
 export const getShoppingList = () => {
   return axios.get('/ingredients/shopping').then(({ data }) => {
     return data;
+
   });
 };
