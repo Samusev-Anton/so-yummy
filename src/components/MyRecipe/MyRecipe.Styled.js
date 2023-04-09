@@ -59,11 +59,6 @@ export const DeleteButton = styled.button`
   border: none;
   border-radius: 4px;
 
-  /* svg {
-    fill: #22252a;
-    width: 18px;
-    height: 20px;
-  } */
   &:hover {
     cursor: pointer;
   }
@@ -71,7 +66,6 @@ export const DeleteButton = styled.button`
 
 export const SeeRecipeBtn = styled.button`
   &:hover {
-    background-color: #22252a;
     color: #fafafa;
   }
   border: none;
