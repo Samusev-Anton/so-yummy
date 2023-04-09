@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   FavRecipeItem,
   RecipeImage,
@@ -30,7 +31,9 @@ export const MyRecipe = ({ recipe, onDelete }) => {
       <DeleteButton onClick={handleDeleteClick}>
         <Icon />
       </DeleteButton>
-      <SeeRecipeBtn>See Recipe</SeeRecipeBtn>
+      <Link to={`/recipe/${recipe._id}`}>
+        <SeeRecipeBtn>See Recipe</SeeRecipeBtn>
+      </Link>
     </FavRecipeItem>
   );
 };
