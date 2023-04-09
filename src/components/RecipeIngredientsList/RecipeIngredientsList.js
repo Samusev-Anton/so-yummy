@@ -4,21 +4,23 @@ import { nanoid } from 'nanoid';
 import { Ingredient } from 'components/Ingredient/Ingredient';
 import { SectionTitle } from 'components/AddRecipeForm/AddRecipeForm.styled';
 
-export const RecipeIngredientsList = ({ addIngredient }) => {
+export const RecipeIngredientsList = ({ onIngredientsChange }) => {
   const [id, setId] = useState(nanoid());
   const [ingredients, setIngredients] = useState([]);
 
   const addIngredientToArray = () => {
     setId(nanoid());
-    const newObject = { id: id, quantity: '', weight: '' };
+    const newObject = { id: id, title: '', quantity: '', weight: '' };
     setIngredients([...ingredients, newObject]);
-    addIngredient([...ingredients, newObject]);
+  };
+
+  const handleAddIngredient = () => {
+    onIngredientsChange([...ingredients]);
   };
 
   const removeIngredientFromArray = () => {
     const newArray = [...ingredients.slice(0, -1)];
     setIngredients(newArray);
-    addIngredient([...ingredients]);
   };
 
   const removeIngredientById = id => {
@@ -26,9 +28,9 @@ export const RecipeIngredientsList = ({ addIngredient }) => {
     setIngredients(newArray);
   };
 
-  const handleWeightChange = (id, weight) => {
+  const handleTitleChange = (id, title) => {
     setIngredients(
-      ingredients.map(el => (el.id === id ? { ...el, weight } : el))
+      ingredients.map(el => (el.id === id ? { ...el, title } : el))
     );
   };
 
@@ -38,8 +40,18 @@ export const RecipeIngredientsList = ({ addIngredient }) => {
     );
   };
 
+  const handleWeightChange = (id, weight) => {
+    setIngredients(
+      ingredients.map(el => (el.id === id ? { ...el, weight } : el))
+    );
+  };
+
   return (
-    <>
+    <div
+      onKeyDown={handleAddIngredient}
+      onMouseMove={handleAddIngredient}
+      onMouseLeave={handleAddIngredient}
+    >
       <SectionTitle>Ingredients</SectionTitle>
       <button onClick={addIngredientToArray}>+</button>
       <p>{ingredients.length}</p>
@@ -50,15 +62,17 @@ export const RecipeIngredientsList = ({ addIngredient }) => {
             <Ingredient
               {...el}
               id={el.id}
+              title={el.title}
               weight={el.weight}
               quantity={el.quantity}
-              onWeightChange={handleWeightChange}
+              onNameChange={handleTitleChange}
               onQuantityChange={handleQuantityChange}
+              onWeightChange={handleWeightChange}
               removeIngredientById={removeIngredientById}
             />
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };

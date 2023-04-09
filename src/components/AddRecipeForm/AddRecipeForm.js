@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
 
@@ -18,22 +18,21 @@ const AddRecipeForm = () => {
   const [category, setCategory] = useState('');
   const [cookingTime, setCookingTime] = useState('');
   const [preparation, setPreparation] = useState('');
-  const [formData, setFormData] = useState({
-    image: null,
-  });
   const [recipe, setRecipe] = useState({
     title: recipeTitle,
     about: recipeAbout,
     category: category,
     time: `${cookingTime} min`,
+    preparation: preparation,
     ingredients: [],
   });
+  const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
+  const [formData, setFormData] = useState({
+    image: null,
+  });
 
-  const addIngredient = newIngredient => {
-    setRecipe(prevRecipe => ({
-      ...prevRecipe,
-      ingredients: [...prevRecipe.ingredients, newIngredient],
-    }));
+  const handleIngredientsChange = ingredients => {
+    setIngredientsForRecipe(ingredients);
   };
 
   const handleImageChange = event => {
@@ -42,10 +41,15 @@ const AddRecipeForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(recipe);
+    setRecipe({
+      title: recipeTitle,
+      about: recipeAbout,
+      category: category,
+      time: `${cookingTime} min`,
+      preparation: preparation,
+      ingredients: ingredientsForRecipe,
+    });
   };
-
-  // useEffect(addIngredient, []);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -107,7 +111,7 @@ const AddRecipeForm = () => {
         <option value="120">120 min</option>
       </SectionSelect>
 
-      <RecipeIngredientsList addIngredient={addIngredient} />
+      <RecipeIngredientsList onIngredientsChange={handleIngredientsChange} />
 
       <SectionRecipePreparationFields>
         <SectionTitle>Recipe Preparation</SectionTitle>
@@ -125,11 +129,3 @@ const AddRecipeForm = () => {
   );
 };
 export default AddRecipeForm;
-
-// setRecipe({
-//   title: recipeTitle,
-//   about: recipeAbout,
-//   category: category,
-//   time: `${cookingTime} min`,
-//   preparation: preparation,
-// });

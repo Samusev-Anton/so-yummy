@@ -4,8 +4,10 @@ import IconButton from '@mui/material/IconButton';
 
 export const Ingredient = ({
   id,
+  title,
   weight,
   quantity,
+  onNameChange,
   onWeightChange,
   onQuantityChange,
   removeIngredientById,
@@ -13,12 +15,16 @@ export const Ingredient = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [dropdownOptions, setDropdownOptions] = useState([]);
 
-  const handleWeightChange = e => {
+  const handleNameChange = e => {
     onWeightChange(id, e.target.value);
   };
 
   const handleQuantityChange = e => {
     onQuantityChange(id, e.target.value);
+  };
+
+  const handleWeightChange = e => {
+    onWeightChange(id, e.target.value);
   };
 
   const handleKeyDown = e => {
@@ -49,12 +55,20 @@ export const Ingredient = ({
           </option>
         ))}
       </select> */}
+      <input
+        type="text"
+        // value={title}
+        onChange={handleNameChange}
+        onBlur={() => onNameChange(id, title)}
+        onKeyDown={handleKeyDown}
+        placeholder="Ingredient name"
+      ></input>
       <div>
         <input
           type="number"
           value={quantity}
           onChange={handleQuantityChange}
-          onBlur={() => onQuantityChange(id, quantity)}
+          onBlur={() => onNameChange(id, quantity)}
           onKeyDown={handleKeyDown}
           placeholder="Quantity"
         ></input>
