@@ -16,6 +16,7 @@ import { MainPage } from 'pages/MainPage';
 import { AddRecipePage } from 'pages/AddRecipePage';
 import { MyRecipesPage } from 'pages/MyRecipesPage/MyRecipesPage';
 import { FavoritePage } from 'pages/FavoritePage/FavoritePage';
+
 // import { ShoppingPage } from 'pages/ShoppingPage';
 import { SearchPage } from 'pages/SearchPage';
 // import { Error } from 'pages/Error';
@@ -50,7 +51,7 @@ export const App = () => {
             <PrivateRoute component={SharedLayout} redirectTo="/welcome" />
           }
         >
-          <Route path="/main" element={<MainPage />} />
+          <Route path="/main" element={<MainPage />} /> 
           <Route
             path="/categories/:categoryName?"
             element={<CategoriesPage />}
