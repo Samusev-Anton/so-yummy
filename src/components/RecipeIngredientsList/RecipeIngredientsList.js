@@ -49,7 +49,7 @@ import {
 } from './RecipeIngredientsList.styled';
 
 export const RecipeIngredientsList = ({ ingredientsList }) => {
-  // console.log(ingredientsList);
+  
   return (
     <Table>
       <Blocks>
