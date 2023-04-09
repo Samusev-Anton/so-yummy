@@ -10,10 +10,10 @@ export const CardTitle = styled.div`
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.24px;
-    color: #3E4462;
+    color: ${p => p.theme.colors.mainHeaderText};
     padding: 16px;
     margin: 16px;
-    background-color: #fff;
+    background-color: ${p => p.theme.colors.recipeBlockBg};
     position: absolute;
     bottom: 8px;
     border-radius: 8px;
