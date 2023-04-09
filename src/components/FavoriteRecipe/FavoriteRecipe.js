@@ -10,13 +10,9 @@ import {
 } from './FavoriteRecipe.Styled';
 import { ReactComponent as Icon } from '../../images/trashIcon-dark.svg';
 
-export const FavoriteRecipe = ({ recipe, onRemove, onSee }) => {
-  const handleRemove = () => {
-    onRemove(recipe._id);
-  };
-
-  const handleSeeReciepe = () => {
-    onSee(recipe._id);
+export const FavoriteRecipe = ({ recipe, onDelete }) => {
+  const handleDeleteClick = () => {
+    onDelete(recipe);
   };
 
   return (
@@ -31,10 +27,10 @@ export const FavoriteRecipe = ({ recipe, onRemove, onSee }) => {
         <RecipePrepTime>{recipe.time} min</RecipePrepTime>
       </FavRecipeTopInfo>
 
-      <DeleteButton onClick={handleRemove}>
+      <DeleteButton onClick={handleDeleteClick}>
         <Icon />
       </DeleteButton>
-      <SeeRecipeBtn onClick={handleSeeReciepe}>See Recipe</SeeRecipeBtn>
+      <SeeRecipeBtn>See Recipe</SeeRecipeBtn>
     </FavRecipeItem>
   );
 };
