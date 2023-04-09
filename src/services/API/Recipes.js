@@ -36,15 +36,40 @@ export const searchRecipesApi = async ({ searchQuery, searchType }) => {
 };
 
 // favorite recipes
+
 export const getFavoriteRecipesAPI = () => {
   return axios.get('/favorite').then(({ data }) => {
     return data;
   });
 };
 
+
 // popular recipes
 export const getPopularRecipesAPI = () => {
   return axios.get('/popular').then(({ data }) => {
     return data.data;
+
+export const getMyRecipesAPI = () => {
+  return axios.get('/my').then(({ data }) => {
+    return data;
+  });
+};
+
+export const addFavouriteRecipe = recipeId => {
+  return axios.post(`/favorite/${recipeId}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getRecipesById = recipeId => {
+  return axios.get(`/recipes/description/${recipeId}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getShoppingList = () => {
+  return axios.get('/ingredients/shopping').then(({ data }) => {
+    return data;
+
   });
 };

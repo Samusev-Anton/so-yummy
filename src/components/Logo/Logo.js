@@ -3,7 +3,7 @@ import logo from "images/logo.png";
 
 const Logo = () => {
     return (
-      <LogoLink aria-current="page" to="/">
+      <LogoLink aria-current="page" to="/main">
       <LogoImg src={logo}/>
       </LogoLink>
     );

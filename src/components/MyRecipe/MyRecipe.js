@@ -10,31 +10,27 @@ import {
 } from './MyRecipe.Styled';
 import { ReactComponent as Icon } from '../../images/trashIcon-light.svg';
 
-export const MyRecipe = ({ recipe, onRemove, onSee }) => {
-  const handleRemove = () => {
-    onRemove(recipe.id);
-  };
-
-  const handleSeeReciepe = () => {
-    onSee(recipe.id);
+export const MyRecipe = ({ recipe, onDelete }) => {
+  const handleDeleteClick = () => {
+    onDelete(recipe);
   };
 
   return (
     <FavRecipeItem>
-      <RecipeImage src={recipe.image} alt={recipe.name} />
+      <RecipeImage src={recipe.preview} alt={recipe.title} />
 
       <FavRecipeTopInfo>
         <div>
-          <RecipeTitle>{recipe.name}</RecipeTitle>
+          <RecipeTitle>{recipe.title}</RecipeTitle>
           <RecipeDescription>{recipe.description}</RecipeDescription>
         </div>
-        <RecipePrepTime>{recipe.prepTime}</RecipePrepTime>
+        <RecipePrepTime>{recipe.time} min</RecipePrepTime>
       </FavRecipeTopInfo>
 
-      <DeleteButton onClick={handleRemove}>
+      <DeleteButton onClick={handleDeleteClick}>
         <Icon />
       </DeleteButton>
-      <SeeRecipeBtn onClick={handleSeeReciepe}>See Recipe</SeeRecipeBtn>
+      <SeeRecipeBtn>See Recipe</SeeRecipeBtn>
     </FavRecipeItem>
   );
 };
