@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react';
 import { FavoriteRecipe } from '../../components/FavoriteRecipe/FavoriteRecipe';
 import { Container } from 'components/GlobalStyles';
-import {
-  RecipeList,
-  FavoritePageTitle,
-  FavoritePageThumb,
-} from './FavoritePage.Styled';
-import { TitleConteiner } from 'components/MainPageTitle/MainPageTitle/MainPageTitle.styled';
-
+import { RecipeList, FavoritePageThumb } from './FavoritePage.Styled';
+import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTitle';
 import { getFavoriteRecipesAPI } from '../../services/API/Recipes';
 
 function fetchData() {
@@ -30,9 +25,8 @@ export const FavoritePage = () => {
 
   return (
     <Container>
-      <TitleConteiner></TitleConteiner>
       <FavoritePageThumb>
-        <FavoritePageTitle>Favorites</FavoritePageTitle>
+        <MainPageTitle value="Favorites"></MainPageTitle>
         <RecipeList>
           {data.slice(0, 4).map(recipe => (
             <FavoriteRecipe

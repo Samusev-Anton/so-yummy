@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react';
 import { MyRecipe } from '../../components/MyRecipe/MyRecipe';
 import { Container } from 'components/GlobalStyles';
-import {
-  RecipeList,
-  FavoritePageTitle,
-  FavoritePageThumb,
-} from './MyRecipesPage.Styled';
-import { TitleConteiner } from 'components/MainPageTitle/MainPageTitle/MainPageTitle.styled';
+import { RecipeList, FavoritePageThumb } from './MyRecipesPage.Styled';
+import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTitle';
 
 import { getFavoriteRecipesAPI } from '../../services/API/Recipes';
 
@@ -30,9 +26,8 @@ export const MyRecipesPage = () => {
 
   return (
     <Container>
-      <TitleConteiner></TitleConteiner>
       <FavoritePageThumb>
-        <FavoritePageTitle>My recipes</FavoritePageTitle>
+        <MainPageTitle value="My recipe"></MainPageTitle>
         <RecipeList>
           {data.slice(0, 4).map(recipe => (
             <MyRecipe
