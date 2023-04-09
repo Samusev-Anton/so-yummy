@@ -5,7 +5,6 @@ import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';
 
 import { AdditionalFooter } from './Footer/AdditionalFooter';
-// import { Container } from './GlobalStyles';
 import { Picture } from './GlobalStyles';
 
 export const SharedLayout = props => {
