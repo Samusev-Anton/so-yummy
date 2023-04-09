@@ -4,7 +4,7 @@ import {
   SectionTitle,
   SectionTextArea,
 } from 'components/RecipePreparationFields/RecipePreparationFields.styled';
-import { BtnAdd } from 'components/AddRecipeForm/AddRecipeForm.styled';
+
 // import { style } from 'styled-system';
 // import { useDispatch } from 'react-redux';
 
@@ -25,7 +25,6 @@ export const RecipePreparationFields = () => {
         // onChange={handleInputChange}
         // value={}
       ></SectionTextArea>
-      <BtnAdd type="submit">Add</BtnAdd>
     </SectionRecipePreparationFields>
   );
 };

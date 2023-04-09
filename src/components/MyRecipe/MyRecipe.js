@@ -21,14 +21,14 @@ export const MyRecipe = ({ recipe, onRemove, onSee }) => {
 
   return (
     <FavRecipeItem>
-      <RecipeImage src={recipe.image} alt={recipe.name} />
+      <RecipeImage src={recipe.preview} alt={recipe.title} />
 
       <FavRecipeTopInfo>
         <div>
-          <RecipeTitle>{recipe.name}</RecipeTitle>
+          <RecipeTitle>{recipe.title}</RecipeTitle>
           <RecipeDescription>{recipe.description}</RecipeDescription>
         </div>
-        <RecipePrepTime>{recipe.prepTime}</RecipePrepTime>
+        <RecipePrepTime>{recipe.time} min</RecipePrepTime>
       </FavRecipeTopInfo>
 
       <DeleteButton onClick={handleRemove}>

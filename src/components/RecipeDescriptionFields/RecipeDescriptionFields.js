@@ -7,14 +7,16 @@ import {
 } from 'components/RecipeDescriptionFields/RecipeDescriptionFields.styled';
 // import { useDispatch } from 'react-redux';
 
-export const RecipeDescriptionFields = () => {
+export const RecipeDescriptionFields = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     image: null,
   });
+
+  const [itemTitle, setItemTitle] = useState('');
   const [category, setCategory] = useState();
   const [cookingTime, setcookingTime] = useState();
-  console.log(setCategory);
-  console.log(setcookingTime);
+  // console.log(setCategory);
+  // console.log(setcookingTime);
 
   const handleImageChange = event => {
     setFormData({ ...formData, image: event.target.files[0] });
@@ -22,12 +24,14 @@ export const RecipeDescriptionFields = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(formData);
+    console.log(itemTitle);
+    // onSubmit передать все из полей
+    // console.log(formData);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* <label htmlFor="image"></label> */}
+      <label htmlFor="image"></label>
       <input
         type="file"
         id="image"
@@ -35,7 +39,15 @@ export const RecipeDescriptionFields = () => {
         accept="image/*"
         onChange={handleImageChange}
       />
-      <SectionInput placeholder="Enter item title"></SectionInput>
+      <SectionInput
+        name="title"
+        type="text"
+        label="Item title"
+        defaultValue="Item title"
+        value={itemTitle}
+        onChange={e => setItemTitle(e.target.value)}
+        placeholder="Enter item title"
+      ></SectionInput>
       <SectionInput placeholder="Enter about recipe"></SectionInput>
       <SectionSelect id="category" name="category" value={category}>
         <option>Category</option>
@@ -56,7 +68,7 @@ export const RecipeDescriptionFields = () => {
         <option value="kg">kg</option>
         <option value="g">g</option>
       </SectionSelect>
-      {/* <button type="submit">Submit</button> */}
+      <button type="submit">Submit</button>
     </form>
   );
 };
