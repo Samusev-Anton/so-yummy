@@ -2,46 +2,50 @@ import * as React from 'react';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Ingredient } from 'components/Ingredient/Ingredient';
-import { SectionTitle } from 'components/RecipePreparationFields/RecipePreparationFields.styled';
+import { SectionTitle } from 'components/AddRecipeForm/AddRecipeForm.styled';
 
-export const RecipeIngredientsList = () => {
+export const RecipeIngredientsList = ({ addIngredient }) => {
   const [id, setId] = useState(nanoid());
-  const [myArray, setMyArray] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
 
   const addIngredientToArray = () => {
     setId(nanoid());
     const newObject = { id: id, quantity: '', weight: '' };
-    setMyArray([...myArray, newObject]);
+    setIngredients([...ingredients, newObject]);
+    addIngredient([...ingredients, newObject]);
   };
 
-  console.log(myArray);
-
   const removeIngredientFromArray = () => {
-    const newArray = [...myArray.slice(0, -1)];
-    setMyArray(newArray);
+    const newArray = [...ingredients.slice(0, -1)];
+    setIngredients(newArray);
+    addIngredient([...ingredients]);
   };
 
   const removeIngredientById = id => {
-    const newArray = myArray.filter(el => el.id !== id);
-    setMyArray(newArray);
+    const newArray = ingredients.filter(el => el.id !== id);
+    setIngredients(newArray);
   };
 
   const handleWeightChange = (id, weight) => {
-    setMyArray(myArray.map(el => (el.id === id ? { ...el, weight } : el)));
+    setIngredients(
+      ingredients.map(el => (el.id === id ? { ...el, weight } : el))
+    );
   };
 
   const handleQuantityChange = (id, quantity) => {
-    setMyArray(myArray.map(el => (el.id === id ? { ...el, quantity } : el)));
+    setIngredients(
+      ingredients.map(el => (el.id === id ? { ...el, quantity } : el))
+    );
   };
 
   return (
     <>
       <SectionTitle>Ingredients</SectionTitle>
       <button onClick={addIngredientToArray}>+</button>
-      <p>{myArray.length}</p>
+      <p>{ingredients.length}</p>
       <button onClick={removeIngredientFromArray}>-</button>
       <ul>
-        {myArray.map(el => (
+        {ingredients.map(el => (
           <li key={el.id}>
             <Ingredient
               {...el}

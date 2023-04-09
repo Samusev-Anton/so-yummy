@@ -41,14 +41,14 @@ export const Ingredient = ({
 
   return (
     <>
-      <input type="text" value={searchTerm} onChange={handleSearch} />
+      {/* <input type="text" value={searchTerm} onChange={handleSearch} />
       <select>
         {dropdownOptions.map((option, index) => (
           <option key={index} value={option}>
             {option.title}
           </option>
         ))}
-      </select>
+      </select> */}
       <div>
         <input
           type="number"

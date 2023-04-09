@@ -1,20 +1,18 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
 
-import { BtnAdd } from 'components/AddRecipeForm/AddRecipeForm.styled';
 import {
+  BtnAdd,
   SectionInput,
   SectionSelect,
-} from 'components/RecipeDescriptionFields/RecipeDescriptionFields.styled';
-import {
   SectionRecipePreparationFields,
   SectionTitle,
   SectionTextArea,
-} from 'components/RecipePreparationFields/RecipePreparationFields.styled';
+} from 'components/AddRecipeForm/AddRecipeForm.styled';
 
-export const AddRecipeForm = () => {
+const AddRecipeForm = () => {
   const [recipeTitle, setRecipeTitle] = useState('');
   const [recipeAbout, setRecipeAbout] = useState('');
   const [category, setCategory] = useState('');
@@ -27,8 +25,16 @@ export const AddRecipeForm = () => {
     title: recipeTitle,
     about: recipeAbout,
     category: category,
-    time: cookingTime,
+    time: `${cookingTime} min`,
+    ingredients: [],
   });
+
+  const addIngredient = newIngredient => {
+    setRecipe(prevRecipe => ({
+      ...prevRecipe,
+      ingredients: [...prevRecipe.ingredients, newIngredient],
+    }));
+  };
 
   const handleImageChange = event => {
     setFormData({ ...formData, image: event.target.files[0] });
@@ -36,15 +42,10 @@ export const AddRecipeForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    setRecipe({
-      title: recipeTitle,
-      about: recipeAbout,
-      category: category,
-      time: `${cookingTime} min`,
-      preparation: preparation,
-    });
     console.log(recipe);
   };
+
+  // useEffect(addIngredient, []);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -106,7 +107,7 @@ export const AddRecipeForm = () => {
         <option value="120">120 min</option>
       </SectionSelect>
 
-      <RecipeIngredientsList />
+      <RecipeIngredientsList addIngredient={addIngredient} />
 
       <SectionRecipePreparationFields>
         <SectionTitle>Recipe Preparation</SectionTitle>
@@ -123,3 +124,12 @@ export const AddRecipeForm = () => {
     </form>
   );
 };
+export default AddRecipeForm;
+
+// setRecipe({
+//   title: recipeTitle,
+//   about: recipeAbout,
+//   category: category,
+//   time: `${cookingTime} min`,
+//   preparation: preparation,
+// });
