@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/so-yummy/static/css/main.194d9cd5.css",
-    "main.js": "/so-yummy/static/js/main.7af0599f.js",
+    "main.js": "/so-yummy/static/js/main.bdbf44fa.js",
     "static/media/Hero2x.png": "/so-yummy/static/media/Hero2x.c212dff6d09c5e4fa71c.png",
     "static/media/HeroTablet2x.png": "/so-yummy/static/media/HeroTablet2x.164f9e9b6582834153a8.png",
     "static/media/HeroMobile.png": "/so-yummy/static/media/HeroMobile.eca3c16f79e57c7bcf36.png",
@@ -11,12 +11,15 @@
     "static/media/flat-lay-assortment-vegetables-1x-deks.jpg": "/so-yummy/static/media/flat-lay-assortment-vegetables-1x-deks.ce5669faa7c8785570e0.jpg",
     "static/media/welcomePicTab2x.jpg": "/so-yummy/static/media/welcomePicTab2x.dd9b3506177de111b0f7.jpg",
     "static/media/HeroTablet.png": "/so-yummy/static/media/HeroTablet.dc72bcf780e4a9621818.png",
+    "static/media/page-picture.png": "/so-yummy/static/media/page-picture.ed17847aaf2cbea8e816.png",
     "static/media/flat-lay-assortment-vegetables-1x-tab.jpg": "/so-yummy/static/media/flat-lay-assortment-vegetables-1x-tab.349a3832cbf5d6fad677.jpg",
     "static/media/welcomePicMob2x.jpg": "/so-yummy/static/media/welcomePicMob2x.e43542e6fc9c1742a6a2.jpg",
     "static/media/welcomePic1x.jpg": "/so-yummy/static/media/welcomePic1x.174a249c391fef7a4bcd.jpg",
+    "static/media/modal-picture-tablet.png": "/so-yummy/static/media/modal-picture-tablet.8085160dc9d1206421da.png",
     "static/media/flat-lay-assortment-vegetables-1x-mob.jpg": "/so-yummy/static/media/flat-lay-assortment-vegetables-1x-mob.c9a1273290b2aff07eaa.jpg",
     "static/media/welcomePicTab1x.jpg": "/so-yummy/static/media/welcomePicTab1x.877bd4f5385587b98ead.jpg",
     "static/media/need_searching_img_tablet_2x.png": "/so-yummy/static/media/need_searching_img_tablet_2x.b2a37db7bcf7235ccf86.png",
+    "static/media/modal-picture-mobile.png": "/so-yummy/static/media/modal-picture-mobile.3f04425b49ebdb0c6359.png",
     "static/media/need_searching_img_mobile_2x.png": "/so-yummy/static/media/need_searching_img_mobile_2x.7abde78fa4322bb0b31c.png",
     "static/media/welcomePicMob1x.jpg": "/so-yummy/static/media/welcomePicMob1x.b6697a496c1b50553185.jpg",
     "static/media/need_searching_img_decktop_1x.png": "/so-yummy/static/media/need_searching_img_decktop_1x.881a3326d89e7ec39532.png",
@@ -32,10 +35,10 @@
     "static/media/trashIcon-dark.svg": "/so-yummy/static/media/trashIcon-dark.ff575e109510692391a56a8152e95713.svg",
     "static/media/trashIcon-light.svg": "/so-yummy/static/media/trashIcon-light.4658c649f47f6230080f0ca8193b615f.svg",
     "main.194d9cd5.css.map": "/so-yummy/static/css/main.194d9cd5.css.map",
-    "main.7af0599f.js.map": "/so-yummy/static/js/main.7af0599f.js.map"
+    "main.bdbf44fa.js.map": "/so-yummy/static/js/main.bdbf44fa.js.map"
   },
   "entrypoints": [
     "static/css/main.194d9cd5.css",
-    "static/js/main.7af0599f.js"
+    "static/js/main.bdbf44fa.js"
   ]
 }
