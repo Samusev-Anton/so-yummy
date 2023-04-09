@@ -1,13 +1,34 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import IconButton from '@mui/material/IconButton';
 
-export const Ingredient = ({ id, name, weight }) => {
-  const dispatch = useDispatch();
+export const Ingredient = ({
+  id,
+  weight,
+  quantity,
+  onWeightChange,
+  onQuantityChange,
+  removeIngredientById,
+}) => {
+  //   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
   const [dropdownOptions, setDropdownOptions] = useState([]);
+
+  const handleWeightChange = e => {
+    onWeightChange(id, e.target.value);
+  };
+
+  const handleQuantityChange = e => {
+    onQuantityChange(id, e.target.value);
+  };
+
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      e.target.blur();
+    }
+  };
 
   function handleSearch(event) {
     const newSearchTerm = event.target.value;
@@ -23,6 +44,7 @@ export const Ingredient = ({ id, name, weight }) => {
 
   return (
     <>
+      {/* <input type="text" value={userText}></input> */}
       <input type="text" value={searchTerm} onChange={handleSearch} />
       <select>
         {dropdownOptions.map((option, index) => (
@@ -31,13 +53,31 @@ export const Ingredient = ({ id, name, weight }) => {
           </option>
         ))}
       </select>
-      <select id="weight" name="weight" value={weight}>
-        <option value="tbs">tbs</option>
-        <option value="tsp">tsp</option>
-        <option value="kg">kg</option>
-        <option value="g">g</option>
-      </select>
-      <IconButton onClick={() => dispatch()}>
+      <div>
+        <input
+          type="number"
+          value={quantity}
+          onChange={handleQuantityChange}
+          onBlur={() => onQuantityChange(id, quantity)}
+          onKeyDown={handleKeyDown}
+          placeholder="Quantity"
+        ></input>
+        <select
+          id="weight"
+          name="weight"
+          value={weight}
+          onChange={handleWeightChange}
+          onBlur={() => onWeightChange(id, weight)}
+          onKeyDown={handleKeyDown}
+        >
+          <option value="tbs">tbs</option>
+          <option value="tsp">tsp</option>
+          <option value="kg">kg</option>
+          <option value="g">g</option>
+        </select>
+      </div>
+
+      <IconButton onClick={() => removeIngredientById(id)}>
         <svg
           width="18"
           height="19"

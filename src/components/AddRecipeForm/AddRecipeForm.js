@@ -20,6 +20,7 @@ export const AddRecipeForm = () => {
   const [category, setCategory] = useState('');
   const [cookingTime, setCookingTime] = useState('');
   const [preparation, setPreparation] = useState('');
+  const [weight, setWeight] = useState('');
   const [formData, setFormData] = useState({
     image: null,
   });
@@ -28,6 +29,7 @@ export const AddRecipeForm = () => {
     about: recipeAbout,
     category: category,
     time: cookingTime,
+    weight: weight,
   });
 
   const handleImageChange = event => {
@@ -56,7 +58,7 @@ export const AddRecipeForm = () => {
         onChange={handleImageChange}
       />
       <SectionInput
-        required
+        // required
         name="title"
         type="text"
         label="RecipeTitle"
@@ -65,7 +67,7 @@ export const AddRecipeForm = () => {
         placeholder="Enter item title"
       ></SectionInput>
       <SectionInput
-        required
+        // required
         name="about"
         type="text"
         label="RecipeAbout"
@@ -74,7 +76,7 @@ export const AddRecipeForm = () => {
         placeholder="Enter about recipe"
       ></SectionInput>
       <SectionSelect
-        required
+        // required
         id="category"
         name="category"
         value={category}
@@ -91,7 +93,7 @@ export const AddRecipeForm = () => {
         <option value="Supper">Supper</option>
       </SectionSelect>
       <SectionSelect
-        required
+        // required
         id="cookingTime"
         name="cookingTime"
         value={cookingTime}
