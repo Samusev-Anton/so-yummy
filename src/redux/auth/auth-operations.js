@@ -22,7 +22,7 @@ export const register = createAsyncThunk(
 
       await axios.post('/users/signup', credentials);
       const res = await axios.post('/users/signin', { email, password });
-      console.log(res);
+      // console.log(res);
       setAuthHeader(res.data.user.token);
       return res.data;
     } catch (error) {
@@ -45,7 +45,7 @@ export const login = createAsyncThunk(
     try {
       const res = await axios.post('/users/signin', credentials);
       setAuthHeader(res.data.user.token);
-      console.log(res);
+      // console.log(res);
       return res.data;
     } catch (error) {
       toast.error(`${error.response.data.message}`, {
@@ -90,6 +90,12 @@ export const getCurrentUser = createAsyncThunk(
       const res = await axios.get('/auth/current');
       return res.data;
     } catch (error) {
+      // check is token is expired - and then delete it from local storage
+      if (error.response && error.response.status === 401) {
+        // If the response status is 401, clear the auth header and purge the persisted data
+        clearAuthHeader();
+        thunkAPI.dispatch({ type: 'persist/PURGE', key: 'persist:auth' });
+      }
       toast.error(`${error.response.data.message}`, {
         position: 'top-center',
         autoClose: 2500,
