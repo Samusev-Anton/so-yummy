@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-// import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
-// import { getRecipesIngredients } from '../../redux/selectors';
 import { Ingredient } from 'components/Ingredient/Ingredient';
 import { SectionTitle } from 'components/RecipePreparationFields/RecipePreparationFields.styled';
 
@@ -41,6 +38,7 @@ export const RecipeIngredientsList = () => {
     <>
       <SectionTitle>Ingredients</SectionTitle>
       <button onClick={addIngredientToArray}>+</button>
+      <p>{myArray.length}</p>
       <button onClick={removeIngredientFromArray}>-</button>
       <ul>
         {myArray.map(el => (

@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-
 import IconButton from '@mui/material/IconButton';
 
 export const Ingredient = ({
@@ -12,7 +10,6 @@ export const Ingredient = ({
   onQuantityChange,
   removeIngredientById,
 }) => {
-  //   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
   const [dropdownOptions, setDropdownOptions] = useState([]);
 
@@ -44,7 +41,6 @@ export const Ingredient = ({
 
   return (
     <>
-      {/* <input type="text" value={userText}></input> */}
       <input type="text" value={searchTerm} onChange={handleSearch} />
       <select>
         {dropdownOptions.map((option, index) => (

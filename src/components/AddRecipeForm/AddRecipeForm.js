@@ -20,7 +20,6 @@ export const AddRecipeForm = () => {
   const [category, setCategory] = useState('');
   const [cookingTime, setCookingTime] = useState('');
   const [preparation, setPreparation] = useState('');
-  const [weight, setWeight] = useState('');
   const [formData, setFormData] = useState({
     image: null,
   });
@@ -29,7 +28,6 @@ export const AddRecipeForm = () => {
     about: recipeAbout,
     category: category,
     time: cookingTime,
-    weight: weight,
   });
 
   const handleImageChange = event => {
