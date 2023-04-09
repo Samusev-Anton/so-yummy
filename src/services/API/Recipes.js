@@ -43,11 +43,12 @@ export const getFavoriteRecipesAPI = () => {
   });
 };
 
-
 // popular recipes
 export const getPopularRecipesAPI = () => {
   return axios.get('/popular').then(({ data }) => {
     return data.data;
+  });
+};
 
 export const getMyRecipesAPI = () => {
   return axios.get('/my').then(({ data }) => {
@@ -70,6 +71,5 @@ export const getRecipesById = recipeId => {
 export const getShoppingList = () => {
   return axios.get('/ingredients/shopping').then(({ data }) => {
     return data;
-
   });
 };
