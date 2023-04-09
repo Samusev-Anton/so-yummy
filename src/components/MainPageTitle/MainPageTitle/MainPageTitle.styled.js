@@ -55,6 +55,8 @@ export const MainPageTitleStyled = styled.h1`
     line-height: 28px;
     letter-spacing: -0.02em;
     text-align: left;
+    color: ${p => p.theme.colors.sectionHeader};
+    
     @media screen and (min-width: 768px) {
         font-size: 32px;
         line-height: 32px;

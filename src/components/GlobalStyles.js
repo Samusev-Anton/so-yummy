@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
-// import background from './images/skachat_oboi_1366x768.jpg';
+import background from 'images/page-picture.png';
 
 // import background from '../images/flat-lay-assortment-vegetables-with-copy-space 4.png';
 
@@ -245,3 +245,11 @@ export const ContactsWrapper = styled.div`
   background-color: #b8bebf;
   padding: ${p => p.theme.space[5]}px;
 `;
+export const Picture = styled.div`
+background-image: url(${background});
+background-position:left bottom;
+background-repeat: no-repeat;
+${'' /* background-position: center; */}
+${'' /* background-size: cover; */}
+
+`
