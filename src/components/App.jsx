@@ -1,10 +1,14 @@
 // import styled from 'styled-components';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from 'styled-components';
+import { getMode } from '../redux/theme/themeSelector';
+import { theme as lightMode, darkTheme as darkMode } from '../utils/theme';
+import { GlobalStyle } from './App.styled';
 
 import { SharedLayout } from './SharedLayout';
 import { WelcomePage } from 'pages/WelcomePage/WellcomePage';
@@ -28,6 +32,9 @@ import { getCurrentUser } from '../redux/auth/auth-operations';
 // import { ShoppingListPage } from 'pages/ShoppingListPage';
 
 export const App = () => {
+  const { mode } = useSelector(getMode);
+  const themeMode = mode === 'light' ? lightMode : darkMode;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,7 +42,8 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyle />
       <Routes>
         <Route
           path="/welcome"
@@ -70,6 +78,6 @@ export const App = () => {
         </Route>
       </Routes>
       <ToastContainer />
-    </>
+    </ThemeProvider>
   );
 };

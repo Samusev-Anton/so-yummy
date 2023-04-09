@@ -8,6 +8,7 @@ export const theme = {
     blackButton: '#22252A',
     formBack: '#2A2C36',
     titleText: '#001833',
+    switchBg: '#EFEFEF',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {
@@ -46,6 +47,7 @@ export const theme = {
     md: '8px',
     lg: '16px',
     round: '50%',
+    switch: '50px',
   },
   shadows: {
     shadowFirst: '0 4px 4px rgba(0, 0, 0, .25)',
