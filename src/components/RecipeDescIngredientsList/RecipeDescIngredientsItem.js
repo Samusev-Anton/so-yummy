@@ -16,7 +16,7 @@ import {
 import { selectShoppingList } from 'redux/auth/selectors';
 import { addIngredient, deleteIngredient } from 'redux/auth/auth-operations.js';
 
-export const IngredientItem = ({ item }) => {
+export const RecipeDescIngredientsItem = ({ item }) => {
   const list = useSelector(selectShoppingList);
   const [isChecked, setIsChecked] = useState(false);
   const [ingredientInShoppingList, setIngredientInShoppingList] =

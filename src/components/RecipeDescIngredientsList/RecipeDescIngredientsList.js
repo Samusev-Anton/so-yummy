@@ -8,7 +8,7 @@ import {
 } from './RecipeDescIngredientsList.styled';
 import { Container } from 'components/GlobalStyles';
 
-import { IngredientItem } from './IngridientItem';
+import { RecipeDescIngredientsItem } from './RecipeDescIngredientsItem';
 
 export const RecipeDescIngredientsList = ({ ingredientsList, recipeId }) => {
   return (
@@ -21,7 +21,7 @@ export const RecipeDescIngredientsList = ({ ingredientsList, recipeId }) => {
             <TableHeadRemove>Add to list</TableHeadRemove>
           </TableHead>
           {ingredientsList.map(item => (
-            <IngredientItem
+            <RecipeDescIngredientsItem
               recipeId={recipeId}
               ingredientsList={ingredientsList}
               item={item}
