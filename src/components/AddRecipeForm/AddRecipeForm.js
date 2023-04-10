@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-
+// import { addRecipesAPI } from './services/API/Recipes/addRecipesAPI';
+import {addRecipeAPI} from '../../services/API/Recipes';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
 
 import {
@@ -44,6 +45,14 @@ const AddRecipeForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     setRecipe({
+      title: recipeTitle,
+      about: recipeAbout,
+      category: category,
+      time: `${cookingTime} min`,
+      preparation: preparation,
+      ingredients: ingredientsForRecipe,
+    });
+    addRecipeAPI({
       title: recipeTitle,
       about: recipeAbout,
       category: category,
