@@ -6,7 +6,6 @@ import { authReducer } from './auth/AuthSlice';
 import { themeReducer } from './theme/themeSlice';
 
 // import { searchReducer } from './slices';
-import { favRecipiesReducer } from './ShoppingList/slices';
 
 const recipesPersistConfig = {
   key: 'recipes',

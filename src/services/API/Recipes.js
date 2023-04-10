@@ -85,16 +85,16 @@ export const deleteFavoriteAPI = recipeId => {
   });
 };
 
-export const addToShoppingList = obj => {
-  return axios.post(`/ingredients/shopping`, obj).then(({ data }) => {
-    return data;
-  });
-};
-
 export const addRecipeAPI = recipe => {
   console.log('add recipe', recipe);
   return axios.post(`/recipes`, {
     data: recipe,
+  });
+};
+
+export const addToShoppingList = obj => {
+  return axios.post(`/ingredients/shopping`, obj).then(({ data }) => {
+    return data;
   });
 };
 
