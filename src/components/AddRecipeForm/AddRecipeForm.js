@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { useState } from 'react';
 // import { addRecipesAPI } from './services/API/Recipes/addRecipesAPI';
-import {addRecipeAPI} from '../../services/API/Recipes';
+import { addRecipeAPI } from '../../services/API/Recipes';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
 
 import {
@@ -28,7 +29,7 @@ const AddRecipeForm = () => {
     ingredients: [],
   });
 
-  console.log(recipe);
+  // console.log(recipe);
   const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
   const [formData, setFormData] = useState({
     image: null,

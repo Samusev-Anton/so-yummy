@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { device } from 'components/GlobalStyles';
+import { Form, Field } from 'formik';
 
-export const Form = styled.form`
+export const FormSubscribe = styled(Form)`
   margin: 0 auto;
   margin-bottom: 44px;
   display: flex;
@@ -27,12 +28,17 @@ export const Form = styled.form`
 export const EmailField = styled.div`
   display: flex;
   height: 38px;
-  padding: 0px;
+  padding: 0px 15px;
+  position: relative;
   align-items: center;
   border: none;
   border-radius: 6px;
   outline: 1px solid rgba(250, 250, 250, 0.16);
   margin-bottom: 8px;
+  &:focus,
+  &:hover {
+    outline: 1px solid #ffffff;
+  }
   @media ${device.tablet} {
     width: 259px;
     height: 50px;
@@ -45,7 +51,7 @@ export const EmailField = styled.div`
   }
 `;
 
-export const TextField = styled.input`
+export const TextField = styled(Field)`
   width: 100%;
   padding: 0px;
   background-color: transparent;
@@ -113,6 +119,12 @@ export const SubscribeButton = styled.button`
     color: #22252a;
     cursor: pointer;
   }
+  &:disabled {
+    color: rgba(250, 250, 250, 0.5);
+    background-color: #22252a;
+    outline: 1px solid rgba(250, 250, 250, 0.16);
+    cursor: not-allowed;
+  }
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -135,18 +147,14 @@ export const IconLetterStyle = styled.div`
   display: flex;
   @media ${device.mobileOnly} {
     height: 12px;
-    margin-left: 14px;
   }
   @media ${device.mobile} {
     height: 12px;
-    margin-left: 14px;
   }
   @media ${device.tablet} {
     height: 16px;
-    margin-left: 15px;
   }
   @media ${device.desktop} {
-    margin-left: 15.5px;
   }
 `;
 
@@ -176,3 +184,25 @@ export const IconLetter = () => {
     </svg>
   );
 };
+
+export const WarningMessage = styled.div`
+  position: absolute;
+  left: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+
+  color: #f6c23e;
+  @media ${device.mobileOnly} {
+    top: -50%;
+  }
+  @media ${device.tablet} {
+    top: 100%;
+  }
+`;
+
+export const WarningSvg = styled.svg`
+  height: 20px;
+`;
