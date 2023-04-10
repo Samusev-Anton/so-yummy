@@ -27,7 +27,7 @@ import { FavoritePage } from 'pages/FavoritePage/FavoritePage';
 import { ShoppingListPage } from 'pages/ShoppingListPage';
 
 import { SearchPage } from 'pages/SearchPage';
-// import { Error } from 'pages/Error';
+import { NotFoundPage } from 'pages/NotFoundPage';
 import { RecipePage } from 'pages/RecipePage';
 
 import { PublicRoute } from 'services/routes/PublicRoute';
@@ -79,7 +79,7 @@ export const App = () => {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/my" element={<MyRecipesPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
-          {/* <Route path="*" element={<Error />} /> */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
       <ToastContainer />

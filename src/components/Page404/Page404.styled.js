@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
 export const NotFoundPageImg = styled.img`
-  position: sticky;
   width: 498px;
   height: 331px;
-  margin-top: 198px;
+  margin-top: -110px;
+
+  @media screen and (max-width: 480px) {
+    height: 170px;
+    width: 259px;
+  }
 `;
 
 export const Wraper = styled.div`
