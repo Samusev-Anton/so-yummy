@@ -2,6 +2,7 @@ import { IngredientsShoppingList } from 'components/IngredientsShoppingList/Ingr
 import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTitle';
 import { useState, useEffect } from 'react';
 import { getShoppingList } from 'services/API/Recipes';
+import { Container } from 'components/GlobalStyles';
 export const ShoppingListPage = () => {
   const [shoppingList, setShoppingList] = useState([]);
 
@@ -13,11 +14,11 @@ export const ShoppingListPage = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       <MainPageTitle value="Shopping list"></MainPageTitle>
       <IngredientsShoppingList
         shoppingList={shoppingList}
       ></IngredientsShoppingList>
-    </>
+    </Container>
   );
 };

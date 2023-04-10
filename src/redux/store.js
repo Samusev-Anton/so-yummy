@@ -39,7 +39,6 @@ export const store = configureStore({
     recipes: persistedRecipesReducer,
     auth: persistedAuthReducer,
     // search: persistedSearchReducer,
-    favRecipies: favRecipiesReducer,
     theme: persistedThemeReducer,
   },
   middleware: getDefaultMiddleware =>

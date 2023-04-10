@@ -119,8 +119,11 @@ export const TableNumberBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 37px;
-  height: 23px;
+  min-width: 37px;
+  min-height: 23px;
+  max-width: 75px;
+  padding: 4px;
+
   background: #8baa36;
   border-radius: 4px;
   font-weight: 600;
@@ -130,8 +133,8 @@ export const TableNumberBox = styled.div`
   margin-right: 48px;
 
   @media (min-width: 768px) {
-    width: 68px;
-    height: 35px;
+    max-width: 95px;
+    // height: 35px;
     font-size: 18px;
     margin-right: 110px;
   }
@@ -142,7 +145,12 @@ export const TableNumberBox = styled.div`
 
 export const TableNumber = styled.div``;
 
-export const TableRemove = styled.div``;
+export const TableRemove = styled.button`
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;
 
 export const XIcon = styled(XLg)`
   color: #333333;
