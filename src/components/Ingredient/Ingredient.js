@@ -7,7 +7,7 @@ export const Ingredient = ({
   title,
   weight,
   quantity,
-  onNameChange,
+  onTitleChange,
   onWeightChange,
   onQuantityChange,
   removeIngredientById,
@@ -15,8 +15,8 @@ export const Ingredient = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [dropdownOptions, setDropdownOptions] = useState([]);
 
-  const handleNameChange = e => {
-    onWeightChange(id, e.target.value);
+  const handleTitleChange = e => {
+    onTitleChange(id, e.target.value);
   };
 
   const handleQuantityChange = e => {
@@ -56,19 +56,21 @@ export const Ingredient = ({
         ))}
       </select> */}
       <input
+        id="title"
         type="text"
-        // value={title}
-        onChange={handleNameChange}
-        onBlur={() => onNameChange(id, title)}
+        value={title}
+        onChange={handleTitleChange}
+        onBlur={() => onTitleChange(id, title)}
         onKeyDown={handleKeyDown}
         placeholder="Ingredient name"
       ></input>
       <div>
         <input
+          id="quantity"
           type="number"
           value={quantity}
           onChange={handleQuantityChange}
-          onBlur={() => onNameChange(id, quantity)}
+          onBlur={() => onQuantityChange(id, quantity)}
           onKeyDown={handleKeyDown}
           placeholder="Quantity"
         ></input>
@@ -86,7 +88,6 @@ export const Ingredient = ({
           <option value="g">g</option>
         </select>
       </div>
-
       <IconButton onClick={() => removeIngredientById(id)}>
         <svg
           width="18"

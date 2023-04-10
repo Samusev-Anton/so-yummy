@@ -45,7 +45,6 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
       ingredients.map(el => (el.id === id ? { ...el, weight } : el))
     );
   };
-
   return (
     <div
       onKeyDown={handleAddIngredient}
@@ -65,7 +64,7 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
               title={el.title}
               weight={el.weight}
               quantity={el.quantity}
-              onNameChange={handleTitleChange}
+              onTitleChange={handleTitleChange}
               onQuantityChange={handleQuantityChange}
               onWeightChange={handleWeightChange}
               removeIngredientById={removeIngredientById}

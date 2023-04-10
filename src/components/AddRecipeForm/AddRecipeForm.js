@@ -78,38 +78,44 @@ const AddRecipeForm = () => {
         onChange={e => setRecipeAbout(e.target.value)}
         placeholder="Enter about recipe"
       ></SectionInput>
-      <SectionSelect
-        // required
-        id="category"
-        name="category"
-        value={category}
-        onChange={e => setCategory(e.target.value)}
-      >
-        <option value="Beef">Beef</option>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Dessert">Dessert</option>
-        <option value="Dinner">Dinner</option>
-        <option value="Fish">Fish</option>
-        <option value="Goat">Goat</option>
-        <option value="Lamb">Lamb</option>
-        <option value="Pork">Pork</option>
-        <option value="Supper">Supper</option>
-      </SectionSelect>
-      <SectionSelect
-        // required
-        id="cookingTime"
-        name="cookingTime"
-        value={cookingTime}
-        onChange={e => setCookingTime(e.target.value)}
-      >
-        <option value="5">5 min</option>
-        <option value="15">15 min</option>
-        <option value="30">30 min</option>
-        <option value="45">45 min</option>
-        <option value="60">60 min</option>
-        <option value="90">90 min</option>
-        <option value="120">120 min</option>
-      </SectionSelect>
+      <div>
+        <p>Category</p>
+        <SectionSelect
+          // required
+          id="category"
+          name="category"
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+        >
+          <option value="Beef">Beef</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Dessert">Dessert</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Fish">Fish</option>
+          <option value="Goat">Goat</option>
+          <option value="Lamb">Lamb</option>
+          <option value="Pork">Pork</option>
+          <option value="Supper">Supper</option>
+        </SectionSelect>
+      </div>
+      <div>
+        <p>Cooking time</p>
+        <SectionSelect
+          // required
+          id="cookingTime"
+          name="cookingTime"
+          value={cookingTime}
+          onChange={e => setCookingTime(e.target.value)}
+        >
+          <option value="5">5 min</option>
+          <option value="15">15 min</option>
+          <option value="30">30 min</option>
+          <option value="45">45 min</option>
+          <option value="60">60 min</option>
+          <option value="90">90 min</option>
+          <option value="120">120 min</option>
+        </SectionSelect>
+      </div>
 
       <RecipeIngredientsList onIngredientsChange={handleIngredientsChange} />
 
