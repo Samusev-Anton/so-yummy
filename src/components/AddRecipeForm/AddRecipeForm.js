@@ -26,6 +26,8 @@ const AddRecipeForm = () => {
     preparation: preparation,
     ingredients: [],
   });
+
+  console.log(recipe);
   const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
   const [formData, setFormData] = useState({
     image: null,

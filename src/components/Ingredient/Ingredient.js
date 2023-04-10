@@ -14,6 +14,9 @@ export const Ingredient = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [dropdownOptions, setDropdownOptions] = useState([]);
+  console.log(dropdownOptions);
+
+  console.log(searchTerm);
 
   const handleTitleChange = e => {
     onTitleChange(id, e.target.value);
@@ -44,6 +47,8 @@ export const Ingredient = ({
     );
     setDropdownOptions(filteredOptions);
   }
+
+  handleSearch();
 
   return (
     <>
