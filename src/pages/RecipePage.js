@@ -7,22 +7,24 @@ import { RecipePreparation } from 'components/RecipePreparation/RecipePreparatio
 
 export const RecipePage = () => {
   const { recipeId } = useParams();
-  const [recipeDescription, setRecipeDescription] = useState([]);
+  const [recipeDescription, setRecipeDescription] = useState({});
   const [ingredientsList, setIngredientsList] = useState([]);
 
   useEffect(() => {
     getRecipesById(recipeId).then(data => {
       setRecipeDescription(data.data.recipe[0]);
       setIngredientsList(data.data.recipe[0].ingredients);
-      // console.log(data.data.recipe[0]);
     });
   }, [recipeId]);
 
   return (
     <>
       <RecipePageHero recipeDescription={recipeDescription} />
-      <RecipeIngredientsList ingredientsList={ingredientsList} />
-      <RecipePreparation recipeDescription={recipeDescription} />{' '}
+      <RecipeIngredientsList
+        recipeId={recipeId}
+        ingredientsList={ingredientsList}
+      />
+      <RecipePreparation recipeDescription={recipeDescription} />
     </>
   );
 };
