@@ -2,6 +2,14 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
+import {
+  getShoppingList,
+  addFavouriteRecipe,
+  deleteFavouriteRecipe,
+  addToShoppingList,
+  deleteFromShoppingList,
+} from 'services/API/Recipes';
+
 axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
 
 // Utility to add JWT
@@ -98,6 +106,65 @@ export const getCurrentUser = createAsyncThunk(
         theme: 'colored',
       });
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addFavRecipe = createAsyncThunk(
+  'favorite/addFavRecipe',
+  async (recipeId, { rejectWithValue }) => {
+    try {
+      const response = await addFavouriteRecipe(recipeId);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
+export const deleteFavRecipe = createAsyncThunk(
+  'favorite/deleteFavRecipe',
+  async (recipeId, { rejectWithValue }) => {
+    try {
+      const response = await deleteFavouriteRecipe(recipeId);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
+export const getShopList = createAsyncThunk(
+  'shopping/getShopList',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await getShoppingList();
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addIngredient = createAsyncThunk(
+  'shopping/addIngredient',
+  async (obj, { rejectWithValue }) => {
+    try {
+      const response = await addToShoppingList(obj);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+export const deleteIngredient = createAsyncThunk(
+  'shopping/deleteIngredient',
+  async (ingridientId, { rejectWithValue }) => {
+    try {
+      const response = await deleteFromShoppingList(ingridientId);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
     }
   }
 );

@@ -45,6 +45,12 @@ export const addFavouriteRecipe = recipeId => {
   });
 };
 
+export const deleteFavouriteRecipe = recipeId => {
+  return axios.delete(`/favorite/${recipeId}`).then(({ data }) => {
+    return data;
+  });
+};
+
 export const getRecipesById = recipeId => {
   return axios.get(`/recipes/description/${recipeId}`).then(({ data }) => {
     return data;
@@ -53,6 +59,18 @@ export const getRecipesById = recipeId => {
 
 export const getShoppingList = () => {
   return axios.get('/ingredients/shopping').then(({ data }) => {
+    return data;
+  });
+};
+
+export const addToShoppingList = obj => {
+  return axios.post(`/ingredients/shopping`, obj).then(({ data }) => {
+    return data;
+  });
+};
+
+export const deleteFromShoppingList = ingridientId => {
+  return axios.delete(`/ingredients/${ingridientId}`).then(({ data }) => {
     return data;
   });
 };
