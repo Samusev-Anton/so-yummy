@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import { schemaRegValidation } from 'utils/formValidation';
 import { getValidColor } from 'utils/getValidColor';
 import { register } from '../../redux/auth/auth-operations';
+
 import {
   FormAuth,
   TitleForm,
@@ -15,6 +16,10 @@ import {
   Button,
   Warning,
   LinkTo,
+  BoxForIcon,
+  EmailIcon,
+  NameIcon,
+  PassIcon,
 } from './RegisterForm.styled';
 
 const initialValues = {
@@ -47,6 +52,9 @@ export const RegisterForm = () => {
             <TitleForm>Registration</TitleForm>
             <BoxForForm>
               <BoxForField>
+                <BoxForIcon>
+                  <NameIcon stroke={getValidColor(errors.name, touched.name)} />
+                </BoxForIcon>
                 <FormField
                   type="text"
                   name="name"
@@ -60,6 +68,11 @@ export const RegisterForm = () => {
                 ) : null}
               </BoxForField>
               <BoxForField>
+                <BoxForIcon>
+                  <EmailIcon
+                    stroke={getValidColor(errors.email, touched.email)}
+                  />
+                </BoxForIcon>
                 <FormField
                   type="email"
                   name="email"
@@ -73,6 +86,11 @@ export const RegisterForm = () => {
                 ) : null}
               </BoxForField>
               <BoxForField>
+                <BoxForIcon>
+                  <PassIcon
+                    stroke={getValidColor(errors.password, touched.password)}
+                  />
+                </BoxForIcon>
                 <FormField
                   type="password"
                   name="password"
