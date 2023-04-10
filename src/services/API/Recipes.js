@@ -78,3 +78,11 @@ export const deleteFavoriteAPI = recipeId => {
     return data;
   });
 };
+
+export const addRecipeAPI = recipe => {
+  console.log('add recipe', recipe);
+  return axios.post(`/recipes`, {
+    data: recipe,
+  });
+};
+
