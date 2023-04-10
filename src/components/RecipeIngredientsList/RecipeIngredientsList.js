@@ -1,128 +1,77 @@
 import * as React from 'react';
-// import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
-// import { getRecipesIngredients } from '../../redux/selectors';
-// import { Ingredient } from 'components/Ingredient/Ingredient';
-// import { SectionTitle } from 'components/RecipePreparationFields/RecipePreparationFields.styled';
+import { useState } from 'react';
+import { nanoid } from 'nanoid';
+import { Ingredient } from 'components/Ingredient/Ingredient';
+import { SectionTitle } from 'components/AddRecipeForm/AddRecipeForm.styled';
 
-// export const RecipeIngredientsList = searchTerm => {
-//   //   const dispatch = useDispatch();
-//   // const ingerdients = useSelector(getRecipesIngredients);
+export const RecipeIngredientsList = ({ onIngredientsChange }) => {
+  const [id, setId] = useState(nanoid());
+  const [ingredients, setIngredients] = useState([]);
 
-//   //   const handleSubmit = event => {
-//   //     event.preventDefault();
-//   //   };
-//   // const arr = [{}];
-//   return (
-//     <>
-//       <SectionTitle>Ingredients</SectionTitle>
-//       <ul>
-//         <li>
-//           <Ingredient searchTerm={searchTerm} />
-//         </li>
-//       </ul>
-//       {/* <ul>
-//         {ingerdients.map(el => (
-//           <Ingredient key={el.id} {...el} />
-//         ))}
-//       </ul> */}
-//     </>
+  const addIngredientToArray = () => {
+    setId(nanoid());
+    const newObject = { id: id, title: '', quantity: '', weight: '' };
+    setIngredients([...ingredients, newObject]);
+  };
 
-import {
-  Table,
-  Blocks,
-  TableHead,
-  TableHeadProduct,
-  TableHeadNumber,
-  TableHeadRemove,
-  TableRow,
-  TableProduct,
-  TableNumber,
-  TableRemove,
-  TableProductBox,
-  TableProductText,
-  TableNumberBox,
-  CheckMark,
-  Checkbox,
-  InputCheck,
-  CheckLabel,
-} from './RecipeIngredientsList.styled';
+  const handleAddIngredient = () => {
+    onIngredientsChange([...ingredients]);
+  };
 
-export const RecipeIngredientsList = ({ ingredientsList }) => {
-  
+  const removeIngredientFromArray = () => {
+    const newArray = [...ingredients.slice(0, -1)];
+    setIngredients(newArray);
+  };
+
+  const removeIngredientById = id => {
+    const newArray = ingredients.filter(el => el.id !== id);
+    setIngredients(newArray);
+  };
+
+  const handleTitleChange = (id, title) => {
+    setIngredients(
+      ingredients.map(el => (el.id === id ? { ...el, title } : el))
+    );
+  };
+
+  const handleQuantityChange = (id, quantity) => {
+    setIngredients(
+      ingredients.map(el => (el.id === id ? { ...el, quantity } : el))
+    );
+  };
+
+  const handleWeightChange = (id, weight) => {
+    setIngredients(
+      ingredients.map(el => (el.id === id ? { ...el, weight } : el))
+    );
+  };
   return (
-    <Table>
-      <Blocks>
-        <TableHead>
-          <TableHeadProduct>Ingredients</TableHeadProduct>
-          <TableHeadNumber>Number</TableHeadNumber>
-          <TableHeadRemove>Add to list</TableHeadRemove>
-        </TableHead>
-        {ingredientsList?.map(item => (
-          <TableRow key={item._id}>
-            <TableProduct>
-              <TableProductBox>
-                <img src={item.thb} alt={item.ttl} />
-              </TableProductBox>
-              <TableProductText>{item.ttl}</TableProductText>
-            </TableProduct>
-            <TableNumber>
-              <TableNumberBox>{item.measure}</TableNumberBox>
-            </TableNumber>
-            <TableRemove>
-              <InputCheck
-                className="input-check visually-hidden"
-                type="checkbox"
-                name="add"
-                id={item._id}
-                required
-              />
-              <CheckLabel class="check-label" for={item._id}>
-                <Checkbox class="checkbox">
-                  <CheckMark />
-                </Checkbox>
-              </CheckLabel>
-            </TableRemove>
-          </TableRow>
-        ))}
-
-        {/* <TableRow>
-          <TableProduct>
-            <TableProductBox></TableProductBox>
-            <TableProductText>Salmon</TableProductText>
-          </TableProduct>
-          <TableNumber>
-            <TableNumberBox>1 small finely diced</TableNumberBox>
-          </TableNumber>
-          <TableRemove>
-            <InputCheck
-              className="input-check visually-hidden"
-              type="checkbox"
-              name="add"
-              id="add2"
-              required
+    <div
+      onKeyDown={handleAddIngredient}
+      onMouseMove={handleAddIngredient}
+      onMouseLeave={handleAddIngredient}
+    >
+      <SectionTitle>Ingredients</SectionTitle>
+      <button onClick={addIngredientToArray}>+</button>
+      <p>{ingredients.length}</p>
+      <button onClick={removeIngredientFromArray}>-</button>
+      <ul>
+        {ingredients.map(el => (
+          <li key={el.id}>
+            <Ingredient
+              {...el}
+              id={el.id}
+              title={el.title}
+              weight={el.weight}
+              quantity={el.quantity}
+              onTitleChange={handleTitleChange}
+              onQuantityChange={handleQuantityChange}
+              onWeightChange={handleWeightChange}
+              removeIngredientById={removeIngredientById}
             />
-            <CheckLabel class="check-label" for="add2">
-              <Checkbox class="checkbox">
-                <CheckMark />
-              </Checkbox>
-            </CheckLabel>
-          </TableRemove>
-        </TableRow> */}
-      </Blocks>
-    </Table>
-
-    //     {/* {Object.keys(rates).map((key, index) => ( */}
-    //     <TableBodyRow>
-    //       <td>
-    //         <div></div>
-    //         <p>Salmon</p>
-    //       </td>
-    //       <TableNumberItem>
-    //         <div>5</div>
-    //       </TableNumberItem>
-    //       <td>werewtew</td>
-    //     </TableBodyRow>
-    //     {/* ))} */}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
