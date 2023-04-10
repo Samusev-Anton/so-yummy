@@ -12,7 +12,7 @@ import {
   Checkbox,
   InputCheck,
   CheckLabel,
-} from './RecipeIngredientsList.styled';
+} from './RecipeDescIngredientsList.styled';
 import { selectShoppingList } from 'redux/auth/selectors';
 import { addIngredient, deleteIngredient } from 'redux/auth/auth-operations.js';
 

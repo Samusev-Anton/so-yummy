@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
+import { RecipeDescIngredientsList } from 'components/RecipeDescIngredientsList/RecipeDescIngredientsList';
 import { RecipePageHero } from 'components/RecipePageHero/RecipePageHero';
 import { useParams } from 'react-router-dom';
 import { getRecipesById } from 'services/API/Recipes';
@@ -20,7 +20,7 @@ export const RecipePage = () => {
   return (
     <>
       <RecipePageHero recipeDescription={recipeDescription} />
-      <RecipeIngredientsList
+      <RecipeDescIngredientsList
         recipeId={recipeId}
         ingredientsList={ingredientsList}
       />

@@ -5,12 +5,12 @@ import {
   TableHeadProduct,
   TableHeadNumber,
   TableHeadRemove,
-} from './RecipeIngredientsList.styled';
+} from './RecipeDescIngredientsList.styled';
 import { Container } from 'components/GlobalStyles';
 
 import { IngredientItem } from './IngridientItem';
 
-export const RecipeIngredientsList = ({ ingredientsList, recipeId }) => {
+export const RecipeDescIngredientsList = ({ ingredientsList, recipeId }) => {
   return (
     <Container>
       <Table>
