@@ -20,9 +20,14 @@ import { MainPage } from 'pages/MainPage';
 import { AddRecipePage } from 'pages/AddRecipePage';
 import { MyRecipesPage } from 'pages/MyRecipesPage/MyRecipesPage';
 import { FavoritePage } from 'pages/FavoritePage/FavoritePage';
+
+
+// import { ShoppingPage } from 'pages/ShoppingPage';
+
 import { ShoppingListPage } from 'pages/ShoppingListPage';
+
 import { SearchPage } from 'pages/SearchPage';
-// import { Error } from 'pages/Error';
+import { NotFoundPage } from 'pages/NotFoundPage';
 import { RecipePage } from 'pages/RecipePage';
 
 import { PublicRoute } from 'services/routes/PublicRoute';
@@ -60,7 +65,7 @@ export const App = () => {
             <PrivateRoute component={SharedLayout} redirectTo="/welcome" />
           }
         >
-          <Route path="/main" element={<MainPage />} />
+          <Route path="/main" element={<MainPage />} /> 
           <Route
             path="/categories/:categoryName?"
             element={<CategoriesPage />}
@@ -72,7 +77,7 @@ export const App = () => {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/my" element={<MyRecipesPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
-          {/* <Route path="*" element={<Error />} /> */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
       <ToastContainer />
