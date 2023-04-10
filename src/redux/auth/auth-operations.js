@@ -91,7 +91,7 @@ export const getCurrentUser = createAsyncThunk(
       return res.data;
     } catch (error) {
       // check is token is expired - and then delete it from local storage
-      if (error.response && error.response.status === 401) {
+      if (error.response.data.message === 'jwt expired') {
         // If the response status is 401, clear the auth header and purge the persisted data
         clearAuthHeader();
         thunkAPI.dispatch({ type: 'persist/PURGE', key: 'persist:auth' });
