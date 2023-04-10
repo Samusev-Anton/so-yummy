@@ -35,8 +35,6 @@ export const searchRecipesApi = async ({ searchQuery, searchType }) => {
   });
 };
 
-// favorite recipes
-
 export const getFavoriteRecipesAPI = () => {
   return axios.get('/favorite').then(({ data }) => {
     return data;
@@ -70,6 +68,13 @@ export const getRecipesById = recipeId => {
 
 export const getShoppingList = () => {
   return axios.get('/ingredients/shopping').then(({ data }) => {
+    return data;
+  });
+};
+
+export const deleteFavoriteAPI = recipeId => {
+  console.log('log in deleteFavoriteAPI');
+  return axios.delete(`/favorite/${recipeId}`).then(({ data }) => {
     return data;
   });
 };
