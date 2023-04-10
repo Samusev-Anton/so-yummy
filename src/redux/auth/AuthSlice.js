@@ -48,17 +48,16 @@ export const authSlice = createSlice({
           shoppingList: [...action.payload.data.shoppingList],
         };
         state.token = action.payload.data.token;
+        state.isRefreshing = false;
+      })
+      .addCase(getCurrentUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.token = null;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
         state => {
           state.isLoggedIn = true;
-        }
-      )
-      .addMatcher(
-        isAnyOf(getCurrentUser.fulfilled, getCurrentUser.rejected),
-        state => {
-          state.isRefreshing = false;
         }
       );
   },
