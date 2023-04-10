@@ -37,7 +37,7 @@ padding:0;
   @media (min-width: 768px) {
     gap: 32px;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     gap: 14px;
   }
 
