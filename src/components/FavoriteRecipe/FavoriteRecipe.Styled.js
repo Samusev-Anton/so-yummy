@@ -108,6 +108,12 @@ export const DeleteButton = styled.button`
   background-color: #ebf3d4;
   border: none;
   border-radius: 4px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
   &:hover {
     cursor: pointer;
   }
