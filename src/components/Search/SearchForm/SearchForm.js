@@ -1,12 +1,28 @@
 import React from "react";
-import { Formik } from 'formik';
-import { FormWrap, Input } from '../../SearchInput/SearchForm.styled';
-import { SearchPageBtn } from "./SearchForm.styled";
+import { Formik, ErrorMessage } from 'formik';
+import { FormWrap, Input } from '../../SearchInput/Search.styled';
+import { SearchPageBtn } from '../SearchForm/SearchForm.styled';
+import { throttle } from 'lodash';
+
+const validateSearchQuery = (value) => {
+  let error;
+  if (!/^[a-zA-Z]+$/.test(value)) {
+  error = 'Please enter only letters';
+  }
+  return error;
+  };
 
 export const SearchForm = ({ searchQuery, onSearchQueryChange }) => {
 
+  const throttledOnSearchQueryChange = throttle(onSearchQueryChange, 5000);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   return (
-    <Formik>
+    <Formik initialValues={{ searchQuery: '' }} onSubmit={handleSubmit}>
+    {({ errors, touched }) => (
     <FormWrap>
       <label htmlFor="search-query"></label>
       <Input
@@ -15,14 +31,18 @@ export const SearchForm = ({ searchQuery, onSearchQueryChange }) => {
         type="text"
         placeholder="Beef |"
         value={searchQuery}
-        onChange={(e) => onSearchQueryChange(e.target.value)}
+        onChange={(e) => throttledOnSearchQueryChange(e.target.value)}
+        validate={validateSearchQuery}
         autoComplete="on"
         autoFocus 
-      >
-      </Input>
+      />
+      {errors.searchQuery && touched.searchQuery && 
+      <ErrorMessage>{errors.searchQuery}</ErrorMessage>}
       <SearchPageBtn type="submit">Search</SearchPageBtn>
     </FormWrap>
+    )}
     </Formik>
   );
 }
+
 
