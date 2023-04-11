@@ -78,6 +78,22 @@ export const authSlice = createSlice({
           item => item._id !== action.meta.arg
         );
       })
+      .addCase(addFavRecipe.fulfilled, (state, action) => {
+        state.user.favoritsRecipe.push(action.meta.arg);
+      })
+      .addCase(deleteFavRecipe.fulfilled, (state, action) => {
+        state.user.favoritsRecipe = state.user.favoritsRecipe.filter(
+          item => item !== action.meta.arg
+        );
+      })
+      .addCase(addIngredient.fulfilled, (state, action) => {
+        state.user.shoppingList.push(action.meta.arg);
+      })
+      .addCase(deleteIngredient.fulfilled, (state, action) => {
+        state.user.shoppingList = state.user.shoppingList.filter(
+          item => item._id !== action.meta.arg
+        );
+      })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
         state => {
