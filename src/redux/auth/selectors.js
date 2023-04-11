@@ -9,3 +9,7 @@ export const selectToken = state => state.auth.token;
 export const selectUserLoggedIn = state => state.auth.isLoggedIn;
 
 export const selectRefreshing = state => state.auth.isRefreshing;
+
+export const selectfavRecipies = state => state.auth.user.favoritsRecipe;
+
+export const selectShoppingList = state => state.auth.user.shoppingList;

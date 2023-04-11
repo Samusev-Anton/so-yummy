@@ -131,7 +131,7 @@ export const TableNumberBox = styled.div`
   align-items: center;
   justify-content: center;
   padding: 4px;
-  max-width: 70px;
+  max-width: 55px;
   background: #8baa36;
   border-radius: 4px;
   font-weight: 600;
