@@ -5,6 +5,7 @@ import {
   AdditionalFooterStyle,
   AdditionalFooterItem,
   AdditionalFooterLink,
+  FooterLeaves,
 } from './AdditionalFooter.styled';
 
 export const AdditionalFooter = () => {
@@ -15,6 +16,7 @@ export const AdditionalFooter = () => {
         © 2023 All Rights Reserved.
       </AdditionalFooterItem>
       <AdditionalFooterLink mode={mode}>Terms of Service</AdditionalFooterLink>
+      <FooterLeaves />
     </AdditionalFooterStyle>
   );
 };

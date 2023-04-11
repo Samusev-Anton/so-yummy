@@ -16,7 +16,6 @@ import {
   Logo,
   LogoStyle,
 } from './Footer.styled';
-// import { getValidColor } from 'utils/getValidColor';
 import { SubscribeForm } from '../SubscribeForm/SubscribeForm';
 import { FollowUs } from '../FollowUs/FollowUs';
 
@@ -51,8 +50,8 @@ export const Footer = () => {
               <Link to="/shopping-list">Shopping list</Link>
             </FooterNavList>
           </FooterNav>
+          <SubscribeForm />
         </FooterMainBlock>
-        <SubscribeForm />
       </FooterMain>
       <FollowUs />
     </FooterStyle>
