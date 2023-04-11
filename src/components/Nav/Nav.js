@@ -26,7 +26,7 @@ const Nav = () => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
 
-    // const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
 
   const [showModal, setShowModal] = useState(false);
   // const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -143,7 +143,9 @@ const Nav = () => {
               <NavLink to="/my">My recipes</NavLink>
               <NavLink to="/favorite">Favorites</NavLink>
               <NavLink to="/shopping-list">Shopping list</NavLink>
-              <NavLink to="search"></NavLink>
+              <NavLink to="search">
+                <SearchIcon sx={{ fontSize: 20 }} />
+                Search</NavLink>
             </NavMenu>
           </TabletContainer>
         </Modal>

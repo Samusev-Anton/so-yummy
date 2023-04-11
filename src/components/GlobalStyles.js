@@ -228,7 +228,6 @@ color: rgb(255, 255, 255);
     padding: 13px 32px;
     font-size: 14px;
   }
-
 `;
 
 export const ErrorSection = styled.section`

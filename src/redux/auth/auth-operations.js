@@ -107,3 +107,16 @@ export const getCurrentUser = createAsyncThunk(
     }
   }
 );
+
+export const updateUser = createAsyncThunk(
+  '/auth/updateUser',
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await axios.patch(`/users/profile`, data);
+      console.log(result)
+      return result;
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  }
+);

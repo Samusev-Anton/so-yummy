@@ -20,10 +20,13 @@ import FormDialog from './EditProfile';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  console.log(user);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
+  const { name, avatarURL } = useSelector(selectUser);
+  console.log(avatarURL);
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -44,7 +47,7 @@ export const UserMenu = () => {
     <>
       <Box sx={{ display: { xs: 'flex', md: 'flex', alignItems: 'center' } }}><Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} onClose={handleCloseUserMenu}>
-          <Avatar alt="avatar" src="" sx={{
+          <Avatar alt="avatar" src={avatarURL} sx={{
             height: { xs: 34, sm: 40, md: 44 },
             width: { xs: 34, sm: 40, md: 44 },
           }} />
@@ -68,10 +71,9 @@ export const UserMenu = () => {
           elevation: 0,
           sx: {
             overflow: 'visible',
-            // width: { xs: '161px', sm:'177px',},
-            // height: { xs: '130px', sm:'140px',},
+
             p: '18px',
-            // display: {xs: 'flex', justifyContent:'center'},
+
             border: '1px solid #8BAA36',
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
             mt: 1.5,
@@ -85,7 +87,7 @@ export const UserMenu = () => {
           <EditIcon sx={{ ml: '53px', }} />
         </MenuItem>
         <Dialog open={open} onClose={handleClose} >
-          <FormDialog onClose={handleClose} />
+          <FormDialog user={name} avatar={avatarURL} onClose={handleClose} />
         </Dialog>
         <MenuItem>
           <ClassicButton onClick={handelLogoutUser}>

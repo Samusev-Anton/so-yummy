@@ -1,13 +1,12 @@
-// import React, { useState } from 'react';
+
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 import { Overlay, ModalWindow } from './Modal.styled';
 import CloseIcon from '@mui/icons-material/Close';
 import Logo from 'components/Logo/Logo';
 import { WraperHeaderModal } from 'components/Header/Header.styled';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Switch from '@mui/material/Switch';
-// import { styled } from '@mui/material/styles';
+import { Container } from 'components/GlobalStyles';
+
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -29,10 +28,12 @@ const Modal = ({ children, onClose }) => {
   return createPortal(
     <Overlay onClick={closeModal}>
       <ModalWindow>
-        <WraperHeaderModal>
-          <Logo />
-          <CloseIcon sx={{ fontSize: 32, color: '#22252A' }} />
-        </WraperHeaderModal>
+        <Container>
+          <WraperHeaderModal>
+            <Logo />
+            <CloseIcon sx={{ fontSize: 32, color: '#22252A' }} />
+          </WraperHeaderModal>
+        </Container>
         {children}
       </ModalWindow>
     </Overlay>,

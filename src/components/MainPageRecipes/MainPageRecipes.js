@@ -2,10 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { CardMeal } from 'components/CardMeal/CardMeal';
-
 import { getMainCategories } from '../../redux/opertions';
 
-import { getContentForMain } from '../../redux/selectors';
+import { getContentForMain, isLoadingMainPage } from '../../redux/selectors';
 
 import {
   TitleCatigories,
@@ -13,14 +12,17 @@ import {
   ListMeals,
   ItemCategories,
   BtnRecipesLink,
+  BtnCategoriesOther,
 } from './MainPageRecipes.styled';
 import { Container } from 'components/GlobalStyles';
+import { Loader } from 'components/Loader/Loader';
 
 export const PreviewCategories = () => {
   const data = useSelector(getContentForMain);
   const dispatch = useDispatch();
   const isDesktop = useMediaQuery({ minWidth: 1440 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1439 });
+  const isLoading = useSelector(isLoadingMainPage);
 
   useEffect(() => {
     if (data !== null) return;
@@ -35,9 +37,12 @@ export const PreviewCategories = () => {
   } else {
     numCard = 1;
   }
-  console.log(data);
-  if (!data) return;
-  return (
+
+
+
+  return isLoading ? (
+    <Loader />
+  ) : (
     <Container>
       <ListCatigories>
         {data &&
@@ -56,6 +61,11 @@ export const PreviewCategories = () => {
             </ItemCategories>
           ))}
       </ListCatigories>
+      <BtnCategoriesOther to={`/categories`} onClick={() => {
+        window.scrollTo(0, 0);
+      }}>
+        Other categories
+      </BtnCategoriesOther>
     </Container>
-  );
+  )
 };

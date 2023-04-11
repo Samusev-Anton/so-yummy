@@ -9,3 +9,5 @@ export const selectToken = state => state.auth.token;
 export const selectUserLoggedIn = state => state.auth.isLoggedIn;
 
 export const selectRefreshing = state => state.auth.isRefreshing;
+
+export const getIsSuccess = state => state.auth.isSuccess;

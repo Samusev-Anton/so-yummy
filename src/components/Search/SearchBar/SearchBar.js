@@ -7,21 +7,21 @@ export const SearchBar = ({
     searchQuery,
     searchType,
     onSearchQueryChange,
-    onSearchTypeChange,  
+    onSearchTypeChange,
 }) => {
     return (
-    <>
-        <SearchBarWrap>
-            <SearchForm
-            searchQuery={searchQuery}
-            onSearchQueryChange={onSearchQueryChange}
-            />
-            <SearchTypeSelector
-            searchType={searchType}
-            onSearchTypeChange={onSearchTypeChange}
-            />
-        </SearchBarWrap>
-    </>
+        <>
+            <SearchBarWrap>
+                <SearchForm
+                    searchQuery={searchQuery}
+                    onSearchQueryChange={onSearchQueryChange}
+                />
+                <SearchTypeSelector
+                    searchType={searchType}
+                    onSearchTypeChange={onSearchTypeChange}
+                />
+            </SearchBarWrap>
+        </>
     );
 }
 

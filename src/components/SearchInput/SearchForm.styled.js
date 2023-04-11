@@ -11,13 +11,15 @@ export const FormWrap = styled(Form)`
   margin: 0 auto;
   @media (min-width: 768px) {
     width: 362px;
+    display:block;
+    margin: 0;
   }
   @media (min-width: 1440px) {
     width: 510px;
   }
 `;
 
- export const BtnSearch = styled.button`
+export const BtnSearch = styled.button`
    &:hover {
      background-color: #22252a;
      color: #fafafa;

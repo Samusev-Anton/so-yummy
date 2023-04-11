@@ -7,4 +7,4 @@ export const isLoadingRecipesOfCategory = state => state.recipes.loadingRecipesO
 
 export const getContentForMain = state => state.recipes.mainCategories;
 
-
+export const isLoadingMainPage = state => state.recipes.loadingRecipesMain

@@ -10,6 +10,7 @@ const initialState = {
   recipesOfCategory: [],
   mainCategories: null,
   loadingRecipesOfCategory: false,
+  loadingRecipesMain: false
 };
 
 export const recipesSlice = createSlice({
@@ -33,8 +34,16 @@ export const recipesSlice = createSlice({
           state.loadingRecipesOfCategory = false;
         }
       )
+
+      .addCase(getMainCategories.pending, state => {
+        state.loadingRecipesMain = true;
+      })
+      .addCase(getMainCategories.rejected, state => {
+        state.loadingRecipesMain = false;
+      })
       .addCase(getMainCategories.fulfilled, (state, { payload }) => {
         state.mainCategories = payload.data;
+        state.loadingRecipesMain = false;
       }),
 });
 

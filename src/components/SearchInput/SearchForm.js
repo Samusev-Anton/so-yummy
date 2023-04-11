@@ -9,7 +9,7 @@ export const SearchForm = ({ onSubmit }) => {
     const { name, value } = e.target;
     setQuery(prevState => { return { ...prevState, [name]: value } })
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit({ ...query });
@@ -17,24 +17,24 @@ export const SearchForm = ({ onSubmit }) => {
   }
 
 
-    return (
-      <div>
-        <Formik>
-          <FormWrap onSubmit={handleSubmit}>
-            <label name="search">
-              <Input
-                type="text"
-                placeholder="Beef"
-                name="search"
-                onChange={handleInputChange}
-                value={query.search}
-                autoComplete="on"
-                autoFocus
-              ></Input>
-            </label>
-            <BtnSearch type="submit">Search</BtnSearch>
-          </FormWrap>
-        </Formik>
-      </div>
-    );
-  };
+  return (
+    <div>
+      <Formik>
+        <FormWrap onSubmit={handleSubmit}>
+          <label name="search">
+            <Input
+              type="text"
+              placeholder="Beef"
+              name="search"
+              onChange={handleInputChange}
+              value={query.search}
+              autoComplete="on"
+              autoFocus
+            ></Input>
+          </label>
+          <BtnSearch type="submit">Search</BtnSearch>
+        </FormWrap>
+      </Formik>
+    </div>
+  );
+};

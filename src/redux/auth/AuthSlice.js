@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { register, login, logout, getCurrentUser } from './auth-operations';
+import { register, login, logout, getCurrentUser, updateUser } from './auth-operations';
 import { transformUserData } from '../../utils/transformUserData';
 
 const initialState = {
@@ -14,6 +14,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isSuccess: false,
 };
 
 export const authSlice = createSlice({
@@ -48,6 +49,13 @@ export const authSlice = createSlice({
           shoppingList: [...action.payload.data.shoppingList],
         };
         state.token = action.payload.data.token;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = {
+          name: action.payload.data.name,
+          avatarURL: action.payload.data.avatarURL,
+        };
+        state.isSuccess = true;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
