@@ -12,13 +12,9 @@ import {
 import { ReactComponent as Icon } from '../../images/trashIcon-light.svg';
 
 export const MyRecipe = ({ recipe, onDelete }) => {
-  const handleDeleteClick = () => {
-    onDelete(recipe);
-  };
-
   return (
     <FavRecipeItem>
-      <RecipeImage src={recipe.preview} alt={recipe.title} />
+      <RecipeImage src={recipe.thumb} alt={recipe.title} />
 
       <FavRecipeTopInfo>
         <div>
@@ -28,7 +24,7 @@ export const MyRecipe = ({ recipe, onDelete }) => {
         <RecipePrepTime>{recipe.time} min</RecipePrepTime>
       </FavRecipeTopInfo>
 
-      <DeleteButton onClick={handleDeleteClick}>
+      <DeleteButton onClick={() => onDelete(recipe._id)}>
         <Icon />
       </DeleteButton>
       <Link to={`/recipe/${recipe._id}`}>
