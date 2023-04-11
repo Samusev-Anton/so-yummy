@@ -11,6 +11,7 @@ import {
 } from 'services/API/Recipes';
 
 axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:3030/api';
 
 // Utility to add JWT
 const setAuthHeader = token => {
