@@ -56,10 +56,12 @@ export const RecipeTitle = styled.h3`
   color: #3e4462;
 
   @media (min-width: 768px) {
+    max-width: 342px;
     margin-bottom: 28px;
     font-size: 24px;
   }
   @media (min-width: 1280px) {
+    max-width: 690px;
     margin-bottom: 50px;
   }
 `;

@@ -46,7 +46,7 @@ export const Details = styled.div`
 `;
 
 export const RecipeTitle = styled.h3`
-  max-width: 154px;
+  /* max-width: 154px; */
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
