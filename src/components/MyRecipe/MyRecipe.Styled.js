@@ -1,12 +1,43 @@
 import styled from 'styled-components';
 
+export const item = styled.img`
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1280px) {
+  }
+`;
+
 export const FavRecipeItem = styled.li`
-  width: 100%;
   position: relative;
-  padding: 40px;
-  background-color: #ffffff; // shuld be #ffffff, #fafafa applied temporarily until #fafafa is not applied to background globally
-  border-radius: 8px;
   display: flex;
+  padding: 14px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+
+  @media (min-width: 768px) {
+    padding: 28px;
+  }
+  @media (min-width: 1280px) {
+    padding: 40px;
+  }
+`;
+export const RecipeImage = styled.img`
+  width: 124px;
+  height: 124px;
+  margin-right: 14px;
+  border-radius: 8px;
+
+  @media (min-width: 768px) {
+    width: 228px;
+    height: 232px;
+    margin-right: 24px;
+  }
+  @media (min-width: 1280px) {
+    width: 318px;
+    height: 324px;
+    margin-right: 40px;
+  }
 `;
 
 export const Details = styled.div`
@@ -14,80 +45,130 @@ export const Details = styled.div`
   flex-direction: column;
 `;
 
-export const RecipeImage = styled.img`
-  width: 318px;
-  height: 324px;
-  margin-right: 40px;
-  border-radius: 8px;
-`;
-
 export const RecipeTitle = styled.h3`
-  font-size: 24px;
+  max-width: 154px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 1;
   letter-spacing: -0.24px;
   margin-top: 0px;
-  margin-bottom: 50px;
+  margin-bottom: 14px;
   color: #3e4462;
+
+  @media (min-width: 768px) {
+    max-width: 342px;
+    margin-bottom: 28px;
+    font-size: 24px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 690px;
+    margin-bottom: 50px;
+  }
 `;
 
 export const RecipeDescription = styled.p`
   font-weight: 400;
-  font-size: 18px;
-  line-height: 1.33;
+  font-size: 8px;
+  line-height: 1.25;
   letter-spacing: -0.02em;
   color: #23262a;
-  margin-right: 164px;
+  margin-right: 43px;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.29;
+    margin-right: 130px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 18px;
+    line-height: 1.33;
+    margin-right: 164px;
+  }
 `;
 
 export const RecipePrepTime = styled.p`
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 500;
-  line-height: 1.43;
+  line-height: 1.4;
   letter-spacing: -0.24px;
   margin: 0;
   color: #3e4462;
+  margin-top: 16px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.43;
+  }
 `;
 
 export const DeleteButton = styled.button`
   position: absolute;
-  top: 40px;
-  right: 40px;
-  width: 44px;
-  height: 44px;
+  padding: 5px;
+  top: 14px;
+  right: 9px;
+  width: 24px;
+  height: 24px;
   background-color: #8baa36;
   border: none;
   border-radius: 4px;
 
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
   &:hover {
     cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    top: 28px;
+    right: 24px;
+    padding: 8px;
+    width: 38px;
+    height: 38px;
+  }
+  @media (min-width: 1280px) {
+    top: 40px;
+    right: 40px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
   }
 `;
 
 export const SeeRecipeBtn = styled.button`
-  &:hover {
-    color: #fafafa;
-  }
+  position: absolute;
+  right: 9px;
+  bottom: 14px;
   border: none;
   background-color: #8baa36;
   border-radius: 24px 44px;
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
   cursor: pointer;
   color: #fafafa;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 10px;
   line-height: 1.5;
-  height: 54px;
-  width: 160px;
-  /* @media (min-width: 768px) {
-    height: 57px;
-    width: 161px;
+  width: 87px;
+  height: 27px;
+
+  &:hover {
+    background-color: #8baa36;
+    color: #fafafa;
+  }
+
+  @media (min-width: 768px) {
+    right: 24px;
+    bottom: 28px;
+    width: 138px;
+    height: 45px;
+    font-size: 14px;
   }
   @media (min-width: 1280px) {
-    height: 70px;
-  } */
+    bottom: 40px;
+    right: 40px;
+    width: 160px;
+    height: 54px;
+  }
 `;
 
 export const FavRecipeTopInfo = styled.div`
