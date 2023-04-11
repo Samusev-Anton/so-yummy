@@ -26,7 +26,9 @@ export const AdditionalFooterItem = styled.p`
   font-style: normal;
 
   letter-spacing: -0.01em;
-  color: #22252a;
+
+  color: ${p => (p.mode === 'light' ? `#22252a` : `rgba(250, 250, 250, 0.5)`)};
+
   @media ${device.mobileOnly} {
     font-weight: 500;
     font-size: 10px;
@@ -50,7 +52,8 @@ export const AdditionalFooterLink = styled.a`
   font-size: 10px;
   line-height: 10px;
   letter-spacing: -0.01em;
-  color: #22252a;
+
+  color: ${a => (a.mode === 'light' ? `#22252a` : `rgba(250, 250, 250, 0.5)`)};
   @media ${device.tablet} {
     font-weight: 400;
     font-size: 14px;

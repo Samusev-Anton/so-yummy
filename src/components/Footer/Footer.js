@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { getMode } from '../../redux/theme/themeSelector';
 import {
   MainBlock,
   TitleBlock,
@@ -19,8 +21,9 @@ import { SubscribeForm } from '../SubscribeForm/SubscribeForm';
 import { FollowUs } from '../FollowUs/FollowUs';
 
 export const Footer = () => {
+  const { mode } = useSelector(getMode);
   return (
-    <FooterStyle>
+    <FooterStyle mode={mode}>
       <FooterMain>
         <FooterMainBlock>
           <MainBlock>

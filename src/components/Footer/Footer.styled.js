@@ -10,7 +10,8 @@ export const FooterStyle = styled.footer`
 
   align-items: center;
 
-  background-color: #22252a;
+  background-color: ${footer =>
+    footer.mode === 'light' ? `#22252a` : `#8BAA36`};
 
   // @media ${device.mobile} {
   //   background-color: ${p => p.theme.colors.olive};
