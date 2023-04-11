@@ -25,14 +25,13 @@ export const FavoritePage = () => {
   }, []);
 
   const handleDelete = async recipeId => {
-    console.log('log on handleDelete');
     await dispatch(deleteFavorite({ recipeId }));
     fetchData().then(data => setData(data));
   };
 
   const itemsPerPage = 4;
   const totalPages = Math.ceil(data.length / itemsPerPage);
-  
+
   const getPaginatedData = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -44,7 +43,7 @@ export const FavoritePage = () => {
       <FavoritePageThumb>
         <MainPageTitle value="Favorites"></MainPageTitle>
         <RecipeList>
-          { getPaginatedData().map(recipe => (
+          {getPaginatedData().map(recipe => (
             <FavoriteRecipe
               key={recipe._id}
               recipe={recipe}
@@ -53,7 +52,7 @@ export const FavoritePage = () => {
           ))}
         </RecipeList>
       </FavoritePageThumb>
-      < PaginationWrapper>
+      <PaginationWrapper>
         <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

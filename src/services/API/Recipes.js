@@ -49,7 +49,7 @@ export const getPopularRecipesAPI = () => {
 };
 
 export const getMyRecipesAPI = () => {
-  return axios.get('/my').then(({ data }) => {
+  return axios.get('/recipes').then(({ data }) => {
     return data;
   });
 };
@@ -79,8 +79,13 @@ export const getShoppingList = () => {
 };
 
 export const deleteFavoriteAPI = recipeId => {
-  console.log('log in deleteFavoriteAPI');
   return axios.delete(`/favorite/${recipeId}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const deleteMyRecipeAPI = recipeId => {
+  return axios.delete(`/recipes/${recipeId}`).then(({ data }) => {
     return data;
   });
 };
