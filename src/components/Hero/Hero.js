@@ -1,5 +1,5 @@
 
-import { SectionHero, WrapperText, HeroTitle, HeroTitleSo, HeroText, HeroInputSearch, HeroRecipeWrapper, HeroRecipeText, HeroRecipeAccent, HeroRecipeLink } from "./Hero.styled"
+import { SectionHero, WrapperText, HeroTitle, HeroTitleSo, HeroText, HeroInputSearch, HeroRecipeWrapper, HeroRecipeText, HeroRecipeAccent, HeroRecipeLink, HeroTitleYummy } from "./Hero.styled"
 
 import { SearchForm } from "components/SearchInput/SearchForm"
 import { Container } from "components/GlobalStyles"
@@ -14,7 +14,8 @@ export const Hero = () => {
             <Container>
                 <WrapperText>
                     <HeroTitle>
-                        <HeroTitleSo>So</HeroTitleSo>Yummy
+                        <HeroTitleSo>So</HeroTitleSo>
+                        <HeroTitleYummy>Yummy</HeroTitleYummy>
                     </HeroTitle>
                     <HeroText>
                         "What to cook?" is not only a recipe app, it is, in fact, your cookbook. You can add your own recipes to save them for the future.
