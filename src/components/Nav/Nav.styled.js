@@ -22,7 +22,7 @@ display:flex;
   cursor: pointer;
   font-size: 18px;
   font-weight: 500;
-  color: #22252A;
+  color: ${p => p.theme.colors.sectionHeader};
   letter-spacing: -0.02em;
   margin-left: auto;
   margin-right: auto;

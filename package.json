@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@floating-ui/dom": "^1.2.6",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.15",
     "@reduxjs/toolkit": "^1.9.3",
@@ -25,6 +26,7 @@
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.2",
     "react-toastify": "^9.1.2",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.9",

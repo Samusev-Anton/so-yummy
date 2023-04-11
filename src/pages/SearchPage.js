@@ -34,7 +34,7 @@ export const SearchPage = () => {
   return (
     <Container>
       {/* {<Loader />} */}
-      <MainPageTitle></MainPageTitle>
+      <MainPageTitle value = "Search"></MainPageTitle>
       <SearchBar
         searchQuery={searchQuery}
         searchType={searchType}

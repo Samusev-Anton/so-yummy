@@ -1,140 +1,337 @@
 import styled from 'styled-components';
-import { device } from 'components/GlobalStyles';
 
-export const SectionInput = styled.input`
-  border: 0;
-  outline: 0;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
-  @media ${device.mobileOnly} {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: -0.02em;
-    color: #000000;
+export const MainWrapper = styled.div`
+  display: unset;
+  gap: 100px;
+  padding-bottom: 200px;
 
-    // height: 40px;
-    width: 100%;
-    // padding: 10px 16px;
-    // margin-bottom: 18px;
-    padding-bottom: 18px;
+  @media (min-width: 768px) {
+    display: unset;
   }
-  @media ${device.tablet} {
-  }
-  @media ${device.desktop} {
+  @media (min-width: 1280px) {
+    display: flex;
   }
 `;
 
-export const SectionSelectInput = styled.input`
-  border: 0;
-  outline: 0;
-
-  @media ${device.mobileOnly} {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: -0.02em;
-    color: #000000;
-
-    // height: 40px;
-    width: 100%;
-    // padding: 10px 16px;
-    // margin-bottom: 18px;
-  }
-  @media ${device.tablet} {
-  }
-  @media ${device.desktop} {
-  }
-`;
-
-export const SectionSelect = styled.select`
-  //   display: flex;
-  border: 0;
-  outline: 0;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
+export const RecipeForm = styled.form`
   width: 100%;
-  @media ${device.mobileOnly} {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: -0.02em;
-    color: rgba(0, 0, 0, 0.5);
-    padding-bottom: 18px;
+
+  button {
+    cursor: pointer;
   }
-  @media ${device.tablet} {
-  }
-  @media ${device.desktop} {
+
+  .css-l4u8b9-MuiInputBase-root-MuiInput-root::after {
+    border-bottom: ${({ theme }) => `2px solid ${theme.colors.mainAccent}`};
   }
 `;
 
-export const SectionRecipePreparationFields = styled.div`
+export const IngredientsTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const AddRecepiSection = styled.div`
+  display: flex;
+  /* flex-direction: column; */
+  align-items: flex-start;
+
+  @media (min-width: 768px) {
+    /* flex-direction: unset; */
+    gap: 32px;
+  }
+
+  input {
+    padding: 15px 0;
+  }
+
+  label[id='labelFile'] {
+    width: 279px;
+    height:  268px;
+    background-color: #8baa36;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    overflow: hidden;
+    background-image: ${({ path }) => (path ? `url(${path})` : 'unset')};
+    background-size: cover;
+
+  @media (min-width: 1280px) {
+    width: 357px;
+    height: 344px
+  }
+  }
+
+  input[type='file'] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    display: block;
+    padding: 0;
+  }
+`;
+
+export const SelectComp = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  margin-bottom: 72px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.mainGreyBg};
+
+  p {
+    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
+    color: ${p => p.theme.colors.searchSelectText};
+  }
+`;
+
+export const InputsWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
+
+  input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.mainGreyBg};
+    font-size: 14px;
+    line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
+    color:  #000000;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+  }
+
+    @media (min-width: 1280px) {
+      font-size: 16px;
+  }
+
+    &::placeholder {
+      opacity: 1;
+      color: ${p => p.theme.colors.searchSelectText};
+    }
+  }
+
 `;
 
-export const SectionTitle = styled.h2`
-  margin: 0;
-  @media ${device.mobileOnly} {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 24px;
-    letter-spacing: -0.02em;
-    color: #3e4462;
-    margin-bottom: 24px;
-  }
-  @media ${device.tablet} {
-  }
-  @media ${device.desktop} {
-  }
+export const InputsWithSelectWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
 `;
 
-export const SectionTextArea = styled.input`
-  border: 0;
-  background-color: rgba(217, 217, 217, 0.3);
-  border-radius: 6px;
-  @media ${device.mobileOnly} {
-    display: block;
-    height: 154px;
-    // width: 200px;
+export const IngredientsSection = styled.div`
+  margin-top: 72px;
+`;
+
+export const RecepieSection = styled.div`
+  margin-top: 100px;
+
+  textarea {
     padding: 10px 16px;
-    margin-bottom: 18px;
+    resize: none;
+    background: #d9d9d9;
+    border-radius: 6px;
+    width: 100%;
+    outline: none;
+    border: none;
+    margin-top: 24px;
+    height: 155px;
+    font-size: ${({ isMobile }) => (isMobile ? '14px' : '16px')};
+    line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
+    color: ${({ theme }) => theme.colors.mainBlack};
+    font-family: inherit;
+    border: ${({ theme }) => `1px solid ${theme.colors.mainGreyBg}`};
+
+    background-color: ${p => p.theme.colors.mainGreyBg};
+
+    @media (min-width: 768px) {
+      width: 505px;
   }
-  @media ${device.tablet} {
+
+    @media (min-width: 1280px) {
+      width: 505px;
   }
-  @media ${device.desktop} {
+
+    &::placeholder {
+      opacity: 1;
+      color: ${({ theme }) => theme.colors.mainBlack};
+    }
+  }
+
+  button {
+    margin-top: 32px;
   }
 `;
 
-export const BtnAdd = styled.button`
-  &:hover {
-    background-color: #8baa36;
-    color: rgb(255, 255, 255);
+export const PopularSection = styled.div`
+  width: 100%;
+  padding-bottom: 100px;
+
+  @media (min-width: 1280px) {
+    width: 320px;
   }
-  background-color: #22252a;
-  color: #fafafa;
-  border: none;
-  //   font-family: 'Poppins';
-  border-radius: 24px 44px;
-  font-style: normal;
-  font-weight: 400;
+`;
+
+// export const PopularRecipe = styled.div`
+//   width: 100%;
+//   ${H3} {
+//     padding-bottom: 32px;
+//   }
+// `;
+
+export const IngredientsItem = styled.li`
+  display: flex;
+  align-items: center;
+
+  .css-1dimb5e-singleValue {
+    color: ${({ localTheme }) => (localTheme === 'light' ? 'black' : 'white')};
+  }
+
+  .css-7ossxv-menu {
+    color: red !important;
+  }
+`;
+
+export const IngredientsList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+`;
+
+export const ValueInputWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  border: ${({ theme }) => `1px solid ${theme.colors.mainGreyBg}`};
+
+  background-color: ${({ localTheme, theme }) => {
+    return localTheme === 'light' ? theme.colors.mainGreyBg : 'transparent';
+  }};
+  border-radius: 6px;
+  margin-left: ${({ isMobile }) => (isMobile ? '14px' : '32px')};
+
+  .css-1dimb5e-singleValue {
+    color: ${({ localTheme }) => {
+      return localTheme === 'light' ? 'black' : 'white';
+    }};
+  }
+`;
+
+export const InputUnitValue = styled.input`
+  border-style: unset;
+  background-color: transparent;
+  display: block;
+  height: 50px;
+  padding: 0 8px;
+  outline: none;
+  width: 50px;
+  color: ${({ theme }) => theme.colors.mainBlack};
+`;
+
+export const PopularItem = styled.li`
+  a {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid #707070;
+    color: inherit;
+  }
+`;
+
+export const RecipeTitle = styled.p`
+  font-weight: ${({ theme }) => theme.fontWeights[1]};
   font-size: 16px;
-  line-height: 24px;
+  line-height: ${({ theme }) => theme.lineHeights.description};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+  color: ${({ theme }) => theme.colors.mainBlack};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
+`;
 
-  @media ${device.mobileOnly} {
-    height: 46px;
-    width: 129px;
-  }
-  @media ${device.tablet} {
-    height: 52px;
-    width: 161px;
-  }
-  @media ${device.desktop} {
-    height: 52px;
-    width: 161px;
+export const RecipeText = styled.p`
+  margin-top: 3px;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 50px;
+  color: ${({ theme }) => theme.colors.mainGrey};
+  font-weight: ${({ theme }) => theme.fontWeights[0]};
+  font-size: 12px;
+  line-height: ${({ theme }) => theme.lineHeights.content};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
+  color: ${({ theme }) => theme.colors.mainBlack};
+`;
+
+export const RecepiImg = styled.img`
+  border-radius: 8px;
+  height: 85px;
+  width: 100px;
+  margin-right: 12px;
+`;
+
+export const ButtonRemoveItem = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+
+  svg {
+    fill: ${({ theme }) => theme.colors.mainBlack};
   }
 `;
+
+// export const SocialLinksWrapper = styled.div`
+//   margin-bottom: 100px;
+
+//   ${SocialLinksConteiner} {
+//     justify-content: flex-start;
+
+//     svg:hover {
+//       fill: ${({ theme, localTheme }) =>
+//         localTheme === 'light' ? 'black' : theme.colors.mainAccent};
+//     }
+//   }
+// `;
+
+export const AddBtn = styled.button`
+  border-radius: 20px 60px;
+
+  border: 2px solid #fafafa;
+  margin-top: 32px;
+  padding: 14px 64px;
+
+  font-size: 14px;
+  background-color: transparent;
+  text-decoration: none;
+  color: #fafafa;
+
+  transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',;
+
+  &:hover {
+    background-color: #fafafa;
+    border: 2px solid #8baa36;
+    color: #8baa36;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 14px 64px;
+
+    font-size: 16px;
+  }
+
+  &:first-of-type {
+    background-color: #22252a;
+    border: none;
+    &:hover {
+      background-color: #8baa36;
+      color: #fafafa;
+    }
+  }
+`
