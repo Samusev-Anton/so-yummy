@@ -9,10 +9,10 @@ export const  SearchSelectorWrap = styled.div`
         justify-content: center;
         align-items: center;
         margin-top: 1.5rem;
-        @media (min-width: 1440px) {
+        @media (min-width: 1280px) {
             margin-top: 1.75rem;
         }
-        @media (min-width: 1440px) {
+        @media (min-width: 1280px) {
             margin-top: 1.69rem;
             gap: 1.125rem;
         }
@@ -27,7 +27,7 @@ export const  SearchSelectorWrap = styled.div`
             font-weight: 500;
             font-size: 14px;
         }
-        @media (min-width: 1440px) {
+        @media (min-width: 1280px) {
             font-size: 18px;
         }
         `;
@@ -49,7 +49,7 @@ export const  SearchSelectorWrap = styled.div`
             height: 2.31rem;
             background-color: #d9d9d9;
         }
-        @media (min-width: 1440px) {
+        @media (min-width: 1280px) {
             width: 198px;
             height: 3.06rem;
         }

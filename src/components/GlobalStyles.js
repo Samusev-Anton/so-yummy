@@ -5,7 +5,6 @@ import background from 'images/page-picture.png';
 
 // import background from '../images/flat-lay-assortment-vegetables-with-copy-space 4.png';
 
-
 export const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
@@ -58,14 +57,13 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-padding: 0 20px;
-
+  padding: 0 16px;
 
   @media (min-width: 768px) {
     padding: 0 32px;
   }
   @media (min-width: 1280px) {
-  padding: 0 100px;
+    padding: 0 100px;
   }
 `;
 
@@ -202,27 +200,29 @@ export const ClassicInputForm = styled.input`
 `;
 
 export const ClassicButton = styled.button`
-color: rgb(255, 255, 255);
-   border: none;
-   font-family: 'Poppins';
-   background-color: #8baa36;
-   border-radius: 24px 44px;
-   ${'' /* position: absolute;
-   right: 0; */}
-   display:flex;
-   justify-content:center;
-   align-items: center;
-   font-style: normal;
-   font-weight: 400;
-   font-size: 16px;
-   line-height: 1.5;
-   height: 43px;
-   width: 125px;
-   &:hover {
-     background-color: #22252a;
-     color: #fafafa;
-   }
-   @media (min-width: 768px) {
+  color: rgb(255, 255, 255);
+  border: none;
+  font-family: 'Poppins';
+  background-color: #8baa36;
+  border-radius: 24px 44px;
+  ${
+    '' /* position: absolute;
+   right: 0; */
+  }
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 43px;
+  width: 125px;
+  &:hover {
+    background-color: #22252a;
+    color: #fafafa;
+  }
+  @media (min-width: 768px) {
     height: 43px;
     width: 141px;
     padding: 13px 32px;
@@ -245,10 +245,9 @@ export const ContactsWrapper = styled.div`
   padding: ${p => p.theme.space[5]}px;
 `;
 export const Picture = styled.div`
-background-image: url(${background});
-background-position:left bottom;
-background-repeat: no-repeat;
-${'' /* background-position: center; */}
-${'' /* background-size: cover; */}
-
-`
+  background-image: url(${background});
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  ${'' /* background-position: center; */}
+  ${'' /* background-size: cover; */}
+`;

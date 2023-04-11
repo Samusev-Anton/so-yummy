@@ -13,6 +13,9 @@ import {
   Warning,
   Button,
   LinkTo,
+  BoxForIcon,
+  EmailIcon,
+  PassIcon,
 } from '../RegisterForm/RegisterForm.styled';
 import { Title } from './LoginForm.styled';
 
@@ -49,6 +52,11 @@ export const LoginForm = () => {
 
             <BoxForForm>
               <BoxForField>
+                <BoxForIcon>
+                  <EmailIcon
+                    stroke={getValidColor(errors.email, touched.email)}
+                  />
+                </BoxForIcon>
                 <FormField
                   type="email"
                   name="email"
@@ -62,6 +70,11 @@ export const LoginForm = () => {
                 ) : null}
               </BoxForField>
               <BoxForField>
+                <BoxForIcon>
+                  <PassIcon
+                    stroke={getValidColor(errors.password, touched.password)}
+                  />
+                </BoxForIcon>
                 <FormField
                   type="password"
                   name="password"

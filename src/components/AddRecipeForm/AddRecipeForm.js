@@ -1,34 +1,43 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { useState } from 'react';
-
+// import { addRecipesAPI } from './services/API/Recipes/addRecipesAPI';
+import { addRecipeAPI } from '../../services/API/Recipes';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
 
-import { BtnAdd } from 'components/AddRecipeForm/AddRecipeForm.styled';
 import {
+  BtnAdd,
   SectionInput,
   SectionSelect,
-} from 'components/RecipeDescriptionFields/RecipeDescriptionFields.styled';
-import {
   SectionRecipePreparationFields,
   SectionTitle,
   SectionTextArea,
-} from 'components/RecipePreparationFields/RecipePreparationFields.styled';
+} from 'components/AddRecipeForm/AddRecipeForm.styled';
 
-export const AddRecipeForm = () => {
+const AddRecipeForm = () => {
   const [recipeTitle, setRecipeTitle] = useState('');
   const [recipeAbout, setRecipeAbout] = useState('');
   const [category, setCategory] = useState('');
   const [cookingTime, setCookingTime] = useState('');
   const [preparation, setPreparation] = useState('');
-  const [formData, setFormData] = useState({
-    image: null,
-  });
   const [recipe, setRecipe] = useState({
     title: recipeTitle,
     about: recipeAbout,
     category: category,
-    time: cookingTime,
+    time: `${cookingTime} min`,
+    preparation: preparation,
+    ingredients: [],
   });
+
+  // console.log(recipe);
+  const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
+  const [formData, setFormData] = useState({
+    image: null,
+  });
+
+  const handleIngredientsChange = ingredients => {
+    setIngredientsForRecipe(ingredients);
+  };
 
   const handleImageChange = event => {
     setFormData({ ...formData, image: event.target.files[0] });
@@ -42,8 +51,16 @@ export const AddRecipeForm = () => {
       category: category,
       time: `${cookingTime} min`,
       preparation: preparation,
+      ingredients: ingredientsForRecipe,
     });
-    console.log(recipe);
+    addRecipeAPI({
+      title: recipeTitle,
+      about: recipeAbout,
+      category: category,
+      time: `${cookingTime} min`,
+      preparation: preparation,
+      ingredients: ingredientsForRecipe,
+    });
   };
 
   return (
@@ -56,7 +73,7 @@ export const AddRecipeForm = () => {
         onChange={handleImageChange}
       />
       <SectionInput
-        required
+        // required
         name="title"
         type="text"
         label="RecipeTitle"
@@ -65,7 +82,7 @@ export const AddRecipeForm = () => {
         placeholder="Enter item title"
       ></SectionInput>
       <SectionInput
-        required
+        // required
         name="about"
         type="text"
         label="RecipeAbout"
@@ -73,40 +90,46 @@ export const AddRecipeForm = () => {
         onChange={e => setRecipeAbout(e.target.value)}
         placeholder="Enter about recipe"
       ></SectionInput>
-      <SectionSelect
-        required
-        id="category"
-        name="category"
-        value={category}
-        onChange={e => setCategory(e.target.value)}
-      >
-        <option value="Beef">Beef</option>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Dessert">Dessert</option>
-        <option value="Dinner">Dinner</option>
-        <option value="Fish">Fish</option>
-        <option value="Goat">Goat</option>
-        <option value="Lamb">Lamb</option>
-        <option value="Pork">Pork</option>
-        <option value="Supper">Supper</option>
-      </SectionSelect>
-      <SectionSelect
-        required
-        id="cookingTime"
-        name="cookingTime"
-        value={cookingTime}
-        onChange={e => setCookingTime(e.target.value)}
-      >
-        <option value="5">5 min</option>
-        <option value="15">15 min</option>
-        <option value="30">30 min</option>
-        <option value="45">45 min</option>
-        <option value="60">60 min</option>
-        <option value="90">90 min</option>
-        <option value="120">120 min</option>
-      </SectionSelect>
+      <div>
+        <p>Category</p>
+        <SectionSelect
+          // required
+          id="category"
+          name="category"
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+        >
+          <option value="Beef">Beef</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Dessert">Dessert</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Fish">Fish</option>
+          <option value="Goat">Goat</option>
+          <option value="Lamb">Lamb</option>
+          <option value="Pork">Pork</option>
+          <option value="Supper">Supper</option>
+        </SectionSelect>
+      </div>
+      <div>
+        <p>Cooking time</p>
+        <SectionSelect
+          // required
+          id="cookingTime"
+          name="cookingTime"
+          value={cookingTime}
+          onChange={e => setCookingTime(e.target.value)}
+        >
+          <option value="5">5 min</option>
+          <option value="15">15 min</option>
+          <option value="30">30 min</option>
+          <option value="45">45 min</option>
+          <option value="60">60 min</option>
+          <option value="90">90 min</option>
+          <option value="120">120 min</option>
+        </SectionSelect>
+      </div>
 
-      <RecipeIngredientsList />
+      <RecipeIngredientsList onIngredientsChange={handleIngredientsChange} />
 
       <SectionRecipePreparationFields>
         <SectionTitle>Recipe Preparation</SectionTitle>
@@ -123,3 +146,4 @@ export const AddRecipeForm = () => {
     </form>
   );
 };
+export default AddRecipeForm;

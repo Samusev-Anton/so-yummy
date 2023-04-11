@@ -32,7 +32,7 @@ export const NeedSearchingImg = styled.div`
             background-image: url(${ needSearchingImgTabletRetina});
         }
         }
-        @media screen and (min-width: 1440px) {
+        @media screen and (min-width: 1280px) {
             background-image: url(${needSearchingImgDecktop});
         @media screen and (min-device-pixel-ratio: 2),
             (min-resolution: 192dpi),

@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
 
+import { ReactComponent as MailIcon } from '../../images/welcome-pic/icon-mail.svg';
+import { ReactComponent as UserIcon } from '../../images/welcome-pic/icon-person.svg';
+import { ReactComponent as PasswordIcon } from '../../images/welcome-pic/icon-pass.svg';
 import { theme } from '../../theme';
 
 export const FormAuth = styled(Form)`
@@ -59,7 +62,6 @@ export const BoxForField = styled.div`
 
   display: flex;
   flex-direction: column;
-  position: relative;
 
   isolation: isolate;
   opacity: 0.8;
@@ -75,7 +77,7 @@ export const FormField = styled(Field)`
   box-sizing: border-box;
   font-family: 'Poppins';
   width: 100%;
-  padding: 15px 12px;
+  padding: 12px 16px 12px 40px;
   border: 1px solid ${({ color }) => color};
   border-radius: 6px;
   background-color: transparent;
@@ -101,7 +103,7 @@ export const FormField = styled(Field)`
     }
   }
   @media screen and (min-width: 768px) {
-    padding: 22px 20px;
+    padding: 12px 16px 12px 46px;
   }
 
   /* &:focus {
@@ -162,4 +164,55 @@ export const LinkTo = styled(Link)`
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
+`;
+
+export const BoxForIcon = styled.div`
+  width: 15px;
+  height: 15px;
+
+  top: 21px;
+  left: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+
+    left: 18px;
+    top: 18px;
+  }
+`;
+
+export const EmailIcon = styled(MailIcon)`
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  opacity: 80%;
+
+  fill: none;
+  stroke: ${({ stroke }) => stroke};
+`;
+
+export const NameIcon = styled(UserIcon)`
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  opacity: 80%;
+
+  fill: none;
+  stroke: ${({ stroke }) => stroke};
+`;
+
+export const PassIcon = styled(PasswordIcon)`
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  opacity: 80%;
+
+  fill: none;
+  stroke: ${({ stroke }) => stroke};
 `;

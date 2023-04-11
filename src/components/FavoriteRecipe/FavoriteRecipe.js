@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import {
   FavRecipeItem,
   RecipeImage,
@@ -10,15 +12,7 @@ import {
 } from './FavoriteRecipe.Styled';
 import { ReactComponent as Icon } from '../../images/trashIcon-dark.svg';
 
-export const FavoriteRecipe = ({ recipe, onRemove, onSee }) => {
-  const handleRemove = () => {
-    onRemove(recipe._id);
-  };
-
-  const handleSeeReciepe = () => {
-    onSee(recipe._id);
-  };
-
+export const FavoriteRecipe = ({ recipe, onDelete }) => {
   return (
     <FavRecipeItem>
       <RecipeImage src={recipe.preview} alt={recipe.title} />
@@ -31,10 +25,12 @@ export const FavoriteRecipe = ({ recipe, onRemove, onSee }) => {
         <RecipePrepTime>{recipe.time} min</RecipePrepTime>
       </FavRecipeTopInfo>
 
-      <DeleteButton onClick={handleRemove}>
+      <DeleteButton onClick={() => onDelete(recipe._id)}>
         <Icon />
       </DeleteButton>
-      <SeeRecipeBtn onClick={handleSeeReciepe}>See Recipe</SeeRecipeBtn>
+      <Link to={`/recipe/${recipe._id}`}>
+        <SeeRecipeBtn>See Recipe</SeeRecipeBtn>
+      </Link>
     </FavRecipeItem>
   );
 };

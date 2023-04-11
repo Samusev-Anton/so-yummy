@@ -43,6 +43,7 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 1280px) {
     flex-direction: row;
+    gap: 115px;
     background-image: url(${backgroundImg});
 
     @media screen and (min-device-pixel-ratio: 2),

@@ -2,6 +2,14 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
+import {
+  getShoppingList,
+  addFavouriteRecipe,
+  deleteFavouriteRecipe,
+  addToShoppingList,
+  deleteFromShoppingList,
+} from 'services/API/Recipes';
+
 axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
 
 // Utility to add JWT
@@ -91,7 +99,7 @@ export const getCurrentUser = createAsyncThunk(
       return res.data;
     } catch (error) {
       // check is token is expired - and then delete it from local storage
-      if (error.response && error.response.status === 401) {
+      if (error.response.data.message === 'jwt expired') {
         // If the response status is 401, clear the auth header and purge the persisted data
         clearAuthHeader();
         thunkAPI.dispatch({ type: 'persist/PURGE', key: 'persist:auth' });
@@ -107,7 +115,6 @@ export const getCurrentUser = createAsyncThunk(
     }
   }
 );
-
 export const updateUser = createAsyncThunk(
   '/auth/updateUser',
   async (data, { rejectWithValue }) => {
@@ -120,3 +127,63 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const addFavRecipe = createAsyncThunk(
+  'favorite/addFavRecipe',
+  async (recipeId, { rejectWithValue }) => {
+    try {
+      const response = await addFavouriteRecipe(recipeId);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
+export const deleteFavRecipe = createAsyncThunk(
+  'favorite/deleteFavRecipe',
+  async (recipeId, { rejectWithValue }) => {
+    try {
+      const response = await deleteFavouriteRecipe(recipeId);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
+export const getShopList = createAsyncThunk(
+  'shopping/getShopList',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await getShoppingList();
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addIngredient = createAsyncThunk(
+  'shopping/addIngredient',
+  async (obj, { rejectWithValue }) => {
+    try {
+      const response = await addToShoppingList(obj);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+export const deleteIngredient = createAsyncThunk(
+  'shopping/deleteIngredient',
+  async (ingridientId, { rejectWithValue }) => {
+    try {
+      const response = await deleteFromShoppingList(ingridientId);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
