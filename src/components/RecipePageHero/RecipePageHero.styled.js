@@ -55,7 +55,7 @@ export const HeroButton = styled.button`
   padding: 10px 18px;
   background-color: transparent;
 
-  // transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   font-size: 10px;

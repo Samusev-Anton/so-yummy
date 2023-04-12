@@ -6,6 +6,7 @@ import {
   RecipePreparationItem,
   RecipePreparationNumber,
   RecipePreparationWrap,
+  RecipePreparationText,
 } from './RecipePreparation.styled.js';
 import { Container } from 'components/GlobalStyles';
 
@@ -16,7 +17,7 @@ export const RecipePreparation = ({ recipeDescription }) => {
     if (Object.keys(recipeDescription).length > 0) {
       const instr = recipeDescription.instructions;
       const arr = instr.split(/\r\n/);
-      const newarr = arr.filter(item => item !== ' ' || '');
+      const newarr = arr.filter(item => item.length >= 5);
       setPreparation(newarr);
     }
   }, [recipeDescription]);
@@ -31,14 +32,12 @@ export const RecipePreparation = ({ recipeDescription }) => {
             <ul>
               {preparation.map((item, index) => (
                 <RecipePreparationItem key={index}>
-                  {item !== '' && (
-                    <>
-                      <RecipePreparationNumber>
-                        {index + 1}
-                      </RecipePreparationNumber>
-                      <p>{item}</p>
-                    </>
-                  )}
+                  <>
+                    <RecipePreparationNumber>
+                      {index + 1}
+                    </RecipePreparationNumber>
+                    <RecipePreparationText>{item}</RecipePreparationText>
+                  </>
                 </RecipePreparationItem>
               ))}
             </ul>

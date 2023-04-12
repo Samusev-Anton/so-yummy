@@ -14,6 +14,7 @@ import {
   CheckLabel,
 } from './RecipeDescIngredientsList.styled';
 import { selectShoppingList } from 'redux/auth/selectors';
+import placeholder from '../../images/shoppingList/Orange.svg';
 import { addIngredient, deleteIngredient } from 'redux/auth/auth-operations.js';
 
 export const RecipeDescIngredientsItem = ({ item }) => {
@@ -50,7 +51,7 @@ export const RecipeDescIngredientsItem = ({ item }) => {
     <TableRow key={item._id}>
       <TableProduct>
         <TableProductBox>
-          <img src={item.thb} alt={item.ttl} />
+          <img src={item.thb ? item.thb : placeholder} alt={item.ttl} />
         </TableProductBox>
         <TableProductText>{item.ttl}</TableProductText>
       </TableProduct>
