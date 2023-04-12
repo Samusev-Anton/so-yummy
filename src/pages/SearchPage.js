@@ -7,8 +7,8 @@ import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTi
 import { SearchBar } from 'components/Search/SearchBar/SearchBar';
 import { SearchedRecipesList } from 'components/Search/SearchedRecipesList/SearchedRecipesList';
 import { Loader } from 'components/Loader/Loader';
+import { throttle } from 'lodash';
 import { Container } from 'components/GlobalStyles';
-
 
 export const SearchPage = () => {
   const search = useSelector(getSearch);
@@ -18,6 +18,8 @@ export const SearchPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const setSearchQueryThrottled = throttle(setSearchQuery, 3000);
+
   useEffect(() => {
         setIsLoading(true);
         searchRecipesApi({ searchQuery, searchType })
@@ -26,7 +28,7 @@ export const SearchPage = () => {
       }, [searchQuery, searchType]);
 
   const handleSearchQueryChange = (query) => {
-    setSearchQuery(query);
+    setSearchQueryThrottled(query);
   };
 
   const handleSearchTypeChange = (type) => {
