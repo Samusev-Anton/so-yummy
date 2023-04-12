@@ -62,22 +62,22 @@ const AddRecipeForm = () => {
   return (
     <MainWrapper>
       <RecipeForm onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="file" id="labelFile">
-            <svg width="50" height="50">
-              <use href={icons + '#icon-img'} alt="ico"></use>
-            </svg>
-          </label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-        </div>
-
         <AddRecepiSection>
+          <div>
+            <label htmlFor="file" id="labelFile">
+              <svg width="50" height="50">
+                <use href={icons + '#icon-img'} alt="ico"></use>
+              </svg>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+            </label>
+          </div>
+
           <InputsWrapper localTheme={theme}>
             <input
               // required
