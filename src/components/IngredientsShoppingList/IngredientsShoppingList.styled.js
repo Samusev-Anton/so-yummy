@@ -6,6 +6,7 @@ export const Table = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  padding-bottom: 100px;
 `;
 
 export const Blocks = styled.div`
@@ -33,6 +34,7 @@ export const TableHead = styled.div`
     line-height: 1.44;
     padding: 20px;
   }
+
   @media (min-width: 1280px) {
     line-height: 1.5;
     padding: 21px 40px;
@@ -68,7 +70,7 @@ export const TableHeadRemove = styled.div`
 export const TableRow = styled.div`
   display: flex;
   padding: 25px 22px 23px 0px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: ${p => p.theme.borders.rowBorder};
 
   @media (min-width: 768px) {
     padding: 44px 45px 43px 0px;
@@ -91,7 +93,8 @@ export const TableProductBox = styled.div`
   width: 60px;
   height: 60px;
   padding: 12px;
-  background: #ebf3d4;
+  background: ${p => p.theme.colors.ingredientBlock};
+
   border-radius: 6px;
   margin-right: 10px;
 
@@ -108,7 +111,7 @@ export const TableProductText = styled.div`
   font-weight: 500;
   font-size: 10px;
   line-height: 1.2;
-  color: #3e4462;
+  color: ${p => p.theme.colors.secondaryDark};
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -133,7 +136,7 @@ export const TableNumberBox = styled.div`
   margin-right: 48px;
 
   @media (min-width: 768px) {
-    max-width: 95px;
+    max-width: 150px;
     // height: 35px;
     font-size: 18px;
     margin-right: 110px;
@@ -153,7 +156,7 @@ export const TableRemove = styled.button`
 `;
 
 export const XIcon = styled(XLg)`
-  color: #333333;
+  color: ${p => p.theme.colors.secondaryDark};
   width: 13.33px;
 
   @media (min-width: 768px) {
