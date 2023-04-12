@@ -32,7 +32,6 @@ const themePersistConfig = {
 const searchPersistConfig = {
   key: 'search',
   storage,
-  whitelist: ['setSearch'],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
