@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getMode } from '../../redux/theme/themeSelector';
 import {
   FavRecipeItem,
   RecipeImage,
@@ -9,27 +11,30 @@ import {
   SeeRecipeBtn,
   FavRecipeTopInfo,
 } from './MyRecipe.Styled';
-import { ReactComponent as Icon } from '../../images/trashIcon-light.svg';
+import { ReactComponent as Icon } from '../../images/trash-icon.svg';
 
 export const MyRecipe = ({ recipe, onDelete }) => {
+  const { mode } = useSelector(getMode);
   return (
-    <FavRecipeItem>
+    <FavRecipeItem mode={mode}>
       <Link to={`/recipe/${recipe._id}`}>
         <RecipeImage src={recipe.thumb} alt={recipe.title} />
       </Link>
       <FavRecipeTopInfo>
         <div>
-          <RecipeTitle>{recipe.title}</RecipeTitle>
-          <RecipeDescription>{recipe.description}</RecipeDescription>
+          <RecipeTitle mode={mode}>{recipe.title}</RecipeTitle>
+          <RecipeDescription mode={mode}>
+            {recipe.description}
+          </RecipeDescription>
         </div>
-        <RecipePrepTime>{recipe.time} min</RecipePrepTime>
+        <RecipePrepTime mode={mode}>{recipe.time} min</RecipePrepTime>
       </FavRecipeTopInfo>
 
-      <DeleteButton onClick={() => onDelete(recipe._id)}>
+      <DeleteButton onClick={() => onDelete(recipe._id)} mode={mode}>
         <Icon />
       </DeleteButton>
       <Link to={`/recipe/${recipe._id}`}>
-        <SeeRecipeBtn>See Recipe</SeeRecipeBtn>
+        <SeeRecipeBtn mode={mode}>See Recipe</SeeRecipeBtn>
       </Link>
     </FavRecipeItem>
   );
