@@ -45,3 +45,7 @@ This project was created using Create React App.
 4. Start development mode by running the `npm start` command.
 5. Go to [http://localhost:3000](http://localhost:3000) in your browser. This
    page will automatically reload after saving changes to the project files.
+
+## Back-end part
+
+[Link to back-end part of the project](https://github.com/Samusev-Anton/so-yummy-backend)
