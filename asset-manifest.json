@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/so-yummy/static/css/main.3419c98f.css",
-    "main.js": "/so-yummy/static/js/main.09e09fe1.js",
+    "main.js": "/so-yummy/static/js/main.1135fc7a.js",
     "static/media/Hero2x.png": "/so-yummy/static/media/Hero2x.c212dff6d09c5e4fa71c.png",
     "static/media/HeroTablet2x.png": "/so-yummy/static/media/HeroTablet2x.164f9e9b6582834153a8.png",
     "static/media/HeroMobile.png": "/so-yummy/static/media/HeroMobile.eca3c16f79e57c7bcf36.png",
@@ -35,6 +35,7 @@
     "static/media/need_searching_img_mobile_1x.png": "/so-yummy/static/media/need_searching_img_mobile_1x.1c0b7fa67d4b3bcd20fc.png",
     "static/media/log-reg-picDesk1x.png": "/so-yummy/static/media/log-reg-picDesk1x.26fce4fdeddfe617decb.png",
     "static/media/log-reg-picTab.png": "/so-yummy/static/media/log-reg-picTab.755de616679aae7f8161.png",
+    "static/media/Orange.svg": "/so-yummy/static/media/Orange.3b5c94096474fc7a49a03ac32210a57e.svg",
     "index.html": "/so-yummy/index.html",
     "static/media/logo.svg": "/so-yummy/static/media/logo.1bde744686d6d4522673e3c7461628ae.svg",
     "static/media/icon-mail.svg": "/so-yummy/static/media/icon-mail.4879cf0e7da17beb22ddde4bac12b19a.svg",
@@ -43,10 +44,10 @@
     "static/media/trashIcon-light.svg": "/so-yummy/static/media/trashIcon-light.599e700f0809d3d8ddf0c55c326e2ac3.svg",
     "static/media/icon-person.svg": "/so-yummy/static/media/icon-person.895dfe322d63362d75bd510eeed482a0.svg",
     "main.3419c98f.css.map": "/so-yummy/static/css/main.3419c98f.css.map",
-    "main.09e09fe1.js.map": "/so-yummy/static/js/main.09e09fe1.js.map"
+    "main.1135fc7a.js.map": "/so-yummy/static/js/main.1135fc7a.js.map"
   },
   "entrypoints": [
     "static/css/main.3419c98f.css",
-    "static/js/main.09e09fe1.js"
+    "static/js/main.1135fc7a.js"
   ]
 }
