@@ -134,7 +134,7 @@ export const DeleteButton = styled.button`
 
   &:hover {
     background-color: ${button =>
-      button.mode === 'light' ? `#6b842e` : `#333449`};
+      button.mode === 'light' ? `#22252A` : `#8BAA36`};
     cursor: pointer;
   }
 
@@ -171,7 +171,7 @@ export const SeeRecipeBtn = styled.button`
   background-color: #8baa36;
 
   &:hover {
-    background-color: #6b842e;
+    background-color: #22252a;
     color: #fafafa;
   }
 
