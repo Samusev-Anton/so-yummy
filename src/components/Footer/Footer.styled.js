@@ -10,11 +10,9 @@ export const FooterStyle = styled.footer`
 
   align-items: center;
 
-  background-color: #22252a;
+  background-color: ${footer =>
+    footer.mode === 'light' ? `#22252a` : `#8BAA36`};
 
-  // @media ${device.mobile} {
-  //   background-color: ${p => p.theme.colors.olive};
-  // }
   @media ${device.tablet} {
     flex-direction: column;
     padding-left: 32px;
@@ -41,19 +39,33 @@ export const FooterMain = styled.div`
 export const FooterMainBlock = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   @media ${device.mobile} {
+    display: flex;
     flex-direction: column;
   }
   @media ${device.tablet} {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
     align-items: flex-start;
-    margin-bottom: 72px;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+  @media ${device.desktop} {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
   }
 `;
 
-export const MainBlock = styled.div``;
+export const MainBlock = styled.div`
+  max-width: 380px;
+
+  @media ${device.tablet} {
+    margin-bottom: 72px;
+  }
+`;
 
 export const FeaturesList = styled.ul`
   display: flex;
@@ -140,6 +152,14 @@ export const LogoStyle = styled.div`
 export const FooterNav = styled.nav`
   display: flex;
   justify-content: center;
+  @media ${device.tablet} {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  @media ${device.desktop} {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const FooterNavList = styled.ul`
@@ -162,7 +182,6 @@ export const FooterNavList = styled.ul`
 
 export const Link = styled(NavLink)`
   color: #fafafa;
-  // font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -175,7 +194,6 @@ export const Logo = () => {
   return (
     <svg
       width="100%"
-      // height="100%"
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
