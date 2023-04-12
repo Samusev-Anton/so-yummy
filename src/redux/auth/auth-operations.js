@@ -11,7 +11,7 @@ import {
   deleteFromShoppingList,
 } from 'services/API/Recipes';
 
-axios.defaults.baseUR = baseAxiosURL;
+axios.defaults.baseURL = baseAxiosURL;
 
 // Utility to add JWT
 const setAuthHeader = token => {
