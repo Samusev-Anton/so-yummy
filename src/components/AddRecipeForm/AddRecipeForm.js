@@ -23,42 +23,63 @@ import {
 import icons from '../../images/sprite.svg';
 
 const AddRecipeForm = () => {
-  const [recipeTitle, setRecipeTitle] = useState('');
-  const [recipeAbout, setRecipeAbout] = useState('');
-  const [category, setCategory] = useState('');
-  const [cookingTime, setCookingTime] = useState('');
-  const [preparation, setPreparation] = useState('');
-  const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
-
-  const [formFail, setFormFail] = useState({
-    image: null,
+  // const [recipeTitle, setRecipeTitle] = useState('');
+  // const [recipeAbout, setRecipeAbout] = useState('');
+  // const [category, setCategory] = useState('');
+  // const [cookingTime, setCookingTime] = useState('');
+  // const [preparation, setPreparation] = useState('');
+  // const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
+  const [formIngredients, setFormIngredients] = useState({
+    title: "",
+    about: "",
+    category: "",
+    cookingTime: "",
+    recipe: "",
   });
-  console.log(formFail)
+  const [image, setFormImage] = useState(null);
 
-  const handleIngredientsChange = ingredients => {
-    setIngredientsForRecipe(ingredients);
+  const handleIngredientsChange = event => {
+    setFormIngredients({
+      ...formIngredients,
+      [event.target.name]: event.target.value
+    })
+    // setIngredientsForRecipe(ingredients);
+    console.log(formIngredients)
   };
 
-  const handleImageChange = event => {
+  function handleImageChange(event) {
     const [file] = event.target.files;
     if (file) {
-      setFormFail(URL.createObjectURL(file));
+      setFormImage(URL.createObjectURL(file));
     }
-    // setFormFail(event.target.files[0]);
-    // const formData = new FormData();
-  };
 
-  const handleSubmit = event => {
+  }
+
+  const handleSubmit = async event => {
     event.preventDefault();
-    const recipe = {
-      title: recipeTitle,
-      about: recipeAbout,
-      category: category,
-      time: `${cookingTime} min`,
-      preparation: preparation,
-      ingredients: ingredientsForRecipe,
-    };
-    addRecipeAPI(recipe);
+    // const recipe = {
+    //   title: recipeTitle,
+    //   about: recipeAbout,
+    //   category: category,
+    //   time: `${cookingTime} min`,
+    //   preparation: preparation,
+    //   ingredients: ingredientsForRecipe,
+    // };
+    const preparation = { ...formIngredients }
+    const { title, about, category, cookingTime, recipe } = preparation;
+    const files = event.target.elements[0].files[0];
+    const formData = new FormData();
+    if (files) {
+      formData.append('image', files);
+    }
+    formData.append('title', title)
+    formData.append('about', about)
+    formData.append('category', category)
+    formData.append('cookingTime', cookingTime)
+    formData.append('recipe', recipe)
+
+    addRecipeAPI(formData)
+    console.log(addRecipeAPI)
   };
 
   const theme = store.theme;
@@ -70,12 +91,17 @@ const AddRecipeForm = () => {
 
           <div>
             <label htmlFor="file" id="labelFile">
+              {image && (
 
+                <img src={image} alt="" width={500} height={500} />
+
+              )
+              }
               <input
-                type="file"
+                type={'file'}
                 id="image"
                 name="image"
-                accept="image/*"
+                accept={"image/*"}
                 onChange={handleImageChange}
               />
 
@@ -84,29 +110,7 @@ const AddRecipeForm = () => {
               </svg>
 
             </label>
-            {formFail ? (
 
-              <img src={formFail.image} alt="" width={100} />
-
-            ) :
-              <div>
-                <label htmlFor="file" id="labelFile">
-
-                  <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                  />
-
-                  <svg width="50" height="50">
-                    <use href={icons + '#icon-img'} alt="ico"></use>
-                  </svg>
-
-                </label>
-              </div>
-            }
           </div>
           <InputsWrapper localTheme={theme}>
             <input
@@ -114,8 +118,8 @@ const AddRecipeForm = () => {
               name="title"
               type="text"
               label="RecipeTitle"
-              value={recipeTitle}
-              onChange={e => setRecipeTitle(e.target.value)}
+              value={formIngredients.title}
+              onChange={handleIngredientsChange}
               placeholder="Enter item title"
             ></input>
             <input
@@ -123,8 +127,8 @@ const AddRecipeForm = () => {
               name="about"
               type="text"
               label="RecipeAbout"
-              value={recipeAbout}
-              onChange={e => setRecipeAbout(e.target.value)}
+              value={formIngredients.about}
+              onChange={handleIngredientsChange}
               placeholder="Enter about recipe"
             ></input>
             <InputsWithSelectWrapper>
@@ -134,8 +138,8 @@ const AddRecipeForm = () => {
                   // required
                   id="category"
                   name="category"
-                  value={category}
-                  onChange={e => setCategory(e.target.value)}
+                  value={formIngredients.category}
+                  onChange={handleIngredientsChange}
                 >
                   <option value="Beef">Beef</option>
                   <option value="Breakfast">Breakfast</option>
@@ -156,8 +160,8 @@ const AddRecipeForm = () => {
                   // required
                   id="cookingTime"
                   name="cookingTime"
-                  value={cookingTime}
-                  onChange={e => setCookingTime(e.target.value)}
+                  value={formIngredients.cookingTime}
+                  onChange={handleIngredientsChange}
                 >
                   <option value="5">5 min</option>
                   <option value="15">15 min</option>
@@ -187,7 +191,7 @@ const AddRecipeForm = () => {
           <textarea
             name="recipe"
             placeholder="Enter recipe"
-            onChange={e => setPreparation(e.target.value)}
+            onChange={handleIngredientsChange}
           ></textarea>
         </RecepieSection>
         <AddBtn type="submit">Add</AddBtn>
