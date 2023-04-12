@@ -66,7 +66,7 @@ export const TableRow = styled.div`
   display: flex;
   align-items: center;
   padding: 10.5px 29px 10px 10px;
-  background: #ebf3d4;
+  background: ${p => p.theme.colors.ingredientsBgrCol};
   border-radius: 8px;
 
   &:not(:last-child) {
@@ -97,7 +97,6 @@ export const TableProductBox = styled.div`
 
   width: 57px;
   height: 57px;
-  background: #ebf3d4;
   border-radius: 6px;
   margin-right: 12px;
 
@@ -118,7 +117,7 @@ export const TableProductText = styled.div`
   font-weight: 500;
   font-size: 10px;
   line-height: 1.2;
-  color: #3e4462;
+  color: ${p => p.theme.colors.secondaryDark};
 
   @media (min-width: 768px) {
     font-size: 24px;
@@ -131,7 +130,7 @@ export const TableNumberBox = styled.div`
   align-items: center;
   justify-content: center;
   padding: 4px;
-  max-width: 55px;
+  max-width: 70px;
   background: #8baa36;
   border-radius: 4px;
   font-weight: 600;

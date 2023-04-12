@@ -15,6 +15,7 @@ import {
 } from './RecipeDescIngredientsList.styled';
 import { selectShoppingList } from 'redux/auth/selectors';
 import { addIngredient, deleteIngredient } from 'redux/auth/auth-operations.js';
+import placeholder from '../../images/shoppingList/Orange.png';
 
 export const IngredientItem = ({ item }) => {
   const list = useSelector(selectShoppingList);
@@ -50,7 +51,7 @@ export const IngredientItem = ({ item }) => {
     <TableRow key={item._id}>
       <TableProduct>
         <TableProductBox>
-          <img src={item.thb} alt={item.ttl} />
+          {/* <img src={placeholder} alt={item.ttl} /> */}
         </TableProductBox>
         <TableProductText>{item.ttl}</TableProductText>
       </TableProduct>

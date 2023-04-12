@@ -15,7 +15,7 @@ export const RecipePreparationTitle = styled.h3`
   line-height: 1;
   letter-spacing: -0.02em;
 
-  color: #3e4462;
+  color: ${p => p.theme.colors.secondaryDark};
 
   margin-bottom: 28px;
   @media (min-width: 768px) {
@@ -84,6 +84,21 @@ export const RecipePreparationNumber = styled.div`
 
   color: #ffffff;
   @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1280px) {
+  }
+`;
+
+export const RecipePreparationText = styled.div`
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: ${p => p.theme.colors.preparationText};
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.29;
   }
 
   @media (min-width: 1280px) {

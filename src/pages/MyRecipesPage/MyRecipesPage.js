@@ -8,6 +8,7 @@ import { Pagination } from '../../components/Pagination/Pagination';
 import { PaginationWrapper } from '../../components/Pagination/Pagination.styled';
 import { getMyRecipesAPI } from '../../services/API/Recipes';
 import { deleteMyRecipe } from '../../redux/opertions';
+import { Loader } from 'components/Loader/Loader';
 
 function fetchData() {
   return getMyRecipesAPI().then(data => {
@@ -18,10 +19,14 @@ function fetchData() {
 export const MyRecipesPage = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchData().then(data => setData(data));
+    fetchData().then(data => {
+      setData(data);
+      setIsLoading(false);
+    });
   }, []);
 
   const handleDelete = async recipeId => {
@@ -42,23 +47,29 @@ export const MyRecipesPage = () => {
     <Container>
       <FavoritePageThumb>
         <MainPageTitle value="My recipe"></MainPageTitle>
-        <RecipeList>
-          {getPaginatedData().map(recipe => (
-            <MyRecipe
-              key={recipe._id}
-              recipe={recipe}
-              onDelete={handleDelete}
-            />
-          ))}
-        </RecipeList>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <RecipeList>
+            {getPaginatedData().map(recipe => (
+              <MyRecipe
+                key={recipe._id}
+                recipe={recipe}
+                onDelete={handleDelete}
+              />
+            ))}
+          </RecipeList>
+        )}
       </FavoritePageThumb>
-      <PaginationWrapper>
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          totalPages={totalPages}
-        />
-      </PaginationWrapper>
+      {!isLoading && (
+        <PaginationWrapper>
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            totalPages={totalPages}
+          />
+        </PaginationWrapper>
+      )}
     </Container>
   );
 };
