@@ -1,14 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import {
-  register,
-  login,
-  logout,
-  getCurrentUser,
-  addIngredient,
-  deleteIngredient,
-  addFavRecipe,
-  deleteFavRecipe,
-} from './auth-operations';
+import { register, login, logout, getCurrentUser, updateUser } from './auth-operations';
 import { transformUserData } from '../../utils/transformUserData';
 
 const initialState = {
@@ -23,6 +14,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isSuccess: false,
 };
 
 export const authSlice = createSlice({
@@ -35,6 +27,7 @@ export const authSlice = createSlice({
         state.token = action.payload.user.token;
       })
       .addCase(login.fulfilled, (state, action) => {
+        // console.log(action.payload.user);
         state.user = transformUserData(action.payload.user);
         state.token = action.payload.user.token;
       })
@@ -56,32 +49,24 @@ export const authSlice = createSlice({
           shoppingList: [...action.payload.data.shoppingList],
         };
         state.token = action.payload.data.token;
-        state.isRefreshing = false;
       })
-      .addCase(getCurrentUser.rejected, (state, action) => {
-        state.isRefreshing = false;
-        state.token = null;
-      })
-      .addCase(addFavRecipe.fulfilled, (state, action) => {
-        state.user.favoritsRecipe.push(action.meta.arg);
-      })
-      .addCase(deleteFavRecipe.fulfilled, (state, action) => {
-        state.user.favoritsRecipe = state.user.favoritsRecipe.filter(
-          item => item !== action.meta.arg
-        );
-      })
-      .addCase(addIngredient.fulfilled, (state, action) => {
-        state.user.shoppingList.push(action.meta.arg);
-      })
-      .addCase(deleteIngredient.fulfilled, (state, action) => {
-        state.user.shoppingList = state.user.shoppingList.filter(
-          item => item._id !== action.meta.arg
-        );
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user = {
+          name: action.payload.data.name,
+          avatarURL: action.payload.data.avatarURL,
+        };
+        state.isSuccess = true;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
         state => {
           state.isLoggedIn = true;
+        }
+      )
+      .addMatcher(
+        isAnyOf(getCurrentUser.fulfilled, getCurrentUser.rejected),
+        state => {
+          state.isRefreshing = false;
         }
       );
   },

@@ -11,6 +11,7 @@ export const SectionHero = styled.section`
 ${'' /* width:100%;
 margin-left:auto;
 margin-right:auto; */}
+position:relative;
 font-family: 'Poppins', sans-serif;
 height: 777px;
 background-image: url(${HeroImgMobile});
@@ -51,6 +52,7 @@ display:flex;
 }
 `
 export const WrapperText = styled.div`
+text-align:left;
 `
 
 export const HeroTitle = styled.h1`
@@ -152,17 +154,30 @@ margin-bottom: 115px;
 
 @media (min-width: 768px) {
     position:absolute;
-    top:367px;
-    left:55%;
+     ${'' /* bottom:11%;
+     right:10%; */}
+       bottom:0;
+     right:0;
+
+${'' /* margin-bottom:135px;
+margin-right: 124px; */}
+
 }
 @media (min-width: 1280px) {
-top:460px;
-left:70%;
+
 width: 298px;
+${'' /* margin-bottom:135px;
+margin-right: 124px; */}
 ${'' /* height: 114px; */}
 ${'' /* padding: 16px; */}
-margin:0;
+${'' /* margin-bottom:230px;
+margin-right: 160px; */}
 }
+@media (min-width: 1440px) {
+    margin-bottom:170px;
+margin-right: 213px;
+}
+
 `
 export const HeroRecipeText = styled.p`
 tex-align:left;

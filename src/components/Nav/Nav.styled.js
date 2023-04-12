@@ -15,7 +15,7 @@ export const PrimaryNav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-display:flex;
+
   align-items: center;
   text-decoration: none;
   flex-direction: column;
@@ -33,6 +33,7 @@ display:flex;
     margin-top: 40px;
   }
   @media (min-width: 1280px) {
+    display:flex;
     margin-top: 0;
     margin-left: 30px;
     font-size: 14px;

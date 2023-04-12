@@ -104,6 +104,17 @@ export const getCurrentUser = createAsyncThunk(
     }
   }
 );
+export const updateUser = createAsyncThunk(
+  '/auth/updateUser',
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await axios.patch(`/users/profile`, data);
+      return result;
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  }
+);
 
 export const addFavRecipe = createAsyncThunk(
   'favorite/addFavRecipe',
@@ -163,3 +174,4 @@ export const deleteIngredient = createAsyncThunk(
     }
   }
 );
+

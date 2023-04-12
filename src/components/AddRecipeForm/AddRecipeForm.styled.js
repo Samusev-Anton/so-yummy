@@ -66,11 +66,11 @@ export const AddRecepiSection = styled.div`
   }
 
   input[type='file'] {
-    width: 0;
-    height: 0;
+    ${'' /* width: 0;
+    height: 0; */}
     opacity: 0;
     position: absolute;
-    z-index: -1;
+    ${'' /* z-index: -1; */}
     display: block;
     padding: 0;
   }
@@ -216,8 +216,8 @@ export const ValueInputWrapper = styled.div`
 
   .css-1dimb5e-singleValue {
     color: ${({ localTheme }) => {
-      return localTheme === 'light' ? 'black' : 'white';
-    }};
+    return localTheme === 'light' ? 'black' : 'white';
+  }};
   }
 `;
 

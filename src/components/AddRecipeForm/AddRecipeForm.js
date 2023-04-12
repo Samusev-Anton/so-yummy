@@ -33,15 +33,19 @@ const AddRecipeForm = () => {
   const [formFail, setFormFail] = useState({
     image: null,
   });
+  console.log(formFail)
 
   const handleIngredientsChange = ingredients => {
     setIngredientsForRecipe(ingredients);
   };
 
   const handleImageChange = event => {
-    setFormFail(event.target.files[0]);
-    const formData = new FormData();
-    console.log(formData);
+    const [file] = event.target.files;
+    if (file) {
+      setFormFail(URL.createObjectURL(file));
+    }
+    // setFormFail(event.target.files[0]);
+    // const formData = new FormData();
   };
 
   const handleSubmit = event => {
@@ -63,11 +67,10 @@ const AddRecipeForm = () => {
     <MainWrapper>
       <RecipeForm onSubmit={handleSubmit}>
         <AddRecepiSection>
+
           <div>
             <label htmlFor="file" id="labelFile">
-              <svg width="50" height="50">
-                <use href={icons + '#icon-img'} alt="ico"></use>
-              </svg>
+
               <input
                 type="file"
                 id="image"
@@ -75,9 +78,36 @@ const AddRecipeForm = () => {
                 accept="image/*"
                 onChange={handleImageChange}
               />
-            </label>
-          </div>
 
+              <svg width="50" height="50">
+                <use href={icons + '#icon-img'} alt="ico"></use>
+              </svg>
+
+            </label>
+            {formFail ? (
+
+              <img src={formFail.image} alt="" width={100} />
+
+            ) :
+              <div>
+                <label htmlFor="file" id="labelFile">
+
+                  <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                  />
+
+                  <svg width="50" height="50">
+                    <use href={icons + '#icon-img'} alt="ico"></use>
+                  </svg>
+
+                </label>
+              </div>
+            }
+          </div>
           <InputsWrapper localTheme={theme}>
             <input
               // required

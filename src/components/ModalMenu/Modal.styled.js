@@ -3,16 +3,17 @@ import ModalImgMobile from "images/modal-picture-mobile.png"
 import ModalImgTablet from "images/modal-picture-tablet.png"
 
 export const Overlay = styled.div`
-display: flex;
-flex-direction: column;
+${'' /* display: flex; */}
+${'' /* flex-direction: column; */}
 height: 100vh;
 width: 100vw;
 left: 0;
 top:0;
 position: fixed;
 z-index: 1000;
-justify-content: flex-start;
-align-items: center;
+padding-top:18px;
+${'' /* justify-content: flex-start; */}
+${'' /* align-items: center; */}
 background-image: url(${ModalImgMobile});
 background-repeat: no-repeat;
 background-position: bottom right;

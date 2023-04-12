@@ -10,6 +10,9 @@ export const selectUserLoggedIn = state => state.auth.isLoggedIn;
 
 export const selectRefreshing = state => state.auth.isRefreshing;
 
+export const getIsSuccess = state => state.auth.isSuccess;
+
 export const selectfavRecipies = state => state.auth.user.favoritsRecipe;
 
 export const selectShoppingList = state => state.auth.user.shoppingList;
+
