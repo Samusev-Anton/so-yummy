@@ -12,8 +12,8 @@ export const FavRecipeItem = styled.li`
   display: flex;
   padding: 14px;
   width: 100%;
-  background-color: #ffffff;
   border-radius: 8px;
+  background-color: ${li => (li.mode === 'light' ? `#ffffff` : `#2A2C36`)};
 
   @media (min-width: 768px) {
     padding: 28px;
@@ -22,10 +22,12 @@ export const FavRecipeItem = styled.li`
     padding: 40px;
   }
 `;
-export const RecipeImage = styled.img`
+
+export const RecipeImageThumb = styled.div`
   width: 124px;
   height: 124px;
   margin-right: 14px;
+  overflow: hidden;
   border-radius: 8px;
 
   @media (min-width: 768px) {
@@ -37,6 +39,16 @@ export const RecipeImage = styled.img`
     width: 318px;
     height: 324px;
     margin-right: 40px;
+  }
+`;
+
+export const RecipeImage = styled.img`
+  max-height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &:hover {
+    transform: scale(1.03);
   }
 `;
 
@@ -53,7 +65,7 @@ export const RecipeTitle = styled.h3`
   letter-spacing: -0.24px;
   margin-top: 0px;
   margin-bottom: 14px;
-  color: #3e4462;
+  color: ${h3 => (h3.mode === 'light' ? `#3e4462` : `#fafafa`)};
 
   @media (min-width: 768px) {
     max-width: 342px;
@@ -71,8 +83,8 @@ export const RecipeDescription = styled.p`
   font-size: 8px;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #23262a;
   margin-right: 43px;
+  color: ${p => (p.mode === 'light' ? `#23262a` : `rgba(250, 250, 250, 0.6)`)};
 
   @media (min-width: 768px) {
     font-size: 14px;
@@ -92,8 +104,9 @@ export const RecipePrepTime = styled.p`
   line-height: 1.4;
   letter-spacing: -0.24px;
   margin: 0;
-  color: #3e4462;
   margin-top: 16px;
+  color: ${p => (p.mode === 'light' ? `#3e4462` : `#fafafa`)};
+
   @media (min-width: 768px) {
     font-size: 14px;
     line-height: 1.43;
@@ -107,16 +120,21 @@ export const DeleteButton = styled.button`
   right: 9px;
   width: 24px;
   height: 24px;
-  background-color: #8baa36;
   border: none;
   border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+  background-color: ${button =>
+    button.mode === 'light' ? `#8BAA36` : `#1E1F28`};
 
   svg {
+    stroke: #fafafa;
     width: 100%;
     height: 100%;
   }
 
   &:hover {
+    background-color: ${button =>
+      button.mode === 'light' ? `#6b842e` : `#333449`};
     cursor: pointer;
   }
 
@@ -141,18 +159,19 @@ export const SeeRecipeBtn = styled.button`
   right: 9px;
   bottom: 14px;
   border: none;
-  background-color: #8baa36;
   border-radius: 24px 44px;
   cursor: pointer;
-  color: #fafafa;
   font-weight: 400;
   font-size: 10px;
   line-height: 1.5;
   width: 87px;
   height: 27px;
+  color: #fafafa;
+  transition: background-color 0.2s ease-in-out;
+  background-color: #8baa36;
 
   &:hover {
-    background-color: #8baa36;
+    background-color: #6b842e;
     color: #fafafa;
   }
 
