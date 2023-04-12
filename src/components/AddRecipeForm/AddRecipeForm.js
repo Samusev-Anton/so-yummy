@@ -30,7 +30,7 @@ const AddRecipeForm = () => {
   const [preparation, setPreparation] = useState('');
   const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
 
-  const [formData, setFormData] = useState({
+  const [formFail, setFormFail] = useState({
     image: null,
   });
 
@@ -39,7 +39,9 @@ const AddRecipeForm = () => {
   };
 
   const handleImageChange = event => {
-    setFormData({ ...formData, image: event.target.files[0] });
+    setFormFail(event.target.files[0]);
+    const formData = new FormData();
+    console.log(formData);
   };
 
   const handleSubmit = event => {
