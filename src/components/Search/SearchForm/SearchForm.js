@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from 'formik';
-import { FormWrap, Input } from '../../SearchInput/SearchForm.styled';
+import { FormWrap, Input } from '../../SearchInput/Search.styled';
 import { SearchPageBtn } from "./SearchForm.styled";
 
 export const SearchForm = ({ searchQuery, onSearchQueryChange }) => {
