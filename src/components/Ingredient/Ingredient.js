@@ -1,7 +1,9 @@
 import * as React from 'react';
 // import { useState } from 'react';
+import Select from 'react-select';
 import IconButton from '@mui/material/IconButton';
-
+import { InputUnitValue, ValueInputWrapper } from '../../components/AddRecipeForm/AddRecipeForm.styled'
+import { stylesIngredient, stylesUnit } from '../AddRecipeForm/selectStyles';
 export const Ingredient = ({
   id,
   title,
@@ -11,6 +13,7 @@ export const Ingredient = ({
   onWeightChange,
   onQuantityChange,
   removeIngredientById,
+  localTheme,
 }) => {
   // const [searchTerm, setSearchTerm] = useState('');
   // const [dropdownOptions, setDropdownOptions] = useState([]);
@@ -57,7 +60,8 @@ export const Ingredient = ({
           </option>
         ))}
       </select> */}
-      <input
+      <Select
+        styles={stylesIngredient(localTheme)}
         id="title"
         type="text"
         value={title}
@@ -65,9 +69,9 @@ export const Ingredient = ({
         onBlur={() => onTitleChange(id, title)}
         onKeyDown={handleKeyDown}
         placeholder="Ingredient name"
-      ></input>
-      <div>
-        <input
+      ></Select>
+      <ValueInputWrapper>
+        <InputUnitValue
           id="quantity"
           type="number"
           value={quantity}
@@ -75,8 +79,9 @@ export const Ingredient = ({
           onBlur={() => onQuantityChange(id, quantity)}
           onKeyDown={handleKeyDown}
           placeholder="Quantity"
-        ></input>
-        <select
+        ></InputUnitValue>
+        <Select
+          styles={stylesUnit(localTheme)}
           id="weight"
           name="weight"
           value={weight}
@@ -88,8 +93,8 @@ export const Ingredient = ({
           <option value="tsp">tsp</option>
           <option value="kg">kg</option>
           <option value="g">g</option>
-        </select>
-      </div>
+        </Select>
+      </ValueInputWrapper>
       <IconButton onClick={() => removeIngredientById(id)}>
         <svg
           width="18"

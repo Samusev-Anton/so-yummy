@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { getPopularRecipesAPI } from 'services/API/Recipes';
 // import { useDispatch } from 'react-redux';
+import { PopularItem, RecipeTitle, RecepiImg, RecipeText, PopularTitle } from '../AddRecipeForm/AddRecipeForm.styled'
 
 export const PopularRecipe = () => {
   const [popularRecipe, setPopularRecipe] = React.useState([]);
@@ -10,11 +11,12 @@ export const PopularRecipe = () => {
     });
   }, []);
   return (
-    <>
+    <div>
+      <PopularTitle style={{ marginBottom: '40px'}}>Popular recipe</PopularTitle>
       <div style={{ width: '319px', height: '528px' }}>
         <ul style={{ listStyle: 'none' }}>
           {popularRecipe.map(recipe => (
-            <li
+            <PopularItem
               key={recipe._id}
               style={{
                 display: 'flex',
@@ -22,9 +24,9 @@ export const PopularRecipe = () => {
                 marginBottom: '20px',
               }}
             >
-              <img src={recipe.preview} alt={recipe.title} width="85" />
+              <RecepiImg src={recipe.preview} alt={recipe.title} width="85" />
               <div style={{paddingLeft: '10px'}}>
-                <h2
+                <RecipeTitle
                   style={{
                     fontSize: '16px',
                     padding: 0,
@@ -37,8 +39,8 @@ export const PopularRecipe = () => {
                   }}
                 >
                   {recipe.title}
-                </h2>
-                <p
+                </RecipeTitle>
+                <RecipeText
                   style={{
                     fontSize: '12px',
                     width: '198px',
@@ -49,12 +51,12 @@ export const PopularRecipe = () => {
                   }}
                 >
                   {recipe.description}
-                </p>
+                </RecipeText>
               </div>
-            </li>
+            </PopularItem>
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 };
