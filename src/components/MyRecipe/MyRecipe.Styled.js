@@ -110,6 +110,7 @@ export const DeleteButton = styled.button`
   height: 24px;
   border: none;
   border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
   background-color: ${button =>
     button.mode === 'light' ? `#8BAA36` : `#1E1F28`};
 
@@ -120,6 +121,8 @@ export const DeleteButton = styled.button`
   }
 
   &:hover {
+    background-color: ${button =>
+      button.mode === 'light' ? `#6b842e` : `#333449`};
     cursor: pointer;
   }
 
@@ -152,10 +155,11 @@ export const SeeRecipeBtn = styled.button`
   width: 87px;
   height: 27px;
   color: #fafafa;
+  transition: background-color 0.2s ease-in-out;
   background-color: #8baa36;
 
   &:hover {
-    background-color: #22252a;
+    background-color: #6b842e;
     color: #fafafa;
   }
 

@@ -32,7 +32,7 @@ export const FavoriteRecipe = ({ recipe, onDelete }) => {
       </FavRecipeTopInfo>
 
       <DeleteButton onClick={() => onDelete(recipe._id)} mode={mode}>
-        <Icon mode={mode} />
+        <Icon />
       </DeleteButton>
       <Link to={`/recipe/${recipe._id}`}>
         <SeeRecipeBtn mode={mode}>See Recipe</SeeRecipeBtn>
