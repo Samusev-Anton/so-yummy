@@ -33,7 +33,7 @@ const AddRecipeForm = () => {
   const [formFail, setFormFail] = useState({
     image: null,
   });
-  console.log(formFail)
+  console.log(formFail);
 
   const handleIngredientsChange = ingredients => {
     setIngredientsForRecipe(ingredients);
@@ -44,21 +44,24 @@ const AddRecipeForm = () => {
     if (file) {
       setFormFail(URL.createObjectURL(file));
     }
-    // setFormFail(event.target.files[0]);
-    // const formData = new FormData();
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const recipe = {
-      title: recipeTitle,
-      about: recipeAbout,
-      category: category,
-      time: `${cookingTime} min`,
-      preparation: preparation,
-      ingredients: ingredientsForRecipe,
-    };
-    addRecipeAPI(recipe);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const files = e.target.elements[0].files[0];
+
+    const formData = new FormData();
+    formData.append('img', files);
+    formData.append('title', recipeTitle);
+    formData.append('about', recipeAbout);
+    formData.append('category', category);
+    formData.append('time', `${cookingTime} min`);
+    formData.append('ingredients', ingredientsForRecipe);
+    formData.append('instructions', preparation);
+    formData.append('description', recipeAbout);
+    console.log(formData.getAll('img'));
+
+    addRecipeAPI(formData);
   };
 
   const theme = store.theme;
@@ -67,10 +70,8 @@ const AddRecipeForm = () => {
     <MainWrapper>
       <RecipeForm onSubmit={handleSubmit}>
         <AddRecepiSection>
-
           <div>
             <label htmlFor="file" id="labelFile">
-
               <input
                 type="file"
                 id="image"
@@ -82,16 +83,12 @@ const AddRecipeForm = () => {
               <svg width="50" height="50">
                 <use href={icons + '#icon-img'} alt="ico"></use>
               </svg>
-
             </label>
             {formFail ? (
-
               <img src={formFail.image} alt="" width={100} />
-
-            ) :
+            ) : (
               <div>
                 <label htmlFor="file" id="labelFile">
-
                   <input
                     type="file"
                     id="image"
@@ -103,10 +100,9 @@ const AddRecipeForm = () => {
                   <svg width="50" height="50">
                     <use href={icons + '#icon-img'} alt="ico"></use>
                   </svg>
-
                 </label>
               </div>
-            }
+            )}
           </div>
           <InputsWrapper localTheme={theme}>
             <input
