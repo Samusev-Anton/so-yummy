@@ -172,7 +172,7 @@ export const SeeRecipeBtn = styled.button`
 
   &:hover {
     background-color: ${button =>
-      button.mode === 'light' ? `#22252a` : `#6b842e`};
+      button.mode === 'light' ? `#8baa36` : `#6b842e`};
     color: #fafafa;
   }
 
