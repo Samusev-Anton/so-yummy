@@ -91,10 +91,16 @@ export const deleteMyRecipeAPI = recipeId => {
   });
 };
 
+// export const addRecipeAPI = recipe => {
+//   console.log('add recipe', recipe);
+//   return axios.post(`/recipes`, {
+//     data: recipe,
+//   });
+// };
+
 export const addRecipeAPI = recipe => {
-  console.log('add recipe', recipe);
-  return axios.post(`/recipes`, {
-    data: recipe,
+  return axios.post(`/recipes`, recipe).then(({ data }) => {
+    return data;
   });
 };
 
