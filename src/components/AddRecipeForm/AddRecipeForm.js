@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 // import { addRecipesAPI } from './services/API/Recipes/addRecipesAPI';
 import { addRecipeAPI } from '../../services/API/Recipes';
-import Select from 'react-select';
+// import Select from 'react-select';
 import { store } from '../../redux/store';
 
 import { FollowUs } from 'components/FollowUs/FollowUs';
@@ -60,21 +60,22 @@ const AddRecipeForm = () => {
   return (
     <MainWrapper>
       <RecipeForm onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="file" id="labelFile">
+            <svg width="50" height="50">
+              <use href={icons + '#icon-img'} alt="ico"></use>
+            </svg>
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+        </div>
+
         <AddRecepiSection>
-          <div>
-            <label htmlFor="file" id="labelFile">
-              <svg width="50" height="50">
-                <use href={icons + '#icon-img'} alt="ico"></use>
-              </svg>
-            </label>
-            <input
-              type="file"
-              id="image"
-              name="image"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-          </div>
           <InputsWrapper localTheme={theme}>
             <input
               // required

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 
 export const Ingredient = ({
@@ -12,11 +12,8 @@ export const Ingredient = ({
   onQuantityChange,
   removeIngredientById,
 }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [dropdownOptions, setDropdownOptions] = useState([]);
-  console.log(dropdownOptions);
-
-  console.log(searchTerm);
+  // const [searchTerm, setSearchTerm] = useState('');
+  // const [dropdownOptions, setDropdownOptions] = useState([]);
 
   const handleTitleChange = e => {
     onTitleChange(id, e.target.value);
