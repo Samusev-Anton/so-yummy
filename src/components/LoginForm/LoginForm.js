@@ -46,7 +46,7 @@ export const LoginForm = () => {
         validationSchema={schemaLoginValidation}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, isSubmitting }) => (
           <FormAuth>
             <Title>Sign In</Title>
 
@@ -90,7 +90,9 @@ export const LoginForm = () => {
                 ) : null}
               </BoxForField>
             </BoxForForm>
-            <Button type="submit">Sign In</Button>
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Signing in...' : 'Sign in'}
+            </Button>
           </FormAuth>
         )}
       </Formik>
