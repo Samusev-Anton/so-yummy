@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import { theme } from '../../theme';
 
 export const Title = styled.h1`
   font-weight: 600;
@@ -14,5 +17,40 @@ export const Title = styled.h1`
     font-size: 28px;
     line-height: 1.07;
     margin-bottom: 50px;
+  }
+`;
+
+export const LinkTo = styled(Link)`
+  display: block;
+  color: #fafafa;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+
+  margin-bottom: 20px;
+
+  text-decoration-line: underline;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+export const ButtonForPass = styled.button`
+  display: block;
+  margin: 0 auto;
+  background-color: transparent;
+  color: #fafafa;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins';
+
+  text-decoration-line: underline;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
   }
 `;

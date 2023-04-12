@@ -1,10 +1,13 @@
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 import { schemaLoginValidation } from 'utils/formValidation';
 import { login } from 'redux/auth/auth-operations';
 
 import { getValidColor } from 'utils/getValidColor';
+import { ModalForPass } from '../ModalForPass/ModalForPass';
+import { ChangePasswordForm } from '../ChangePasswordForm/ChangePasswordForm';
 import {
   FormAuth,
   BoxForForm,
@@ -12,12 +15,11 @@ import {
   BoxForField,
   Warning,
   Button,
-  LinkTo,
   BoxForIcon,
   EmailIcon,
   PassIcon,
 } from '../RegisterForm/RegisterForm.styled';
-import { Title } from './LoginForm.styled';
+import { Title, ButtonForPass, LinkTo } from './LoginForm.styled';
 
 const initialValues = {
   email: '',
@@ -25,6 +27,11 @@ const initialValues = {
 };
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const [modal, setModal] = useState(false);
+  const closeModal = () => {
+    setModal(false);
+  };
+
   const handleSubmit = async (values, actions) => {
     await dispatch(
       login({
@@ -97,6 +104,16 @@ export const LoginForm = () => {
         )}
       </Formik>
       <LinkTo to="/register">Registration</LinkTo>
+      <ButtonForPass
+        type="button"
+        onClick={() => setModal(true)}
+        disabled={modal}
+      >
+        Forgot password?
+      </ButtonForPass>
+      <ModalForPass isOpened={modal} isCloseModal={closeModal}>
+        <ChangePasswordForm isCloseModal={closeModal} />
+      </ModalForPass>
     </div>
   );
 };

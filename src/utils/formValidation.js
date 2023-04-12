@@ -43,3 +43,10 @@ export const schemaLoginValidation = yup.object().shape({
     // )
     .required('This field is required'),
 });
+
+export const schemaChangePassValidation = yup.object().shape({
+  email: yup
+    .string()
+    .matches(emailRegex, 'Invalid email address, try again')
+    .required('This field is required'),
+});
