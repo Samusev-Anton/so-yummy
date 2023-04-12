@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-// import { useState } from 'react';
 
 import { Formik } from 'formik';
 
@@ -30,14 +29,13 @@ const initialValues = {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     const authData = {
       name: values.name,
       email: values.email,
       password: values.password,
     };
-
-    dispatch(register(authData));
+    await dispatch(register(authData));
     actions.resetForm();
   };
   return (
@@ -47,7 +45,7 @@ export const RegisterForm = () => {
         validationSchema={schemaRegValidation}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, isSubmitting }) => (
           <FormAuth>
             <TitleForm>Registration</TitleForm>
             <BoxForForm>
@@ -106,7 +104,9 @@ export const RegisterForm = () => {
                 ) : null}
               </BoxForField>
             </BoxForForm>
-            <Button type="submit">Sign up</Button>
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Signing up...' : 'Sign up'}
+            </Button>
           </FormAuth>
         )}
       </Formik>
