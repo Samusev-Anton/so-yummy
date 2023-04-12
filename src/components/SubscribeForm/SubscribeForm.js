@@ -28,7 +28,6 @@ export const SubscribeForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
-    // console.log(form.elements.email.value);
     dispatch(
       sendMailOperation({
         email: form.elements.email.value,
@@ -38,12 +37,7 @@ export const SubscribeForm = () => {
   };
 
   return (
-    <Formik
-      // initialValues={{
-      //   email: '',
-      // }}
-      validationSchema={SubscribeSchema}
-    >
+    <Formik validationSchema={SubscribeSchema}>
       {({ errors, touched }) => (
         <FormSubscribe autoComplete="off" onSubmit={handleSubmit}>
           <SubscribeTitle>Subscribe to our Newsletter</SubscribeTitle>

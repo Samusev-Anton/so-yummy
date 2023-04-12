@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { MyRecipe } from '../../components/MyRecipe/MyRecipe';
 import { Container } from 'components/GlobalStyles';
 import { RecipeList, FavoritePageThumb } from './MyRecipesPage.Styled';
 import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTitle';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { PaginationWrapper } from '../../components/Pagination/Pagination.styled';
-
-import { getFavoriteRecipesAPI } from '../../services/API/Recipes';
+import { getMyRecipesAPI } from '../../services/API/Recipes';
+import { deleteMyRecipe } from '../../redux/opertions';
 
 function fetchData() {
-  return getFavoriteRecipesAPI().then(data => {
+  return getMyRecipesAPI().then(data => {
     return data.data;
   });
 }
@@ -17,19 +18,20 @@ function fetchData() {
 export const MyRecipesPage = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchData().then(data => setData(data));
   }, []);
 
-  const handleDelete = recipe => {
-    const filteredData = data.filter(item => item._id !== recipe._id);
-    setData(filteredData);
+  const handleDelete = async recipeId => {
+    await dispatch(deleteMyRecipe({ recipeId }));
+    fetchData().then(data => setData(data));
   };
 
   const itemsPerPage = 4;
   const totalPages = Math.ceil(data.length / itemsPerPage);
-  
+
   const getPaginatedData = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -50,7 +52,7 @@ export const MyRecipesPage = () => {
           ))}
         </RecipeList>
       </FavoritePageThumb>
-      < PaginationWrapper>
+      <PaginationWrapper>
         <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

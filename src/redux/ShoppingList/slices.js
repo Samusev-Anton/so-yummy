@@ -1,7 +1,7 @@
 import * as toolkit from '@reduxjs/toolkit';
 
 import {
-  fetchFavRecipes,
+  // fetchFavRecipes,
   addFavRecipe,
   deleteFavRecipe,
   addIngredient,

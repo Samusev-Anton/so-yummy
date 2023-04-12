@@ -13,13 +13,13 @@ export const FormSubscribe = styled(Form)`
   @media ${device.tablet} {
     flex-direction: row;
     margin-bottom: 38px;
-    height: 50px;
     justify-content: center;
+    grid-row: 2;
+    grid-column: 1 / span 2;
   }
   @media ${device.desktop} {
     flex-direction: column;
     margin: 0;
-    margin-left: 150px;
     height: auto;
     width: 339px;
   }
@@ -131,11 +131,13 @@ export const SubscribeButton = styled.button`
   line-height: 16px;
   color: #fafafa;
   border: none;
+  height: 38px;
   @media ${device.tablet} {
     width: 171px;
     font-size: 16px;
     line-height: 18px;
     margin: 0;
+    height: 50px;
   }
   @media ${device.desktop} {
     width: 339px;

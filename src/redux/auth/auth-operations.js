@@ -11,6 +11,7 @@ import {
 } from 'services/API/Recipes';
 
 axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:3030/api';
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -26,15 +27,10 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { email, password } = credentials;
-
-      await axios.post('/users/signup', credentials);
-      const res = await axios.post('/users/signin', { email, password });
-      // console.log(res);
+      const res = await axios.post('/users/signup', credentials);
       setAuthHeader(res.data.user.token);
       return res.data;
     } catch (error) {
-      // console.log(error);
       toast.error(`${error.response.data.message}`, {
         position: 'top-center',
         autoClose: 2500,
@@ -53,7 +49,6 @@ export const login = createAsyncThunk(
     try {
       const res = await axios.post('/users/signin', credentials);
       setAuthHeader(res.data.user.token);
-      // console.log(res);
       return res.data;
     } catch (error) {
       toast.error(`${error.response.data.message}`, {
@@ -98,12 +93,6 @@ export const getCurrentUser = createAsyncThunk(
       const res = await axios.get('/auth/current');
       return res.data;
     } catch (error) {
-      // check is token is expired - and then delete it from local storage
-      if (error.response.data.message === 'jwt expired') {
-        // If the response status is 401, clear the auth header and purge the persisted data
-        clearAuthHeader();
-        thunkAPI.dispatch({ type: 'persist/PURGE', key: 'persist:auth' });
-      }
       toast.error(`${error.response.data.message}`, {
         position: 'top-center',
         autoClose: 2500,

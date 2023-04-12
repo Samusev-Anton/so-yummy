@@ -1,7 +1,7 @@
 
 import { SectionHero, WrapperText, HeroTitle, HeroTitleSo, HeroText, HeroInputSearch, HeroRecipeWrapper, HeroRecipeText, HeroRecipeAccent, HeroRecipeLink, HeroTitleYummy } from "./Hero.styled"
 
-import { SearchForm } from "components/SearchInput/SearchForm"
+import { Search } from "components/SearchInput/Search"
 import { Container } from "components/GlobalStyles"
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
@@ -27,11 +27,10 @@ export const Hero = () => {
                         <HeroRecipeLink to={`/categories`}>See recipes <ArrowForwardIcon sx={{ fontSize: 18 }} /></HeroRecipeLink>
                     </HeroRecipeWrapper>
                     <HeroInputSearch>
-                        <SearchForm />
+                        <Search />
                     </HeroInputSearch>
                 </WrapperText>
             </Container>
         </SectionHero>
-
     )
 }
