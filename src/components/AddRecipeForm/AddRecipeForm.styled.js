@@ -33,17 +33,19 @@ export const IngredientsTitle = styled.div`
 
 export const AddRecepiSection = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 
   @media (min-width: 768px) {
-    /* flex-direction: unset; */
+    flex-direction: unset;
     gap: 32px;
+    align-items: flex-start;
   }
 
   input {
-    padding: 15px 0;
-  }
+    padding-bottom: 18px;
+} 
 
   label[id='labelFile'] {
     width: 279px;
@@ -89,6 +91,20 @@ export const SelectComp = styled.div`
   }
 `;
 
+export const Wrapper = styled.div`
+    display:flex;
+
+
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+  }
+
+    @media (min-width: 1280px) {
+      flex-direction: row;
+  }
+`;
+
 export const InputsWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -100,15 +116,17 @@ export const InputsWrapper = styled.div`
     border: none;
     border-bottom: 1px solid ${({ theme }) => theme.colors.mainGreyBg};
     font-size: 14px;
-    line-height: ${({ isMobile }) => (isMobile ? '1.3' : '1.5')};
+    line-height: 1.3;
     color:  #000000;
 
     @media (min-width: 768px) {
       font-size: 16px;
+      line-height: 1.5;
   }
 
     @media (min-width: 1280px) {
       font-size: 16px;
+      line-height: 1.5;
   }
 
     &::placeholder {
@@ -177,16 +195,10 @@ export const PopularSection = styled.div`
   }
 `;
 
-// export const PopularRecipe = styled.div`
-//   width: 100%;
-//   ${H3} {
-//     padding-bottom: 32px;
-//   }
-// `;
-
 export const IngredientsItem = styled.li`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   .css-1dimb5e-singleValue {
     color: ${({ localTheme }) => (localTheme === 'light' ? 'black' : 'white')};
@@ -201,6 +213,7 @@ export const IngredientsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 18px;
+  margin-top: 36px;
 `;
 
 export const ValueInputWrapper = styled.div`
@@ -209,7 +222,7 @@ export const ValueInputWrapper = styled.div`
   border: ${({ theme }) => `1px solid ${theme.colors.mainGreyBg}`};
 
   background-color: ${({ localTheme, theme }) => {
-    return localTheme === 'light' ? theme.colors.mainGreyBg : 'transparent';
+    return localTheme === 'light' ? 'transparent' : theme.colors.mainGreyBg;
   }};
   border-radius: 6px;
   margin-left: ${({ isMobile }) => (isMobile ? '14px' : '32px')};
@@ -241,12 +254,12 @@ export const PopularItem = styled.li`
   }
 `;
 
-export const RecipeTitle = styled.p`
+export const RecipeTitle = styled.h2`
   font-weight: ${({ theme }) => theme.fontWeights[1]};
   font-size: 16px;
   line-height: ${({ theme }) => theme.lineHeights.description};
   letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
-  color: ${({ theme }) => theme.colors.mainBlack};
+  color: ${({ theme }) => theme.colors.secondaryDark};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -267,7 +280,7 @@ export const RecipeText = styled.p`
   font-size: 12px;
   line-height: ${({ theme }) => theme.lineHeights.content};
   letter-spacing: ${({ theme }) => theme.letterSpacings.subheader};
-  color: ${({ theme }) => theme.colors.mainBlack};
+  color: ${({ theme }) => theme.colors.mainGrey};
 `;
 
 export const RecepiImg = styled.img`
@@ -313,7 +326,7 @@ export const AddBtn = styled.button`
   text-decoration: none;
   color: #fafafa;
 
-  transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',;
+  transition: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)';
 
   &:hover {
     background-color: #fafafa;
@@ -334,4 +347,12 @@ export const AddBtn = styled.button`
       color: #fafafa;
     }
   }
+`
+export const TitleFollowUs = styled.h3`
+  margin-bottom: 42px;
+  color: ${p => p.theme.colors.mainHeaderText};
+`
+
+export const PopularTitle = styled.h3`
+  color: ${p => p.theme.colors.mainHeaderText};
 `

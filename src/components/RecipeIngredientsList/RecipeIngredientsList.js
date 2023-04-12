@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import { Ingredient } from 'components/Ingredient/Ingredient';
 // import { SectionTitle } from 'components/AddRecipeForm/AddRecipeForm.styled';
 import { IngredientsSection, CounterButton, CounterWrapper, TitleConterWrapper } from './RecipeIngredientsList.styled';
-import { IngredientsList } from '../AddRecipeForm/AddRecipeForm.styled';
+import { IngredientsList, IngredientsItem, PopularTitle } from '../AddRecipeForm/AddRecipeForm.styled';
 
 export const RecipeIngredientsList = ({ onIngredientsChange }) => {
   const [id, setId] = useState(nanoid());
@@ -54,16 +54,16 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
       onMouseLeave={handleAddIngredient}
     >
       <TitleConterWrapper>
-        <h2>Ingredients</h2>
+        <PopularTitle>Ingredients</PopularTitle>
         <CounterWrapper>
-          <CounterButton onClick={addIngredientToArray}>+</CounterButton>
-          {ingredients.length}
           <CounterButton onClick={removeIngredientFromArray}>-</CounterButton>
+          <span>{ingredients.length}</span>
+          <CounterButton onClick={addIngredientToArray}>+</CounterButton>
         </CounterWrapper>
       </TitleConterWrapper>
       <IngredientsList>
         {ingredients.map(el => (
-          <li key={el.id}>
+          <IngredientsItem key={el.id}>
             <Ingredient
               {...el}
               id={el.id}
@@ -75,7 +75,7 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
               onWeightChange={handleWeightChange}
               removeIngredientById={removeIngredientById}
             />
-          </li>
+          </IngredientsItem>
         ))}
       </IngredientsList>
     </IngredientsSection>

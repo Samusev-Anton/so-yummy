@@ -8,6 +8,7 @@ export const FollowUsBlock = styled.div`
   align-items: center;
   //   flex-direction: column;
   gap: 16px;
+  margin-bottom: 102px;
 `;
 
 export const Link = styled.a`

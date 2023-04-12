@@ -1,13 +1,19 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 // import { addRecipesAPI } from './services/API/Recipes/addRecipesAPI';
 import { addRecipeAPI } from '../../services/API/Recipes';
-// import Select from 'react-select';
+import Select from 'react-select';
 import { store } from '../../redux/store';
+import { getCategories } from '../../redux/selectors'
 
 import { FollowUs } from 'components/FollowUs/FollowUs';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
+import { stylesSelect } from './selectStyles';
+import { categoriesOptionsList } from '../../utils/categoriesOptionsList';
+import { timeOptionsList } from '../../utils/timeOptionsList';
+import { PopularRecipe } from 'components/PopularRecipe/PopularRecipe';
 
 import {
   AddRecepiSection,
@@ -19,6 +25,9 @@ import {
   MainWrapper,
   RecepieSection,
   AddBtn,
+  TitleFollowUs,
+  PopularTitle,
+  Wrapper,
 } from 'components/AddRecipeForm/AddRecipeForm.styled';
 import icons from '../../images/sprite.svg';
 
@@ -65,6 +74,7 @@ const AddRecipeForm = () => {
   };
 
   const theme = store.theme;
+  const optionsCategories = useSelector(getCategories);
 
   return (
     <MainWrapper>
@@ -79,7 +89,6 @@ const AddRecipeForm = () => {
                 accept="image/*"
                 onChange={handleImageChange}
               />
-
               <svg width="50" height="50">
                 <use href={icons + '#icon-img'} alt="ico"></use>
               </svg>
@@ -115,7 +124,7 @@ const AddRecipeForm = () => {
               placeholder="Enter item title"
             ></input>
             <input
-              // required
+              style={{ paddingTop: "40px" }}
               name="about"
               type="text"
               label="RecipeAbout"
@@ -125,44 +134,30 @@ const AddRecipeForm = () => {
             ></input>
             <InputsWithSelectWrapper>
               <SelectComp localTheme={theme}>
-                <p>Category</p>
-                <select
-                  // required
+                <p style={{ padding: "40px 0 18px 0" }}>Category</p>
+                <Select
+                  styles={stylesSelect(theme)}
                   id="category"
                   name="category"
+                  options={categoriesOptionsList(optionsCategories)}
                   value={category}
-                  onChange={e => setCategory(e.target.value)}
+                  onChange={e => setCategory(e.target)}
                 >
-                  <option value="Beef">Beef</option>
-                  <option value="Breakfast">Breakfast</option>
-                  <option value="Dessert">Dessert</option>
-                  <option value="Dinner">Dinner</option>
-                  <option value="Fish">Fish</option>
-                  <option value="Goat">Goat</option>
-                  <option value="Lamb">Lamb</option>
-                  <option value="Pork">Pork</option>
-                  <option value="Supper">Supper</option>
-                </select>
+                </Select>
               </SelectComp>
             </InputsWithSelectWrapper>
             <InputsWithSelectWrapper>
               <SelectComp localTheme={theme}>
-                <p>Cooking time</p>
-                <select
-                  // required
+                <p style={{ padding: "40px 0 18px 0" }}>Cooking time</p>
+                <Select
+                  styles={stylesSelect(theme)}
                   id="cookingTime"
                   name="cookingTime"
+                  options={timeOptionsList()}
                   value={cookingTime}
-                  onChange={e => setCookingTime(e.target.value)}
+                  onChange={e => setCookingTime(e.target)}
                 >
-                  <option value="5">5 min</option>
-                  <option value="15">15 min</option>
-                  <option value="30">30 min</option>
-                  <option value="45">45 min</option>
-                  <option value="60">60 min</option>
-                  <option value="90">90 min</option>
-                  <option value="120">120 min</option>
-                </select>
+                </Select>
               </SelectComp>
             </InputsWithSelectWrapper>
           </InputsWrapper>
@@ -171,7 +166,7 @@ const AddRecipeForm = () => {
         <RecipeIngredientsList onIngredientsChange={handleIngredientsChange} />
 
         <RecepieSection>
-          <h2>Recipe Preparation</h2>
+          <PopularTitle>Recipe Preparation</PopularTitle>
           {/* <input
               type="text"
               id="myrecipe"
@@ -190,8 +185,9 @@ const AddRecipeForm = () => {
       </RecipeForm>
 
       <PopularSection>
-        <h3>Follow us</h3>
+        <TitleFollowUs>Follow us</TitleFollowUs>
         <FollowUs></FollowUs>
+        <PopularRecipe />
       </PopularSection>
     </MainWrapper>
   );
