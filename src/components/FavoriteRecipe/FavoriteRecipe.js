@@ -15,8 +15,9 @@ import { ReactComponent as Icon } from '../../images/trashIcon-dark.svg';
 export const FavoriteRecipe = ({ recipe, onDelete }) => {
   return (
     <FavRecipeItem>
-      <RecipeImage src={recipe.preview} alt={recipe.title} />
-
+      <Link to={`/recipe/${recipe._id}`}>
+        <RecipeImage src={recipe.preview} alt={recipe.title} />
+      </Link>
       <FavRecipeTopInfo>
         <div>
           <RecipeTitle>{recipe.title}</RecipeTitle>
