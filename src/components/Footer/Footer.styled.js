@@ -73,6 +73,7 @@ export const FeaturesList = styled.ul`
   margin: 0;
   padding: 0;
   padding-left: 25px;
+  list-style: initial;
   @media ${device.mobileOnly} {
     display: none;
   }

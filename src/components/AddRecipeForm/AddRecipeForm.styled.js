@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from 'components/GlobalStyles';
 
 export const MainWrapper = styled.div`
   display: unset;
@@ -23,6 +24,15 @@ export const RecipeForm = styled.form`
   .css-l4u8b9-MuiInputBase-root-MuiInput-root::after {
     border-bottom: ${({ theme }) => `2px solid ${theme.colors.mainAccent}`};
   }
+
+  margin-bottom: 72px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 100px;
+  }
+  @media (min-width: 1280px) {
+    margin-bottom: 0px;
+  }
 `;
 
 export const IngredientsTitle = styled.div`
@@ -45,11 +55,11 @@ export const AddRecepiSection = styled.div`
 
   input {
     padding-bottom: 18px;
-} 
+  }
 
   label[id='labelFile'] {
     width: 279px;
-    height:  268px;
+    height: 268px;
     background-color: #8baa36;
     border-radius: 8px;
     display: flex;
@@ -61,15 +71,17 @@ export const AddRecepiSection = styled.div`
     background-image: ${({ path }) => (path ? `url(${path})` : 'unset')};
     background-size: cover;
 
-  @media (min-width: 1280px) {
-    width: 357px;
-    height: 344px
-  }
+    @media (min-width: 1280px) {
+      width: 357px;
+      height: 344px;
+    }
   }
 
   input[type='file'] {
-    ${'' /* width: 0;
-    height: 0; */}
+    ${
+      '' /* width: 0;
+    height: 0; */
+    }
     opacity: 0;
     position: absolute;
     ${'' /* z-index: -1; */}
@@ -92,16 +104,14 @@ export const SelectComp = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    display:flex;
+  display: flex;
 
-
-
-    @media (min-width: 768px) {
-      flex-direction: row;
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 
-    @media (min-width: 1280px) {
-      flex-direction: row;
+  @media (min-width: 1280px) {
+    flex-direction: row;
   }
 `;
 
@@ -117,24 +127,23 @@ export const InputsWrapper = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.colors.mainGreyBg};
     font-size: 14px;
     line-height: 1.3;
-    color:  #000000;
+    color: #000000;
 
     @media (min-width: 768px) {
       font-size: 16px;
       line-height: 1.5;
-  }
+    }
 
     @media (min-width: 1280px) {
       font-size: 16px;
       line-height: 1.5;
-  }
+    }
 
     &::placeholder {
       opacity: 1;
       color: ${p => p.theme.colors.searchSelectText};
     }
   }
-
 `;
 
 export const InputsWithSelectWrapper = styled.div`
@@ -169,11 +178,11 @@ export const RecepieSection = styled.div`
 
     @media (min-width: 768px) {
       width: 505px;
-  }
+    }
 
     @media (min-width: 1280px) {
       width: 505px;
-  }
+    }
 
     &::placeholder {
       opacity: 1;
@@ -229,8 +238,8 @@ export const ValueInputWrapper = styled.div`
 
   .css-1dimb5e-singleValue {
     color: ${({ localTheme }) => {
-    return localTheme === 'light' ? 'black' : 'white';
-  }};
+      return localTheme === 'light' ? 'black' : 'white';
+    }};
   }
 `;
 
@@ -347,12 +356,16 @@ export const AddBtn = styled.button`
       color: #fafafa;
     }
   }
-`
+`;
 export const TitleFollowUs = styled.h3`
-  margin-bottom: 42px;
-  color: ${p => p.theme.colors.mainHeaderText};
-`
+  display: none;
+  @media ${device.desktop} {
+    display: block;
+    margin-bottom: 42px;
+    color: ${p => p.theme.colors.mainHeaderText};
+  }
+`;
 
 export const PopularTitle = styled.h3`
   color: ${p => p.theme.colors.mainHeaderText};
-`
+`;
