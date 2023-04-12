@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getMode } from '../../redux/theme/themeSelector';
 import {
   FavRecipeItem,
+  RecipeImageThumb,
   RecipeImage,
   RecipeTitle,
   RecipeDescription,
@@ -18,7 +19,9 @@ export const MyRecipe = ({ recipe, onDelete }) => {
   return (
     <FavRecipeItem mode={mode}>
       <Link to={`/recipe/${recipe._id}`}>
-        <RecipeImage src={recipe.thumb} alt={recipe.title} />
+        <RecipeImageThumb>
+          <RecipeImage src={recipe.thumb} alt={recipe.title} />
+        </RecipeImageThumb>
       </Link>
       <FavRecipeTopInfo>
         <div>

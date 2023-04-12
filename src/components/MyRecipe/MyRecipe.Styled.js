@@ -22,10 +22,12 @@ export const FavRecipeItem = styled.li`
     padding: 40px;
   }
 `;
-export const RecipeImage = styled.img`
+
+export const RecipeImageThumb = styled.div`
   width: 124px;
   height: 124px;
   margin-right: 14px;
+  overflow: hidden;
   border-radius: 8px;
 
   @media (min-width: 768px) {
@@ -37,6 +39,16 @@ export const RecipeImage = styled.img`
     width: 318px;
     height: 324px;
     margin-right: 40px;
+  }
+`;
+
+export const RecipeImage = styled.img`
+  max-height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &:hover {
+    transform: scale(1.03);
   }
 `;
 
