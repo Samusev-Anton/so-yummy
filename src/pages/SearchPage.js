@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { searchRecipesApi } from '../services/API/Recipes';
+import { getSearch } from '../redux/search/searchSelector';
 import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTitle';
 import { SearchBar } from 'components/Search/SearchBar/SearchBar';
 import { SearchedRecipesList } from 'components/Search/SearchedRecipesList/SearchedRecipesList';
 import { Loader } from 'components/Loader/Loader';
+import { throttle } from 'lodash';
 import { Container } from 'components/GlobalStyles';
-import { searchRecipesApi } from '../services/API/Recipes'; 
 
 export const SearchPage = () => {
-  const search = useSelector((state) => state.search.search);
+  const search = useSelector(getSearch);
   const { query } = useParams('');
   const [searchQuery, setSearchQuery] = useState('' ? query : search);
   const [searchType, setSearchType] = useState('query');
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const setSearchQueryThrottled = throttle(setSearchQuery, 3000);
 
   useEffect(() => {
         setIsLoading(true);
@@ -24,7 +28,7 @@ export const SearchPage = () => {
       }, [searchQuery, searchType]);
 
   const handleSearchQueryChange = (query) => {
-    setSearchQuery(query);
+    setSearchQueryThrottled(query);
   };
 
   const handleSearchTypeChange = (type) => {
@@ -33,7 +37,7 @@ export const SearchPage = () => {
 
   return (
     <Container>
-        <MainPageTitle></MainPageTitle>
+        <MainPageTitle value={`Search`}></MainPageTitle>
           <SearchBar
             searchQuery={searchQuery}
             searchType={searchType}
