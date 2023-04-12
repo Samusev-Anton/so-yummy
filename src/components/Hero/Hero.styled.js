@@ -107,6 +107,9 @@ font-size: 100px;
 
 }
 `
+export const HeroTitleYummy = styled.span`
+color: ${p => p.theme.colors.sectionHeader}`
+
 export const HeroText = styled.p`
 
 margin: 14px 40px 157px 40px;
@@ -114,7 +117,7 @@ font-weight: 400;
 font-size: 14px;
 line-height: 18px;
 letter-spacing: -0.02em;
-color: #23262A;
+color: ${p => p.theme.colors.sectionHeader};
 text-align: center;
 
 @media (min-width: 768px) {

@@ -20,13 +20,13 @@ import FormDialog from './EditProfile';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  console.log(user);
+
   const [anchorElUser, setAnchorElUser] = useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
   const { name, avatarURL } = useSelector(selectUser);
-  console.log(avatarURL);
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
