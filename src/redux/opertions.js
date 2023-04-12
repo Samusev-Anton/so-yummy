@@ -5,6 +5,7 @@ import {
   getSetOfCategoriestAPI,
   searchRecipesApi,
   deleteFavoriteAPI,
+  deleteMyRecipeAPI,
 } from 'services/API/Recipes';
 import { getMailAPI } from 'services/API/SendMail';
 
@@ -66,8 +67,18 @@ export const deleteFavorite = createAsyncThunk(
   'favorite/deleteFavorite',
   async ({ recipeId }) => {
     try {
-      console.log('log in deleteFavorite');
       return await deleteFavoriteAPI(recipeId);
+    } catch (error) {
+      return error.response.status;
+    }
+  }
+);
+
+export const deleteMyRecipe = createAsyncThunk(
+  'favorite/deleteMyRecipe',
+  async ({ recipeId }) => {
+    try {
+      return await deleteMyRecipeAPI(recipeId);
     } catch (error) {
       return error.response.status;
     }
