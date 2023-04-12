@@ -1,7 +1,7 @@
 import axios from 'axios';
+import { baseAxiosURL } from './commonServerAdress';
 
-axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost:3030/api';
+axios.defaults.baseURL = baseAxiosURL;
 
 export const getMailAPI = email => {
   // console.log(email);

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+import { baseAxiosURL } from '../../services/API/commonServerAdress';
 
 import {
   getShoppingList,
@@ -10,8 +11,7 @@ import {
   deleteFromShoppingList,
 } from 'services/API/Recipes';
 
-axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost:3030/api';
+axios.defaults.baseUR = baseAxiosURL;
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -174,4 +174,3 @@ export const deleteIngredient = createAsyncThunk(
     }
   }
 );
-

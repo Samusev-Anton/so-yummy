@@ -1,7 +1,7 @@
 import axios from 'axios';
+import { baseAxiosURL } from './commonServerAdress';
 
-axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost3030/api';
+axios.defaults.baseURL = baseAxiosURL;
 
 export const getCategoriesAPI = () => {
   return axios.get('/recipes/categories').then(({ data }) => {
