@@ -17,6 +17,7 @@ import { ReactComponent as Icon } from '../../images/trash-icon.svg';
 
 export const FavoriteRecipe = ({ recipe, onDelete }) => {
   const { mode } = useSelector(getMode);
+
   return (
     <FavRecipeItem mode={mode}>
       <Link to={`/recipe/${recipe._id}`}>
