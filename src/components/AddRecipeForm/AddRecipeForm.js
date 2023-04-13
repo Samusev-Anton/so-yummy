@@ -81,6 +81,8 @@ const AddRecipeForm = () => {
       <RecipeForm onSubmit={handleSubmit}>
         <AddRecepiSection>
           <div>
+            {formFail && ({
+              < img src={image} alt="" width={500} />}
             <label htmlFor="file" id="labelFile">
               <input
                 type="file"
@@ -93,25 +95,8 @@ const AddRecipeForm = () => {
                 <use href={icons + '#icon-img'} alt="ico"></use>
               </svg>
             </label>
-            {formFail ? (
-              <img src={formFail.image} alt="" width={100} />
-            ) : (
-              <div>
-                <label htmlFor="file" id="labelFile">
-                  <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                  />
 
-                  <svg width="50" height="50">
-                    <use href={icons + '#icon-img'} alt="ico"></use>
-                  </svg>
-                </label>
-              </div>
-            )}
+
           </div>
           <InputsWrapper localTheme={theme}>
             <input
