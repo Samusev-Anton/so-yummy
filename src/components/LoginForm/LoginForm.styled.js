@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { theme } from '../../theme';
+// import { theme } from '../../theme';
 
 export const Title = styled.h1`
   font-weight: 600;
