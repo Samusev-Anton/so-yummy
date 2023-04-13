@@ -34,11 +34,16 @@ export const LinkTo = styled(Link)`
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
+
+  &:hover {
+    color: #8baa36;
+  }
 `;
 
 export const ButtonForPass = styled.button`
   display: block;
   margin: 0 auto;
+  padding: 0px 0px 25px 0px;
   background-color: transparent;
   color: #fafafa;
   text-align: center;
@@ -52,5 +57,9 @@ export const ButtonForPass = styled.button`
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
+  }
+
+  &:hover {
+    color: #8baa36;
   }
 `;

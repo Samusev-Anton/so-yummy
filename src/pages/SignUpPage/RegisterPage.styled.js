@@ -9,8 +9,10 @@ import backgroundImgMob from '../../images/welcome-pic/background-reg-log-mob1x.
 import backgroundImgMob2x from '../../images/welcome-pic/background-reg-log-mob2x.png';
 
 export const Wrapper = styled.div`
+  box-sizing: border-box;
+
   background-color: #fafafa;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -23,6 +25,8 @@ export const Wrapper = styled.div`
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
+  background-attachment: fixed;
+
   background-image: url(${backgroundImgMob});
 
   @media screen and (min-device-pixel-ratio: 2),

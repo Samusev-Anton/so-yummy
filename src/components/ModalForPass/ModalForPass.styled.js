@@ -10,16 +10,18 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   opacity: 0;
   transition: 100ms;
-  z-index: 5;
+  overflow-y: scroll;
 
   &.open {
     height: 100vh;
     width: 100vw;
     opacity: 1;
+    z-index: 5;
   }
 
   &.close {
     opacity: 0;
+    z-index: 0;
   }
 `;
 
