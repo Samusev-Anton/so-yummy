@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { device } from '../../GlobalStyles';
+
 export const SearchPageBtn = styled.button`
     &:hover {
         background-color: #22252a;
@@ -17,11 +19,11 @@ export const SearchPageBtn = styled.button`
     line-height: 1.5;
     height: 53px;
     width: 113px;
-        @media (min-width: 768px) {
+        @media ${device.tablet} {
             height: 57px;
             width: 161px;
         }
-        @media (min-width: 1280px) {
+        @media ${device.desktop} {
             height: 70px;
     }
 `;

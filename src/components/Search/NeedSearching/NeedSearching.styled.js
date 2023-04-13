@@ -5,7 +5,8 @@ import needSearchingImgTablet from '../../../images/search/need_searching_img_ta
 import needSearchingImgTabletRetina from '../../../images/search/need_searching_img_tablet_2x.png'
 import needSearchingImgDecktop from '../../../images/search/need_searching_img_decktop_1x.png';
 import needSearchingImgDecktopRetina from '../../../images/search/need_searching_img_tablet_2x.png';
-    
+import { device } from '../../GlobalStyles';
+
 export const NeedSearchingWrap = styled.div`
     text-align: center;
     margin-top: 3.125rem;
@@ -17,24 +18,26 @@ export const NeedSearchingImg = styled.div`
     display: inline-block;
     width: 208px;
     height: 133px;
-        @media screen and (min-device-pixel-ratio: 2),
+    margin-bottom: 24px;
+        @media ${device.mobile},
             (min-resolution: 192dpi),
             (min-resolution: 2dppx) {
             background-image: url(${needSearchingImgMobileRetina});
         }
-        @media screen and (min-width: 768px) {
+        @media ${device.tablet} {
             background-image: url(${needSearchingImgTablet});
             width: 350px;
             height: 225px;
-        @media screen and (min-device-pixel-ratio: 2),
+            margin-bottom: 32px;
+        @media ${device.tablet},
             (min-resolution: 192dpi),
             (min-resolution: 2dppx) {
             background-image: url(${ needSearchingImgTabletRetina});
         }
         }
-        @media screen and (min-width: 1280px) {
+        @media ${device.desktop} {
             background-image: url(${needSearchingImgDecktop});
-        @media screen and (min-device-pixel-ratio: 2),
+        @media ${device.desktop},
             (min-resolution: 192dpi),
             (min-resolution: 2dppx) {
             background-image: url(${needSearchingImgDecktopRetina});
@@ -49,7 +52,9 @@ export const NeedSearchingImg = styled.div`
         font-size: 14px;
         color: #000000;
         opacity: 0.5;
-            @media screen and (min-width: 768px) {
+        margin-bottom: 100px;
+            @media ${device.tablet}  {
                 font-size: 24px;
+                margin-bottom: 200px;
         }
     `;
