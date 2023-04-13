@@ -13,6 +13,7 @@ import {
   Button,
   BoxForForms,
   VisibilityBtn,
+  Label,
 } from './ChangePassFrom.styled';
 
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -85,6 +86,7 @@ export const ChangePasswordForm = ({ isCloseModal }) => {
         </FormAuth>
 
         <FormAuth onSubmit={onSubmitForm}>
+          <Label htmlFor="TempPass">Temporary Password</Label>
           <BoxForField>
             <LockResetIcon
               sx={{
@@ -95,6 +97,7 @@ export const ChangePasswordForm = ({ isCloseModal }) => {
               }}
             />
             <FormField
+              id="TempPass"
               onChange={e => setTempPassword(e.currentTarget.value)}
               type="text"
               name="temporaryPassword"
@@ -105,13 +108,15 @@ export const ChangePasswordForm = ({ isCloseModal }) => {
           </BoxForField>
           {activateChangePassword && temp && (
             <>
+              <Label htmlFor="newPass">Enter new password</Label>
               <BoxForField>
                 <FormField
+                  id="newPass"
                   onChange={e => setNewPassword(e.currentTarget.value)}
                   type={passwordShown ? 'text' : 'password'}
                   name="newPassword"
                   title="enter the new password"
-                  placeholder="Enter new password"
+                  placeholder="New password"
                 />
                 <VpnKeyIcon
                   sx={{
@@ -140,8 +145,10 @@ export const ChangePasswordForm = ({ isCloseModal }) => {
                   )}
                 </VisibilityBtn>
               </BoxForField>
+              <Label htmlFor="repeatPassword">Repeat new password</Label>
               <BoxForField>
                 <FormField
+                  id="repeatPassword"
                   onChange={e => setDoublePassword(e.currentTarget.value)}
                   type={passwordShown ? 'text' : 'password'}
                   name="doublePassword"

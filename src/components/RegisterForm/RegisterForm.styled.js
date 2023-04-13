@@ -48,11 +48,11 @@ export const TitleForm = styled.h1`
 `;
 
 export const BoxForForm = styled.div`
-  gap: 12px;
+  gap: 20px;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 768px) {
-    gap: 24px;
+    gap: 26px;
   }
 `;
 
@@ -106,9 +106,13 @@ export const FormField = styled(Field)`
     padding: 12px 16px 12px 46px;
   }
 
-  /* &:focus {
-    border: 1px solid ${({ color }) => color};
-  } */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px #2a2c36 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
 `;
 
 export const Button = styled.button`
@@ -144,12 +148,20 @@ export const Button = styled.button`
 
 export const Warning = styled.div`
   display: block;
-  margin-top: 8px;
   font-family: 'Poppins';
 
-  font-size: 14px;
+  position: absolute;
+  bottom: -19px;
+  left: 2px;
+  font-size: 12px;
   line-height: 1.5;
   color: ${({ color }) => color};
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+
+    bottom: -22px;
+  }
 `;
 
 export const LinkTo = styled(Link)`
@@ -163,6 +175,10 @@ export const LinkTo = styled(Link)`
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
+  }
+
+  &:hover {
+    color: #8baa36;
   }
 `;
 
