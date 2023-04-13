@@ -22,18 +22,17 @@ export const getSetOfCategoriestAPI = () => {
 };
 
 export const searchRecipesApi = async ({ searchQuery, searchType }) => {
-  let searchUrl;
-  if (!searchQuery) {
-    searchUrl = `/recipes/search/title?title=beef`;
-  } else {
-    searchUrl =
-      searchType === 'query'
-        ? `/recipes/search/title?title=${searchQuery}`
-        : `/ingredients/?ingredients=${searchQuery}`;
-  }
+<<<<<<< Updated upstream
+  const searchUrl =  searchType === 'query' ? `/recipes/search/title?title=${searchQuery}` : `/ingredients/?ingredients=${searchQuery}`;
   return axios.get(searchUrl).then(({ data }) => {
-    return data.data;
+  return data.data;
+});
+=======
+  const searchUrl = searchType === 'query' ? `/recipes/search/title?title=${searchQuery}` : `/ingredients/?ingredients=${searchQuery}`;
+  return axios.get(searchUrl).then(({ data }) => {
+      return data.data;
   });
+>>>>>>> Stashed changes
 };
 
 export const getFavoriteRecipesAPI = () => {
