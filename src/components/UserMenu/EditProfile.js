@@ -69,20 +69,20 @@ export default function FormDialog({ onClose, avatar, user }) {
             }} src={image}
           />
           <EditUserlFileLabel>
-            {/* <ButtonPlus> */}
+
             <EditUserInput type={'file'}
               accept={'image/jpeg,image/png,image/gif'}
               onChange={previewOnChangeImg}
             />
             <AddIcon sx={{ fontSize: 18, fill: "white" }} />
-            {/* </ButtonPlus> */}
+
           </EditUserlFileLabel>
           <EditUserNameLabel>
             <PermIdentityIcon />
-            <EditUserNameInput value={name} onChange={nameOnChange} />
+            <EditUserNameInput type="text" value={name} onChange={nameOnChange} />
             <CreateIcon />
           </EditUserNameLabel>
-          <EditSubmitButton>Save changes</EditSubmitButton>
+          <EditSubmitButton onClick={onClose}>Save changes</EditSubmitButton>
         </EditUserForm>
       </DialogContent>
     </div>
