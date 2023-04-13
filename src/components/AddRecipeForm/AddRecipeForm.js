@@ -43,7 +43,17 @@ const AddRecipeForm = () => {
 
   const image = formFail.image;
   const handleIngredientsChange = ingredients => {
-    setIngredientsForRecipe(ingredients);
+    const data = JSON.parse(ingredients).map(item => {
+      const outputItem = {
+        id: item.id,
+        quantity: item.quantity,
+        title: item.title.value,
+        weight: item.weight.value,
+      };
+      return JSON.stringify(outputItem);
+    });
+
+    setIngredientsForRecipe(data);
   };
 
   const handleImageChange = event => {
@@ -52,6 +62,15 @@ const AddRecipeForm = () => {
     if (file) {
       setFormFail(URL.createObjectURL(file));
     }
+  };
+
+  const resetForm = () => {
+    setRecipeTitle('');
+    setRecipeAbout('');
+    setCategory('');
+    setCookingTime('');
+    setPreparation('');
+    setIngredientsForRecipe('');
   };
 
   const handleSubmit = e => {
@@ -69,6 +88,7 @@ const AddRecipeForm = () => {
     formData.append('description', recipeAbout);
 
     addRecipeAPI(formData);
+    resetForm();
   };
 
   const theme = store.theme;
@@ -151,6 +171,7 @@ const AddRecipeForm = () => {
                   id="cookingTime"
                   name="cookingTime"
                   options={timeOptionsList()}
+                  value={cookingTime}
                   defaultValue={cookingTime}
                   onChange={setCookingTime}
                 ></Select>
