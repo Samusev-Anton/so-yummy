@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from 'components/GlobalStyles';
+import { device } from '../../GlobalStyles';
 
 export const SearchPageBtn = styled.button`
     &:hover {
@@ -24,7 +24,8 @@ export const SearchPageBtn = styled.button`
             height: 57px;
             width: 161px;
         }
-        @media ${device.tablet} {
+
+        @media ${device.desktop} {
             height: 70px;
     }
 `;

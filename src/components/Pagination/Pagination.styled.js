@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import { device } from '../GlobalStyles';
 
 export const PaginationWrapper = styled.div`
 display: flex; 
 justify-content: center;
 margin-bottom: 150px;
-    @media (min-width: 768px) {
+    @media ${device.tablet} {
         position: absolute; 
         left:50%;
         transform:translate(-50%, -275%);
     }
-    @media (min-width: 1280px) {
+    @media ${device.desktop} {
         position: absolute; 
         left:50%;
         transform:translate(-50%, -275%);
@@ -24,11 +25,10 @@ export const PaginationContainer = styled.div`
     min-width: 275px;
     padding-top: 12px;
     padding: 12px 20px;
-    ${'' /* background-color: #FAFAFA; */}
     background-color: transparent;
     border-radius: 26px;
     box-shadow: 0px 4px 4px 0px rgba(135, 135, 135, 0.2);
-    @media (min-width: 768px) {
+    @media ${device.tablet} {
         min-width: 324px;
         padding: 14px 20px;
     }
@@ -53,7 +53,7 @@ export const PageButton = styled.button`
     text-align: center;
     color: #656565;
     margin: 0 9px;
-    @media (min-width: 768px) {
+    @media ${device.tablet} {
         margin: 0 12px;
     }
     
@@ -72,13 +72,13 @@ export const PageButton = styled.button`
 }
     &:first-child {
         margin-right: 24px;
-        @media (min-width: 768px) {
+        @media ${device.tablet} {
             margin-right: 40px;
         }
 }
     &:last-child {
         margin-right: 24px;
-        @media (min-width: 768px) {
+        @media ${device.tablet} {
         margin-right: 40px;
     }
 } 

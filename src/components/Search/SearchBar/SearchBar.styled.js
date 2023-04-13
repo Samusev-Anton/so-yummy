@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { device } from '../../GlobalStyles';
+
 export const SearchBarWrap = styled.div`
     width: 295px;
     position: relative;
@@ -7,10 +9,10 @@ export const SearchBarWrap = styled.div`
     flex-wrap: nowrap;
     display: block;
     margin: 0 auto;
-    @media (min-width: 768px) {
+    @media ${device.tablet}  {
         width: 362px;
     }
-    @media (min-width: 1280px) {
+    @media ${device.desktop} {
         width: 510px;
     }
 `;
