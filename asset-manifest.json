@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/so-yummy/static/css/main.3419c98f.css",
-    "main.js": "/so-yummy/static/js/main.8d8022df.js",
+    "main.js": "/so-yummy/static/js/main.83c2d013.js",
     "static/media/Hero2x.png": "/so-yummy/static/media/Hero2x.c212dff6d09c5e4fa71c.png",
     "static/media/HeroTablet2x.png": "/so-yummy/static/media/HeroTablet2x.164f9e9b6582834153a8.png",
     "static/media/HeroMobile.png": "/so-yummy/static/media/HeroMobile.eca3c16f79e57c7bcf36.png",
@@ -43,10 +43,10 @@
     "static/media/trash-icon.svg": "/so-yummy/static/media/trash-icon.d75deb04f86ac67f3fa574f4063b17d3.svg",
     "static/media/icon-person.svg": "/so-yummy/static/media/icon-person.895dfe322d63362d75bd510eeed482a0.svg",
     "main.3419c98f.css.map": "/so-yummy/static/css/main.3419c98f.css.map",
-    "main.8d8022df.js.map": "/so-yummy/static/js/main.8d8022df.js.map"
+    "main.83c2d013.js.map": "/so-yummy/static/js/main.83c2d013.js.map"
   },
   "entrypoints": [
     "static/css/main.3419c98f.css",
-    "static/js/main.8d8022df.js"
+    "static/js/main.83c2d013.js"
   ]
 }
