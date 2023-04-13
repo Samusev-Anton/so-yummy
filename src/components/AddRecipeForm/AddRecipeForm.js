@@ -37,19 +37,18 @@ const AddRecipeForm = () => {
   const [preparation, setPreparation] = useState('');
   const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
 
-  console.log(ingredientsForRecipe);
-
   const [formFail, setFormFail] = useState({
     image: null,
   });
-  // console.log(formFail);
 
+  const image = formFail.image;
   const handleIngredientsChange = ingredients => {
     setIngredientsForRecipe(ingredients);
   };
 
   const handleImageChange = event => {
     const [file] = event.target.files;
+
     if (file) {
       setFormFail(URL.createObjectURL(file));
     }
@@ -68,7 +67,6 @@ const AddRecipeForm = () => {
     formData.append('ingredients', ingredientsForRecipe);
     formData.append('instructions', preparation);
     formData.append('description', recipeAbout);
-    // console.log(formData.getAll('img'));
 
     addRecipeAPI(formData);
   };
@@ -82,6 +80,9 @@ const AddRecipeForm = () => {
         <AddRecepiSection>
           <div>
             <label htmlFor="file" id="labelFile">
+              {image !== null && (
+                <img src={formFail} alt="" width="279" height="268" />
+              )}
               <input
                 type="file"
                 id="image"
@@ -89,29 +90,12 @@ const AddRecipeForm = () => {
                 accept="image/*"
                 onChange={handleImageChange}
               />
-              <svg width="50" height="50">
-                <use href={icons + '#icon-img'} alt="ico"></use>
-              </svg>
+              {image === null && (
+                <svg width="50" height="50">
+                  <use href={icons + '#icon-img'} alt="ico"></use>
+                </svg>
+              )}
             </label>
-            {formFail ? (
-              <img src={formFail.image} alt="" width={100} />
-            ) : (
-              <div>
-                <label htmlFor="file" id="labelFile">
-                  <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                  />
-
-                  <svg width="50" height="50">
-                    <use href={icons + '#icon-img'} alt="ico"></use>
-                  </svg>
-                </label>
-              </div>
-            )}
           </div>
           <InputsWrapper localTheme={theme}>
             <input
