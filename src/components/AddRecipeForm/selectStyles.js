@@ -1,5 +1,5 @@
 const color = theme => {
-    return theme === 'light' ? '#8BAA36' : 'white';
+    return theme === 'light' ? 'white' : '#8BAA36' ;
   };
   
   export const stylesSelect = theme => {
@@ -77,6 +77,7 @@ const color = theme => {
           borderColor: '#D9D9D9',
         },
         boxShadow: state.isFocused && '0 0 0 1px transparent',
+        color: theme === 'light' ?  'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)',
         fontFamily: 'inherit',
         fontStyle: 'inherit',
         fontWeight: '600',
@@ -103,8 +104,8 @@ const color = theme => {
         letterSpacing: '-0.02em',
         maxHeight: '200px',
         borderRadius: '6px',
-        backgroundColor: theme === 'light' ? 'white' : '#8BAA36',
-        color: theme === 'light' ? 'rgba(0,0,0,0.5)' :'rgba(255,255,255,0.5)',
+        backgroundColor: theme === 'light' ? '#8BAA36' : 'white',
+        color: theme === 'light' ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)',
   
         '@media (min-width: 768px)': {
           fontSize: '16px',
@@ -145,6 +146,7 @@ const color = theme => {
           borderColor: 'transparent',
         },
         outlineColor: state.isFocused ? 'transparent' : '#D9D9D9',
+        color: theme === 'light' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)' ,
         boxShadow: state.isFocused && '0 0 0 1px transparent',
         fontFamily: 'inherit',
         fontStyle: 'inherit',
@@ -171,8 +173,8 @@ const color = theme => {
         letterSpacing: '-0.02em',
         maxHeight: '200px',
         borderRadius: '6px',
-        backgroundColor: theme === 'light' ? 'white' : '#8BAA36',
-        color: theme === 'light' ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)',
+        backgroundColor: theme === 'light' ? '#8BAA36' : 'white',
+        color: theme === 'light' ? 'rgba(255,255,255,0.5)' :'rgba(0,0,0,0.5)',
   
         '@media (min-width: 768px)': {
           fontSize: '16px',
