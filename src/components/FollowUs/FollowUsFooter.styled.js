@@ -1,18 +1,11 @@
 import styled from 'styled-components';
-import { device } from 'components/GlobalStyles';
 
 export const FollowUsBlock = styled.div`
-  display: none;
-  @media ${device.desktop} {
-    //   width: 204px;
-    height: 19px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    //   flex-direction: column;
-    gap: 16px;
-    margin-bottom: 102px;
-  }
+  height: 19px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 `;
 
 export const Link = styled.a`

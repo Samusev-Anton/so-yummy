@@ -17,7 +17,7 @@ import {
   LogoStyle,
 } from './Footer.styled';
 import { SubscribeForm } from '../SubscribeForm/SubscribeForm';
-import { FollowUs } from '../FollowUs/FollowUs';
+import { FollowUsFooter } from '../FollowUs/FollowUsFooter';
 
 export const Footer = () => {
   const { mode } = useSelector(getMode);
@@ -53,7 +53,7 @@ export const Footer = () => {
           <SubscribeForm />
         </FooterMainBlock>
       </FooterMain>
-      <FollowUs />
+      <FollowUsFooter />
     </FooterStyle>
   );
 };
