@@ -143,15 +143,16 @@ margin-bottom: 115px;
 
 margin-top:369px;
 margin-right: 20px;
-margin-bottom: 0px;
+
 margin-left: 0px;
 }
 @media (min-width: 1280px) {
 width: 298px;
 height:114px;
-margin-top:468px;
+
+margin-top:478px;
+margin-bottom: 180px;
 margin-right: 60px;
-margin-bottom: 0px;
 margin-left: 0px;
 }
 

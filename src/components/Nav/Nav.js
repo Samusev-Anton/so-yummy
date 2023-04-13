@@ -3,10 +3,10 @@ import {
   PrimaryNav,
   NavLink,
   NavMenu,
-  // AuthMenu,
   MobileContainer,
   TabletContainer,
   StyledBurger,
+  WrapperTheme,
 } from './Nav.styled';
 import { useMediaQuery } from 'react-responsive';
 import Modal from 'components/ModalMenu/Modal';
@@ -67,15 +67,15 @@ const Nav = () => {
               </NavMenu>
             </PrimaryNav>
           </MobileContainer>
+          <WrapperTheme>
+            <ThemeToggler></ThemeToggler>
+          </WrapperTheme>
         </Modal>
       )}
 
       {isTablet && (
         <>
           <UserMenu />
-          {/* <FormControlLabel
-            control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-          /> */}
         </>
       )}
       {isTablet && showModal && (
@@ -92,6 +92,9 @@ const Nav = () => {
                 Search</NavLink>
             </NavMenu>
           </TabletContainer>
+          <WrapperTheme>
+            <ThemeToggler></ThemeToggler>
+          </WrapperTheme>
         </Modal>
       )}
 
