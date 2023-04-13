@@ -5,6 +5,7 @@ import { recipesReducer } from './slices';
 import { authReducer } from './auth/AuthSlice';
 import { themeReducer } from './theme/themeSlice';
 import { searchReducer } from './search/searchSlice';
+import { ingredientsReducer } from './ingredients/ingredientsSlice';
 
 const recipesPersistConfig = {
   key: 'recipes',
@@ -34,9 +35,16 @@ const searchPersistConfig = {
   storage,
 };
 
+const ingredientsPersistConfig = {
+  key: 'ingredients',
+  storage,
+  whitelist: ['ingredients'],
+};
+
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
 const persistedSearchReducer = persistReducer(searchPersistConfig, searchReducer);
+const persistedIngredientsReducer = persistReducer(ingredientsPersistConfig,ingredientsReducer);
 
 export const store = configureStore({
   reducer: {
@@ -44,6 +52,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     search: persistedSearchReducer,
     theme: persistedThemeReducer,
+    ingredients: persistedIngredientsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
