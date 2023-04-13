@@ -4,6 +4,7 @@ import Select from 'react-select';
 import IconButton from '@mui/material/IconButton';
 import { InputUnitValue, ValueInputWrapper } from '../../components/AddRecipeForm/AddRecipeForm.styled'
 import { stylesIngredient, stylesUnit } from '../AddRecipeForm/selectStyles';
+
 export const Ingredient = ({
   id,
   title,
@@ -14,12 +15,13 @@ export const Ingredient = ({
   onQuantityChange,
   removeIngredientById,
   localTheme,
+  theme,
 }) => {
   // const [searchTerm, setSearchTerm] = useState('');
   // const [dropdownOptions, setDropdownOptions] = useState([]);
 
   const handleTitleChange = e => {
-    onTitleChange(id, e.target.value);
+    onTitleChange(id, e.target);
   };
 
   const handleQuantityChange = e => {
@@ -27,7 +29,7 @@ export const Ingredient = ({
   };
 
   const handleWeightChange = e => {
-    onWeightChange(id, e.target.value);
+    onWeightChange(id, e.target);
   };
 
   const handleKeyDown = e => {
@@ -36,32 +38,30 @@ export const Ingredient = ({
     }
   };
 
-  // function handleSearch(event) {
-  //   const newSearchTerm = event.target.value;
-  //   setSearchTerm(newSearchTerm);
-
-  //   const options = fetch('ingerdients.title');
-
-  //   const filteredOptions = options.filter(option =>
-  //     option.toLowerCase().includes(newSearchTerm.toLowerCase())
-  //   );
-  //   setDropdownOptions(filteredOptions);
-  // }
-
-  // handleSearch();
-
+  const ingredientOptions = [
+    { value: 'Chicken', label: 'Chicken' },
+    { value: 'Salmon', label: 'Salmon' },
+    { value: 'Apple Cider Vinegar', label: 'Apple Cider Vinegar' },
+    { value: 'Asparagus', label: 'Asparagus' },
+    { value: 'Aubergine', label: 'Aubergine' },
+    { value: 'Bacon', label: 'Bacon' },
+    { value: 'Basil', label: 'Basil' },
+    { value: 'Pork', label: 'Pork' },
+    { value: 'Broccoli', label: 'Broccoli' },
+    { value: 'Cacao', label: 'Cacao' },
+  ]
+  const options = [
+    { value: 'tbs', label: 'tbs' },
+    { value: 'tsp', label: 'tsp' },
+    { value: 'kg', label: 'kg' },
+    { value: 'g', label: 'g' },
+  ]
+  
   return (
     <>
-      {/* <input type="text" value={searchTerm} onChange={handleSearch} />
-      <select>
-        {dropdownOptions.map((option, index) => (
-          <option key={index} value={option}>
-            {option.title}
-          </option>
-        ))}
-      </select> */}
       <Select
-        styles={stylesIngredient(localTheme)}
+        styles={stylesIngredient(theme, localTheme)}
+        options={ingredientOptions}
         id="title"
         type="text"
         value={title}
@@ -81,7 +81,8 @@ export const Ingredient = ({
           placeholder="Quantity"
         ></InputUnitValue>
         <Select
-          styles={stylesUnit(localTheme)}
+          styles={stylesUnit(theme, localTheme)}
+          options={options}
           id="weight"
           name="weight"
           value={weight}
@@ -89,10 +90,6 @@ export const Ingredient = ({
           onBlur={() => onWeightChange(id, weight)}
           onKeyDown={handleKeyDown}
         >
-          <option value="tbs">tbs</option>
-          <option value="tsp">tsp</option>
-          <option value="kg">kg</option>
-          <option value="g">g</option>
         </Select>
       </ValueInputWrapper>
       <IconButton onClick={() => removeIngredientById(id)}>

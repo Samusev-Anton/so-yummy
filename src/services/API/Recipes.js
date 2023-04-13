@@ -108,3 +108,9 @@ export const deleteFromShoppingList = ingridientId => {
     return data;
   });
 };
+
+export const getAllIngredientsAPI = () => {
+  return axios.get('/ingredients/list').then(({ data }) => {
+    return data;
+  });
+};

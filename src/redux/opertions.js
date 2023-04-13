@@ -6,6 +6,7 @@ import {
   searchRecipesApi,
   deleteFavoriteAPI,
   deleteMyRecipeAPI,
+  getAllIngredientsAPI,
 } from 'services/API/Recipes';
 import { getMailAPI } from 'services/API/SendMail';
 
@@ -81,6 +82,18 @@ export const deleteMyRecipe = createAsyncThunk(
       return await deleteMyRecipeAPI(recipeId);
     } catch (error) {
       return error.response.status;
+    }
+  }
+);
+
+export const getAllIngredients = createAsyncThunk(
+  'ingredients/list',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await getAllIngredientsAPI();
+      return data.meals;
+    } catch (error) {
+      return rejectWithValue(error.response.status);
     }
   }
 );
