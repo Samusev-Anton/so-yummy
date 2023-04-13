@@ -54,7 +54,7 @@ export const MyRecipesPage = () => {
 
   return (
     <Container>
-      <MainPageTitle value="Favorites"></MainPageTitle>
+      <MainPageTitle value="My recipes"></MainPageTitle>
       {isLoading ? (
         <Loader />
       ) : data.length > 0 ? (
