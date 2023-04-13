@@ -2,7 +2,10 @@ import * as React from 'react';
 // import { useState } from 'react';
 import Select from 'react-select';
 import IconButton from '@mui/material/IconButton';
-import { InputUnitValue, ValueInputWrapper } from '../../components/AddRecipeForm/AddRecipeForm.styled'
+import {
+  InputUnitValue,
+  ValueInputWrapper,
+} from '../../components/AddRecipeForm/AddRecipeForm.styled';
 import { stylesIngredient, stylesUnit } from '../AddRecipeForm/selectStyles';
 
 export const Ingredient = ({
@@ -49,14 +52,14 @@ export const Ingredient = ({
     { value: 'Pork', label: 'Pork' },
     { value: 'Broccoli', label: 'Broccoli' },
     { value: 'Cacao', label: 'Cacao' },
-  ]
+  ];
   const options = [
     { value: 'tbs', label: 'tbs' },
     { value: 'tsp', label: 'tsp' },
     { value: 'kg', label: 'kg' },
     { value: 'g', label: 'g' },
-  ]
-  
+  ];
+
   return (
     <>
       <Select
@@ -89,8 +92,7 @@ export const Ingredient = ({
           onChange={handleWeightChange}
           onBlur={() => onWeightChange(id, weight)}
           onKeyDown={handleKeyDown}
-        >
-        </Select>
+        ></Select>
       </ValueInputWrapper>
       <IconButton onClick={() => removeIngredientById(id)}>
         <svg
