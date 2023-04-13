@@ -22,17 +22,10 @@ export const getSetOfCategoriestAPI = () => {
 };
 
 export const searchRecipesApi = async ({ searchQuery, searchType }) => {
-<<<<<<< Updated upstream
   const searchUrl =  searchType === 'query' ? `/recipes/search/title?title=${searchQuery}` : `/ingredients/?ingredients=${searchQuery}`;
   return axios.get(searchUrl).then(({ data }) => {
   return data.data;
 });
-=======
-  const searchUrl = searchType === 'query' ? `/recipes/search/title?title=${searchQuery}` : `/ingredients/?ingredients=${searchQuery}`;
-  return axios.get(searchUrl).then(({ data }) => {
-      return data.data;
-  });
->>>>>>> Stashed changes
 };
 
 export const getFavoriteRecipesAPI = () => {
