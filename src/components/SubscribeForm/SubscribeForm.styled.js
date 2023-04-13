@@ -7,6 +7,7 @@ export const FormSubscribe = styled(Form)`
   margin-bottom: 44px;
   display: flex;
   flex-direction: column;
+
   @media ${device.mobileOnly} {
     width: 204px;
   }
@@ -31,13 +32,13 @@ export const EmailField = styled.div`
   padding: 0px 15px;
   position: relative;
   align-items: center;
-  border: none;
+  // border: none;
   border-radius: 6px;
-  outline: 1px solid rgba(250, 250, 250, 0.16);
   margin-bottom: 8px;
+  // border: 1px solid rgba(250, 250, 250, 0.16);
   &:focus,
   &:hover {
-    outline: 1px solid #ffffff;
+    border: 1px solid rgba(250, 250, 250, 1);
   }
   @media ${device.tablet} {
     width: 259px;
@@ -122,7 +123,7 @@ export const SubscribeButton = styled.button`
   &:disabled {
     color: rgba(250, 250, 250, 0.5);
     background-color: #22252a;
-    outline: 1px solid rgba(250, 250, 250, 0.16);
+    border: 1px solid rgba(250, 250, 250, 0.16);
     cursor: not-allowed;
   }
   font-style: normal;
@@ -130,7 +131,7 @@ export const SubscribeButton = styled.button`
   font-size: 14px;
   line-height: 16px;
   color: #fafafa;
-  border: none;
+  // border: none;
   height: 38px;
   @media ${device.tablet} {
     width: 171px;

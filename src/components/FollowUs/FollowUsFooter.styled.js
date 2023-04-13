@@ -16,6 +16,6 @@ export const Link = styled.a`
   fill: ${a => (a.mode === 'light' ? `#8BAA36` : `#FAFAFA`)};
   &:focus,
   &:hover {
-    fill: ${a => (a.mode === 'light' ? `#1E1F28` : `#FAFAFA`)};
+    fill: ${a => (a.mode === 'light' ? `#FAFAFA` : `#1E1F28`)};
   }
 `;
