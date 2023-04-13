@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { addRecipeAPI } from '../../services/API/Recipes';
 import Select from 'react-select';
 import { store } from '../../redux/store';
-import { getCategories } from '../../redux/selectors';
+// import { getCategories } from '../../redux/selectors';
 
 import { FollowUs } from 'components/FollowUs/FollowUs';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
 import { stylesSelect } from './selectStyles';
-import { categoriesOptionsList } from '../../utils/categoriesOptionsList';
+// import { categoriesOptionsList } from '../../utils/categoriesOptionsList';
 import { timeOptionsList } from '../../utils/timeOptionsList';
 import { PopularRecipe } from 'components/PopularRecipe/PopularRecipe';
 
@@ -63,7 +63,7 @@ const AddRecipeForm = () => {
     formData.append('title', recipeTitle);
     formData.append('about', recipeAbout);
     formData.append('category', category.label);
-    formData.append('time', `${cookingTime.label} min`);
+    formData.append('time', cookingTime.label);
     formData.append('ingredients', ingredientsForRecipe);
     formData.append('instructions', preparation);
     formData.append('description', recipeAbout);
@@ -72,7 +72,21 @@ const AddRecipeForm = () => {
   };
 
   const theme = store.theme;
-  const optionsCategories = useSelector(getCategories);
+  const optionsCategories = [
+    { label: 'beef', value: 'beef' },
+    { label: 'dessert', value: 'dessert' },
+    { label: 'breakfast', value: 'breakfast' },
+    { label: 'chicken', value: 'chicken' },
+    { label: 'miscellaneous', value: 'miscellaneous' },
+    { label: 'pasta', value: 'pasta' },
+    { label: 'goat', value: 'goat' },
+    { label: 'pork', value: 'pork' },
+    { label: 'seafood', value: 'seafood' },
+    { label: 'starter', value: 'starter' },
+    { label: 'side', value: 'side' },
+    { label: 'vegan', value: 'vegan' },
+    { label: 'vegetarian', value: 'vegetarian' },
+  ];
 
   return (
     <MainWrapper>
@@ -123,7 +137,7 @@ const AddRecipeForm = () => {
                   styles={stylesSelect(theme)}
                   id="category"
                   name="category"
-                  options={categoriesOptionsList(optionsCategories)}
+                  options={optionsCategories}
                   value={category}
                   onChange={setCategory}
                 ></Select>
@@ -149,14 +163,6 @@ const AddRecipeForm = () => {
 
         <RecepieSection>
           <PopularTitle>Recipe Preparation</PopularTitle>
-          {/* <input
-              type="text"
-              id="myrecipe"
-              name="myrecipe"
-              placeholder="Enter recipe"
-              // value={recipe}
-              onChange={e => setPreparation(e.target.value)}
-            ></input> */}
           <textarea
             name="recipe"
             placeholder="Enter recipe"
