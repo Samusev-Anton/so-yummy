@@ -9,6 +9,8 @@ import {
   deleteIngredient,
   addFavRecipe,
   deleteFavRecipe,
+  SendMailPassword,
+  changePassword,
 } from './auth-operations';
 import { transformUserData } from '../../utils/transformUserData';
 
@@ -25,6 +27,7 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   isSuccess: false,
+  temporaryPassword: null,
 };
 
 export const authSlice = createSlice({
@@ -37,7 +40,6 @@ export const authSlice = createSlice({
         state.token = action.payload.user.token;
       })
       .addCase(login.fulfilled, (state, action) => {
-        // console.log(action.payload.user);
         state.user = transformUserData(action.payload.user);
         state.token = action.payload.user.token;
       })
@@ -83,6 +85,13 @@ export const authSlice = createSlice({
         };
         state.isSuccess = true;
       })
+      .addCase(SendMailPassword.fulfilled, (state, action) => {
+        state.temporaryPassword = action.payload;
+      })
+      .addCase(changePassword.fulfilled, (state, action) => {
+        state.temporaryPassword = null;
+      })
+
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
         state => {
