@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { addRecipeAPI } from '../../services/API/Recipes';
 import Select from 'react-select';
 import { store } from '../../redux/store';
-import { getCategories } from '../../redux/selectors'
+import { getCategories } from '../../redux/selectors';
 
 import { FollowUs } from 'components/FollowUs/FollowUs';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
@@ -34,7 +34,7 @@ import icons from '../../images/sprite.svg';
 const AddRecipeForm = () => {
   const [recipeTitle, setRecipeTitle] = useState('');
   const [recipeAbout, setRecipeAbout] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState(null);
   const [cookingTime, setCookingTime] = useState('');
   const [preparation, setPreparation] = useState('');
   const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
@@ -42,7 +42,7 @@ const AddRecipeForm = () => {
   const [formFail, setFormFail] = useState({
     image: null,
   });
-  console.log(formFail);
+  // console.log(formFail);
 
   const handleIngredientsChange = ingredients => {
     setIngredientsForRecipe(ingredients);
@@ -68,7 +68,7 @@ const AddRecipeForm = () => {
     formData.append('ingredients', ingredientsForRecipe);
     formData.append('instructions', preparation);
     formData.append('description', recipeAbout);
-    console.log(formData.getAll('img'));
+    // console.log(formData.getAll('img'));
 
     addRecipeAPI(formData);
   };
@@ -124,7 +124,7 @@ const AddRecipeForm = () => {
               placeholder="Enter item title"
             ></input>
             <input
-              style={{ paddingTop: "40px" }}
+              style={{ paddingTop: '40px' }}
               name="about"
               type="text"
               label="RecipeAbout"
@@ -134,30 +134,32 @@ const AddRecipeForm = () => {
             ></input>
             <InputsWithSelectWrapper>
               <SelectComp localTheme={theme}>
-                <p style={{ padding: "40px 0 18px 0" }}>Category</p>
+                <p style={{ padding: '40px 0 18px 0' }}>Category</p>
                 <Select
                   styles={stylesSelect(theme)}
                   id="category"
                   name="category"
                   options={categoriesOptionsList(optionsCategories)}
-                  value={category}
-                  onChange={e => setCategory(e.target)}
-                >
-                </Select>
+                  // value={category}
+                  onChange={option => {
+                    setCategory(option.value);
+                  }}
+                ></Select>
               </SelectComp>
             </InputsWithSelectWrapper>
             <InputsWithSelectWrapper>
               <SelectComp localTheme={theme}>
-                <p style={{ padding: "40px 0 18px 0" }}>Cooking time</p>
+                <p style={{ padding: '40px 0 18px 0' }}>Cooking time</p>
                 <Select
                   styles={stylesSelect(theme)}
                   id="cookingTime"
                   name="cookingTime"
                   options={timeOptionsList()}
-                  value={cookingTime}
-                  onChange={e => setCookingTime(e.target)}
-                >
-                </Select>
+                  // value={cookingTime}
+                  onChange={e => {
+                    setCookingTime(e.value);
+                  }}
+                ></Select>
               </SelectComp>
             </InputsWithSelectWrapper>
           </InputsWrapper>

@@ -2,7 +2,10 @@ import * as React from 'react';
 // import { useState } from 'react';
 import Select from 'react-select';
 import IconButton from '@mui/material/IconButton';
-import { InputUnitValue, ValueInputWrapper } from '../../components/AddRecipeForm/AddRecipeForm.styled'
+import {
+  InputUnitValue,
+  ValueInputWrapper,
+} from '../../components/AddRecipeForm/AddRecipeForm.styled';
 import { stylesIngredient, stylesUnit } from '../AddRecipeForm/selectStyles';
 
 export const Ingredient = ({
@@ -21,15 +24,20 @@ export const Ingredient = ({
   // const [dropdownOptions, setDropdownOptions] = useState([]);
 
   const handleTitleChange = e => {
-    onTitleChange(id, e.target);
+    // console.log(e);
+    onTitleChange(id, e.value);
   };
 
   const handleQuantityChange = e => {
+    // console.log(e);
+
     onQuantityChange(id, e.target.value);
   };
 
   const handleWeightChange = e => {
-    onWeightChange(id, e.target);
+    // console.log(e);
+
+    onWeightChange(id, e.value);
   };
 
   const handleKeyDown = e => {
@@ -49,14 +57,14 @@ export const Ingredient = ({
     { value: 'Pork', label: 'Pork' },
     { value: 'Broccoli', label: 'Broccoli' },
     { value: 'Cacao', label: 'Cacao' },
-  ]
+  ];
   const options = [
     { value: 'tbs', label: 'tbs' },
     { value: 'tsp', label: 'tsp' },
     { value: 'kg', label: 'kg' },
     { value: 'g', label: 'g' },
-  ]
-  
+  ];
+
   return (
     <>
       <Select
@@ -64,7 +72,7 @@ export const Ingredient = ({
         options={ingredientOptions}
         id="title"
         type="text"
-        value={title}
+        // value={title}
         onChange={handleTitleChange}
         onBlur={() => onTitleChange(id, title)}
         onKeyDown={handleKeyDown}
@@ -85,12 +93,11 @@ export const Ingredient = ({
           options={options}
           id="weight"
           name="weight"
-          value={weight}
+          // value={weight}
           onChange={handleWeightChange}
           onBlur={() => onWeightChange(id, weight)}
           onKeyDown={handleKeyDown}
-        >
-        </Select>
+        ></Select>
       </ValueInputWrapper>
       <IconButton onClick={() => removeIngredientById(id)}>
         <svg

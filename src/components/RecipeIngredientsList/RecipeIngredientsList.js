@@ -3,8 +3,17 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Ingredient } from 'components/Ingredient/Ingredient';
 // import { SectionTitle } from 'components/AddRecipeForm/AddRecipeForm.styled';
-import { IngredientsSection, CounterButton, CounterWrapper, TitleConterWrapper } from './RecipeIngredientsList.styled';
-import { IngredientsList, IngredientsItem, PopularTitle } from '../AddRecipeForm/AddRecipeForm.styled';
+import {
+  IngredientsSection,
+  CounterButton,
+  CounterWrapper,
+  TitleConterWrapper,
+} from './RecipeIngredientsList.styled';
+import {
+  IngredientsList,
+  IngredientsItem,
+  PopularTitle,
+} from '../AddRecipeForm/AddRecipeForm.styled';
 
 export const RecipeIngredientsList = ({ onIngredientsChange }) => {
   const [id, setId] = useState(nanoid());
@@ -17,7 +26,16 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
   };
 
   const handleAddIngredient = () => {
-    onIngredientsChange([...ingredients]);
+    const data = JSON.stringify(
+      ingredients.map(({ id, quantity, title, weight }) => ({
+        id,
+        quantity,
+        title,
+        weight,
+      }))
+    );
+
+    onIngredientsChange(data);
   };
 
   const removeIngredientFromArray = () => {
