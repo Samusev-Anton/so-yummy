@@ -39,9 +39,7 @@ const AddRecipeForm = () => {
   const [preparation, setPreparation] = useState('');
   const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
 
-  const [formFail, setFormFail] = useState({
-    image: null,
-  });
+  const [formFail, setFormFail] = useState(null);
   console.log(formFail);
 
   const handleIngredientsChange = ingredients => {
@@ -81,9 +79,10 @@ const AddRecipeForm = () => {
       <RecipeForm onSubmit={handleSubmit}>
         <AddRecepiSection>
           <div>
-            {formFail && ({
-              < img src={image} alt="" width={500} />}
+
             <label htmlFor="file" id="labelFile">
+              {formFail && (
+                < img src={formFail} alt="" width={357} height={344} />)}
               <input
                 type="file"
                 id="image"
