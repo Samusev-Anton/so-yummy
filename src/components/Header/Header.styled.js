@@ -9,15 +9,16 @@ right:0;
 left:0;
 align-items:center;
 padding: 18px 16px;
-max-width: 343px;
+${'' /* max-width: 343px; */}
 margin-left:auto;
 margin-right:auto;
 @media (min-width: 768px) {
-  max-width: 704px;
+  ${'' /* max-width: 704px; */}
+  padding:18px 32px;
 }
 @media (min-width: 1280px) {
-  padding:18px 0;
-  max-width: 1240px;
+  padding:18px 100px;
+  ${'' /* max-width: 1240px; */}
 }
 `
 

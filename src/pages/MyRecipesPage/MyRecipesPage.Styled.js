@@ -25,3 +25,11 @@ export const RecipeList = styled.ul`
     gap: 50px;
   }
 `;
+
+export const FailNotification = styled.p`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 200px;
+  font-size: 20px;
+  color: ${p => (p.mode === 'light' ? `#3e4462` : `#fafafa`)};
+`;
