@@ -61,6 +61,10 @@ padding: 0 0 0 32px;
 height: 53px;
 width: 263px;
 color: ${({ theme }) => theme.colors.secondaryDark};
+&:focus::placeholder {
+    opacity: 0;
+    animation: blink-caret 1s step-end infinite;
+  }
 @media ${device.tablet} {
   height: 57px;
   width: 324px;

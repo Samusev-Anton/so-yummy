@@ -43,11 +43,21 @@ export const Footer = () => {
           </MainBlock>
           <FooterNav>
             <FooterNavList>
-              <Link to="/search">Ingredients</Link>
-              <Link to="/add">Add recipes</Link>
-              <Link to="/my">My recipes</Link>
-              <Link to="/favorite">Favorite</Link>
-              <Link to="/shopping-list">Shopping list</Link>
+              <Link to="/search" mode={mode}>
+                Ingredients
+              </Link>
+              <Link to="/add" mode={mode}>
+                Add recipes
+              </Link>
+              <Link to="/my" mode={mode}>
+                My recipes
+              </Link>
+              <Link to="/favorite" mode={mode}>
+                Favorite
+              </Link>
+              <Link to="/shopping-list" mode={mode}>
+                Shopping list
+              </Link>
             </FooterNavList>
           </FooterNav>
           <SubscribeForm />

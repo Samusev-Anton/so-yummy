@@ -39,7 +39,7 @@ export const Search = () => {
           <label name="search"></label>
             <Input
               type="text"
-              placeholder="Beef"
+              placeholder="|"
               name="queryInput"
               onChange={handleSearchChange}
               validate={validateSearchQuery}
@@ -48,7 +48,7 @@ export const Search = () => {
             />
             {errors.searchQuery && touched.searchQuery && 
             <ErrorMessage>{errors.searchQuery}</ErrorMessage>}
-          <BtnSearch type="submit">Search</BtnSearch>
+            <BtnSearch type="submit" to={`/search`}>Search</BtnSearch>
         </FormWrap>
         )}
       </Formik>

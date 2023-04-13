@@ -45,6 +45,11 @@ export const FormField = styled.input`
   @media screen and (min-width: 768px) {
     padding: 12px 16px 12px 46px;
   }
+
+  &:hover,
+  &:focus {
+    outline: 1px solid black;
+  }
 `;
 
 export const Text = styled.p`
@@ -132,4 +137,13 @@ export const VisibilityBtn = styled.button`
 
   top: 16px;
   right: 35px;
+`;
+
+export const Label = styled.label`
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 12px;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
