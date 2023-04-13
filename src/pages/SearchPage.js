@@ -13,7 +13,7 @@ import { Container } from 'components/GlobalStyles';
 export const SearchPage = () => {
   const search = useSelector(getSearch);
   const { query } = useParams('');
-  const [searchQuery, setSearchQuery] = useState('' ? query : search);
+  const [searchQuery, setSearchQuery] = useState(query || search);
   const [searchType, setSearchType] = useState('query');
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,6 +21,7 @@ export const SearchPage = () => {
   const setSearchQueryThrottled = throttle(setSearchQuery, 3000);
 
   useEffect(() => {
+    if (searchQuery === '') return;
         setIsLoading(true);
         searchRecipesApi({ searchQuery, searchType })
           .then(data => setRecipes(data))

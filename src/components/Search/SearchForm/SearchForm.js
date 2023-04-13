@@ -22,7 +22,7 @@ export const SearchForm = ({ searchQuery, onSearchQueryChange }) => {
               required
               id="search-query"
               type="text"
-              placeholder="Beef |"
+              placeholder="|"
               value={searchQuery}
               onChange={(e) => onSearchQueryChange(e.target.value)}
               validate={validateSearchQuery}

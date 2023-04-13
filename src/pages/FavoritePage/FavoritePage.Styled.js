@@ -27,8 +27,9 @@ export const RecipeList = styled.ul`
 `;
 
 export const FailNotification = styled.p`
-  display: flex;
-  justify-content: center;
+
+  text-align: center;
+  margin-top: 50px;
   margin-bottom: 200px;
   font-size: 20px;
   color: ${p => (p.mode === 'light' ? `#3e4462` : `#fafafa`)};

@@ -1,17 +1,15 @@
-/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-// import { addRecipesAPI } from './services/API/Recipes/addRecipesAPI';
+// import { useSelector } from 'react-redux';
 import { addRecipeAPI } from '../../services/API/Recipes';
 import Select from 'react-select';
 import { store } from '../../redux/store';
-import { getCategories } from '../../redux/selectors'
+// import { getCategories } from '../../redux/selectors';
 
 import { FollowUs } from 'components/FollowUs/FollowUs';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
 import { stylesSelect } from './selectStyles';
-import { categoriesOptionsList } from '../../utils/categoriesOptionsList';
+// import { categoriesOptionsList } from '../../utils/categoriesOptionsList';
 import { timeOptionsList } from '../../utils/timeOptionsList';
 import { PopularRecipe } from 'components/PopularRecipe/PopularRecipe';
 
@@ -27,7 +25,7 @@ import {
   AddBtn,
   TitleFollowUs,
   PopularTitle,
-  Wrapper,
+  // Wrapper,
 } from 'components/AddRecipeForm/AddRecipeForm.styled';
 import icons from '../../images/sprite.svg';
 
@@ -42,14 +40,15 @@ const AddRecipeForm = () => {
   const [formFail, setFormFail] = useState({
     image: null,
   });
-  console.log(formFail);
 
+  const image = formFail.image;
   const handleIngredientsChange = ingredients => {
     setIngredientsForRecipe(ingredients);
   };
 
   const handleImageChange = event => {
     const [file] = event.target.files;
+
     if (file) {
       setFormFail(URL.createObjectURL(file));
     }
@@ -63,18 +62,31 @@ const AddRecipeForm = () => {
     formData.append('img', files);
     formData.append('title', recipeTitle);
     formData.append('about', recipeAbout);
-    formData.append('category', category);
-    formData.append('time', `${cookingTime} min`);
+    formData.append('category', category.label);
+    formData.append('time', cookingTime.label);
     formData.append('ingredients', ingredientsForRecipe);
     formData.append('instructions', preparation);
     formData.append('description', recipeAbout);
-    console.log(formData.getAll('img'));
 
     addRecipeAPI(formData);
   };
 
   const theme = store.theme;
-  const optionsCategories = useSelector(getCategories);
+  const optionsCategories = [
+    { label: 'beef', value: 'beef' },
+    { label: 'dessert', value: 'dessert' },
+    { label: 'breakfast', value: 'breakfast' },
+    { label: 'chicken', value: 'chicken' },
+    { label: 'miscellaneous', value: 'miscellaneous' },
+    { label: 'pasta', value: 'pasta' },
+    { label: 'goat', value: 'goat' },
+    { label: 'pork', value: 'pork' },
+    { label: 'seafood', value: 'seafood' },
+    { label: 'starter', value: 'starter' },
+    { label: 'side', value: 'side' },
+    { label: 'vegan', value: 'vegan' },
+    { label: 'vegetarian', value: 'vegetarian' },
+  ];
 
   return (
     <MainWrapper>
@@ -82,6 +94,9 @@ const AddRecipeForm = () => {
         <AddRecepiSection>
           <div>
             <label htmlFor="file" id="labelFile">
+              {image !== null && (
+                <img src={formFail} alt="" width="279" height="268" />
+              )}
               <input
                 type="file"
                 id="image"
@@ -89,29 +104,12 @@ const AddRecipeForm = () => {
                 accept="image/*"
                 onChange={handleImageChange}
               />
-              <svg width="50" height="50">
-                <use href={icons + '#icon-img'} alt="ico"></use>
-              </svg>
+              {image === null && (
+                <svg width="50" height="50">
+                  <use href={icons + '#icon-img'} alt="ico"></use>
+                </svg>
+              )}
             </label>
-            {formFail ? (
-              <img src={formFail.image} alt="" width={100} />
-            ) : (
-              <div>
-                <label htmlFor="file" id="labelFile">
-                  <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                  />
-
-                  <svg width="50" height="50">
-                    <use href={icons + '#icon-img'} alt="ico"></use>
-                  </svg>
-                </label>
-              </div>
-            )}
           </div>
           <InputsWrapper localTheme={theme}>
             <input
@@ -124,7 +122,7 @@ const AddRecipeForm = () => {
               placeholder="Enter item title"
             ></input>
             <input
-              style={{ paddingTop: "40px" }}
+              style={{ paddingTop: '40px' }}
               name="about"
               type="text"
               label="RecipeAbout"
@@ -134,30 +132,28 @@ const AddRecipeForm = () => {
             ></input>
             <InputsWithSelectWrapper>
               <SelectComp localTheme={theme}>
-                <p style={{ padding: "40px 0 18px 0" }}>Category</p>
+                <p style={{ padding: '40px 0 18px 0' }}>Category</p>
                 <Select
                   styles={stylesSelect(theme)}
                   id="category"
                   name="category"
-                  options={categoriesOptionsList(optionsCategories)}
+                  options={optionsCategories}
                   value={category}
-                  onChange={e => setCategory(e.target)}
-                >
-                </Select>
+                  onChange={setCategory}
+                ></Select>
               </SelectComp>
             </InputsWithSelectWrapper>
             <InputsWithSelectWrapper>
               <SelectComp localTheme={theme}>
-                <p style={{ padding: "40px 0 18px 0" }}>Cooking time</p>
+                <p style={{ padding: '40px 0 18px 0' }}>Cooking time</p>
                 <Select
                   styles={stylesSelect(theme)}
                   id="cookingTime"
                   name="cookingTime"
                   options={timeOptionsList()}
-                  value={cookingTime}
-                  onChange={e => setCookingTime(e.target)}
-                >
-                </Select>
+                  defaultValue={cookingTime}
+                  onChange={setCookingTime}
+                ></Select>
               </SelectComp>
             </InputsWithSelectWrapper>
           </InputsWrapper>
@@ -167,14 +163,6 @@ const AddRecipeForm = () => {
 
         <RecepieSection>
           <PopularTitle>Recipe Preparation</PopularTitle>
-          {/* <input
-              type="text"
-              id="myrecipe"
-              name="myrecipe"
-              placeholder="Enter recipe"
-              // value={recipe}
-              onChange={e => setPreparation(e.target.value)}
-            ></input> */}
           <textarea
             name="recipe"
             placeholder="Enter recipe"
