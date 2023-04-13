@@ -189,6 +189,10 @@ export const Link = styled(NavLink)`
   line-height: 18px;
   letter-spacing: -0.02em;
   text-decoration: none;
+  &:focus,
+  &:hover {
+    color: ${a => (a.mode === 'light' ? `#8BAA36` : `#1E1F28`)};
+  }
 `;
 
 export const Logo = () => {
