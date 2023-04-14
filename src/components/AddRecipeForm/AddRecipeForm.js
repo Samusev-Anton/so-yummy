@@ -9,9 +9,9 @@ import { store } from '../../redux/store';
 import { FollowUs } from 'components/FollowUs/FollowUs';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList/RecipeIngredientsList';
 import { stylesSelect } from './selectStyles';
-// import { categoriesOptionsList } from '../../utils/categoriesOptionsList';
 import { timeOptionsList } from '../../utils/timeOptionsList';
 import { PopularRecipe } from 'components/PopularRecipe/PopularRecipe';
+// import { getFilteredIngredients } from 'services/API/Recipes';
 
 import {
   AddRecepiSection,
@@ -24,9 +24,7 @@ import {
   RecepieSection,
   AddBtn,
   TitleFollowUs,
-  // PopularTitle,
   RecepieSectionTitle,
-  // Wrapper,
 } from 'components/AddRecipeForm/AddRecipeForm.styled';
 import icons from '../../images/sprite.svg';
 
@@ -37,28 +35,23 @@ const AddRecipeForm = () => {
   const [cookingTime, setCookingTime] = useState('');
   const [preparation, setPreparation] = useState('');
   const [ingredientsForRecipe, setIngredientsForRecipe] = useState([]);
-
   const [formFail, setFormFail] = useState({
     image: null,
   });
 
   const image = formFail.image;
   const handleIngredientsChange = ingredients => {
-    const data = JSON.parse(ingredients).map(item => {
-      const outputItem = {
-        id: item.id,
-        quantity: item.quantity,
-        title: item.title.value,
-        weight: item.weight.value,
-      };
-      return JSON.stringify(outputItem);
-    });
+    console.log(ingredients);
 
-    setIngredientsForRecipe(data);
+    setIngredientsForRecipe(ingredients);
   };
 
   const handleImageChange = event => {
     const [file] = event.target.files;
+
+    // getFilteredIngredients('toma').then(data => {
+    //   setSearchedIngredients(data.data);
+    // });
 
     if (file) {
       setFormFail(URL.createObjectURL(file));
@@ -76,6 +69,8 @@ const AddRecipeForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    e.stopPropagation();
+
     const files = e.target.elements[0].files[0];
 
     const formData = new FormData();
@@ -84,7 +79,7 @@ const AddRecipeForm = () => {
     formData.append('about', recipeAbout);
     formData.append('category', category.label);
     formData.append('time', cookingTime.label);
-    formData.append('ingredients', ingredientsForRecipe);
+    formData.set('ingredients', JSON.stringify(ingredientsForRecipe));
     formData.append('instructions', preparation);
     formData.append('description', recipeAbout);
 
@@ -124,6 +119,7 @@ const AddRecipeForm = () => {
                 name="image"
                 accept="image/*"
                 onChange={handleImageChange}
+                style={{ height: '268px' }}
               />
               {image === null && (
                 <svg width="50" height="50">

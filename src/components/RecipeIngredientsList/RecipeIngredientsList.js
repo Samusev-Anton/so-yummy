@@ -124,6 +124,7 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
               onWeightChange={handleWeightChange}
               removeIngredientById={removeIngredientById}
               onSearchChange={onSearchChange}
+              onIngredientsChange={onIngredientsChange}
             />
           </IngredientsItem>
         ))}
