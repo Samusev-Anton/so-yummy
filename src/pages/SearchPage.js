@@ -10,7 +10,7 @@ import { Loader } from 'components/Loader/Loader';
 import { throttle } from 'lodash';
 import { Container } from 'components/GlobalStyles';
 
-export const SearchPage = () => {
+const SearchPage = () => {
   const search = useSelector(getSearch);
   const { query } = useParams('');
   const [searchQuery, setSearchQuery] = useState(query || search);
@@ -22,32 +22,32 @@ export const SearchPage = () => {
 
   useEffect(() => {
     if (searchQuery === '') return;
-        setIsLoading(true);
-        searchRecipesApi({ searchQuery, searchType })
-          .then(data => setRecipes(data))
-          .finally(() => setIsLoading(false))
-      }, [searchQuery, searchType]);
+    setIsLoading(true);
+    searchRecipesApi({ searchQuery, searchType })
+      .then(data => setRecipes(data))
+      .finally(() => setIsLoading(false));
+  }, [searchQuery, searchType]);
 
-  const handleSearchQueryChange = (query) => {
+  const handleSearchQueryChange = query => {
     setSearchQueryThrottled(query);
   };
 
-  const handleSearchTypeChange = (type) => {
+  const handleSearchTypeChange = type => {
     setSearchType(type);
   };
 
   return (
     <Container>
-        <MainPageTitle value={`Search`}></MainPageTitle>
-          <SearchBar
-            searchQuery={searchQuery}
-            searchType={searchType}
-            onSearchQueryChange={handleSearchQueryChange}
-            onSearchTypeChange={handleSearchTypeChange}
-          />
-        {isLoading ? (<Loader />
-        ) : (<SearchedRecipesList recipes={recipes} />)}
+      <MainPageTitle value={`Search`}></MainPageTitle>
+      <SearchBar
+        searchQuery={searchQuery}
+        searchType={searchType}
+        onSearchQueryChange={handleSearchQueryChange}
+        onSearchTypeChange={handleSearchTypeChange}
+      />
+      {isLoading ? <Loader /> : <SearchedRecipesList recipes={recipes} />}
     </Container>
   );
 };
 
+export default SearchPage;

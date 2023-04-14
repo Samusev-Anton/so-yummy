@@ -24,7 +24,7 @@ function fetchData() {
   });
 }
 
-export const FavoritePage = () => {
+const FavoritePage = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -86,3 +86,5 @@ export const FavoritePage = () => {
     </Container>
   );
 };
+
+export default FavoritePage;

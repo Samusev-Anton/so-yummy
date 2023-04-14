@@ -22,7 +22,7 @@ export const IngredientsShoppingList = ({ shoppingList }) => {
           <TableHeadRemove>Remove</TableHeadRemove>
         </TableHead>
         {list.map(item => (
-          <IngredientItem item={item} />
+          <IngredientItem item={item} key={item._id} />
         ))}
       </Blocks>
     </Table>

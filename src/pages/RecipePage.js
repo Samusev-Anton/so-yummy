@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { getRecipesById } from 'services/API/Recipes';
 import { RecipePreparation } from 'components/RecipePreparation/RecipePreparation';
 
-export const RecipePage = () => {
+const RecipePage = () => {
   const { recipeId } = useParams();
   const [recipeDescription, setRecipeDescription] = useState({});
   const [ingredientsList, setIngredientsList] = useState([]);
@@ -28,3 +28,5 @@ export const RecipePage = () => {
     </>
   );
 };
+
+export default RecipePage;
