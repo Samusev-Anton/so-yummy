@@ -27,6 +27,7 @@ export const RecipeList = styled.ul`
 `;
 
 export const FailNotification = styled.p`
+
   text-align: center;
   margin-top: 50px;
   margin-bottom: 200px;

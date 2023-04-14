@@ -24,7 +24,7 @@ export const Ingredient = ({
   // const [dropdownOptions, setDropdownOptions] = useState([]);
 
   const handleTitleChange = e => {
-    onTitleChange(id, e.target);
+    onTitleChange(id, e);
   };
 
   const handleQuantityChange = e => {
@@ -32,7 +32,7 @@ export const Ingredient = ({
   };
 
   const handleWeightChange = e => {
-    onWeightChange(id, e.target);
+    onWeightChange(id, e);
   };
 
   const handleKeyDown = e => {
