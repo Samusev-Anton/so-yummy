@@ -24,7 +24,7 @@ export const RecipeIngredientsList = ({ ingredients, onIngredientsChange }) => {
   const addIngredientToArray = () => {
     onIngredientsChange([
       ...ingredients,
-      { id: nanoid(), title: '', quantity: '', weight: '' },
+      { id: nanoid(), ttl: '', measure: '', weight: '' },
     ]);
   };
 
