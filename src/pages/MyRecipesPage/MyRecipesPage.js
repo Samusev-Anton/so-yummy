@@ -24,7 +24,7 @@ function fetchData() {
   });
 }
 
-export const MyRecipesPage = () => {
+const MyRecipesPage = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -87,3 +87,5 @@ export const MyRecipesPage = () => {
     </Container>
   );
 };
+
+export default MyRecipesPage;
