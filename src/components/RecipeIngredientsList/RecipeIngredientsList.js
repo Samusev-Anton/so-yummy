@@ -3,15 +3,18 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Ingredient } from 'components/Ingredient/Ingredient';
 // import { SectionTitle } from 'components/AddRecipeForm/AddRecipeForm.styled';
+
 import {
   IngredientsSection,
   CounterButton,
   CounterWrapper,
   TitleConterWrapper,
 } from './RecipeIngredientsList.styled';
+
 import {
   IngredientsList,
   IngredientsItem,
+  IngredientsSectionTitle,
   PopularTitle,
 } from '../AddRecipeForm/AddRecipeForm.styled';
 
@@ -72,7 +75,7 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
       onMouseLeave={handleAddIngredient}
     >
       <TitleConterWrapper>
-        <PopularTitle>Ingredients</PopularTitle>
+        <IngredientsSectionTitle>Ingredients</IngredientsSectionTitle>
         <CounterWrapper>
           <CounterButton onClick={removeIngredientFromArray}>-</CounterButton>
           <span>{ingredients.length}</span>

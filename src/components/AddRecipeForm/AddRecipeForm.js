@@ -24,7 +24,8 @@ import {
   RecepieSection,
   AddBtn,
   TitleFollowUs,
-  PopularTitle,
+  // PopularTitle,
+  RecepieSectionTitle,
   // Wrapper,
 } from 'components/AddRecipeForm/AddRecipeForm.styled';
 import icons from '../../images/sprite.svg';
@@ -183,7 +184,7 @@ const AddRecipeForm = () => {
         <RecipeIngredientsList onIngredientsChange={handleIngredientsChange} />
 
         <RecepieSection>
-          <PopularTitle>Recipe Preparation</PopularTitle>
+          <RecepieSectionTitle>Recipe Preparation</RecepieSectionTitle>
           <textarea
             name="recipe"
             placeholder="Enter recipe"

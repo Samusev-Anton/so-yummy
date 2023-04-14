@@ -9,10 +9,13 @@ import {
   RecepiImg,
   RecipeText,
   PopularTitle,
+  PopularList,
 } from '../AddRecipeForm/AddRecipeForm.styled';
 
 export const PopularRecipe = () => {
   const [popularRecipe, setPopularRecipe] = React.useState([]);
+  const firstTwoRecipes = popularRecipe.slice(0, 2);
+
   React.useEffect(() => {
     getPopularRecipesAPI().then(data => {
       setPopularRecipe(data);
@@ -20,55 +23,61 @@ export const PopularRecipe = () => {
   }, []);
   return (
     <div>
-      <PopularTitle style={{ marginBottom: '40px' }}>
-        Popular recipe
-      </PopularTitle>
-      <div style={{ width: '319px', height: '528px' }}>
-        <ul style={{ listStyle: 'none' }}>
+      <PopularTitle>Popular recipe</PopularTitle>
+      <div id="4" style={{ display: 'flex' }}>
+        <PopularList>
           {popularRecipe.map(recipe => (
-            <Link to={`/recipe/${recipe._id}`} style={{textDecoration: 'none' }}>
-              <PopularItem
-                key={recipe._id}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  marginBottom: '20px',
-                }}
-              >
-                <RecepiImg src={recipe.preview} alt={recipe.title} width="85" />
-                <div style={{ paddingLeft: '10px' }}>
-                  <RecipeTitle
-                    style={{
-                      fontSize: '16px',
-                      padding: 0,
-                      marginBottom: '3px',
-                      marginTop: '0px',
-                      width: '198px',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {recipe.title}
-                  </RecipeTitle>
-                  <RecipeText
-                    style={{
-                      fontSize: '12px',
-                      width: '198px',
-                      height: '56px',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'wrap',
-                    }}
-                  >
-                    {recipe.description}
-                  </RecipeText>
+            <Link
+              to={`/recipe/${recipe._id}`}
+              style={{ textDecoration: 'none' }}
+              key={recipe._id}
+            >
+              <PopularItem key={recipe._id}>
+                <RecepiImg src={recipe.preview} alt={recipe.title} />
+                <div>
+                  <RecipeTitle>{recipe.title}</RecipeTitle>
+                  <RecipeText>{recipe.description}</RecipeText>
                 </div>
               </PopularItem>
             </Link>
           ))}
-        </ul>
+        </PopularList>
       </div>
+      <div id="2" style={{ display: 'none' }}>
+        <PopularList>
+          {firstTwoRecipes.map(recipe => (
+            <Link
+              to={`/recipe/${recipe._id}`}
+              style={{ textDecoration: 'none' }}
+              key={recipe._id}
+            >
+              <PopularItem key={recipe._id}>
+                <RecepiImg src={recipe.preview} alt={recipe.title} />
+                <div>
+                  <RecipeTitle>{recipe.title}</RecipeTitle>
+                  <RecipeText>{recipe.description}</RecipeText>
+                </div>
+              </PopularItem>
+            </Link>
+          ))}
+        </PopularList>
+      </div>
+      <style>
+        {`
+      @media screen and (min-width: 768px) and (max-width: 1280px) {
+        div[id*="2"] {
+          display: flex !important;
+                 }
+      }
+      
+      `}
+
+        {`@media screen and (min-width: 768px) and (max-width: 1280px) {
+       div[id*="4"] {
+         display: none !important;
+                }
+     }`}
+      </style>
     </div>
   );
 };

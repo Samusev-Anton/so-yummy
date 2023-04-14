@@ -1,13 +1,24 @@
 import styled from 'styled-components';
+import { device } from 'components/GlobalStyles';
 
 export const IngredientsSection = styled.div`
-    margin-top: 104px;
-    max-width: 609px;
+  margin-top: 104px;
+
+  @media ${device.mobileOnly} {
+    margin-bottom: 44px;
+  }
+  @media ${device.tablet} {
+    margin-bottom: 100px;
+  }
+  @media ${device.desktop} {
+  }
+
+  max-width: 609px;
 `;
 
 export const TitleConterWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const CounterButton = styled.button`
@@ -35,7 +46,7 @@ export const CounterWrapper = styled.p`
   align-items: center;
   justify-content: space-around;
   border: 1px solid rgba(51, 51, 51, 0.3);
-  border-color:  ${({ theme }) => theme.colors.counter};
+  border-color: ${({ theme }) => theme.colors.counter};
   border-radius: 18px;
   padding: 0 4px;
   width: 92px;
