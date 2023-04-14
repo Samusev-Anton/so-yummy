@@ -3,7 +3,7 @@ import { CategoryRecipes } from 'components/CategoryRecipes/CategoryRecipes';
 import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTitle';
 import { Container } from '../components/GlobalStyles';
 
-export const CategoriesPage = () => {
+const CategoriesPage = () => {
   return (
     <Container>
       <MainPageTitle value="Categories"></MainPageTitle>
@@ -12,3 +12,5 @@ export const CategoriesPage = () => {
     </Container>
   );
 };
+
+export default CategoriesPage;

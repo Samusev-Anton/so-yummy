@@ -3,7 +3,8 @@ import { MainPageTitle } from 'components/MainPageTitle/MainPageTitle/MainPageTi
 import { useState, useEffect } from 'react';
 import { getShoppingList } from 'services/API/Recipes';
 import { Container } from 'components/GlobalStyles';
-export const ShoppingListPage = () => {
+
+const ShoppingListPage = () => {
   const [shoppingList, setShoppingList] = useState([]);
 
   useEffect(() => {
@@ -22,3 +23,5 @@ export const ShoppingListPage = () => {
     </Container>
   );
 };
+
+export default ShoppingListPage;

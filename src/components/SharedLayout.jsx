@@ -14,9 +14,7 @@ export const SharedLayout = props => {
         <Header />
 
         <Suspense fallback={null}>
-
           <Outlet />
-
         </Suspense>
 
         <Footer />

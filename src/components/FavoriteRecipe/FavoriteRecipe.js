@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getMode } from '../../redux/theme/themeSelector';
-
 import {
   FavRecipeItem,
   RecipeImageThumb,
@@ -14,6 +13,7 @@ import {
   FavRecipeTopInfo,
 } from './FavoriteRecipe.Styled';
 import { ReactComponent as Icon } from '../../images/trash-icon.svg';
+import { ReactComponent as DefaultImgIcon } from '../../images/default-image.svg';
 
 export const FavoriteRecipe = ({ recipe, onDelete }) => {
   const { mode } = useSelector(getMode);
@@ -22,7 +22,11 @@ export const FavoriteRecipe = ({ recipe, onDelete }) => {
     <FavRecipeItem mode={mode}>
       <Link to={`/recipe/${recipe._id}`}>
         <RecipeImageThumb>
-          <RecipeImage src={recipe.preview} alt={recipe.title} />
+          {recipe.preview ? (
+            <RecipeImage src={recipe.preview} alt={recipe.title} />
+          ) : (
+            <DefaultImgIcon />
+          )}
         </RecipeImageThumb>
       </Link>
       <FavRecipeTopInfo>

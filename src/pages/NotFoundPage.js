@@ -1,5 +1,7 @@
 import { NullPage } from '../components/Page404/Page404';
 
-export const NotFoundPage = () => {
+const NotFoundPage = () => {
   return <NullPage></NullPage>;
 };
+
+export default NotFoundPage;

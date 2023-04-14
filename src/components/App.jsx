@@ -1,5 +1,5 @@
 // import styled from 'styled-components';
-import React from 'react';
+import React, { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -11,29 +11,24 @@ import { theme as lightMode, darkTheme as darkMode } from '../utils/theme';
 import { GlobalStyle } from './App.styled';
 
 import { SharedLayout } from './SharedLayout';
+import { PublicRoute } from 'services/routes/PublicRoute';
+import { PrivateRoute } from 'services/routes/PrivateRoute';
 import { WelcomePage } from 'pages/WelcomePage/WellcomePage';
-import { CategoriesPage } from 'pages/CategoriesPage';
 import { SignUpPage } from 'pages/SignUpPage/SignUpPage';
 import { LoginPage } from 'pages/LoginPage';
 
-import { MainPage } from 'pages/MainPage';
-import { AddRecipePage } from 'pages/AddRecipePage';
-import { MyRecipesPage } from 'pages/MyRecipesPage/MyRecipesPage';
-import { FavoritePage } from 'pages/FavoritePage/FavoritePage';
-
-// import { ShoppingPage } from 'pages/ShoppingPage';
-
-import { ShoppingListPage } from 'pages/ShoppingListPage';
-
-import { SearchPage } from 'pages/SearchPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { RecipePage } from 'pages/RecipePage';
-
-import { PublicRoute } from 'services/routes/PublicRoute';
-import { PrivateRoute } from 'services/routes/PrivateRoute';
-
 import { getCurrentUser } from '../redux/auth/auth-operations';
-// import { ShoppingListPage } from 'pages/ShoppingListPage';
+
+const MainPage = lazy(() => import('pages/MainPage'));
+const AddRecipePage = lazy(() => import('pages/AddRecipePage'));
+const MyRecipesPage = lazy(() => import('pages/MyRecipesPage/MyRecipesPage'));
+const CategoriesPage = lazy(() => import('pages/CategoriesPage'));
+
+const FavoritePage = lazy(() => import('pages/FavoritePage/FavoritePage'));
+const ShoppingListPage = lazy(() => import('pages/ShoppingListPage'));
+const SearchPage = lazy(() => import('pages/SearchPage'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
+const RecipePage = lazy(() => import('pages/RecipePage'));
 
 export const App = () => {
   const { mode } = useSelector(getMode);
@@ -71,7 +66,6 @@ export const App = () => {
           />
           <Route path="/add" element={<AddRecipePage />} />
           <Route path="/shopping-list" element={<ShoppingListPage />} />
-          {/* /* <Route path="/add" element={<AddRecipePage />} /> */}
           <Route path="/recipe/:recipeId" element={<RecipePage />} /> */
           <Route path="/search" element={<SearchPage />} />
           <Route path="/my" element={<MyRecipesPage />} />
