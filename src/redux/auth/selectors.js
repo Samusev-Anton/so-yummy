@@ -16,3 +16,4 @@ export const selectfavRecipies = state => state.auth.user.favoritsRecipe;
 
 export const selectShoppingList = state => state.auth.user.shoppingList;
 
+export const tempPassword = state => state.auth.temporaryPassword;

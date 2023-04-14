@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+import { baseAxiosURL } from '../../services/API/commonServerAdress';
 
 import {
   getShoppingList,
@@ -10,8 +11,7 @@ import {
   deleteFromShoppingList,
 } from 'services/API/Recipes';
 
-axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost:3030/api';
+axios.defaults.baseURL = baseAxiosURL;
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -174,3 +174,49 @@ export const deleteIngredient = createAsyncThunk(
     }
   }
 );
+
+export const changePassword = createAsyncThunk(
+  'auth/changePassword',
+  async (password, thunkAPI) => {
+    try {
+      const user = await axios.patch('/users/password', password);
+      return user;
+    } catch (error) {
+      toast.error(`${error.response.data.message}`, {
+        position: 'top-center',
+        autoClose: 2500,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: 'colored',
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const SendMailPassword = createAsyncThunk(
+  'auth/SendMailPassword',
+  async (email, thunkAPI) => {
+    try {
+      const data = await axios.get(`/users/${email}`);
+      toast.success(`On your email adress was sent the letter with password`, {
+        position: 'top-center',
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: 'colored',
+      });
+      return data.data.temporaryPassword;
+    } catch (error) {
+      toast.error(`${error.response.data.message}`, {
+        position: 'top-center',
+        autoClose: 2500,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: 'colored',
+      });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+

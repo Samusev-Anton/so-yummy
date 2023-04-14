@@ -63,7 +63,6 @@ cursor: pointer;
 
 export const EditUserInput = styled.input`
   display: none;
-
 `;
 
 export const EditUserNameLabel = styled.label`
@@ -142,6 +141,9 @@ export const EditSubmitButton = styled.button`
   font-size: 14px;
   line-height: 21px;
   width: 282px;
+  &:hover {
+    color: #d3d3d3;
+  }
   @media (min-width: 478px) {
     padding-top: 18px;
     padding-bottom: 18px;

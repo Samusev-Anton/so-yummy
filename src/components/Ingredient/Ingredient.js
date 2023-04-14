@@ -1,95 +1,116 @@
 import * as React from 'react';
-// import { useState } from 'react';
+import { useState } from 'react';
+// import { useEffect } from 'react';
+import Select from 'react-select';
 import IconButton from '@mui/material/IconButton';
+import {
+  InputUnitValue,
+  ValueInputWrapper,
+} from '../../components/AddRecipeForm/AddRecipeForm.styled';
+import { stylesIngredient, stylesUnit } from '../AddRecipeForm/selectStyles';
 
 export const Ingredient = ({
   id,
-  title,
-  weight,
-  quantity,
-  onTitleChange,
-  onWeightChange,
-  onQuantityChange,
+  // title,
+  // weight,
+  // quantity,
+  // onTitleChange,
+  // onWeightChange,
+  // onQuantityChange,
   removeIngredientById,
+  localTheme,
+  theme,
+  onSearchChange,
+  titleOptions,
+  onIngredientsChange,
 }) => {
-  // const [searchTerm, setSearchTerm] = useState('');
-  // const [dropdownOptions, setDropdownOptions] = useState([]);
+  const [recipeTitle, setRecipeTitle] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [width, setWidht] = useState('');
+  // const [newIng, setNewIng] = useState('');
 
   const handleTitleChange = e => {
-    onTitleChange(id, e.target.value);
+    setRecipeTitle(e.value);
   };
 
   const handleQuantityChange = e => {
-    onQuantityChange(id, e.target.value);
+    // console.log(e.target.value);
+    setQuantity(e.target.value);
   };
 
   const handleWeightChange = e => {
-    onWeightChange(id, e.target.value);
+    setWidht(e.value);
   };
 
-  const handleKeyDown = e => {
-    if (e.key === 'Enter') {
-      e.target.blur();
-    }
+  const newIngredient = {
+    ttl: recipeTitle,
+    measure: `${quantity} ${width}`,
   };
 
-  // function handleSearch(event) {
-  //   const newSearchTerm = event.target.value;
-  //   setSearchTerm(newSearchTerm);
+  // setNewIng(newIngredient);
+  console.log(newIngredient);
 
-  //   const options = fetch('ingerdients.title');
+  // onIngredientsChange(); эта функция должна отправлять этот объект
 
-  //   const filteredOptions = options.filter(option =>
-  //     option.toLowerCase().includes(newSearchTerm.toLowerCase())
-  //   );
-  //   setDropdownOptions(filteredOptions);
-  // }
+  const handleSearchChange = e => {
+    onSearchChange(e.target.value);
+  };
 
-  // handleSearch();
+  // const handleKeyDown = e => {
+  //   if (e.key === 'Enter') {
+  //     e.target.blur();
+  //   }
+  // };
+
+  const options = [
+    { value: 'tbs', label: 'tbs' },
+    { value: 'tsp', label: 'tsp' },
+    { value: 'kg', label: 'kg' },
+    { value: 'g', label: 'g' },
+  ];
 
   return (
     <>
-      {/* <input type="text" value={searchTerm} onChange={handleSearch} />
-      <select>
-        {dropdownOptions.map((option, index) => (
-          <option key={index} value={option}>
-            {option.title}
-          </option>
-        ))}
-      </select> */}
-      <input
+      <InputUnitValue
+        id="search"
+        type="text"
+        onChange={handleSearchChange}
+        // onBlur={() => onQuantityChange(id, quantity)}
+        // onKeyDown={handleKeyDown}
+        placeholder="search"
+      ></InputUnitValue>
+      <Select
+        styles={stylesIngredient(theme, localTheme)}
+        options={titleOptions}
         id="title"
         type="text"
-        value={title}
+        value={recipeTitle}
         onChange={handleTitleChange}
-        onBlur={() => onTitleChange(id, title)}
-        onKeyDown={handleKeyDown}
+        // onBlur={() => onTitleChange(id, title)}
+        // onKeyDown={handleKeyDown}
         placeholder="Ingredient name"
-      ></input>
-      <div>
-        <input
+      ></Select>
+      <ValueInputWrapper>
+        <InputUnitValue
           id="quantity"
           type="number"
           value={quantity}
           onChange={handleQuantityChange}
-          onBlur={() => onQuantityChange(id, quantity)}
-          onKeyDown={handleKeyDown}
+          // onBlur={() => onQuantityChange(id, quantity)}
+          // onKeyDown={handleKeyDown}
           placeholder="Quantity"
-        ></input>
-        <select
+        ></InputUnitValue>
+        <Select
+          styles={stylesUnit(theme, localTheme)}
+          options={options}
           id="weight"
           name="weight"
-          value={weight}
+          value={width}
           onChange={handleWeightChange}
-          onBlur={() => onWeightChange(id, weight)}
-          onKeyDown={handleKeyDown}
-        >
-          <option value="tbs">tbs</option>
-          <option value="tsp">tsp</option>
-          <option value="kg">kg</option>
-          <option value="g">g</option>
-        </select>
-      </div>
+          // onBlur={() => onWeightChange(id, weight)}
+          // onKeyDown={handleKeyDown}
+        ></Select>
+      </ValueInputWrapper>
       <IconButton onClick={() => removeIngredientById(id)}>
         <svg
           width="18"

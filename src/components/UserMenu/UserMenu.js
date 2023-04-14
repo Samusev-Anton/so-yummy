@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-import { logout } from 'redux/auth/auth-operations';
+
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { selectUser } from 'redux/auth/selectors';
@@ -15,10 +14,11 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import EditIcon from '@mui/icons-material/Edit';
 import Dialog from '@mui/material/Dialog';
 import FormDialog from './EditProfile';
+import AlertDialog from './AlertLogout';
 
 
 export const UserMenu = () => {
-  const dispatch = useDispatch();
+
   const user = useSelector(selectUser);
 
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -31,9 +31,6 @@ export const UserMenu = () => {
     setAnchorElUser(null);
   };
 
-  const handelLogoutUser = () => {
-    dispatch(logout());
-  };
   const [open, setOpen] = useState(false);
 
   const handleClickOpenEditProfile = () => {
@@ -43,6 +40,16 @@ export const UserMenu = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const [openAlert, setOpenAlert] = useState(false);
+
+  const handleClickOpenAlert = () => {
+    setOpenAlert(true);
+  };
+  const handleCloseAlert = () => {
+    setOpenAlert(false);
+  };
+
   return (
     <>
       <Box sx={{ display: { xs: 'flex', md: 'flex', alignItems: 'center' } }}><Tooltip title="Open settings">
@@ -90,9 +97,17 @@ export const UserMenu = () => {
           <FormDialog user={name} avatar={avatarURL} onClose={handleClose} />
         </Dialog>
         <MenuItem>
-          <ClassicButton onClick={handelLogoutUser}>
+          <ClassicButton onClick={handleClickOpenAlert}>
             Logout <ArrowForwardIcon sx={{ fontSize: 18 }} />
           </ClassicButton>
+          <Dialog
+            open={openAlert}
+            onClose={handleCloseAlert}
+          // aria-labelledby="alert-dialog-title"
+          // aria-describedby="alert-dialog-description"
+          >
+            <AlertDialog onClose={handleCloseAlert} />
+          </Dialog>
         </MenuItem>
 
       </Menu>

@@ -39,6 +39,13 @@ export const RecipeImageThumb = styled.div`
     height: 324px;
     margin-right: 40px;
   }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: #22252a;
+    background-color: #22252a;
+  }
 `;
 
 export const RecipeImage = styled.img`

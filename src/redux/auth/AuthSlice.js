@@ -9,6 +9,8 @@ import {
   deleteIngredient,
   addFavRecipe,
   deleteFavRecipe,
+  SendMailPassword,
+  changePassword,
 } from './auth-operations';
 import { transformUserData } from '../../utils/transformUserData';
 
@@ -25,6 +27,7 @@ const initialState = {
   isLoggedIn: false,
   isRefreshing: false,
   isSuccess: false,
+  temporaryPassword: null,
 };
 
 export const authSlice = createSlice({
@@ -37,7 +40,6 @@ export const authSlice = createSlice({
         state.token = action.payload.user.token;
       })
       .addCase(login.fulfilled, (state, action) => {
-        // console.log(action.payload.user);
         state.user = transformUserData(action.payload.user);
         state.token = action.payload.user.token;
       })
@@ -83,6 +85,13 @@ export const authSlice = createSlice({
         };
         state.isSuccess = true;
       })
+      .addCase(SendMailPassword.fulfilled, (state, action) => {
+        state.temporaryPassword = action.payload;
+      })
+      .addCase(changePassword.fulfilled, (state, action) => {
+        state.temporaryPassword = null;
+      })
+
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
         state => {
@@ -99,32 +108,3 @@ export const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-
-// {
-// [register.fulfilled](state, action) {
-//   state.user = action.payload.user;
-//   state.token = action.payload.token;
-//   state.isLoggedIn = true;
-// },
-// [login.fulfilled](state, action) {
-//   state.user = action.payload.user;
-//   state.token = action.payload.token;
-//   state.isLoggedIn = true;
-// },
-// [logout.fulfilled](state) {
-//   state.user = { name: null, email: null };
-//   state.token = null;
-//   state.isLoggedIn = false;
-// },
-// [getCurrentUser.pending](state) {
-//   state.isRefreshing = true;
-// },
-// [getCurrentUser.fulfilled](state, action) {
-//   state.user = action.payload;
-//   state.isLoggedIn = true;
-//   state.isRefreshing = false;
-// },
-// [getCurrentUser.rejected](state) {
-//   state.isRefreshing = false;
-// },
-// },

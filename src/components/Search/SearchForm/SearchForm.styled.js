@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { device } from '../../GlobalStyles';
+
 export const SearchPageBtn = styled.button`
     &:hover {
-        background-color: #22252a;
-        color: #fafafa;
+        border: 2px solid #8BAA36;
+        background-color:  #fafafa;
+        color: #8baa36;
     }
-    color: background: rgba(139, 170, 54, 1);
+    color: #fafafa;
     border: none;
     font-family: 'Poppins';
     background-color: #8baa36;
@@ -17,11 +20,13 @@ export const SearchPageBtn = styled.button`
     line-height: 1.5;
     height: 53px;
     width: 113px;
-        @media (min-width: 768px) {
+        @media ${device.tablet} {
             height: 57px;
             width: 161px;
         }
-        @media (min-width: 1280px) {
+
+        @media ${device.desktop} {
             height: 70px;
     }
 `;
+

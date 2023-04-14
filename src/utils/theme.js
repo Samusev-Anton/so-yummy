@@ -37,8 +37,10 @@ export const theme = {
     searchSelectBg: 'rgba(217, 217, 217, 0.2)',
     searchSelectText: 'rgba(0, 0, 0, 0.5)',
     searchDropDownBg: '#FFFFFF',
+    searchInputText: 'rgba(62, 68, 98, 1)',
     tooltipbg: '#EBF3D4',
     ingredientsBgrCol: '#EBF3D4',
+    counter: "#3333334c",
 
     mainSerchHoverText: '#ffffff',
     searchFormHoverBtn: '#23262A',
@@ -131,8 +133,10 @@ export const darkTheme = {
     searchSelectBg: 'transparent',
     searchSelectText: '#FAFAFA',
     searchDropDownBg: '#8BAA36',
+    searchInputText: 'rgba(250, 250, 250, 0.5)',
     tooltipbg: '#8BAA36',
     ingredientsBgrCol: '#2A2C36',
+    counter: "#FAFAFA",
 
     mainSerchHoverText: '#8BAA36',
     searchFormHoverBtn: '#FFFFFF',

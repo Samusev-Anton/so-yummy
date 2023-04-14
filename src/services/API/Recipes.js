@@ -1,7 +1,7 @@
 import axios from 'axios';
+import { baseAxiosURL } from './commonServerAdress';
 
-axios.defaults.baseURL = 'https://so-yummy-backend.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost3030/api';
+axios.defaults.baseURL = baseAxiosURL;
 
 export const getCategoriesAPI = () => {
   return axios.get('/recipes/categories').then(({ data }) => {
@@ -22,15 +22,10 @@ export const getSetOfCategoriestAPI = () => {
 };
 
 export const searchRecipesApi = async ({ searchQuery, searchType }) => {
-  let searchUrl;
-  if (!searchQuery) {
-    searchUrl = `/recipes/search/title?title=beef`;
-  } else {
-    searchUrl =
-      searchType === 'query'
-        ? `/recipes/search/title?title=${searchQuery}`
-        : `/ingredients/?ingredients=${searchQuery}`;
-  }
+  const searchUrl =
+    searchType === 'query'
+      ? `/recipes/search/title?title=${searchQuery}`
+      : `/ingredients/?ingredients=${searchQuery}`;
   return axios.get(searchUrl).then(({ data }) => {
     return data.data;
   });
@@ -92,9 +87,8 @@ export const deleteMyRecipeAPI = recipeId => {
 };
 
 export const addRecipeAPI = recipe => {
-  console.log('add recipe', recipe);
-  return axios.post(`/recipes`, {
-    data: recipe,
+  return axios.post(`/recipes`, recipe).then(({ data }) => {
+    return data;
   });
 };
 
@@ -108,4 +102,18 @@ export const deleteFromShoppingList = ingridientId => {
   return axios.delete(`/ingredients/${ingridientId}`).then(({ data }) => {
     return data;
   });
+};
+
+export const getAllIngredientsAPI = () => {
+  return axios.get('/ingredients/list').then(({ data }) => {
+    return data;
+  });
+};
+
+export const getFilteredIngredients = ingredient => {
+  return axios
+    .get(`/ingredients/filter/?ingredient=${ingredient}`)
+    .then(({ data }) => {
+      return data;
+    });
 };

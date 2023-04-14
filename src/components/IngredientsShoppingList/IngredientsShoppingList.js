@@ -15,6 +15,7 @@ export const IngredientsShoppingList = () => {
   const list = useSelector(selectShoppingList);
 
   return (
+
     <>
       {list.length === 0 && (
         <EmptyList>Sorry, you haven't added any ingredients yet</EmptyList>

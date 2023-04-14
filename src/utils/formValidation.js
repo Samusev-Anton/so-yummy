@@ -4,8 +4,8 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Для пароля:  регулярний вираз перевіряє, щоб пароль містив  як мінімум 1 цифру, 1 малу літеру, 1 велику літеру та 1 спеціальний символ. Пароль повинен містити не менше 8 символів.\
 
-// const passwordRegex =
-//   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+const passwordRegex =
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
 
 export const schemaRegValidation = yup.object().shape({
   name: yup
@@ -19,12 +19,9 @@ export const schemaRegValidation = yup.object().shape({
     .required('This field is required'),
   password: yup
     .string()
-    // .min(8, 'Your password is short')
-    // .max(16, 'Your password is to long')
-    // .matches(
-    //   passwordRegex,
-    //   'The password must contain at least 8 characters, include letters, numbers and special characters.'
-    // )
+    .min(8, 'Your password is short')
+    .max(16, 'Your password is to long')
+    .matches(passwordRegex, 'Your password is little secure')
     .required('This field is required'),
 });
 
@@ -35,11 +32,8 @@ export const schemaLoginValidation = yup.object().shape({
     .required('This field is required'),
   password: yup
     .string()
-    // .min(8, 'Your password is short')
-    // .max(16, 'Your password is to long')
-    // .matches(
-    //   passwordRegex,
-    //   'The password must contain at least 8 characters, include letters, numbers and special characters.'
-    // )
+    .min(8, 'Your password is short')
+    .max(16, 'Your password is to long')
+    .matches(passwordRegex, 'Your password is little secure')
     .required('This field is required'),
 });

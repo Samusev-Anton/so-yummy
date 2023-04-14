@@ -58,6 +58,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Container = styled.div`
   padding: 0 16px;
+  position:relative;
 
   @media (min-width: 768px) {
     padding: 0 32px;
@@ -205,8 +206,7 @@ export const ClassicButton = styled.button`
   font-family: 'Poppins';
   background-color: #8baa36;
   border-radius: 24px 44px;
-  ${
-    '' /* position: absolute;
+  ${'' /* position: absolute;
    right: 0; */
   }
   display:flex;

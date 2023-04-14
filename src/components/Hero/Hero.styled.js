@@ -8,9 +8,6 @@ import HeroImgMobile2x from 'images/HeroMobile2x.png'
 import { NavLink } from 'react-router-dom';
 
 export const SectionHero = styled.section`
-${'' /* width:100%;
-margin-left:auto;
-margin-right:auto; */}
 position:relative;
 font-family: 'Poppins', sans-serif;
 height: 777px;
@@ -21,6 +18,8 @@ background-size: cover;
 margin-bottom: 60px;
 display:flex;
 
+
+
 @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
@@ -30,6 +29,8 @@ display:flex;
     height: 640px;
     margin-bottom: 72px;
     background-image: url(${HeroImgTablet});
+    justify-content:space-between;
+    
 
 @media (min-width: 768px),
     screen and (min-device-pixel-ratio: 2),
@@ -51,8 +52,9 @@ display:flex;
       }
 }
 `
+
 export const WrapperText = styled.div`
-text-align:left;
+padding: 0 100px;
 `
 
 export const HeroTitle = styled.h1`
@@ -61,12 +63,7 @@ font-size: 60px;
 line-height: 60px;
 text-align: center;
 letter-spacing: -0.005em;
-${'' /* margin: 0; */}
-${'' /* font-family: 'Poppins', sans-serif; */}
 color: #22252A;
-${'' /* position:absolute; */}
-${'' /* left: 20%; */}
-${'' /* top: 132px; */}
 margin: 132px 12px 0px 12px;
 display: flex;
   text-align: center;
@@ -85,9 +82,6 @@ justify-content: left;
 @media (min-width: 1280px) {
 font-size: 100px;
 line-height: 100px;
-${'' /* top:226px;
-left:170px; */}
-
 }
 `
 export const HeroTitleSo = styled.span`
@@ -135,47 +129,31 @@ width: 362px;
 `
 export const HeroInputSearch = styled.div`
 
-${'' /* position:absolute;
-left: 18%;
-top: 650px; */}
-@media (min-width: 1280px) {
-${'' /* top:460px;
-left:160px; */}
-}
 `
 export const HeroRecipeWrapper = styled.div`
 width: 225px;
-${'' /* height: 92px; */}
+height:92px;
 background: #FFFFFF;
 border-radius: 8px;
-${'' /* padding: 8px; */}
+
 margin-left: 88px;
 margin-bottom: 115px;
 
 @media (min-width: 768px) {
-    position:absolute;
-     ${'' /* bottom:11%;
-     right:10%; */}
-       bottom:0;
-     right:0;
 
-${'' /* margin-bottom:135px;
-margin-right: 124px; */}
+margin-top:369px;
+margin-right: 20px;
 
+margin-left: 0px;
 }
 @media (min-width: 1280px) {
-
 width: 298px;
-${'' /* margin-bottom:135px;
-margin-right: 124px; */}
-${'' /* height: 114px; */}
-${'' /* padding: 16px; */}
-${'' /* margin-bottom:230px;
-margin-right: 160px; */}
-}
-@media (min-width: 1440px) {
-    margin-bottom:170px;
-margin-right: 213px;
+height:114px;
+
+margin-top:478px;
+margin-bottom: 180px;
+margin-right: 60px;
+margin-left: 0px;
 }
 
 `
@@ -208,7 +186,11 @@ color: #3E4462;
 margin-top: 7px;
 padding-bottom: 8px;
 padding-right: 8px;
+&:hover{
+    color:#8BAA36;
+}
 @media (min-width: 768px) {
+
 }
 @media (min-width: 1280px) {
 padding-bottom: 16px;
@@ -220,9 +202,8 @@ export const HeroRecipeAccent = styled.span`
 color:#8BAA36;
 @media (min-width: 1280px) {
 font-weight: 500;
-${'' /* font-size: 14px; */}
 line-height: 20px;
-${'' /* letter-spacing: -0.24px; */}
+letter-spacing: -0.24px;
 
 }
 `

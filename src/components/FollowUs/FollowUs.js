@@ -10,8 +10,8 @@ export const FollowUs = () => {
       <Link mode={mode} href="https://www.facebook.com/goITclub/?locale=ru_RU">
         <svg
           id="icon-facebook-green"
-          width="18"
-          height="18"
+          width="26"
+          height="26"
           viewBox="0 0 30 32"
           x="216"
           y="36"
@@ -23,8 +23,8 @@ export const FollowUs = () => {
       <Link mode={mode} href="https://www.youtube.com/c/GoIT">
         <svg
           id="icon-youtube-green"
-          width="19"
-          height="14"
+          width="28"
+          height="22"
           viewBox="0 0 43 32"
           x="144"
           y="36"
@@ -35,8 +35,8 @@ export const FollowUs = () => {
       <Link mode={mode} href="https://twitter.com/goITclub">
         <svg
           id="icon-twitter-green"
-          width="18"
-          height="14"
+          width="25"
+          height="22"
           viewBox="0 0 38 32"
           x="72"
           y="36"
@@ -47,8 +47,8 @@ export const FollowUs = () => {
       <Link mode={mode} href="https://www.instagram.com/goitclub/">
         <svg
           id="icon-instagram-green"
-          width="17"
-          height="17"
+          width="24"
+          height="24"
           viewBox="0 0 30 32"
           x="36"
           y="36"
