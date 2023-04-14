@@ -26,7 +26,7 @@ export const PaginationContainer = styled.div`
   min-width: 150px;
   padding-top: 12px;
   padding: 12px 20px;
-  background-color: #fafafa;
+  background-color: transparent;
   border-radius: 26px;
   box-shadow: 0px 4px 4px 0px rgba(135, 135, 135, 0.2);
   @media ${device.tablet} {
