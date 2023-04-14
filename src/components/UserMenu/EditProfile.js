@@ -34,11 +34,13 @@ export default function FormDialog({ onClose, avatar, user }) {
     if (name) {
       formData.append('name', name);
     }
+    console.log(name)
     dispatch(updateUser(formData));
   };
 
   const nameOnChange = e => {
     setName(e.target.value);
+    console.log(e.target.value)
   };
 
   return (
@@ -79,7 +81,7 @@ export default function FormDialog({ onClose, avatar, user }) {
           </EditUserlFileLabel>
           <EditUserNameLabel>
             <PermIdentityIcon />
-            <EditUserNameInput type="text" value={name} onChange={nameOnChange} />
+            <EditUserNameInput type="name" pattern="[A-Za-z0-9]{6,}" value={name} onChange={nameOnChange} />
             <CreateIcon />
           </EditUserNameLabel>
           <EditSubmitButton onClick={onClose}>Save changes</EditSubmitButton>

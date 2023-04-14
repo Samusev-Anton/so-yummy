@@ -55,6 +55,7 @@ export const MyRecipesPage = () => {
   return (
     <Container>
       <MainPageTitle value="My recipes"></MainPageTitle>
+
       {isLoading ? (
         <Loader />
       ) : data.length > 0 ? (

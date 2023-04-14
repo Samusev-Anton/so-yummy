@@ -32,7 +32,7 @@ export default function AlertDialog({ onClose }) {
                 <LogoutButtonStyled onClick={handelLogoutUser}>
                     Log out
                 </LogoutButtonStyled>
-                <CancelButtonStyled onClick={onClose}>Disagree</CancelButtonStyled>
+                <CancelButtonStyled onClick={onClose}>Cancel</CancelButtonStyled>
             </ButtonsContainerStyled>
         </LogoutModalContainerStyled>
     );

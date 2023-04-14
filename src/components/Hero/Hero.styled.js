@@ -18,6 +18,8 @@ background-size: cover;
 margin-bottom: 60px;
 display:flex;
 
+
+
 @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
@@ -27,6 +29,8 @@ display:flex;
     height: 640px;
     margin-bottom: 72px;
     background-image: url(${HeroImgTablet});
+    justify-content:space-between;
+    
 
 @media (min-width: 768px),
     screen and (min-device-pixel-ratio: 2),
@@ -48,8 +52,9 @@ display:flex;
       }
 }
 `
+
 export const WrapperText = styled.div`
-text-align:left;
+padding: 0 100px;
 `
 
 export const HeroTitle = styled.h1`
@@ -77,9 +82,6 @@ justify-content: left;
 @media (min-width: 1280px) {
 font-size: 100px;
 line-height: 100px;
-${'' /* top:226px;
-left:170px; */}
-
 }
 `
 export const HeroTitleSo = styled.span`
@@ -130,7 +132,7 @@ export const HeroInputSearch = styled.div`
 `
 export const HeroRecipeWrapper = styled.div`
 width: 225px;
-
+height:92px;
 background: #FFFFFF;
 border-radius: 8px;
 
@@ -138,20 +140,20 @@ margin-left: 88px;
 margin-bottom: 115px;
 
 @media (min-width: 768px) {
-    position:absolute;
-     bottom:8%;
-     right:5%;
 
+margin-top:369px;
+margin-right: 20px;
+
+margin-left: 0px;
 }
 @media (min-width: 1280px) {
-
 width: 298px;
-margin-bottom:150px;
+height:114px;
+
+margin-top:478px;
+margin-bottom: 180px;
 margin-right: 60px;
-}
-@media (min-width: 1440px) {
-    margin-bottom:142px;
-margin-right: 100px;
+margin-left: 0px;
 }
 
 `
@@ -188,6 +190,7 @@ padding-right: 8px;
     color:#8BAA36;
 }
 @media (min-width: 768px) {
+
 }
 @media (min-width: 1280px) {
 padding-bottom: 16px;
