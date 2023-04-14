@@ -15,7 +15,7 @@ import {
   IngredientsList,
   IngredientsItem,
   IngredientsSectionTitle,
-  PopularTitle,
+  // PopularTitle,
 } from '../AddRecipeForm/AddRecipeForm.styled';
 
 export const RecipeIngredientsList = ({ onIngredientsChange }) => {

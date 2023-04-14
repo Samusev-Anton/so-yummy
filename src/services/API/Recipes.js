@@ -22,10 +22,13 @@ export const getSetOfCategoriestAPI = () => {
 };
 
 export const searchRecipesApi = async ({ searchQuery, searchType }) => {
-  const searchUrl =  searchType === 'query' ? `/recipes/search/title?title=${searchQuery}` : `/ingredients/?ingredients=${searchQuery}`;
+  const searchUrl =
+    searchType === 'query'
+      ? `/recipes/search/title?title=${searchQuery}`
+      : `/ingredients/?ingredients=${searchQuery}`;
   return axios.get(searchUrl).then(({ data }) => {
-  return data.data;
-});
+    return data.data;
+  });
 };
 
 export const getFavoriteRecipesAPI = () => {
@@ -105,4 +108,12 @@ export const getAllIngredientsAPI = () => {
   return axios.get('/ingredients/list').then(({ data }) => {
     return data;
   });
+};
+
+export const getFilteredIngredients = ingredient => {
+  return axios
+    .get(`/ingredients/filter/?ingredient=${ingredient}`)
+    .then(({ data }) => {
+      return data;
+    });
 };
