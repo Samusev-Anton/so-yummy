@@ -13,6 +13,7 @@ import {
   FavRecipeTopInfo,
 } from './MyRecipe.Styled';
 import { ReactComponent as Icon } from '../../images/trash-icon.svg';
+import { ReactComponent as DefaultImgIcon } from '../../images/default-image.svg';
 
 export const MyRecipe = ({ recipe, onDelete }) => {
   const { mode } = useSelector(getMode);
@@ -20,7 +21,11 @@ export const MyRecipe = ({ recipe, onDelete }) => {
     <FavRecipeItem mode={mode}>
       <Link to={`/recipe/${recipe._id}`}>
         <RecipeImageThumb>
-          <RecipeImage src={recipe.thumb} alt={recipe.title} />
+          {recipe.thumb ? (
+            <RecipeImage src={recipe.thumb} alt={recipe.title} />
+          ) : (
+            <DefaultImgIcon />
+          )}
         </RecipeImageThumb>
       </Link>
       <FavRecipeTopInfo>
@@ -30,7 +35,7 @@ export const MyRecipe = ({ recipe, onDelete }) => {
             {recipe.description}
           </RecipeDescription>
         </div>
-        <RecipePrepTime mode={mode}>{recipe.time} min</RecipePrepTime>
+        <RecipePrepTime mode={mode}>{recipe.time}</RecipePrepTime>
       </FavRecipeTopInfo>
 
       <DeleteButton onClick={() => onDelete(recipe._id)} mode={mode}>
