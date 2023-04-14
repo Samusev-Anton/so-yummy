@@ -48,7 +48,7 @@ export const RecipeDescIngredientsItem = ({ item }) => {
   };
 
   return (
-    <TableRow key={item._id}>
+    <TableRow>
       <TableProduct>
         <TableProductBox>
           <img src={item.thb ? item.thb : placeholder} alt={item.ttl} />
@@ -68,7 +68,7 @@ export const RecipeDescIngredientsItem = ({ item }) => {
           checked={isChecked}
           required
         />
-        <CheckLabel className="check-label" for={item._id}>
+        <CheckLabel className="check-label" htmlFor={item._id}>
           <Checkbox className="checkbox">
             <CheckMark />
           </Checkbox>

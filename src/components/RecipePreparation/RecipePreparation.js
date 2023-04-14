@@ -16,9 +16,13 @@ export const RecipePreparation = ({ recipeDescription }) => {
   useEffect(() => {
     if (Object.keys(recipeDescription).length > 0) {
       const instr = recipeDescription.instructions;
-      const arr = instr.split(/\r\n/);
-      const newarr = arr.filter(item => item.length >= 5);
-      setPreparation(newarr);
+      if (typeof instr === 'string') {
+        const arr = instr.split(/\r\n/);
+        const newarr = arr.filter(item => item.length >= 5);
+        setPreparation(newarr);
+      } else {
+        setPreparation(instr);
+      }
     }
   }, [recipeDescription]);
 

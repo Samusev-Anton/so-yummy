@@ -22,6 +22,7 @@ export const RecipeDescIngredientsList = ({ ingredientsList, recipeId }) => {
           </TableHead>
           {ingredientsList.map(item => (
             <RecipeDescIngredientsItem
+              key={item._id}
               recipeId={recipeId}
               ingredientsList={ingredientsList}
               item={item}
