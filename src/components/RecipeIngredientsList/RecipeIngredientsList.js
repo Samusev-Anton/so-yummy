@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Ingredient } from 'components/Ingredient/Ingredient';
 // import { SectionTitle } from 'components/AddRecipeForm/AddRecipeForm.styled';
+import { getFilteredIngredients } from 'services/API/Recipes';
 
 import {
   IngredientsSection,
@@ -17,10 +18,13 @@ import {
   IngredientsSectionTitle,
   // PopularTitle,
 } from '../AddRecipeForm/AddRecipeForm.styled';
+// import { Log } from 'styled-icons/octicons';
 
 export const RecipeIngredientsList = ({ onIngredientsChange }) => {
   const [id, setId] = useState(nanoid());
   const [ingredients, setIngredients] = useState([]);
+  const [allIngredientsAPI, setAllIngredientsAPI] = useState([]);
+  const [options, setOptions] = useState([]);
 
   const addIngredientToArray = () => {
     setId(nanoid());
@@ -28,18 +32,20 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
     setIngredients([...ingredients, newObject]);
   };
 
-  const handleAddIngredient = () => {
-    const data = JSON.stringify(
-      ingredients.map(({ id, quantity, title, weight }) => ({
-        id,
-        quantity,
-        title,
-        weight,
-      }))
-    );
+  // const handleAddIngredient = () => {
+  //   const data = JSON.stringify(
+  //     ingredients.map(({ id, quantity, title, weight }) => ({
+  //       id,
+  //       quantity,
+  //       title,
+  //       weight,
+  //     }))
+  //   );
 
-    onIngredientsChange(data);
-  };
+  //   console.log(data);
+
+  //   onIngredientsChange(data);
+  // };
 
   const removeIngredientFromArray = () => {
     const newArray = [...ingredients.slice(0, -1)];
@@ -51,7 +57,28 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
     setIngredients(newArray);
   };
 
-  const handleTitleChange = (id, title) => {
+  const onSearchChange = async text => {
+    console.log(text);
+    try {
+      if (text === '') {
+        return;
+      }
+      await getFilteredIngredients(text).then(data => {
+        setAllIngredientsAPI(data.data);
+        // console.log(allIngredientsAPI);
+        const opt = allIngredientsAPI.map(item => {
+          return { value: item.ttl, label: item.ttl };
+        });
+        // console.log(opt);
+        setOptions(opt);
+        // console.log(options);
+      });
+    } catch (error) {}
+  };
+
+  const handleTitleChange = async (id, title) => {
+    // let array = [];
+    // setIngredients(allIngredientsAPI.find(item => item.ttl === title));
     setIngredients(
       ingredients.map(el => (el.id === id ? { ...el, title } : el))
     );
@@ -70,9 +97,9 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
   };
   return (
     <IngredientsSection
-      onKeyDown={handleAddIngredient}
-      onMouseMove={handleAddIngredient}
-      onMouseLeave={handleAddIngredient}
+    // onKeyDown={handleAddIngredient}
+    // onMouseMove={handleAddIngredient}
+    // onMouseLeave={handleAddIngredient}
     >
       <TitleConterWrapper>
         <IngredientsSectionTitle>Ingredients</IngredientsSectionTitle>
@@ -91,10 +118,12 @@ export const RecipeIngredientsList = ({ onIngredientsChange }) => {
               title={el.title}
               weight={el.weight}
               quantity={el.quantity}
+              titleOptions={options}
               onTitleChange={handleTitleChange}
               onQuantityChange={handleQuantityChange}
               onWeightChange={handleWeightChange}
               removeIngredientById={removeIngredientById}
+              onSearchChange={onSearchChange}
             />
           </IngredientsItem>
         ))}

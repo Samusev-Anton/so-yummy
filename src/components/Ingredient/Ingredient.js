@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import { useState } from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
 import IconButton from '@mui/material/IconButton';
 import {
@@ -10,29 +10,47 @@ import { stylesIngredient, stylesUnit } from '../AddRecipeForm/selectStyles';
 
 export const Ingredient = ({
   id,
-  title,
+  // title,
   weight,
-  quantity,
-  onTitleChange,
+  // quantity,
+  // onTitleChange,
   onWeightChange,
   onQuantityChange,
   removeIngredientById,
   localTheme,
   theme,
+  onSearchChange,
+  titleOptions,
 }) => {
   // const [searchTerm, setSearchTerm] = useState('');
-  // const [dropdownOptions, setDropdownOptions] = useState([]);
+
+  const [recipeTitle, setRecipeTitle] = useState('');
+  const [quantity, setQuantity] = useState('');
+  // const [width, setWidht] = useState('');
 
   const handleTitleChange = e => {
-    onTitleChange(id, e);
+    // e.stopPropogination();
+    setRecipeTitle(e.value);
+    // onTitleChange(id, e);
   };
 
+  console.log(titleOptions);
+
   const handleQuantityChange = e => {
-    onQuantityChange(id, e.target.value);
+    console.log(e.target.value);
+    // e.stopPropogination();
+    setQuantity(e.target.value);
+    // onQuantityChange(id, e.target.value);
   };
 
   const handleWeightChange = e => {
+    // e.stopPropogination();
+    // setWidht;
     onWeightChange(id, e);
+  };
+
+  const handleSearchChange = e => {
+    onSearchChange(e.target.value);
   };
 
   const handleKeyDown = e => {
@@ -41,18 +59,18 @@ export const Ingredient = ({
     }
   };
 
-  const ingredientOptions = [
-    { value: 'Chicken', label: 'Chicken' },
-    { value: 'Salmon', label: 'Salmon' },
-    { value: 'Apple Cider Vinegar', label: 'Apple Cider Vinegar' },
-    { value: 'Asparagus', label: 'Asparagus' },
-    { value: 'Aubergine', label: 'Aubergine' },
-    { value: 'Bacon', label: 'Bacon' },
-    { value: 'Basil', label: 'Basil' },
-    { value: 'Pork', label: 'Pork' },
-    { value: 'Broccoli', label: 'Broccoli' },
-    { value: 'Cacao', label: 'Cacao' },
-  ];
+  // const ingredientOptions = [
+  //   { value: 'Chicken', label: 'Chicken' },
+  //   { value: 'Salmon', label: 'Salmon' },
+  //   { value: 'Apple Cider Vinegar', label: 'Apple Cider Vinegar' },
+  //   { value: 'Asparagus', label: 'Asparagus' },
+  //   { value: 'Aubergine', label: 'Aubergine' },
+  //   { value: 'Bacon', label: 'Bacon' },
+  //   { value: 'Basil', label: 'Basil' },
+  //   { value: 'Pork', label: 'Pork' },
+  //   { value: 'Broccoli', label: 'Broccoli' },
+  //   { value: 'Cacao', label: 'Cacao' },
+  // ];
   const options = [
     { value: 'tbs', label: 'tbs' },
     { value: 'tsp', label: 'tsp' },
@@ -62,15 +80,24 @@ export const Ingredient = ({
 
   return (
     <>
+      <InputUnitValue
+        id="search"
+        type="text"
+        // value={quantity}
+        onChange={handleSearchChange}
+        onBlur={() => onQuantityChange(id, quantity)}
+        // onKeyDown={handleKeyDown}
+        placeholder="search"
+      ></InputUnitValue>
       <Select
         styles={stylesIngredient(theme, localTheme)}
-        options={ingredientOptions}
+        options={titleOptions}
         id="title"
         type="text"
-        value={title}
+        value={recipeTitle}
         onChange={handleTitleChange}
-        onBlur={() => onTitleChange(id, title)}
-        onKeyDown={handleKeyDown}
+        // onBlur={() => onTitleChange(id, title)}
+        // onKeyDown={handleKeyDown}
         placeholder="Ingredient name"
       ></Select>
       <ValueInputWrapper>
