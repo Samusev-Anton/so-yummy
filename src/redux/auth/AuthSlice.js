@@ -61,6 +61,10 @@ export const authSlice = createSlice({
           shoppingList: [...action.payload.data.shoppingList],
         };
         state.token = action.payload.data.token;
+        state.isRefreshing = false;
+      })
+      .addCase(getCurrentUser.rejected, (state, actions) => {
+        state.token = null;
       })
       .addCase(addFavRecipe.fulfilled, (state, action) => {
         state.user.favoritsRecipe.push(action.meta.arg);
@@ -96,12 +100,6 @@ export const authSlice = createSlice({
         isAnyOf(register.fulfilled, login.fulfilled, getCurrentUser.fulfilled),
         state => {
           state.isLoggedIn = true;
-        }
-      )
-      .addMatcher(
-        isAnyOf(getCurrentUser.fulfilled, getCurrentUser.rejected),
-        state => {
-          state.isRefreshing = false;
         }
       );
   },
