@@ -66,7 +66,7 @@ export const Ingredient = ({
         id="search"
         type="text"
         onChange={handleSearchChange}
-        placeholder="Search"
+        placeholder="search"
       ></InputUnitValue>
       <Select
         styles={stylesIngredient(theme, localTheme)}
@@ -121,5 +121,4 @@ export const Ingredient = ({
     </>
   );
 };
-
 

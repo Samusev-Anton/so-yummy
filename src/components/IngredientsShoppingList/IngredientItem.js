@@ -20,7 +20,7 @@ export const IngredientItem = ({ item }) => {
   };
 
   return (
-    <TableRow key={item._id}>
+    <TableRow>
       <TableProduct>
         <TableProductBox>
           <img src={item.thb ? item.thb : placeholder} alt={item.ttl} />

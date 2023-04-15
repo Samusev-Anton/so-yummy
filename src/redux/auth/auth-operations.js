@@ -174,6 +174,7 @@ export const deleteIngredient = createAsyncThunk(
     }
   }
 );
+
 export const changePassword = createAsyncThunk(
   'auth/changePassword',
   async (password, thunkAPI) => {
@@ -218,3 +219,4 @@ export const SendMailPassword = createAsyncThunk(
     }
   }
 );
+

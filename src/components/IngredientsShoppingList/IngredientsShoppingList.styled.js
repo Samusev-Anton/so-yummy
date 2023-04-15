@@ -163,3 +163,11 @@ export const XIcon = styled(XLg)`
     width: 18.675px;
   }
 `;
+
+export const EmptyList = styled.p`
+  color: ${p => p.theme.colors.secondaryDark};
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  font-size: 22px;
+`;
