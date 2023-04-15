@@ -231,7 +231,24 @@ export const IngredientsList = styled.ul`
   // margin-top: 36px;
 `;
 
-export const ValueInputWrapper = styled.div`
+export const ValueInputWrapperSearch = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  border: ${({ theme }) => `1px solid ${theme.colors.mainGreyBg}`};
+
+  background-color: ${({ localTheme, theme }) => {
+    return localTheme === 'light' ? 'transparent' : theme.colors.mainGreyBg;
+  }};
+  border-radius: 6px;
+
+  .css-1dimb5e-singleValue {
+    color: ${({ localTheme }) => {
+      return localTheme === 'light' ? 'black' : 'white';
+    }};
+  }
+`;
+
+export const ValueInputWrapperQuantity = styled.div`
   display: flex;
   justify-content: flex-start;
   border: ${({ theme }) => `1px solid ${theme.colors.mainGreyBg}`};
@@ -256,8 +273,20 @@ export const InputUnitValue = styled.input`
   height: 50px;
   padding: 0 8px;
   outline: none;
-  width: 50px;
+  width: 80px;
   color: ${({ theme }) => theme.colors.mainBlack};
+`;
+
+export const InputUnitValueQuantity = styled.input`
+  border-style: unset;
+  background-color: transparent;
+  display: block;
+  height: 50px;
+  padding: 0 8px;
+  outline: none;
+  width: 80px;
+  color: ${({ theme }) => theme.colors.mainBlack};
+  text-align: right;
 `;
 
 export const PopularItem = styled.li`

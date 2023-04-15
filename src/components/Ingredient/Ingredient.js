@@ -3,7 +3,8 @@ import Select from 'react-select';
 import IconButton from '@mui/material/IconButton';
 import {
   InputUnitValue,
-  ValueInputWrapper,
+  ValueInputWrapperSearch,
+  ValueInputWrapperQuantity
 } from '../../components/AddRecipeForm/AddRecipeForm.styled';
 import { stylesIngredient, stylesUnit } from '../AddRecipeForm/selectStyles';
 
@@ -60,6 +61,7 @@ export const Ingredient = ({
 
   return (
     <>
+    <ValueInputWrapperSearch>
       <InputUnitValue
         id="search"
         type="text"
@@ -74,7 +76,9 @@ export const Ingredient = ({
         onChange={handleTitleChange}
         placeholder="Ingredient name"
       ></Select>
-      <ValueInputWrapper>
+      </ValueInputWrapperSearch>
+      
+      <ValueInputWrapperQuantity>
         <InputUnitValue
           id="quantity"
           type="number"
@@ -88,7 +92,8 @@ export const Ingredient = ({
           id="weight"
           onChange={handleWeightChange}
         ></Select>
-      </ValueInputWrapper>
+      </ValueInputWrapperQuantity>
+
       <IconButton onClick={() => removeIngredientById(ingredient.id)}>
         <svg
           width="18"
@@ -116,3 +121,4 @@ export const Ingredient = ({
     </>
   );
 };
+
