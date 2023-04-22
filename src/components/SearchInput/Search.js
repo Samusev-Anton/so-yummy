@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useDispatch } from "react-redux";
 import { setSearch } from "../../redux/search/searchSlice";
 import { Formik, ErrorMessage } from 'formik';
-import { FormWrap, Input, BtnSearch } from '../../components/SearchInput/Search.styled';
+import { FormWrap, Input, BtnSearchLink } from '../../components/SearchInput/Search.styled';
 
 const validateSearchQuery = (value) => {
   let error;
@@ -28,7 +28,6 @@ export const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.location.href = 'http://localhost:3000/so-yummy/search';
   } 
 
   return (
@@ -48,7 +47,7 @@ export const Search = () => {
             />
             {errors.searchQuery && touched.searchQuery && 
             <ErrorMessage>{errors.searchQuery}</ErrorMessage>}
-            <BtnSearch type="submit" to={`/search`}>Search</BtnSearch>
+            <BtnSearchLink type="submit" to={`/search`}>Search</BtnSearchLink>
         </FormWrap>
         )}
       </Formik>

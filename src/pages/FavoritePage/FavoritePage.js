@@ -70,6 +70,7 @@ const FavoritePage = () => {
               ))}
             </RecipeList>
           </FavoritePageThumb>
+          {totalPages > 1 && (
           <PaginationWrapper>
             <Pagination
               currentPage={currentPage}
@@ -77,6 +78,7 @@ const FavoritePage = () => {
               totalPages={totalPages}
             />
           </PaginationWrapper>
+          )}
         </>
       ) : (
         <FailNotification mode={mode}>

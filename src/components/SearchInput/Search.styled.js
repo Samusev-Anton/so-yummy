@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Form, Field } from "formik";
 import { device } from 'components/GlobalStyles';
+import { NavLink } from 'react-router-dom';
 
 export const FormWrap = styled(Form)`
   width: 295px;
@@ -20,11 +21,11 @@ export const FormWrap = styled(Form)`
   }
 `;
 
-export const BtnSearch = styled.button`
-  &:hover {
-    background-color: #22252a;
-    color: #fafafa;
-  }
+export const BtnSearchLink = styled(NavLink)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   color: rgb(255, 255, 255);
   border: none;
   font-family: 'Poppins';
@@ -38,6 +39,10 @@ export const BtnSearch = styled.button`
   line-height: 1.5;
   height: 53px;
   width: 113px;
+  &:hover {
+    background-color: #22252a;
+    color: #fafafa;
+  }
   @media ${device.tablet} {
     height: 57px;
     width: 161px;

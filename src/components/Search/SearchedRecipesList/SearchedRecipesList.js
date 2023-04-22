@@ -35,16 +35,17 @@ export const SearchedRecipesList = ({ recipes }) => {
             {getPaginatedData().slice(0, 100).map((recipe) => (
               <CardMeal meal={recipe} key={recipe._id} />
             ))}
-            
           </RowTable>
-          < PaginationWrapper>
-          <Pagination
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            totalPages={totalPages}
-          />
-          </PaginationWrapper>
-          </>
+          {totalPages > 1 && (
+            < PaginationWrapper>
+            <Pagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalPages={totalPages}
+            />
+            </PaginationWrapper>
+          )}
+        </>
       ) : (
         <NeedSearching />
       )}
